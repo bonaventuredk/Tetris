@@ -9,5 +9,7 @@ int main()
     std::cout << b.row() << "\n";
     Grid board{5,6};
     std::cout << board(1,2).row() << "\n";
+    board(1,2).row()=12;
+    std::cout << board(1,2).row() << "\n";
     return 0;
 }
