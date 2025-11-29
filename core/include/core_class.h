@@ -5,6 +5,8 @@
 
 #include <vector>
 
+enum class Move{up, down, left, right, direct_rotation, indirect_rotation};
+
 class Block
 {
     public :
@@ -13,30 +15,41 @@ class Block
         unsigned int& row() {return _row;}
         unsigned int column() const {return _column;} 
         unsigned int& column() {return _column;}
+        void move(Move direction);
 
     private :
         unsigned int _row;
         unsigned int _column;
 };
 
+class Cell
+{
+    public :
+        Cell(bool iis_full=false) : _is_full{iis_full} {}
+        bool is_full() const {return _is_full;}
+        bool& is_full(){return _is_full;}
+
+    private :
+        bool _is_full;
+};
+
 class Grid
 {   
     public :
-        Grid(unsigned int nrow, unsigned int ncol) 
-        {
-            std::vector<Block> column (ncol);
-            for(unsigned int i=0; i<nrow; ++i)
-            {
-                matrix.push_back(column);
-            }  
-        } 
 
-        Block operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
-        Block& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
+        // index (0,0) : case en bas à gauche
+        Grid(unsigned int nrow=1, unsigned int ncol=1);
+        Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
+        Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
+        unsigned int row_size() const {return matrix.size();}
+        unsigned int column_size() const {return matrix[0].size();}
+
+        void update();
 
     private :
-        std::vector< std::vector<Block> > matrix;
+        std::vector< std::vector<Cell> > matrix;
+        std::vector<unsigned int> get_full_rows() const;
+        std::vector<unsigned int> clear_full_rows();
 };
-
 
 #endif
