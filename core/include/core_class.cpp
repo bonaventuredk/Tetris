@@ -55,29 +55,16 @@ std::vector<unsigned int> Grid::get_full_rows() const
     return full_rows;
 }
 
-std::vector<unsigned int> Grid::clear_full_rows()
-{
-    std::vector<unsigned int> full_rows= (*this).get_full_rows();
-    for(unsigned int row : full_rows)
-    {
-        for(unsigned int column=0; column<(*this).column_size(); ++column)
-        {
-            (*this)(row, column).is_full()=false;
-        }
-    }
-    return full_rows;
-}
-
 void Grid::update()
 {
-    std::vector<unsigned int> full_rows= (*this).clear_full_rows();
-    for(unsigned int cleared_row=full_rows.size()-1; cleared_row>=full_rows[0]; --cleared_row)
+    std::vector<unsigned int> full_rows= (*this).get_full_rows();
+    for(unsigned int f_row=full_rows.size()-1; f_row>=full_rows[0]; --f_row)
     {
-        for(unsigned int row=cleared_row; row<(*this).row_size()-1; ++row)
+        for(unsigned int row=f_row; row<(*this).row_size()-1; ++row)
         {
             matrix[row]=matrix[row+1];
         }
-        matrix[(*this).row_size()-1]=std::vector<Cell> ((*this).row_size());
+        matrix[(*this).row_size()-1]=std::vector<Cell>((*this).row_size());
     }
     return;
 }
