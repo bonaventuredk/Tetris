@@ -15,7 +15,7 @@ class Block
         unsigned int& row() {return _row;}
         unsigned int column() const {return _column;} 
         unsigned int& column() {return _column;}
-        void move(Move direction);
+        void move(Move direction, unsigned int length=1);
 
     private :
         unsigned int _row;
@@ -43,7 +43,6 @@ class Grid
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
         unsigned int row_size() const {return matrix.size();}
         unsigned int column_size() const {return matrix[0].size();}
-
         void update();
 
     private :

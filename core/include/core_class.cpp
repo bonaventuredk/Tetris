@@ -5,22 +5,25 @@
 
 #include "core_class.h"
 
-void Block::move(Move direction)
+void Block::move(Move direction, unsigned int length)
 {   
-    switch(direction)
+    for(unsigned int step=0; step<length; ++step)
     {
-        case Move::up :
-            ++_column;
-        case Move::down :
-            --_column;
+        switch(direction)
+        {
+            case Move::up :
+                ++_column;
+            case Move::down :
+                --_column;
 
-        case Move::right :
-            ++_row;
-                
-        case Move::left:
-            --_row;
-        default :
-        ;
+            case Move::right :
+                ++_row;
+                    
+            case Move::left:
+                --_row;
+            default :
+            ;
+        }
     }
     return;
 }
