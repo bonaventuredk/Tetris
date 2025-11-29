@@ -26,7 +26,7 @@ class Block
 class Cell
 {
     public :
-        Cell(bool iis_full=false) : is_full{_iis_full} {}
+        Cell(bool iis_full=false) : _is_full{iis_full} {}
         bool is_full() const {return _is_full;}
         bool& is_full(){return _is_full;}
 
@@ -42,39 +42,25 @@ class Grid
 
         Grid(unsigned int nrow=1, unsigned int ncol=1) 
         {   
-            std::vector<Block*>  column (ncol, nullptr);
+            std::vector<Cell>  column (ncol);
             for(unsigned int i=0; i<nrow; ++i)
             {
                 matrix.push_back(column);
-                is_full_rows.push_back(false);
             }  
         } 
 
-        Block* operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
-        Block*& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
+        Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
+        Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
 
-        unsigned int get_row_size() const {return matrix.size();}
-        unsigned int get_column_size() const {return matrix[0].size();}
+        unsigned int row_size() const {return matrix.size();}
+        unsigned int column_size() const {return matrix[0].size();}
 
-        std::vector<unsigned int> get_full_rows() const
-        {
-            std::vector<unsigned int> full_rows;
-            {
-                for(unsigned int i=0; i<is_full_rows.size(); ++i)
-                    if(is_full_rows[i]) full_rows.push_back(i);
-            }
-            return full_rows;
-        }
-
-        void move_piece(Piece piece, Input input);
+        void clear_full_rows();
+        
 
     private :
-        std::vector< std::vector<Block*> > matrix;
-        std::vector<bool> is_full_rows;
-
-        void move_block(Block block, Input input);
+        std::vector< std::vector<Cell> > matrix;
+        std::vector<unsigned int> get_full_rows() const;
 };
-
-//matrix{std::vector< std::vector<Block*>(ncol, nullptr)> (nrow)}, is_full_row{std::vector<bool> }
 
 #endif
