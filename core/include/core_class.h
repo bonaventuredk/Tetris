@@ -23,6 +23,17 @@ class Block
         unsigned int _column;
 };
 
+class Cell
+{
+    public :
+        Cell(bool iis_full=false) : is_full{_iis_full} {}
+        bool is_full() const {return _is_full;}
+        bool& is_full(){return _is_full;}
+
+    private :
+        bool _is_full;
+};
+
 class Grid
 {   
     public :
