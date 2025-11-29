@@ -66,13 +66,13 @@ public:
     void move(Move m);
     void rotateDirect();   
     void rotateIndirect();
-    
+    void setPivotPosition(unsigned int row, unsigned int col);
 
 private:
     PieceType _type;
     std::vector<Block> _blocks;   
     unsigned int _pivot_idx;     
 
-    
+    void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
 };
 #endif
