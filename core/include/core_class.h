@@ -49,7 +49,6 @@ class Grid
     private :
         std::vector< std::vector<Cell> > matrix;
         std::vector<unsigned int> get_full_rows() const;
-        std::vector<unsigned int> clear_full_rows();
 };
 
 #endif
