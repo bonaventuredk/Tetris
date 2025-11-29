@@ -24,7 +24,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
 ###  Fonctionnalités A Implémentées
 - [ ] Grille de jeu (10x20) standard
-- [ ] Les 7 blocks classiques
+- [ ] Les 7 pièces classiques
 - [ ] Système de rotation des pièces
 - [ ] Mouvement (gauche/droite/descente rapide)
 - [ ] Suppression des lignes complètes
@@ -38,25 +38,25 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
 ## Déroulement du jeu        
 
-- [] Une pièce apparaît en haut de la grille.
+- [ ] Une pièce apparaît en haut de la grille.
 
-- [] Le joueur peut la déplacer (haut, bas, droite,gauche) ou la faire tourner.
+- [ ] Le joueur peut la déplacer (haut, bas, droite,gauche) ou la faire tourner.
 
-- [] La pièce tombe progressivement.
+- [ ] La pièce tombe progressivement.
 
-- [] Lorsqu’elle touche le bas ou un bloc déjà posé : elle se verrouille, on génère une nouvelle pièce.
+- [ ] Lorsqu’elle touche le bas ou un bloc déjà posé : elle se verrouille, on génère une nouvelle pièce.
 
-- [] Les lignes complètes sont supprimées automatiquement.
+- [ ] Les lignes complètes sont supprimées automatiquement.
 
-- [] Le score augmente.
+- [ ] Le score augmente.
 
-- [] La vitesse augmente au fur et à mesure des niveaux.
+- [ ] La vitesse augmente au fur et à mesure des niveaux.
 
-- [] Si une pièce ne peut pas apparaître (entièrement) => perdu.
+- [ ] Si une pièce ne peut pas apparaître (entièrement) => perdu.
 
 ## Coups valides
 
-- [] Déplacements
+- [ ] Déplacements
 
         -Déplacer la pièce vers la gauche (si pas d’obstacle)
 
@@ -66,17 +66,17 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
         -Faire un hard drop (descente instantanée)
 
-- [] Rotations
+- [ ] Rotations
 
         -Tourner la pièce dans le sens horaire
 
         -Tourner la pièce dans le sens antihoraire
 
-- [] Actions spéciales
+- [ ] Actions spéciales
 
         -Pause du jeu
 
-- [] Actions de jeu correctes
+- [ ] Actions de jeu correctes
 
         -Verrouiller une pièce lorsqu’elle touche le fond
 
@@ -88,7 +88,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
 ## Coups interdits
 
-- [] Déplacements interdits
+- [ ] Déplacements interdits
 
         -Sortir de la grille (à gauche, à droite ou sous le bas)
 
@@ -98,7 +98,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
         -Déplacer une pièce après qu’elle soit verrouillée
 
-- [] Rotations invalides
+- [ ] Rotations invalides
 
         -Tourner si une rotation ferait sortir la pièce de la grille
 
@@ -106,7 +106,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
         -Tourner alors que la pièce est déjà verrouillée
 
-- [] Autres actions impossibles
+- [ ] Autres actions impossibles
 
         -Faire apparaître une nouvelle pièce si l’espace de spawn (l’endroit où les nouvelles pièces apparaissent au début) est occupé
 
@@ -121,21 +121,9 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 ##  Aborescence du Projet
 
         TetrisProject/
-        ├── src/ 
-        │ ├── main.cpp 
-        │ ├── Game.cpp # Logique principale du jeu
-        │ ├── Grid.cpp # Gestion de la grille de jeu
-        │ ├── Block.cpp # Définition des pièces 
-        │ └── Graphics.cpp # Interface graphique
-        ├── include/ 
-        │ ├── Game.h
-        │ ├── Grid.h
-        │ ├── Block.h
-        │ └── Graphics.h
-        ├── tests/ # Tests unitaires
-        │ ├── test_Grid.cpp
-        │ ├── test_Block.cpp
-        │ └── test_Game.cpp
+        ├── core/ 
+        │ ├──  
+        │ ├── 
         ├── CMakeLists.txt # Configuration CMake
         ├── .gitignore # Fichiers ignorés par Git
         └── README.md # Documentation du projet
@@ -143,36 +131,17 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 #####################
 ## Feuille de Route##
 #####################
-## Tache 1: 
-        - Initialisation Git et règles de collaboration
-        - Squelette des classes principales
+
+# Tache 1: Implémentation les "class" suivantes:
+
+- Block
+
+- Piece 
+
+- Grid
+        
+
     
-## Tache 2: Modules de Base
-
-    -Grid:
-
-        -Structure de données (10*20)
-        -Détection des collisions
-        -Verrouillage des blocks
+       
         
-    -Block:
-    
-        -Implémentation des 7 blocks
-        -Système de rotation
-        -Gestion des couleurs et états
-        
-## Tache 3: Logique
-
-    Game:
-        
-        -Boucle de jeu
-        -Gestion du temps
-        -Génération aléatoire des blocks
-        -Système de Scoring et Niveaux
-        -Conditions de Game Over
-
-## Tache 4: Interface Graphique / Sonorité et Autres
-
-## Tache 5: Tests et finalisation
-
 
