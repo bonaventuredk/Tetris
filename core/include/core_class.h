@@ -63,7 +63,7 @@ public:
     std::vector<Block> getBlocks() const { return _blocks; }
     unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
 
-    void move(Move m);
+    void move(Move m, unsigned int length = 1);
     void rotateDirect();   
     void rotateIndirect();
     void setPivotPosition(unsigned int row, unsigned int col);
