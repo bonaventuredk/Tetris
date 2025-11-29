@@ -15,7 +15,6 @@ class Block
         unsigned int& row() {return _row;}
         unsigned int column() const {return _column;} 
         unsigned int& column() {return _column;}
-
         void move(Move direction);
 
     private :
@@ -39,28 +38,18 @@ class Grid
     public :
 
         // index (0,0) : case en bas à gauche
-
-        Grid(unsigned int nrow=1, unsigned int ncol=1) 
-        {   
-            std::vector<Cell>  column (ncol);
-            for(unsigned int i=0; i<nrow; ++i)
-            {
-                matrix.push_back(column);
-            }  
-            return;
-        } 
-
+        Grid(unsigned int nrow=1, unsigned int ncol=1);
         Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
-
         unsigned int row_size() const {return matrix.size();}
         unsigned int column_size() const {return matrix[0].size();}
 
-        void clear_full_rows();
+        void update();
 
     private :
         std::vector< std::vector<Cell> > matrix;
         std::vector<unsigned int> get_full_rows() const;
+        std::vector<unsigned int> clear_full_rows();
 };
 
 #endif

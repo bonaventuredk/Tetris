@@ -25,6 +25,16 @@ void Block::move(Move direction)
     return;
 }
 
+Grid::Grid(unsigned int nrow=1, unsigned int ncol=1)
+{   
+    std::vector<Cell>  column (ncol);
+    for(unsigned int i=0; i<nrow; ++i)
+    {
+        matrix.push_back(column);
+    }  
+    return;
+} 
+
 std::vector<unsigned int> Grid::get_full_rows() const 
 {
     std::vector<unsigned int> full_rows;
@@ -45,7 +55,7 @@ std::vector<unsigned int> Grid::get_full_rows() const
     return full_rows;
 }
 
-void Grid::clear_full_rows()
+std::vector<unsigned int> Grid::clear_full_rows()
 {
     std::vector<unsigned int> full_rows= (*this).get_full_rows();
     for(unsigned int row : full_rows)
@@ -54,6 +64,20 @@ void Grid::clear_full_rows()
         {
             (*this)(row, column).is_full()=false;
         }
+    }
+    return full_rows;
+}
+
+void Grid::update()
+{
+    std::vector<unsigned int> full_rows= (*this).clear_full_rows();
+    for(unsigned int cleared_row=full_rows.size()-1; cleared_row>=full_rows[0]; --cleared_row)
+    {
+        for(unsigned int row=cleared_row; row<(*this).row_size()-1; ++row)
+        {
+            matrix[row]=matrix[row+1];
+        }
+        matrix[(*this).row_size()-1]=std::vector<Cell> ((*this).row_size());
     }
     return;
 }
