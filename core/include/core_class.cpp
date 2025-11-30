@@ -156,8 +156,17 @@ void Piece::move(Move m, unsigned int length)
 }
 void Piece::rotateDirect()
 {
-    //
+    int pr = _blocks[_pivot_idx].row();
+    int pc = _blocks[_pivot_idx].column();
+    for(auto &b : _blocks)
+    {
+        int r = static_cast<int>(b.row()) - pr;
+        int c = static_cast<int>(b.column()) - pc;
+        b.row() = pr + c;
+        b.column() = pc - r;
+    }
 }
+
 
 void Piece::rotateIndirect()
 {
