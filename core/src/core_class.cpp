@@ -5,6 +5,25 @@
 
 #include "core_class.h"
 
+Move reverse_move(Move move)
+{
+    switch(move)
+    {
+        case Move::up : 
+            return Move::down;
+        case Move::down :
+            return Move::up;
+        case Move::left :
+            return Move::right;
+        case Move::right :
+            return Move::left;
+        case Move::clock_rotation :
+            return Move::anticlock_rotation;
+        case Move::anticlock_rotation :
+            return Move::clock_rotation;
+    }
+}
+
 void Block::move(Move direction, unsigned int length)
 {   
     for(unsigned int step=0; step<length; ++step)
@@ -30,7 +49,8 @@ void Block::move(Move direction, unsigned int length)
     return;
 }
 
-Grid::Grid(unsigned int nrow=1, unsigned int ncol=1)
+
+Grid::Grid(unsigned int nrow, unsigned int ncol)
 {   
     std::vector<Cell>  column (ncol);
     for(unsigned int i=0; i<nrow; ++i)
@@ -60,12 +80,48 @@ std::vector<unsigned int> Grid::get_full_rows() const
     return full_rows;
 }
 
+void Grid::put_piece(PieceType ptype)
+{
+    piece=Piece(ptype, 0, (*this).column_size()/2+1);
+    for(unsigned int block=0; block<piece.size(); ++block)
+    {   
+        (*this)(piece[block].row(), piece[block].column()).is_full()=true;
+    }
+    return;
+}
+
+void move_piece(Piece& piece, Move move)
+{
+    for(unsigned int block=0; block<piece.size(); ++block)
+    {   
+        (*this)(piece[block].row(), piece[block].column()).is_full()=false;
+    }
+    piece.move(move);
+    bool is_in_grid=true
+    for(unsigned int block=0; block<piece.size(); ++block)
+    { 
+        if(piece[block].row()>(*this).row_size() || piece[block].column()>(*this).column_size())
+        {
+            is_in_grid=false;
+        }
+    }
+    if(!is_in_grid)
+    {
+        piece.move(reverse_move(move));
+    }
+    for(unsigned int block=0; block<piece.size(); ++block)
+    {   
+        (*this)(piece[block].row(), piece[block].column())=true;
+    }
+    return;
+}
+
 void Grid::update()
 {
     std::vector<unsigned int> full_rows= (*this).get_full_rows();
     for(unsigned int f_row : full_rows)
     {
-        for(unsigned int row=row_f; row>=1; --row)
+        for(unsigned int row=f_row; row>=1; --row)
         {
             matrix[row]=matrix[row-1];
         }

@@ -5,7 +5,10 @@
 
 #include <vector>
 
-enum class Move{up, down, left, right, direct_rotation, indirect_rotation};
+enum class Move{up, down, left, right, clock_rotation, anticlock_rotation};
+enum class PieceType { I, O, T, L, J, S, Z };
+
+Move reverse_move(Move move);
 
 class Block
 {
@@ -43,14 +46,14 @@ class Grid
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
         unsigned int row_size() const {return matrix.size();}
         unsigned int column_size() const {return matrix[0].size();}
+        void put_piece(PieceType ptype) const;
+        void move_piece(Piece& piece, Move move);
         void update();
 
     private :
         std::vector< std::vector<Cell> > matrix;
         std::vector<unsigned int> get_full_rows() const;
 };
-
-enum class PieceType { I, O, T, L, J, S, Z };
 
 class Piece {
 public:
