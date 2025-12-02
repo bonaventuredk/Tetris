@@ -63,18 +63,18 @@ std::vector<unsigned int> Grid::get_full_rows() const
 void Grid::update()
 {
     std::vector<unsigned int> full_rows= (*this).get_full_rows();
-    for(unsigned int f_row=full_rows.size()-1; f_row>=full_rows[0]; --f_row)
+    for(unsigned int f_row : full_rows)
     {
-        for(unsigned int row=f_row; row<(*this).row_size()-1; ++row)
+        for(unsigned int row=row_f; row>=1; --row)
         {
-            matrix[row]=matrix[row+1];
+            matrix[row]=matrix[row-1];
         }
-        matrix[(*this).row_size()-1]=std::vector<Cell>((*this).row_size());
+        matrix[0]=std::vector<Cell>((*this).row_size());
     }
     return;
 }
 
-std::ostream& operator<<(std::ostream o, Grid board)
+std::ostream& operator<<(std::ostream& o, Grid board)
 {
     std::string print_board;
     for(unsigned int row=0; row<board.row_size(); ++row)
@@ -102,7 +102,7 @@ Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
 {
     _blocks.clear();
-
+    
     switch(_type)
     {
         case PieceType::I:

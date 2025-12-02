@@ -37,7 +37,7 @@ class Grid
 {   
     public :
 
-        // index (0,0) : case en bas à gauche
+        // index (0,0) : case en haut à gauche
         Grid(unsigned int nrow=1, unsigned int ncol=1);
         Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
@@ -54,7 +54,7 @@ enum class PieceType { I, O, T, L, J, S, Z };
 
 class Piece {
 public:
-    Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0);
+    Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0); 
 
     PieceType type() const { return _type; }
     unsigned int pivot_row() const { return _blocks[_pivot_idx].row(); }
@@ -70,7 +70,7 @@ public:
 
 private:
     PieceType _type;
-    std::vector<Block> _blocks;   
+    std::vector<Block> _blocks  ;   
     unsigned int _pivot_idx;     
 
     void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
