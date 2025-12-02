@@ -13,22 +13,24 @@ void Block::move(Move direction, unsigned int length)
         {
             case Move::up :
                 ++_column;
+                break;
             case Move::down :
                 --_column;
-
+                break;
             case Move::right :
                 ++_row;
-                    
+                break;
             case Move::left:
                 --_row;
+                break;
             default :
-            ;
+                break;
         }
     }
     return;
 }
 
-Grid::Grid(unsigned int nrow=1, unsigned int ncol=1)
+Grid::Grid(unsigned int nrow, unsigned int ncol)
 {   
     std::vector<Cell>  column (ncol);
     for(unsigned int i=0; i<nrow; ++i)
@@ -41,7 +43,7 @@ Grid::Grid(unsigned int nrow=1, unsigned int ncol=1)
 std::vector<unsigned int> Grid::get_full_rows() const 
 {
     std::vector<unsigned int> full_rows;
-    bool check;
+     bool check;
     for(unsigned int row=0; row<(*this).row_size(); ++row)
     {   
         check=true;
@@ -61,18 +63,18 @@ std::vector<unsigned int> Grid::get_full_rows() const
 void Grid::update()
 {
     std::vector<unsigned int> full_rows= (*this).get_full_rows();
-    for(unsigned int f_row=full_rows.size()-1; f_row>=full_rows[0]; --f_row)
+    for(unsigned int f_row : full_rows)
     {
-        for(unsigned int row=f_row; row<(*this).row_size()-1; ++row)
+        for(unsigned int row = f_row; row>=1; --row)
         {
-            matrix[row]=matrix[row+1];
+            matrix[row]=matrix[row-1];
         }
-        matrix[(*this).row_size()-1]=std::vector<Cell>((*this).row_size());
+        matrix[0]=std::vector<Cell>((*this).row_size());
     }
     return;
 }
 
-std::ostream& operator<<(std::ostream o, Grid board)
+std::ostream& operator<<(std::ostream& o, Grid board)
 {
     std::string print_board;
     for(unsigned int row=0; row<board.row_size(); ++row)
@@ -97,79 +99,103 @@ Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
     initializeBlocks(pivotRow, pivotCol);
 }
 
+
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
 {
-    _blocks.clear();
-
     switch(_type)
     {
         case PieceType::I:
-            _blocks = { {0,0}, {-1,0}, {1,0}, {2,0} };
-            break;
+       
+        _blocks = { {1,1}, {0,1}, {2,1}, {3,1} };
+        break;
+
         case PieceType::O:
-            _blocks = { {0,0}, {0,1}, {1,0}, {1,1} };
-            break;
+        _blocks = { {1,1}, {1,2}, {2,1}, {2,2} };
+        break;
+
         case PieceType::T:
-            _blocks = { {0,0}, {0,-1}, {0,1}, {1,0} };
-            break;
+        
+        _blocks = { {1,1}, {1,0}, {1,2}, {2,1} };
+        break;
+
         case PieceType::J:
-            _blocks = { {0,0}, {-1,0}, {1,0}, {1,1} };
-            break;
+        
+        _blocks = { {1,1}, {0,1}, {2,1}, {2,2} };
+        break;
+
         case PieceType::L:
-            _blocks = { {0,0}, {-1,0}, {1,0}, {1,-1} };
-            break;
+        
+        _blocks = { {1,1}, {0,1}, {2,1}, {2,0} };
+        break;
+
         case PieceType::S:
-            _blocks = { {0,0}, {0,1}, {1,0}, {1,-1} };
-            break;
+        
+        _blocks = { {1,1}, {1,2}, {2,1}, {2,0} };
+        break;
+
         case PieceType::Z:
-            _blocks = { {0,0}, {0,-1}, {1,0}, {1,1} };
-            break;
+        
+        _blocks = { {1,1}, {1,0}, {2,1}, {2,2} };
+        break;
     }
 
-    int dr = static_cast<int>(pivotRow);
-    int dc = static_cast<int>(pivotCol);
-
-    if(dr > 0) move(Move::down, dr);
-    else if(dr < 0) move(Move::up, -dr);
-
-    if(dc > 0) move(Move::right, dc);
-    else if(dc < 0) move(Move::left, -dc);
+    move(Move::down, pivotRow);
+    move(Move::right, pivotCol);
 }
 
 
 void Piece::move(Move m, unsigned int length)
 {
-    int dr = 0, dc = 0;
-    switch(m)
-    {
-        case Move::left:  dc = -static_cast<int>(length); break;
-        case Move::right: dc = static_cast<int>(length);  break;
-        case Move::down:  dr = static_cast<int>(length);  break;
-        case Move::up:    dr = -static_cast<int>(length); break;
-        default: break;
-    }
-
-    for(auto &b : _blocks) {
-        b.row() += dr;
-        b.column() += dc;
-    }
-}
-void Piece::rotateDirect()
-{
-    int pr = _blocks[_pivot_idx].row();
-    int pc = _blocks[_pivot_idx].column();
     for(auto &b : _blocks)
     {
-        int r = static_cast<int>(b.row()) - pr;
-        int c = static_cast<int>(b.column()) - pc;
-        b.row() = pr + c;
-        b.column() = pc - r;
+        switch(m)
+        {
+            case Move::left:
+            b.column() -= length;
+            break;
+
+            case Move::right:
+            b.column() += length;
+            break;
+
+            case Move::up:
+            b.row() -= length;
+            break;
+
+            case Move::down:
+            b.row() += length;
+            break;
+
+            default:
+            break;
+        }
+    }
+}
+
+void Piece::rotateDirect()
+{
+    unsigned int pr = _blocks[_pivot_idx].row();
+    unsigned int pc = _blocks[_pivot_idx].column();
+
+    for(auto &b : _blocks)
+    {
+        int r = (int)b.row() - (int)pr;
+        int c = (int)b.column() - (int)pc;
+        
+        int newR = pr + c;
+        int newC = pc - r;
+
+        b.row() = (unsigned int)newR;
+        b.column() = (unsigned int)newC;
     }
 }
 
 
 void Piece::rotateIndirect()
 {
-    //
+    // 3 rotations 
+    rotateDirect();
+    rotateDirect();
+    rotateDirect();
 }
 
