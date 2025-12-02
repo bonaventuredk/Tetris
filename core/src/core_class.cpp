@@ -146,8 +146,6 @@ std::ostream& operator<<(std::ostream& o, Grid board)
     return o;
 }
 
-
-
 //For Piece class 
 
 Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
@@ -155,6 +153,7 @@ Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 {
     initializeBlocks(pivotRow, pivotCol);
 }
+
 
 
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
