@@ -5,7 +5,8 @@
 
 #include <vector>
 
-enum class Move{up, down, left, right, direct_rotation, indirect_rotation};
+enum class Move{up, down, left, right, clock_rotation, anticlock_rotation};
+enum class PieceType { I, O, T, L, J, S, Z };
 
 class Block
 {
@@ -50,7 +51,7 @@ class Grid
         std::vector<unsigned int> get_full_rows() const;
 };
 
-enum class PieceType { I, O, T, L, J, S, Z };
+
 
 class Piece {
 public:
