@@ -102,7 +102,7 @@ Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
 {
     _blocks.clear();
-
+    
     switch(_type)
     {
         case PieceType::I:
