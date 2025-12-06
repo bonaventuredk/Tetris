@@ -249,9 +249,20 @@ void Piece::rotateDirect()
 
 void Piece::rotateIndirect()
 {
-    // 3 rotations 
-    rotateDirect();
-    rotateDirect();
-    rotateDirect();
+    unsigned int pr = _blocks[_pivot_idx].row();
+    unsigned int pc = _blocks[_pivot_idx].column();
+
+    for(auto &b : _blocks)
+    {
+        int r = (int)b.row() - (int)pr;
+        int c = (int)b.column() - (int)pc;
+
+        // Rotation 90° antihoraire
+        int newR = pr - c;
+        int newC = pc + r;
+
+        b.row() = (unsigned int)newR;
+        b.column() = (unsigned int)newC;
+    }
 }
 
