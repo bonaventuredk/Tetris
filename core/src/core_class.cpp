@@ -155,50 +155,49 @@ Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 }
 
 
-
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
 {
     switch(_type)
     {
         case PieceType::I:
-       
-        _blocks = { {1,1}, {0,1}, {2,1}, {3,1} };
-        break;
+            _blocks = { {1,1}, {0,1}, {2,1}, {3,1} };
+            _pivot_idx = 1; 
+            break;
 
         case PieceType::O:
-        _blocks = { {1,1}, {1,2}, {2,1}, {2,2} };
-        break;
+            _blocks = { {1,1}, {1,2}, {2,1}, {2,2} };
+            _pivot_idx = 2; 
+            break;
 
         case PieceType::T:
-        
-        _blocks = { {1,1}, {1,0}, {1,2}, {2,1} };
-        break;
+            _blocks = { {1,1}, {1,0}, {1,2}, {2,1} };
+            _pivot_idx = 0; 
+            break;
 
         case PieceType::J:
-        
-        _blocks = { {1,1}, {0,1}, {2,1}, {2,2} };
-        break;
+            _blocks = { {1,1}, {0,1}, {2,1}, {2,2} };
+            _pivot_idx = 3; 
+            break;
 
         case PieceType::L:
-        
-        _blocks = { {1,1}, {0,1}, {2,1}, {2,0} };
-        break;
+            _blocks = { {1,1}, {0,1}, {2,1}, {2,0} };
+            _pivot_idx = 3; 
+            break;
 
         case PieceType::S:
-        
-        _blocks = { {1,1}, {1,2}, {2,1}, {2,0} };
-        break;
+            _blocks = { {1,1}, {1,2}, {2,1}, {2,0} };
+            _pivot_idx = 0; 
+            break;
 
         case PieceType::Z:
-        
-        _blocks = { {1,1}, {1,0}, {2,1}, {2,2} };
-        break;
+            _blocks = { {1,1}, {1,0}, {2,1}, {2,2} };
+            _pivot_idx = 0;
+            break;
     }
 
     move(Move::down, pivotRow);
     move(Move::right, pivotCol);
 }
-
 
 void Piece::move(Move m, unsigned int length)
 {
