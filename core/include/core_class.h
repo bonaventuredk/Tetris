@@ -55,27 +55,88 @@ class Grid
         std::vector<unsigned int> get_full_rows() const;
 };
 
-class Piece {
-public:
-    Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0); 
+class Piece
+{
+    public:
+      /*!
+       * \brief Constructor
+       *
+       * Initializes a piece with a type and a pivot position
+       *
+       * \param type : type of the piece (I, O, T, etc.)
+       * \param pivotRow : initial row of the pivot
+       * \param pivotCol : initial column of the pivot
+       */
+      Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0);
 
-    PieceType type() const { return _type; }
-    unsigned int pivot_row() const { return _blocks[_pivot_idx].row(); }
-    unsigned int pivot_col() const { return _blocks[_pivot_idx].column(); }
+      /*!
+       * \brief Returns the type of the piece
+       * \return piece type
+       */
+      PieceType type() const { return _type; }
 
-    std::vector<Block> getBlocks() const { return _blocks; }
-    unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
+      /*!
+       * \brief Returns the pivot row
+       * \return pivot row index
+       */
+      unsigned int pivot_row() const { return _blocks[_pivot_idx].row(); }
 
-    void move(Move m, unsigned int length = 1);
-    void rotateDirect();   
-    void rotateIndirect();
-    
+      /*!
+       * \brief Returns the pivot column
+       * \return pivot column index
+       */
+      unsigned int pivot_col() const { return _blocks[_pivot_idx].column(); }
+
+      /*!
+       * \brief Returns the blocks of the piece
+       * \return vector of blocks
+       */
+      std::vector<Block> getBlocks() const { return _blocks; }
+
+      /*!
+       * \brief Returns the number of blocks
+       * \return size of the piece
+       */
+      unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
+
+      /*!
+       * \brief Moves the piece
+       *
+       * Moves the piece in the specified direction
+       *
+       * \param m : movement direction
+       * \param length : number of cells to move (default 1)
+       */
+      void move(Move m, unsigned int length = 1);
+
+      /*!
+       * \brief Clockwise rotation
+       *
+       * Rotates the piece clockwise around the pivot
+       */
+      void rotateDirect();
+
+      /*!
+       * \brief Counter-clockwise rotation
+       *
+       * Rotates the piece counter-clockwise around the pivot
+       */
+      void rotateIndirect();
 
 private:
-    PieceType _type;
-    std::vector<Block> _blocks  ;   
-    unsigned int _pivot_idx;     
+      PieceType _type; /*!< Type of the piece */
+      std::vector<Block> _blocks; /*!< Blocks composing the piece */
+      unsigned int _pivot_idx; /*!< Index of the pivot block */
 
-    void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
+      /*!
+       * \brief Initializes the blocks
+       *
+       * Sets up the positions of the blocks based on the pivot
+       *
+       * \param pivotRow : row of the pivot
+       * \param pivotCol : column of the pivot
+       */
+      void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
 };
+
 #endif
