@@ -6,7 +6,9 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
     * Alexandre Bleuler 
     * Bonaventure Dohemeto
-    
+
+![Description de l'image](tetrominoes_notations.png)
+
 
 ## Table des Matières
 
@@ -122,11 +124,14 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
         TetrisProject/
         ├── core/ 
-        │ ├──  
-        │ ├── 
-        ├── CMakeLists.txt # Configuration CMake
-        ├── .gitignore # Fichiers ignorés par Git
-        └── README.md # Documentation du projet
+        │ ├──  include/
+        │ ├──  src/
+        ├──  doc/
+        ├── CMakeLists.txt 
+        ├── .gitignore
+        ├── doxygenfile  
+        └── README.md 
+        
  
 #####################
 ## Feuille de Route##
