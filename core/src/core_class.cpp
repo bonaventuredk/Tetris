@@ -1,4 +1,12 @@
-
+/**
+ * \file core_class.cpp
+ * \brief Implementation of class.
+ * \author Alexandre Bleuler - Bonaventure Dohemeto
+ * \version 1.1
+ * \date 08/12/2025
+ *
+ * This file implements the Block, Cell, Piece, Grid class.
+ */
 #include <iostream>
 #include <vector>
 #include <string>
@@ -146,17 +154,34 @@ std::ostream& operator<<(std::ostream& o, Grid board)
     return o;
 }
 
-//For Piece class 
-
+/**
+ * \brief Constructor for a Piece object.
+ *
+ * Creates a piece of the given type and places it at the initial pivot coordinates.
+ *
+ * \param type The type of the piece (I, O, T, J, L, S, Z)
+ * \param pivotRow The row index of the pivot point
+ * \param pivotCol The column index of the pivot point
+ */
 Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 : _type(type), _pivot_idx(0)
 {
+    // Initialize the blocks relative to the piece type and pivot
     initializeBlocks(pivotRow, pivotCol);
 }
 
-
+/**
+ * \brief Initializes the blocks for the piece based on its type.
+ *
+ * Sets the default shape of the piece and assigns the pivot block index.
+ * Moves the piece to the provided pivot coordinates on the grid.
+ *
+ * \param pivotRow Row index where the pivot block should be placed
+ * \param pivotCol Column index where the pivot block should be placed
+ */
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
 {
+    // Set the blocks and pivot index according to the piece type
     switch(_type)
     {
         case PieceType::I:
@@ -195,10 +220,18 @@ void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
             break;
     }
 
+    // Move piece to the desired initial position
     move(Move::down, pivotRow);
     move(Move::right, pivotCol);
 }
-
+/**
+ * \brief Moves the piece in a given direction.
+ *
+ * Adjusts the coordinates of all blocks according to the move direction.
+ *
+ * \param m Direction to move (left, right, up, down)
+ * \param length Number of steps to move
+ */
 void Piece::move(Move m, unsigned int length)
 {
     for(auto &b : _blocks)
@@ -206,39 +239,45 @@ void Piece::move(Move m, unsigned int length)
         switch(m)
         {
             case Move::left:
-            b.column() -= length;
-            break;
+                b.column() -= length; ///< Move left by reducing column
+                break;
 
             case Move::right:
-            b.column() += length;
-            break;
+                b.column() += length; ///< Move right by increasing column
+                break;
 
             case Move::up:
-            b.row() -= length;
-            break;
+                b.row() -= length;    ///< Move up by reducing row
+                break;
 
             case Move::down:
-            b.row() += length;
-            break;
+                b.row() += length;    ///< Move down by increasing row
+                break;
 
             default:
-            break;
+                break;
         }
     }
 }
 
+/**
+ * \brief Rotates the piece 90° clockwise around its pivot.
+ *
+ * Uses the pivot block as the center and rotates all blocks around it.
+ * The rotation formula swaps and negates coordinates relative to the pivot.
+ */
 void Piece::rotateDirect()
 {
-    unsigned int pr = _blocks[_pivot_idx].row();
-    unsigned int pc = _blocks[_pivot_idx].column();
+    unsigned int pr = _blocks[_pivot_idx].row();    ///< Pivot row
+    unsigned int pc = _blocks[_pivot_idx].column(); ///< Pivot column
 
     for(auto &b : _blocks)
     {
-        int r = (int)b.row() - (int)pr;
-        int c = (int)b.column() - (int)pc;
+        int r = (int)b.row() - (int)pr; ///< Relative row to pivot
+        int c = (int)b.column() - (int)pc; ///< Relative column to pivot
         
-        int newR = pr + c;
-        int newC = pc - r;
+        int newR = pr + c; ///< New row after clockwise rotation
+        int newC = pc - r; ///< New column after clockwise rotation
 
         b.row() = (unsigned int)newR;
         b.column() = (unsigned int)newC;
@@ -246,22 +285,27 @@ void Piece::rotateDirect()
 }
 
 
+
+/**
+ * \brief Rotates the piece 90° counterclockwise around its pivot.
+ *
+ * Uses the pivot block as the center and rotates all blocks around it
+ * in the opposite direction.
+ */
 void Piece::rotateIndirect()
 {
-    unsigned int pr = _blocks[_pivot_idx].row();
-    unsigned int pc = _blocks[_pivot_idx].column();
+    unsigned int pr = _blocks[_pivot_idx].row();    ///< Pivot row
+    unsigned int pc = _blocks[_pivot_idx].column(); ///< Pivot column
 
     for(auto &b : _blocks)
     {
-        int r = (int)b.row() - (int)pr;
-        int c = (int)b.column() - (int)pc;
+        int r = (int)b.row() - (int)pr; ///< Relative row to pivot
+        int c = (int)b.column() - (int)pc; ///< Relative column to pivot
 
-        // Rotation 90° antihoraire
-        int newR = pr - c;
-        int newC = pc + r;
+        int newR = pr - c; ///< New row after counterclockwise rotation
+        int newC = pc + r; ///< New column after counterclockwise rotation
 
         b.row() = (unsigned int)newR;
         b.column() = (unsigned int)newC;
     }
 }
-

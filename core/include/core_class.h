@@ -1,5 +1,14 @@
-// Classes for core part of the game  
-
+/**
+ * \file core_class.h
+ * \brief Declaration of core classes for the Tetris.
+ * 
+ * This file contains the declarations of the fundamental classes
+ * of the Tetris logic: Block, Cell, Piece, and Grid.
+ *
+ * \author Alexandre Bleuler - Bonaventure Dohemeto
+ * \version 1.1
+ * \date 08/12/2025
+ */
 #ifndef CORE_CLASS
 #define CORE_CLASS
 
