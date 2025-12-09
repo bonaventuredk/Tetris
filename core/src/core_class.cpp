@@ -261,7 +261,7 @@ void Grid::update()
     return;
 }
 
-std::ostream& operator<<(std::ostream& o, Grid board)
+std::string get_grid(Grid board)
 {
     std::string print_board;
     for(unsigned int row=0; row<board.row_size(); ++row)
@@ -273,6 +273,5 @@ std::ostream& operator<<(std::ostream& o, Grid board)
         }
         print_board+='\n';
     }
-    o << print_board;
-    return o;
+    return print_board;
 }
