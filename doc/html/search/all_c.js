@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['route_0',['Feuille de Route',['../md_README.html#autotoc_md10',1,'']]]
+  ['s_0',['S',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021a5dbc98dcc983a70728bd082d1a47546e',1,'core_class.h']]],
+  ['size_1',['size',['../classPiece.html#a4635cdc9afef9d1eff1cc2574a2edbf4',1,'Piece']]]
 ];

@@ -19,6 +19,12 @@ enum class PieceType { I, O, T, L, J, S, Z };
 
 Move reverse_move(Move move);
 
+/**
+ * @class Block
+ * 
+ * @brief Class for the block ...
+
+*/
 class Block
 {
     public :
@@ -64,17 +70,23 @@ class Grid
         std::vector<unsigned int> get_full_rows() const;
 };
 
+/**
+ * @class Piece
+ * 
+ * @brief Tetris pieces description
+
+*/
 class Piece
 {
     public:
-      /*!
-       * \brief Constructor
+      /**
+       * \brief Constructor for a Piece object.
        *
-       * Initializes a piece with a type and a pivot position
+       * Creates a piece of the given type and places it at the initial pivot coordinates.
        *
-       * \param type : type of the piece (I, O, T, etc.)
-       * \param pivotRow : initial row of the pivot
-       * \param pivotCol : initial column of the pivot
+       * \param type The type of the piece (I, O, T, J, L, S, Z)
+       * \param pivotRow The row index of the pivot point
+       * \param pivotCol The column index of the pivot point
        */
       Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0);
 
@@ -108,27 +120,29 @@ class Piece
        */
       unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
 
-      /*!
-       * \brief Moves the piece
+      /**
+       * \brief Moves the piece in a given direction.
        *
-       * Moves the piece in the specified direction
+       * Adjusts the coordinates of all blocks according to the move direction.
        *
-       * \param m : movement direction
-       * \param length : number of cells to move (default 1)
+       * \param m Direction to move (left, right, up, down)
+       * \param length Number of steps to move
        */
       void move(Move m, unsigned int length = 1);
 
-      /*!
-       * \brief Clockwise rotation
+      /**
+       * \brief Rotates the piece 90° clockwise around its pivot.
        *
-       * Rotates the piece clockwise around the pivot
+       * Uses the pivot block as the center and rotates all blocks around it.
+       * The rotation formula swaps and negates coordinates relative to the pivot.
        */
       void rotateDirect();
 
-      /*!
-       * \brief Counter-clockwise rotation
+      /**
+       * \brief Rotates the piece 90° counterclockwise around its pivot.
        *
-       * Rotates the piece counter-clockwise around the pivot
+       * Uses the pivot block as the center and rotates all blocks around it
+       * in the opposite direction.
        */
       void rotateIndirect();
 
@@ -137,13 +151,14 @@ private:
       std::vector<Block> _blocks; /*!< Blocks composing the piece */
       unsigned int _pivot_idx; /*!< Index of the pivot block */
 
-      /*!
-       * \brief Initializes the blocks
+      /**
+       * \brief Initializes the blocks for the piece based on its type.
        *
-       * Sets up the positions of the blocks based on the pivot
+       * Sets the default shape of the piece and assigns the pivot block index.
+       * Moves the piece to the provided pivot coordinates on the grid.
        *
-       * \param pivotRow : row of the pivot
-       * \param pivotCol : column of the pivot
+       * \param pivotRow Row index where the pivot block should be placed
+       * \param pivotCol Column index where the pivot block should be placed
        */
       void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
 };
