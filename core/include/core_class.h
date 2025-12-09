@@ -97,15 +97,10 @@ class Piece
       /**
        * \brief Moves the piece in a given direction.
        *
-       * Adjusts the coordinates of all blocks according to the move direction.
-       *
-       * \param m Direction to move (left, right, up, down)
-       * \param length Number of steps to move
-       */
-      void move(Move m, unsigned int length = 1);
-
-      /**
-       * \brief Rotates the piece 90° clockwise around its pivot.
+    expected_grid[0,5]='O';
+    expected_grid[0,6]='O';
+    expected_grid[1,7]='O';
+    expected_grid[1,8]='O';ckwise around its pivot.
        *
        * Uses the pivot block as the center and rotates all blocks around it.
        * The rotation formula swaps and negates coordinates relative to the pivot.
@@ -159,8 +154,8 @@ class Grid
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
         unsigned int row_size() const {return matrix.size();}
         unsigned int column_size() const {return matrix[0].size();}
-        void put_piece(PieceType ptype);
-        void move_piece(Piece& piece, Move move); 
+        piece put_piece(PieceType ptype);
+        bool move_piece(Piece& piece, Move move, unsigned int length=1); 
         void update();
 
     private :
