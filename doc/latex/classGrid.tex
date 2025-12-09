@@ -1,0 +1,85 @@
+\doxysection{Grid Class Reference}
+\hypertarget{classGrid}{}\label{classGrid}\index{Grid@{Grid}}
+
+
+{\ttfamily \#include $<$core\+\_\+class.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGrid_a1da08e79a76c28e423e75337762acfbe}{Grid}} (unsigned int nrow=1, unsigned int ncol=1)
+\item 
+\mbox{\hyperlink{classCell}{Cell}} \mbox{\hyperlink{classGrid_ab210a536baa5ad1b289a33e01ec9a93f}{operator()}} (unsigned int row, unsigned int column) const
+\item 
+\mbox{\hyperlink{classCell}{Cell}} \& \mbox{\hyperlink{classGrid_aadd15d5ed6900e769c59bdd57324c627}{operator()}} (unsigned int row, unsigned int column)
+\item 
+unsigned int \mbox{\hyperlink{classGrid_ad6bb2609093f85198d02446d33c78f6d}{row\+\_\+size}} () const
+\item 
+unsigned int \mbox{\hyperlink{classGrid_a655920b683b0e4db695c02cddf32c90d}{column\+\_\+size}} () const
+\item 
+void \mbox{\hyperlink{classGrid_a07907c4d0857a3f9a97ea4d7bffc959b}{put\+\_\+piece}} (\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} ptype) const
+\item 
+void \mbox{\hyperlink{classGrid_afc3ac2f936278defdeaaa71060a6a9a6}{move\+\_\+piece}} (\mbox{\hyperlink{classPiece}{Piece}} \&piece, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} move)
+\item 
+void \mbox{\hyperlink{classGrid_a517b238168b228a8163496971d98de12}{update}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGrid_a1da08e79a76c28e423e75337762acfbe}\label{classGrid_a1da08e79a76c28e423e75337762acfbe} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{unsigned int}]{nrow = {\ttfamily 1},  }\item[{unsigned int}]{ncol = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGrid_a655920b683b0e4db695c02cddf32c90d}\label{classGrid_a655920b683b0e4db695c02cddf32c90d} 
+\index{Grid@{Grid}!column\_size@{column\_size}}
+\index{column\_size@{column\_size}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{column\_size()}{column\_size()}}
+{\footnotesize\ttfamily unsigned int Grid\+::column\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGrid_afc3ac2f936278defdeaaa71060a6a9a6}\label{classGrid_afc3ac2f936278defdeaaa71060a6a9a6} 
+\index{Grid@{Grid}!move\_piece@{move\_piece}}
+\index{move\_piece@{move\_piece}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{move\_piece()}{move\_piece()}}
+{\footnotesize\ttfamily void Grid\+::move\+\_\+piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPiece}{Piece}} \&}]{piece,  }\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{move }\end{DoxyParamCaption})}
+
+\Hypertarget{classGrid_aadd15d5ed6900e769c59bdd57324c627}\label{classGrid_aadd15d5ed6900e769c59bdd57324c627} 
+\index{Grid@{Grid}!operator()@{operator()}}
+\index{operator()@{operator()}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCell}{Cell}} \& Grid\+::operator() (\begin{DoxyParamCaption}\item[{unsigned int}]{row,  }\item[{unsigned int}]{column }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGrid_ab210a536baa5ad1b289a33e01ec9a93f}\label{classGrid_ab210a536baa5ad1b289a33e01ec9a93f} 
+\index{Grid@{Grid}!operator()@{operator()}}
+\index{operator()@{operator()}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCell}{Cell}} Grid\+::operator() (\begin{DoxyParamCaption}\item[{unsigned int}]{row,  }\item[{unsigned int}]{column }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGrid_a07907c4d0857a3f9a97ea4d7bffc959b}\label{classGrid_a07907c4d0857a3f9a97ea4d7bffc959b} 
+\index{Grid@{Grid}!put\_piece@{put\_piece}}
+\index{put\_piece@{put\_piece}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{put\_piece()}{put\_piece()}}
+{\footnotesize\ttfamily void Grid\+::put\+\_\+piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}}}]{ptype }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classGrid_ad6bb2609093f85198d02446d33c78f6d}\label{classGrid_ad6bb2609093f85198d02446d33c78f6d} 
+\index{Grid@{Grid}!row\_size@{row\_size}}
+\index{row\_size@{row\_size}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{row\_size()}{row\_size()}}
+{\footnotesize\ttfamily unsigned int Grid\+::row\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGrid_a517b238168b228a8163496971d98de12}\label{classGrid_a517b238168b228a8163496971d98de12} 
+\index{Grid@{Grid}!update@{update}}
+\index{update@{update}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Grid\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/include/\mbox{\hyperlink{core__class_8h}{core\+\_\+class.\+h}}\item 
+core/src/\mbox{\hyperlink{core__class_8cpp}{core\+\_\+class.\+cpp}}\end{DoxyCompactItemize}

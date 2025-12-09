@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['déroulement_20du_20jeu_0',['Déroulement du jeu',['../md_README.html#autotoc_md6',1,'']]],
-  ['déroulement_20du_20jeu_20coups_20valides_20et_20interdits_1',['Déroulement du jeu/Coups valides et interdits',['../md_README.html#autotoc_md5',1,'']]],
-  ['de_20route_2',['Feuille de Route',['../md_README.html#autotoc_md10',1,'']]],
-  ['des_20matières_3',['Table des Matières',['../md_README.html#autotoc_md2',1,'']]],
-  ['description_4',['Description',['../md_README.html#autotoc_md3',1,'']]],
-  ['du_20jeu_5',['Déroulement du jeu',['../md_README.html#autotoc_md6',1,'']]],
-  ['du_20jeu_20coups_20valides_20et_20interdits_6',['Déroulement du jeu/Coups valides et interdits',['../md_README.html#autotoc_md5',1,'']]],
-  ['du_20projet_7',['Aborescence du Projet',['../md_README.html#autotoc_md9',1,'']]]
+  ['getblocks_0',['getBlocks',['../classPiece.html#ae384da5eafa2b4b96c001edb96e9b24f',1,'Piece']]],
+  ['grid_1',['grid',['../classGrid.html',1,'Grid'],['../classGrid.html#a1da08e79a76c28e423e75337762acfbe',1,'Grid::Grid()']]]
 ];

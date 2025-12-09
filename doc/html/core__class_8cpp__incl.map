@@ -1,0 +1,12 @@
+<map id="core/src/core_class.cpp" name="core/src/core_class.cpp">
+<area shape="rect" id="Node000001" title="Implementation of class." alt="" coords="70,5,242,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,85,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,33,77,73,74,69,137,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="177,152,239,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,31,146,65,146,84,150,103,164,124,181,141,177,145,159,127,146,105,141,85,141,64,149,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="160,79,219,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,30,181,65,176,67,159,32"/>
+<area shape="rect" id="Node000005" href="$core__class_8h.html" title="Declaration of core classes for the Tetris." alt="" coords="243,79,346,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="179,28,261,70,259,75,177,33"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="282,106,234,145,231,141,279,102"/>
+</map>
