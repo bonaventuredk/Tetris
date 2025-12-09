@@ -14,7 +14,7 @@
 
 #include <vector>
 
-enum class Move{up, down, left, right, clock_rotation, anticlock_rotation};
+enum class Move{up, down, left, right, clock_rotation, anticlock_rotation, none};
 enum class PieceType { I, O, T, L, J, S, Z };
 
 Move reverse_move(Move move);
@@ -38,36 +38,6 @@ class Block
     private :
         unsigned int _row;
         unsigned int _column;
-};
-
-class Cell
-{
-    public :
-        Cell(bool iis_full=false) : _is_full{iis_full} {}
-        bool is_full() const {return _is_full;}
-        bool& is_full(){return _is_full;}
-
-    private :
-        bool _is_full;
-};
-
-class Grid
-{   
-    public :
-
-        // index (0,0) : case en haut à gauche
-        Grid(unsigned int nrow=1, unsigned int ncol=1);
-        Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
-        Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
-        unsigned int row_size() const {return matrix.size();}
-        unsigned int column_size() const {return matrix[0].size();}
-        void put_piece(PieceType ptype) const;
-        void move_piece(Piece& piece, Move move);
-        void update();
-
-    private :
-        std::vector< std::vector<Cell> > matrix;
-        std::vector<unsigned int> get_full_rows() const;
 };
 
 /**
@@ -112,7 +82,11 @@ class Piece
        * \brief Returns the blocks of the piece
        * \return vector of blocks
        */
+
+      Block operator[](unsigned int i) const{return _blocks[i];}
+      Block& operator[](unsigned int i){return _blocks[i];}
       std::vector<Block> getBlocks() const { return _blocks; }
+
 
       /*!
        * \brief Returns the number of blocks
@@ -161,6 +135,37 @@ private:
        * \param pivotCol Column index where the pivot block should be placed
        */
       void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
+};
+
+class Cell
+{
+    public :
+        Cell(bool iis_full=false) : _is_full{iis_full} {}
+        void fill(Block block){_is_full=true;}
+        void clear(){_is_full=false;}
+        bool is_full() const {return _is_full;};
+
+    private :
+        bool _is_full;
+};
+
+class Grid
+{   
+    public :
+
+        // index (0,0) : case en haut à gauche
+        Grid(unsigned int nrow=1, unsigned int ncol=1);
+        Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
+        Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
+        unsigned int row_size() const {return matrix.size();}
+        unsigned int column_size() const {return matrix[0].size();}
+        void put_piece(PieceType ptype);
+        void move_piece(Piece& piece, Move move); 
+        void update();
+
+    private :
+        std::vector< std::vector<Cell> > matrix;
+        std::vector<unsigned int> get_full_rows() const;
 };
 
 #endif
