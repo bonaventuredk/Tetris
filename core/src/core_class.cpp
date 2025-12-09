@@ -211,32 +211,33 @@ std::vector<unsigned int> Grid::get_full_rows() const
     return full_rows;
 }
 
-void Grid::put_piece(PieceType ptype)
+Piece Grid::put_piece(PieceType ptype)
 {
-    Piece piece {ptype, 0, (*this).column_size()/2+1};
+    Piece piece {ptype, 0, (*this).column_size()/2};
     for(unsigned int block=0; block<piece.size(); ++block)
     {   
         (*this)(piece[block].row(), piece[block].column()).fill(piece[block]);
     }
-    return;
+    return piece;
 }
 
-void Grid::move_piece(Piece& piece, Move move)
+bool Grid::move_piece(Piece& piece, Move move, unsigned int length)
 {
     for(unsigned int block=0; block<piece.size(); ++block)
     {   
         (*this)(piece[block].row(), piece[block].column()).clear();
     }
-    piece.move(move);
-    bool is_in_grid=true;
+    piece.move(move, length);
+    bool is_movable=true;
     for(unsigned int block=0; block<piece.size(); ++block)
     { 
-        if(piece[block].row()>(*this).row_size() || piece[block].column()>(*this).column_size())
+        if(piece[block].row()>(*this).row_size() || piece[block].column()>(*this).column_size() 
+            || (*this)(piece[block].row(), piece[block].column()).is_full())
         {
-            is_in_grid=false;
+            is_movable=false;
         }
     }
-    if(!is_in_grid)
+    if(!is_movable)
     {
         piece.move(reverse_move(move));
     }
@@ -244,7 +245,7 @@ void Grid::move_piece(Piece& piece, Move move)
     {   
         (*this)(piece[block].row(), piece[block].column()).fill(piece[block]);
     }
-    return;
+    return is_movable;
 }
 
 void Grid::update()
