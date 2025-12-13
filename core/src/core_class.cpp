@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cstdlib> //rand()
 
 #include "core_class.h"
 
@@ -275,4 +276,21 @@ std::string get_grid(Grid board)
         print_board+='\n';
     }
     return print_board;
+}
+
+
+Piece createRandomPiece(int col)
+{
+    PieceType types[] = {
+        PieceType::I,
+        PieceType::O,
+        PieceType::T,
+        PieceType::L,
+        PieceType::J,
+        PieceType::S,
+        PieceType::Z
+    };
+
+    PieceType randomType = types[rand() % 7];
+    return Piece(randomType, 0, col);
 }
