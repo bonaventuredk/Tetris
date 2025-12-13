@@ -86,29 +86,24 @@ class Piece
       Block operator[](unsigned int i) const{return _blocks[i];}
       Block& operator[](unsigned int i){return _blocks[i];}
       std::vector<Block> getBlocks() const { return _blocks; }
-
+      
 
       /*!
        * \brief Returns the number of blocks
        * \return size of the piece
        */
       unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
-
       /**
-       * \brief Rotates the piece 90° clockwise around its pivot.
+       * @brief Rotates the piece in the specified direction.
+       * 
+       * Rotates the piece 90° around its pivot block.
+       * Clockwise or counterclockwise rotation can be selected.
        *
-       * Uses the pivot block as the center and rotates all blocks around it.
-       *
+       * @param direction Direction of rotation: Move::clock_rotation or Move::anticlock_rotation
        */
-      void rotateDirect();
+       void rotate(Move direction);
+       void move(Move direction, unsigned int length=1);
 
-      /**
-       * \brief Rotates the piece 90° counterclockwise around its pivot.
-       *
-       * Uses the pivot block as the center and rotates all blocks around it
-       * in the opposite direction.
-       */
-      void rotateIndirect();
 
 private:
       PieceType _type; /*!< Type of the piece */
@@ -125,6 +120,21 @@ private:
        * \param pivotCol Column index where the pivot block should be placed
        */
       void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
+      /**
+       * \brief Rotates the piece 90° clockwise around its pivot.
+       *
+       * Uses the pivot block as the center and rotates all blocks around it.
+       *
+       */
+      void rotateDirect();
+
+      /**
+       * \brief Rotates the piece 90° counterclockwise around its pivot.
+       *
+       * Uses the pivot block as the center and rotates all blocks around it
+       * in the opposite direction.
+       */
+      void rotateIndirect();
 };
 
 class Cell
@@ -149,7 +159,7 @@ class Grid
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
         unsigned int row_size() const {return matrix.size();}
         unsigned int column_size() const {return matrix[0].size();}
-        piece put_piece(PieceType ptype);
+        Piece put_piece(PieceType ptype);
         bool move_piece(Piece& piece, Move move, unsigned int length=1); 
         void update();
 
