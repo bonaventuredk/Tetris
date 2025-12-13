@@ -95,15 +95,10 @@ class Piece
       unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
 
       /**
-       * \brief Moves the piece in a given direction.
-       *
-    expected_grid[0,5]='O';
-    expected_grid[0,6]='O';
-    expected_grid[1,7]='O';
-    expected_grid[1,8]='O';ckwise around its pivot.
+       * \brief Rotates the piece 90° clockwise around its pivot.
        *
        * Uses the pivot block as the center and rotates all blocks around it.
-       * The rotation formula swaps and negates coordinates relative to the pivot.
+       *
        */
       void rotateDirect();
 
@@ -162,5 +157,17 @@ class Grid
         std::vector< std::vector<Cell> > matrix;
         std::vector<unsigned int> get_full_rows() const;
 };
+
+/**
+ * @brief Creates a random Tetris piece.
+ *
+ * Randomly selects one of the seven standard Tetris pieces
+ * (I, O, T, L, J, S, Z) and initializes it at row 0 and
+ * the given column.
+ *
+ * @param col Initial column of the piece.
+ * @return Piece A newly created random Tetris piece.
+ */
+Piece createRandomPiece(int col);
 
 #endif
