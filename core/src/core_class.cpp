@@ -182,6 +182,14 @@ void Piece::rotateIndirect()
     }
 }
 
+
+void Piece::rotate(Move direction) {
+    if (direction == Move::clock_rotation) 
+        rotateDirect();
+    else if (direction == Move::anticlock_rotation) 
+        rotateIndirect();
+}
+
 Grid::Grid(unsigned int nrow, unsigned int ncol)
 {   
     std::vector<Cell>  column (ncol);
