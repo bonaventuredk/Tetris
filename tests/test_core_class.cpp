@@ -1,5 +1,5 @@
 #include "catch2/catch_test_macros.hpp"
-#include "../core/core_class.h"
+#include "../core/include/core_class.h"
 #include <string>
 
 namespace Test{
@@ -19,7 +19,7 @@ TEST_CASE("Grid display, Cell::fill(), Cell::clear()", "[azdjazifjaziofjio]")
     Grid grid{10,10};
     std::string expected_grid=Test::empty_grid;
     
-    REQUIRE(get_grid(grid==expected_grid));
+    REQUIRE(get_grid(grid)==expected_grid);
 
     expected_grid[6*11 + 5]='O';
     Block block{5,6};

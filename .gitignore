@@ -1,5 +1,6 @@
 ##### Build files
 build/
+CMakePresets.json
 
 ##### Log Files
 *.log
