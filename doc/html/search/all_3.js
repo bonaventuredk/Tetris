@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['down_0',['down',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d',1,'core_class.h']]]
+  ['binôme_3a_0',['Binôme:',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
+  ['block_1',['Block',['../class_block.html',1,'Block'],['../class_block.html#a9fd04d2a1b2e6c1fff1584b92d15df17',1,'Block::Block()']]]
 ];

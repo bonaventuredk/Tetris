@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_0',['update',['../classGrid.html#a517b238168b228a8163496971d98de12',1,'Grid']]]
+  ['size_0',['size',['../class_piece.html#a4635cdc9afef9d1eff1cc2574a2edbf4',1,'Piece']]]
 ];

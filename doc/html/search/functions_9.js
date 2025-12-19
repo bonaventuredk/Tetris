@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['testcreation_0',['testCreation',['../testPiece_8cpp.html#a1027c6abf7f8a6f3c5dd2529f70b832d',1,'testPiece.cpp']]],
-  ['testmouvements_1',['testMouvements',['../testPiece_8cpp.html#a3b6d751b0e386a8fc26e8cca96b877e2',1,'testPiece.cpp']]],
-  ['testrotations_2',['testRotations',['../testPiece_8cpp.html#ab527a74fb6f2fcd15d2f7b879fe456f9',1,'testPiece.cpp']]],
-  ['type_3',['type',['../classPiece.html#a099bcf4db9b928bc9850d0cfacbf3f25',1,'Piece']]]
+  ['reverse_5fmove_0',['reverse_move',['../core__class_8h.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp'],['../core__class_8cpp.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp']]],
+  ['row_1',['row',['../class_block.html#a8114bb3ebc31622126a38a330427435e',1,'Block::row() const'],['../class_block.html#a57cca9110410ea2fe0963745a06b9158',1,'Block::row()']]],
+  ['row_5fsize_2',['row_size',['../class_grid.html#ad6bb2609093f85198d02446d33c78f6d',1,'Grid']]]
 ];

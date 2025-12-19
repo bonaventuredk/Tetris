@@ -1,11 +1,12 @@
 /**
  * \file core_class.cpp
- * \brief Implementation of class.
+ * \brief Implementation of core's classes.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.1
- * \date 08/12/2025
+ * \version 1.0
+ * \date 19/12/2025
  *
- * This file implements the Block, Cell, Piece, Grid classes.
+ * This file contains definitions for Block, Cell, Piece, Grid classes methos.
+ * Also contains few auxiliary functions.
  */
 #include <iostream>
 #include <vector>
@@ -177,16 +178,16 @@ void Piece::anticlock_rotate()
 
 void Piece::clock_rotate()
 {
-    unsigned int pivot_row = _blocks[_pivot_idx].row();    ///< Pivot row
-    unsigned int pivot_col = _blocks[_pivot_idx].column(); ///< Pivot column
+    unsigned int pivot_row = _blocks[_pivot_idx].row();    // Pivot row
+    unsigned int pivot_col = _blocks[_pivot_idx].column(); // Pivot column
 
     for(auto &b : _blocks)
     {
-        unsigned int relative_row = b.row() - pivot_row; ///< Relative row to pivot
-        unsigned int relative_column = b.column() - pivot_col; ///< Relative column to pivot
+        unsigned int relative_row = b.row() - pivot_row; // Relative row to pivot
+        unsigned int relative_column = b.column() - pivot_col; // Relative column to pivot
 
-        b.row() = pivot_row + relative_column; ///< New row after counterclockwise rotation
-        b.column() = pivot_col - relative_row; ///< New column after counterclockwise rotation
+        b.row() = pivot_row + relative_column; // New row after counterclockwise rotation
+        b.column() = pivot_col - relative_row; // New column after counterclockwise rotation
     }
 }
 

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['main_0',['main',['../test__core__class_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test_core_class.cpp'],['../testPiece_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;testPiece.cpp']]],
-  ['move_1',['move',['../classBlock.html#adb439c8b93ee29e13735294344c209bd',1,'Block::move()'],['../classPiece.html#a158be580c77764024f27ed0b3729191b',1,'Piece::move()'],['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388',1,'Move:&#160;core_class.h']]],
-  ['move_5fpiece_2',['move_piece',['../classGrid.html#afc3ac2f936278defdeaaa71060a6a9a6',1,'Grid::move_piece()'],['../core__class_8cpp.html#aeba63c26bacf1ef700df900df84f1c94',1,'move_piece():&#160;core_class.cpp']]]
+  ['get_5ffull_5frows_0',['get_full_rows',['../class_grid.html#aef1b76d7c48b12ebbd9c0f12781e4977',1,'Grid']]],
+  ['get_5fgrid_1',['get_grid',['../core__class_8h.html#a175f9fbd6504784b4f90cf8b5932dc18',1,'get_grid(Grid grid):&#160;core_class.cpp'],['../core__class_8cpp.html#a175f9fbd6504784b4f90cf8b5932dc18',1,'get_grid(Grid grid):&#160;core_class.cpp']]],
+  ['grid_2',['Grid',['../class_grid.html',1,'Grid'],['../class_grid.html#a514db32850ae00cbfa8ceb68f2b7a1a9',1,'Grid::Grid()']]]
 ];

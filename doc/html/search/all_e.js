@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['up_0',['up',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c',1,'core_class.h']]],
-  ['update_1',['update',['../classGrid.html#a517b238168b228a8163496971d98de12',1,'Grid']]]
+  ['operator_28_29_0',['operator()',['../class_grid.html#ab210a536baa5ad1b289a33e01ec9a93f',1,'Grid::operator()(unsigned int row, unsigned int column) const'],['../class_grid.html#aadd15d5ed6900e769c59bdd57324c627',1,'Grid::operator()(unsigned int row, unsigned int column)']]],
+  ['operator_5b_5d_1',['operator[]',['../class_piece.html#a07be621b8c57bf5a786a035820f59b61',1,'Piece']]]
 ];
