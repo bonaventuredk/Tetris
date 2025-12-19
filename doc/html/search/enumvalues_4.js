@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['j_0',['J',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021aff44570aca8241914870afbc310cdb85',1,'core_class.h']]]
+  ['none_0',['none',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'core_class.h']]]
 ];

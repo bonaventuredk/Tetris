@@ -3,8 +3,9 @@
 #include <string>
 
 
-// Testing Block
-
+//////////////////////////////// 
+//////// Testing Block //////// 
+//////////////////////////////
 
 TEST_CASE("Block")
 {
@@ -30,7 +31,18 @@ TEST_CASE("Block")
 }
 
 
-// Testing grid
+///////////////////////////////
+////////  Testing grid //////// 
+///////////////////////////////
+
+
+/*
+Most of the tests consist in :
+- creating an expected grid as a string;
+- modifying a true grid from Grid class through the methods that has to be tested;
+- getting the true grid as a string;
+- and to finish comparing the two strings.
+*/
 
 
 std::string set_empty_grid(unsigned int nrow, unsigned int ncol)
@@ -47,9 +59,12 @@ std::string set_empty_grid(unsigned int nrow, unsigned int ncol)
     return empty_grid;
 }
 
-// WARNING : empty_grid[1+a*11+b] will correspond to the line a and column b of a tetrix grid.
-// The beginning 1 correspond to the first '/n' added to ensure convenient display.
-// 11 does refer to the number of elements on a given line (10 cells plus the trailing '\n').
+
+/* 
+WARNING : empty_grid[1+a*11+b] will correspond to the line a and column b of a tetrix grid.
+The beginning 1 correspond to the first '/n' added to ensure convenient display.
+11 does refer to the number of elements on a given line (10 cells plus the trailing '\n').
+*/
 
 
 TEST_CASE("Grid display, Cell::fill(), Cell::clear()")

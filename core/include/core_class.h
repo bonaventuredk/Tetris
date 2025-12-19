@@ -1,43 +1,117 @@
 /**
  * \file core_class.h
- * \brief Declaration of core classes for the Tetris.
+ * \brief Header for core's classes.
  * 
  * This file contains the declarations of the fundamental classes
- * of the Tetris logic: Block, Cell, Piece, and Grid.
+ * of Tetris' logic: Block, Piece, Cell, and Grid.
  *
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.1
- * \date 08/12/2025
+ * \version 1.0
+ * \date 19/12/2025
  */
+
 #ifndef CORE_CLASS
 #define CORE_CLASS
 
 #include <vector>
 
-enum class Move{up, down, left, right, clock_rotation, anticlock_rotation, none};
-enum class PieceType { I, O, T, L, J, S, Z };
+/**
+ * \enum Move
+ * \brief An enum class to manipulate in core basic movements of blocks and pieces
+ * as they should appear on screen later.
+ */
+
+enum class Move{
+    up, /**< Upward movement */
+    down, /**< Downward movement */
+    left, /**< Leftward movement */
+    right, /**< Rightward movement */
+    clock_rotation, /**< Clockwise rotation */
+    anticlock_rotation, /**< Anticlockwise rotation */
+    none /**< No movement */
+}; 
+
+/**
+ * \brief A simple function to get the inverse move from one of the enum class Move.
+ * \param move An element of the enum class Move.
+ * \return An element of the enum class Move which is the opposite of \b move .
+*/
 
 Move reverse_move(Move move);
 
-/**
- * @class Block
- * 
- * @brief Class for the block ...
+enum class PieceType { I, O, T, L, J, S, Z };
 
+/**
+ * \class Block
+ * \brief A class which creates the entities representing the Tetris' blocks. It's
+ * essentially a couple of non negative integer coordinates.
 */
+
 class Block
 {
     public :
+
+        /**
+         * \fn Block(unsigned int rrow=0, unsigned int ccolumn=0)
+         * \brief Constructing the block from abscissa and ordinate specifications.
+         * Constructs it with coordinates (0,0) by default.
+         * \param rrolumn An unsigned integer corresponding to the abscissa of the block.
+         * \param ccolumn An unsigned integer corresponding to the ordinate of the block.
+         * \return
+        */
+
         Block(unsigned int rrow=0, unsigned int ccolumn=0) : _row{rrow}, _column{ccolumn} {}
+
+        /**
+         * \fn unsigned int row() const
+         * \brief A getter for the attribute _row
+         * \param.
+         * \return The attribute _row.
+        */
+
         unsigned int row() const {return _row;} 
+
+        /**
+         * \fn unsigned int& row()
+         * \brief A setter for the attribute _row.
+         * \param
+         * \return A reference to the attribute _row.
+        */
+
         unsigned int& row() {return _row;}
+
+        /**
+         * \fn unsigned int column() const
+         * \brief A getter for the attribute _column.
+         * \param
+         * \return The attribute _column.
+        */
+       
         unsigned int column() const {return _column;} 
+
+        /**
+         * \fn unsigned int& column()
+         * \brief A setter for the attribute _column.
+         * \param
+         * \return A reference to the attribute _column.
+        */
+
         unsigned int& column() {return _column;}
+
+        /**
+         * \fn move(Move direction, unsigned int length=1);
+         * \brief A method to translate the blocks using enum class Move. The length of
+         * the move is 1 by default.
+         * \param direction The movement (not a rotation) from Move to be performed.
+         * \param length The length of the movement to be performed.
+         * \return
+        */
+
         void move(Move direction, unsigned int length=1);
 
     private :
-        unsigned int _row;
-        unsigned int _column;
+        unsigned int _row; /**< The abscissa of the block. */
+        unsigned int _column; /**< The ordinate of the block. */
 };
 
 /**
@@ -101,7 +175,7 @@ class Piece
        *
        * @param direction Direction of rotation: Move::clock_rotation or Move::anticlock_rotation
        */
-      
+
        void move(Move direction, unsigned int length=1);
 
 
@@ -137,43 +211,172 @@ private:
       void anticlock_rotate();
 };
 
+/**
+ * \class Cell
+ * \brief A class which creates the entities representing the cells of the Tetris' grid. 
+ * A cell contain several informations such as if it is empty or full.
+*/
+
 class Cell
 {
     public :
+
+        /**
+         * \brief Constructs the cell. Initiate it as empty by default.
+         * \param iis_full A boolean asserting if the cell should be full.
+         * \return
+        */
+
         Cell(bool iis_full=false) : _is_full{iis_full} {}
+
+        /**
+         * \brief Fills the cell by setting the attribute _is_full to true. Also
+         * updates the other attributes accordingly to the block that correspond to the cell.
+         * \param block The instance of type Block that correspond to the cell.
+         * \return
+        */
+
         void fill(Block& block){_is_full=true;}
+
+        /**
+         * \brief Clears the cell by making it empty. 
+         * \param
+         * \return
+        */
+
         void clear(){_is_full=false;}
+
+        /**
+         * \brief Checks if the cell if full.
+         * \param
+         * \return A boolean asserting if the cell is full. 
+        */
+
         bool is_full() const {return _is_full;};
 
     private :
-        bool _is_full;
+        bool _is_full; /**< A boolean indicating if the Cell is full. */
 };
+
+/**
+ * \class Grid
+ * \brief A class which creates a 2D grid of Cell entities. It is actualised
+ * through methods using the creation and the movements of Piece entities. It is 
+ * designed to be used as interface between the core of the game and it's UI made
+ * with SFML. The index (0,0) represents grid's top-left corner.
+*/
 
 class Grid
 {   
     public :
 
-        // index (0,0) : case en haut à gauche
-        Grid(unsigned int nrow=1, unsigned int ncol=1);
+        /**
+         * \brief Constructs the grid from the number of rows and colums it 
+         * should have. The size if of 18 rows and 10 columb by default.
+         * \param nrow The number of rows of the grid.
+         * \param ncol The number of columns of the grid.
+         * \param
+        */
+
+        Grid(unsigned int nrow=18, unsigned int ncol=10);
+
+        /**
+         * \brief Gets the Cell entity corresponding to a given position of the 
+         * attribute \b matrix . 
+         * \param row The row's index of the cell.
+         * \param col The column's index of the cell
+         * \return The cell corresponding to the position ( \b row , \b col ).
+        */
+
         Cell operator()(unsigned int row, unsigned int column) const {return matrix[row][column];} 
+
+        /**
+         * \brief Sets the Cell entity corresponding to a given position of the 
+         * attribute \b matrix . 
+         * \param row The row's index of the cell.
+         * \param col The column's index of the cell
+         * \return The cell's reference corresponding to the position ( \b row , \b col ).
+        */
+
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
+
+        /**
+         * \brief Gets the number of rows of the grid . 
+         * \param
+         * \return The  number of rows of the grid.
+        */
+
         unsigned int row_size() const {return matrix.size();}
+
+        /**
+         * \brief Gets the number of columns of the grid . 
+         * \param
+         * \return The number of columns of the grid.
+        */
+
         unsigned int column_size() const {return matrix[0].size();}
+
+        /**
+         * \brief Creates a piece of a given type and sets
+         * the grid accordingly. 
+         * \param ptype The type of the piece that has to be created.
+         * \return The piece that has been created.
+        */
+
         Piece put_piece(PieceType ptype);
+
+        /**
+         * \brief Moves an existing piece, checks if the move is possible in the grid and
+         * moves the piece back the piece if it isn't. Also sets the grid accordingly
+         * to the result of the different movement. The length of the movement is 1
+         * by default.
+         * \param piece A reference to the piece that will be moved.
+         * \param move The move from Move that has to be performed.
+         * \param length The length of the movement.
+         * \return A boolean asserting if the movement was possible.
+        */
+
         bool move_piece(Piece& piece, Move move, unsigned int length=1); 
+
+        /**
+         * \brief Checks if the grid has full rows and supresses them. Makes the other
+         * rows fall accordingly.
+         * \param
+         * \return 
+        */
+
         void update();
 
     private :
-        std::vector< std::vector<Cell> > matrix;
+
+        std::vector< std::vector<Cell> > matrix; /**< A matrix of Cell entities. */
+
+        /**
+         * \brief A method that get the index of the grid's lines
+         * that are full.
+         * \param 
+         * \return A vector containing the indexes of full lines, from
+         * top to bottom (from 0 to the maximum index). 
+        */
+
         std::vector<unsigned int> get_full_rows() const;
 };
 
-std::string get_grid(Grid board);
+/**
+ * \brief Encodes the grid in a string starting with '\\n'. 
+ * Every line of the grid is terminated by '\\n'. Empty cells 
+ * are reprented by '.', the full ones by 'O'. This function
+ * is designed to be used for debugging and testing of the Grid class. 
+ * \param grid The grid which is going to be encoded.
+ * \return The string encoding the grid.
+*/
+
+std::string get_grid(Grid grid);
 
 /**
  * @brief Creates a random Tetris piece.
  *
- * Randomly selects one of the seven standard Tetris pieces
+ * Randomly selects one of the seven standard Tetrix pieces
  * (I, O, T, L, J, S, Z) and initializes it at row 0 and
  * the given column.
  *

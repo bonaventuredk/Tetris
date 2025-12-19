@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['o_0',['O',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021af186217753c37b9b9f958d906208506e',1,'core_class.h']]],
-  ['operator_28_29_1',['operator()',['../classGrid.html#ab210a536baa5ad1b289a33e01ec9a93f',1,'Grid::operator()(unsigned int row, unsigned int column) const'],['../classGrid.html#aadd15d5ed6900e769c59bdd57324c627',1,'Grid::operator()(unsigned int row, unsigned int column)']]],
-  ['operator_3c_3c_2',['operator&lt;&lt;',['../core__class_8cpp.html#a78e747aad23977ff5d2afdac6acddaee',1,'core_class.cpp']]]
+  ['implémentées_0',['Fonctionnalités A Implémentées',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
+  ['implémentation_20les_20class_20suivantes_3a_1',['Tache 1: Implémentation les &quot;class&quot; suivantes:',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
+  ['initializeblocks_2',['initializeBlocks',['../class_piece.html#a0071dbad5eaf96f1e5847d7ac352d53a',1,'Piece']]],
+  ['interdits_3',['interdits',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'Coups interdits'],['../md__r_e_a_d_m_e.html#autotoc_md5',1,'Déroulement du jeu/Coups valides et interdits']]],
+  ['is_5ffull_4',['is_full',['../class_cell.html#abff348d6f61b519e835442d8e78f23d4',1,'Cell']]]
 ];

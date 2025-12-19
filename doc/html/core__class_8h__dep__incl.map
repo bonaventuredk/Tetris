@@ -1,9 +1,0 @@
-<map id="core/include/core_class.h" name="core/include/core_class.h">
-<area shape="rect" id="Node000001" title="Declaration of core classes for the Tetris." alt="" coords="211,5,397,31"/>
-<area shape="rect" id="Node000002" href="$testPiece_8cpp.html" title=" " alt="" coords="5,86,197,111"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,38,132,88,130,83,261,33"/>
-<area shape="rect" id="Node000003" href="$test__core__class_8cpp.html" title=" " alt="" coords="221,79,387,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="307,44,307,79,301,79,301,44"/>
-<area shape="rect" id="Node000004" href="$core__class_8cpp.html" title="Implementation of class." alt="" coords="411,86,583,111"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="346,33,470,84,468,88,344,38"/>
-</map>
