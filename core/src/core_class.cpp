@@ -5,7 +5,7 @@
  * \version 1.1
  * \date 08/12/2025
  *
- * This file implements the Block, Cell, Piece, Grid class.
+ * This file implements the Block, Cell, Piece, Grid classes.
  */
 #include <iostream>
 #include <vector>
@@ -13,6 +13,10 @@
 #include <cstdlib> //rand()
 
 #include "core_class.h"
+
+//////////////////////////////
+////// Move enum class //////
+/////////////////////////////
 
 Move reverse_move(Move move)
 {
@@ -34,6 +38,11 @@ Move reverse_move(Move move)
             return Move::none;
     }
 }
+
+
+/////////////////////////
+////// Block class //////
+/////////////////////////
 
 void Block::move(Move direction, unsigned int length)
 {   
@@ -59,6 +68,11 @@ void Block::move(Move direction, unsigned int length)
     }
     return;
 }
+
+/////////////////////////
+////// Piece class //////
+/////////////////////////
+
 
 Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 : _type(type), _pivot_idx(0)
@@ -176,6 +190,26 @@ void Piece::clock_rotate()
     }
 }
 
+PieceType createRandomPiece(int col)
+{
+    PieceType types[] = {
+        PieceType::I,
+        PieceType::O,
+        PieceType::T,
+        PieceType::L,
+        PieceType::J,
+        PieceType::S,
+        PieceType::Z
+    };
+
+    PieceType randomType = types[rand() % 7];
+    return randomType;
+}
+
+////////////////////////
+////// Grid class //////
+////////////////////////
+
 
 Grid::Grid(unsigned int nrow, unsigned int ncol)
 {   
@@ -271,21 +305,4 @@ std::string get_grid(Grid grid)
         grid_as_str+='\n';
     }
     return grid_as_str;
-}
-
-
-PieceType createRandomPiece(int col)
-{
-    PieceType types[] = {
-        PieceType::I,
-        PieceType::O,
-        PieceType::T,
-        PieceType::L,
-        PieceType::J,
-        PieceType::S,
-        PieceType::Z
-    };
-
-    PieceType randomType = types[rand() % 7];
-    return randomType;
 }
