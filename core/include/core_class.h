@@ -119,7 +119,7 @@ private:
        * \param pivotRow Row index where the pivot block should be placed
        * \param pivotCol Column index where the pivot block should be placed
        */
-      void initializeBlocks(unsigned int pivotRow, unsigned int pivotCol);
+      void initializeBlocks();
       /**
        * \brief Rotates the piece 90° clockwise around its pivot.
        *
