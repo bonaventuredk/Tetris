@@ -42,16 +42,16 @@ void Block::move(Move direction, unsigned int length)
         switch(direction)
         {
             case Move::up :
-                ++_column;
+                --_row;
                 break;
             case Move::down :
-                --_column;
-                break;
-            case Move::right :
                 ++_row;
                 break;
-            case Move::left:
-                --_row;
+            case Move::right :
+                ++_column;
+                break;
+            case Move::left :
+                --_column;
                 break;
             default :
                 break;
@@ -63,18 +63,22 @@ void Block::move(Move direction, unsigned int length)
 Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 : _type(type), _pivot_idx(0)
 {
+    Block pivot{pivotRow, pivotCol};
+    for(unsigned int i=0; i<4; ++i)
+    {
+        _blocks.push_back(pivot);
+    }
     // Initialize the blocks relative to the piece type and pivot
-    initializeBlocks(pivotRow, pivotCol);
+    initializeBlocks();
 }
 
 
-void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
+void Piece::initializeBlocks()
 {
-     Block pivot {pivotRow, pivotCol};
-    _blocks={pivot, pivot, pivot, pivot};
+    
     // Set the blocks and pivot index according to the piece type
     switch(_type)
-    {
+    {   
         case PieceType::I :
             _blocks[1].move(Move::left,1);
             _blocks[2].move(Move::right,1);
@@ -82,10 +86,10 @@ void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
             break;
 
         case PieceType::O :
-            _blocks[1].move(Move::right,1);
+            _blocks[1].move(Move::left,1);
             _blocks[2].move(Move::down,1);
             _blocks[3].move(Move::down,1);
-            _blocks[3].move(Move::right,1);
+            _blocks[3].move(Move::left,1);
             break;
 
         case PieceType::T :
