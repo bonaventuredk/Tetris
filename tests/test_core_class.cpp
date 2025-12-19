@@ -168,46 +168,72 @@ TEST_CASE("Grid::move_piece, O type, no edge cases")
     Piece piece=grid.put_piece(PieceType::O);
 
     bool has_moved=grid.move_piece(piece, Move::down);
-    REQUIRE(has_moved);
-    expected_grid[1,5]='O';
-    expected_grid[1,6]='O';
-    expected_grid[2,7]='O';
-    expected_grid[2,8]='O';
+    REQUIRE(has_moved==true);
+    expected_grid[1+1*11+4]='O';
+    expected_grid[1+1*11+5]='O';
+    expected_grid[1+2*11+4]='O';
+    expected_grid[1+2*11+5]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 
+    expected_grid=set_empty_grid(10,10);
     has_moved=grid.move_piece(piece, Move::up);
-    REQUIRE(has_moved);
-    expected_grid[0,5]='O';
-    expected_grid[0,6]='O';
-    expected_grid[1,7]='O';
-    expected_grid[1,8]='O';
+    REQUIRE(has_moved==true);
+    expected_grid[1+0*11+4]='O';
+    expected_grid[1+0*11+5]='O';
+    expected_grid[1+1*11+4]='O';
+    expected_grid[1+1*11+5]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 
+    expected_grid=set_empty_grid(10,10);
     has_moved=grid.move_piece(piece, Move::right);
-    REQUIRE(has_moved);
-    expected_grid[0,6]='O';
-    expected_grid[0,7]='O';
-    expected_grid[1,8]='O';
-    expected_grid[1,9]='O';
+    REQUIRE(has_moved==true);
+    expected_grid[1+0*11+5]='O';
+    expected_grid[1+0*11+6]='O';
+    expected_grid[1+1*11+5]='O';
+    expected_grid[1+1*11+6]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 
+    expected_grid=set_empty_grid(10,10);
     has_moved=grid.move_piece(piece, Move::left);
-    REQUIRE(has_moved);
-    expected_grid[0,5]='O';
-    expected_grid[0,6]='O';
-    expected_grid[1,7]='O';
-    expected_grid[1,8]='O';
+    REQUIRE(has_moved==true);
+    expected_grid[1+0*11+4]='O';
+    expected_grid[1+0*11+5]='O';
+    expected_grid[1+1*11+4]='O';
+    expected_grid[1+1*11+5]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 
+
+    expected_grid=set_empty_grid(10,10);
+    has_moved=grid.move_piece(piece, Move::down);
     has_moved=grid.move_piece(piece, Move::clock_rotation);
-    REQUIRE(has_moved);
+    REQUIRE(has_moved==true);
+    expected_grid[1+0*11+4]='O';
+    expected_grid[1+0*11+5]='O';
+    expected_grid[1+1*11+4]='O';
+    expected_grid[1+1*11+5]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 
+    expected_grid=set_empty_grid(10,10);
     has_moved=grid.move_piece(piece, Move::anticlock_rotation);
-    REQUIRE(has_moved);
+    REQUIRE(has_moved==true);
+    expected_grid[1+1*11+5]='O';
+    expected_grid[1+1*11+6]='O';
+    expected_grid[1+2*11+5]='O';
+    expected_grid[1+2*11+6]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 }
 
+TEST_CASE("Grid::move_piece, I type, edge cases")
+{
+    Grid grid{10,10};
+    std::string expected_grid=set_empty_grid(10,10);
+    Piece piece=grid.put_piece(PieceType::I);
+
+    expected_grid[1+0*11+4]='O';
+    expected_grid[1+0*11+5]='O';
+    expected_grid[1+0*11+6]='O';
+    expected_grid[1+0*11+7]='O';
+}
 
 TEST_CASE("Grid::update")
 {

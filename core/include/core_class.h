@@ -101,7 +101,7 @@ class Piece
        *
        * @param direction Direction of rotation: Move::clock_rotation or Move::anticlock_rotation
        */
-       void rotate(Move direction);
+      
        void move(Move direction, unsigned int length=1);
 
 
@@ -126,7 +126,7 @@ private:
        * Uses the pivot block as the center and rotates all blocks around it.
        *
        */
-      void rotateDirect();
+      void clock_rotate();
 
       /**
        * \brief Rotates the piece 90° counterclockwise around its pivot.
@@ -134,7 +134,7 @@ private:
        * Uses the pivot block as the center and rotates all blocks around it
        * in the opposite direction.
        */
-      void rotateIndirect();
+      void anticlock_rotate();
 };
 
 class Cell
@@ -180,6 +180,6 @@ std::string get_grid(Grid board);
  * @param col Initial column of the piece.
  * @return Piece A newly created random Tetris piece.
  */
-Piece createRandomPiece(int col);
+PieceType createRandomPiece(int col);
 
 #endif
