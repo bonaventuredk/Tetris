@@ -141,7 +141,7 @@ class Cell
 {
     public :
         Cell(bool iis_full=false) : _is_full{iis_full} {}
-        void fill(Block block){_is_full=true;}
+        void fill(Block& block){_is_full=true;}
         void clear(){_is_full=false;}
         bool is_full() const {return _is_full;};
 
@@ -167,6 +167,8 @@ class Grid
         std::vector< std::vector<Cell> > matrix;
         std::vector<unsigned int> get_full_rows() const;
 };
+
+std::string get_grid(Grid board);
 
 /**
  * @brief Creates a random Tetris piece.

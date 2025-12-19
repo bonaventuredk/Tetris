@@ -70,48 +70,58 @@ Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
 
 void Piece::initializeBlocks(unsigned int pivotRow, unsigned int pivotCol)
 {
+     Block pivot {pivotRow, pivotCol};
+    _blocks={pivot, pivot, pivot, pivot};
     // Set the blocks and pivot index according to the piece type
     switch(_type)
     {
-        case PieceType::I:
-            _blocks = { {1,1}, {0,1}, {2,1}, {3,1} };
-            _pivot_idx = 1; 
+        case PieceType::I :
+            _blocks[1].move(Move::left,1);
+            _blocks[2].move(Move::right,1);
+            _blocks[3].move(Move::right,2);
             break;
 
-        case PieceType::O:
-            _blocks = { {1,1}, {1,2}, {2,1}, {2,2} };
-            _pivot_idx = 2; 
+        case PieceType::O :
+            _blocks[1].move(Move::right,1);
+            _blocks[2].move(Move::down,1);
+            _blocks[3].move(Move::down,1);
+            _blocks[3].move(Move::right,1);
             break;
 
-        case PieceType::T:
-            _blocks = { {1,1}, {1,0}, {1,2}, {2,1} };
-            _pivot_idx = 0; 
+        case PieceType::T :
+            _blocks[1].move(Move::left,1);
+            _blocks[2].move(Move::right,1);
+            _blocks[3].move(Move::down,1);
             break;
 
-        case PieceType::J:
-            _blocks = { {1,1}, {0,1}, {2,1}, {2,2} };
-            _pivot_idx = 3; 
+        case PieceType::J :
+            _blocks[1].move(Move::left,1);
+            _blocks[2].move(Move::right,1);
+            _blocks[3].move(Move::down,1);
+            _blocks[3].move(Move::right,1);
             break;
 
-        case PieceType::L:
-            _blocks = { {1,1}, {0,1}, {2,1}, {2,0} };
-            _pivot_idx = 3; 
+        case PieceType::L :
+            _blocks[1].move(Move::left,1);
+            _blocks[2].move(Move::right,1);
+            _blocks[3].move(Move::down,1);
+            _blocks[3].move(Move::left,1);
             break;
 
-        case PieceType::S:
-            _blocks = { {1,1}, {1,2}, {2,1}, {2,0} };
-            _pivot_idx = 0; 
+        case PieceType::S :
+            _blocks[1].move(Move::right,1);
+            _blocks[2].move(Move::down,1);
+            _blocks[3].move(Move::down,1);
+            _blocks[3].move(Move::left,1);
             break;
 
-        case PieceType::Z:
-            _blocks = { {1,1}, {1,0}, {2,1}, {2,2} };
-            _pivot_idx = 0;
+        case PieceType::Z :
+            _blocks[1].move(Move::left,1);
+            _blocks[2].move(Move::down,1);
+            _blocks[3].move(Move::down,1);
+            _blocks[3].move(Move::right,1);
             break;
     }
-
-    // Move piece to the desired initial position
-    move(Move::down, pivotRow);
-    move(Move::right, pivotCol);
 }
 
 void Piece::move(Move m, unsigned int length)
@@ -271,19 +281,19 @@ void Grid::update()
     return;
 }
 
-std::string get_grid(Grid board)
+std::string get_grid(Grid grid)
 {
-    std::string print_board;
-    for(unsigned int row=0; row<board.row_size(); ++row)
+    std::string grid_as_str="\n";
+    for(unsigned int row=0; row<grid.row_size(); ++row)
     {
-        for(unsigned int column=0; column<board.column_size(); ++column)
+        for(unsigned int column=0; column<grid.column_size(); ++column)
         {
-            if(board(row, column).is_full()) print_board+='O';
-            else print_board+='.';
+            if(grid(row, column).is_full()) grid_as_str+='O';
+            else grid_as_str+='.';
         }
-        print_board+='\n';
+        grid_as_str+='\n';
     }
-    return print_board;
+    return grid_as_str;
 }
 
 
