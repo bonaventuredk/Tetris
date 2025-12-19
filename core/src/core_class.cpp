@@ -95,8 +95,8 @@ void Piece::initializeBlocks()
     {   
         case PieceType::I :
             _blocks[1].move(Move::left,1);
-            _blocks[2].move(Move::right,1);
-            _blocks[3].move(Move::right,2);
+            _blocks[2].move(Move::left,2);
+            _blocks[3].move(Move::right,1);
             break;
 
         case PieceType::O :
@@ -261,7 +261,7 @@ bool Grid::move_piece(Piece& piece, Move move, unsigned int length)
     bool is_movable=true;
     for(unsigned int block=0; block<piece.size(); ++block)
     { 
-        if(piece[block].row()>(*this).row_size() || piece[block].column()>(*this).column_size() 
+        if(piece[block].row()>=(*this).row_size() || piece[block].column()>=(*this).column_size() 
             || (*this)(piece[block].row(), piece[block].column()).is_full())
         {
             is_movable=false;
@@ -269,7 +269,7 @@ bool Grid::move_piece(Piece& piece, Move move, unsigned int length)
     }
     if(!is_movable)
     {
-        piece.move(reverse_move(move));
+        piece.move(reverse_move(move), length);
     }
     for(unsigned int block=0; block<piece.size(); ++block)
     {   
