@@ -130,79 +130,52 @@ void Piece::initializeBlocks()
 
 void Piece::move(Move m, unsigned int length)
 {
-    for(auto &b : _blocks)
+    switch(m)
     {
-        switch(m)
-        {
-            case Move::left:
-                b.column() -= length; ///< Move left by reducing column
-                break;
-
-            case Move::right:
-                b.column() += length; ///< Move right by increasing column
-                break;
-
-            case Move::up:
-                b.row() -= length;    ///< Move up by reducing row
-                break;
-
-            case Move::down:
-                b.row() += length;    ///< Move down by increasing row
-                break;
-
-            default:
-                break;
-        }
+        case Move::clock_rotation :
+            clock_rotate();
+            break;
+        case Move::anticlock_rotation :
+            anticlock_rotate();
+            break;
+        default:
+            for(Block& block : _blocks){block.move(m, length);}
+            break;
     }
 }
 
 
-void Piece::rotateDirect()
+void Piece::anticlock_rotate()
 {
-    unsigned int pr = _blocks[_pivot_idx].row();    ///< Pivot row
-    unsigned int pc = _blocks[_pivot_idx].column(); ///< Pivot column
+    unsigned int pivot_row = _blocks[_pivot_idx].row();    ///< Pivot row
+    unsigned int pivot_col = _blocks[_pivot_idx].column(); ///< Pivot column
 
     for(auto &b : _blocks)
     {
-        int r = (int)b.row() - (int)pr; ///< Relative row to pivot
-        int c = (int)b.column() - (int)pc; ///< Relative column to pivot
+        unsigned int relative_row = b.row() - pivot_row; ///< Relative row to pivot
+        unsigned int relative_column = b.column() - pivot_col; ///< Relative column to pivot
         
-        int newR = pr + c; ///< New row after clockwise rotation
-        int newC = pc - r; ///< New column after clockwise rotation
-
-        b.row() = (unsigned int)newR;
-        b.column() = (unsigned int)newC;
+        b.row() = pivot_row -  relative_column; ///< New row after clockwise rotation
+        b.column() = pivot_col +  relative_row; ///< New column after clockwise rotation
     }
 }
 
 
-
-
-void Piece::rotateIndirect()
+void Piece::clock_rotate()
 {
-    unsigned int pr = _blocks[_pivot_idx].row();    ///< Pivot row
-    unsigned int pc = _blocks[_pivot_idx].column(); ///< Pivot column
+    unsigned int pivot_row = _blocks[_pivot_idx].row();    ///< Pivot row
+    unsigned int pivot_col = _blocks[_pivot_idx].column(); ///< Pivot column
 
     for(auto &b : _blocks)
     {
-        int r = (int)b.row() - (int)pr; ///< Relative row to pivot
-        int c = (int)b.column() - (int)pc; ///< Relative column to pivot
+        unsigned int relative_row = b.row() - pivot_row; ///< Relative row to pivot
+        unsigned int relative_column = b.column() - pivot_col; ///< Relative column to pivot
 
-        int newR = pr - c; ///< New row after counterclockwise rotation
-        int newC = pc + r; ///< New column after counterclockwise rotation
-
-        b.row() = (unsigned int)newR;
-        b.column() = (unsigned int)newC;
+        b.row() = pivot_row + relative_column; ///< New row after counterclockwise rotation
+        b.column() = pivot_col - relative_row; ///< New column after counterclockwise rotation
     }
 }
 
-
-void Piece::rotate(Move direction) {
-    if (direction == Move::clock_rotation) 
-        rotateDirect();
-    else if (direction == Move::anticlock_rotation) 
-        rotateIndirect();
-}
 
 Grid::Grid(unsigned int nrow, unsigned int ncol)
 {   
@@ -301,7 +274,7 @@ std::string get_grid(Grid grid)
 }
 
 
-Piece createRandomPiece(int col)
+PieceType createRandomPiece(int col)
 {
     PieceType types[] = {
         PieceType::I,
@@ -314,5 +287,5 @@ Piece createRandomPiece(int col)
     };
 
     PieceType randomType = types[rand() % 7];
-    return Piece(randomType, 0, col);
+    return randomType;
 }
