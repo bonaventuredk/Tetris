@@ -28,6 +28,21 @@ int main()
         
 
         window.display();
+        for (unsigned int r = 0; r < ROWS; ++r)
+        {
+            for (unsigned int c = 0; c < COLS; ++c)
+            {
+                if (grid(r, c).is_full())
+                {
+                    cell.setPosition(sf::Vector2f(
+                        c * CELL,
+                        r * CELL
+                    ));
+                    cell.setFillColor(sf::Color::Cyan);
+                    window.draw(cell);
+                }
+            }
+        }
     }
 
     return 0;
