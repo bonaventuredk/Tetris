@@ -16,7 +16,20 @@ int main()
 
     sf::RectangleShape cell(sf::Vector2f(CELL - 1.f, CELL - 1.f));
     sf::Clock clock;
-   
+    while (window.isOpen())
+    {
+        
+        while (auto event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
+        window.clear(sf::Color::Black);
+        
+
+        window.display();
+    }
+
     return 0;
 }
 
