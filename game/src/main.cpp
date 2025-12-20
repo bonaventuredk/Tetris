@@ -27,7 +27,7 @@ int main()
         window.clear(sf::Color::Black);
         
 
-        window.display();
+        
         for (unsigned int r = 0; r < ROWS; ++r)
         {
             for (unsigned int c = 0; c < COLS; ++c)
@@ -43,6 +43,7 @@ int main()
                 }
             }
         }
+        window.display();
     }
 
     return 0;
