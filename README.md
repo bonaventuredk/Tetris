@@ -123,27 +123,72 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 ##  Aborescence du Projet
 
         TetrisProject/
-        ├── core/ 
-        │ ├──  include/
-        │ ├──  src/
-        ├──  doc/
-        ├── CMakeLists.txt 
+        ├── core/
+        │ ├── include/
+        │ │ └── core_class.h
+        │ └── src/
+        │   └── core_class.cpp
+        │   └── main.cpp
+        ├── doc/
+        ├── sounds/
+        │ ├── music.ogg
+        │ ├── move.wav
+        │ ├── rotate.wav
+        │ └── drop.wav
+        ├── tests/
+        ├── CMakeLists.txt
+        ├── DoxyFile
         ├── .gitignore
-        ├── doxygenfile  
-        └── README.md 
-        
+        └── README.md
  
-#####################
-## Feuille de Route##
-#####################
 
-# Tache 1: Implémentation les "class" suivantes:
+### Architecture des Classes
 
-- Block
+1. **Block** : Représente un bloc individuel avec ses coordonnées (ligne, colonne)
+2. **Cell** : Représente une cellule de la grille, pouvant être vide ou pleine
+3. **Piece** : Groupe de 4 blocs formant une pièce Tetris, avec gestion des rotations
+4. **Grid** : Grille de jeu contenant les cellules, gère la logique du jeu
+5. **Enumérations** :
+   - `Move` : Déplacements possibles (haut, bas, gauche, droite, rotations)
+   - `PieceType` : Les 7 types de pièces Tetris
 
-- Piece 
+## Feuille de Route
 
-- Grid
+### Tâche 1: Implémentation des classes de base ✓
+- [x] Classe `Block`
+- [x] Classe `Cell` 
+- [x] Classe `Piece`
+- [x] Classe `Grid`
+
+### Tâche 2: Logique du jeu ✓
+- [x] Mouvement des pièces
+- [x] Rotation des pièces
+- [x] Détection des collisions
+- [x] Suppression des lignes complètes
+- [x] Génération aléatoire des pièces
+
+### Tâche 3: Interface graphique ✓
+- [x] Affichage de la grille
+- [x] Affichage des pièces
+- [x] Contrôles clavier
+- [x] Système audio
+
+### Tâche 4: Fonctionnalités avancées
+- [ ] Système de scoring (points par ligne, etc.)
+- [ ] Niveaux de difficulté progressive
+- [ ] Menu principal et écrans d'interface
+- [ ] Sauvegarde des meilleurs scores
+- [ ] Effets visuels (animations et autres)
+
+### Tâche 5:
+
+### Compilation avec CMake
+```bash
+mkdir build
+cd build
+cmake ..
+make
+./tetrix_game
         
 
     
