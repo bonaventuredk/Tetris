@@ -191,7 +191,7 @@ void Piece::clock_rotate()
     }
 }
 
-PieceType createRandomPiece(int col)
+PieceType createRandomPiece()
 {
     PieceType types[] = {
         PieceType::I,
@@ -242,6 +242,7 @@ std::vector<unsigned int> Grid::get_full_rows() const
     return full_rows;
 }
 
+
 Piece Grid::put_piece(PieceType ptype)
 {
     Piece piece {ptype, 0, (*this).column_size()/2};
@@ -251,6 +252,7 @@ Piece Grid::put_piece(PieceType ptype)
     }
     return piece;
 }
+
 
 bool Grid::move_piece(Piece& piece, Move move, unsigned int length)
 {
@@ -288,7 +290,7 @@ void Grid::update()
         {
             matrix[row]=matrix[row-1];
         }
-        matrix[0]=std::vector<Cell>((*this).row_size());
+        matrix[0]=std::vector<Cell>((*this).column_size());
     }
     return;
 }

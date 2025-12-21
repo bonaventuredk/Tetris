@@ -4,11 +4,12 @@
 int main()
 {
     Grid grid(18, 10);
-    Piece current = grid.put_piece(PieceType::T);
-
     const int ROWS = grid.row_size();
     const int COLS = grid.column_size();
     const int CELL = 30; //pixel's cell
+    Piece current = grid.put_piece(createRandomPiece());
+
+    
 
     sf::RenderWindow window(
         sf::VideoMode(sf::Vector2u(COLS * CELL, ROWS * CELL)),"Tetris");
@@ -40,7 +41,7 @@ int main()
             bool moved = grid.move_piece(current, Move::down);
             if (!moved){
                 grid.update();
-                current  =grid.put_piece(createRandomPiece(COLS/2));
+                current  =grid.put_piece(createRandomPiece());
             }
             clock.restart();
         }
