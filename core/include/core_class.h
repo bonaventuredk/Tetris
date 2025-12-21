@@ -383,6 +383,6 @@ std::string get_grid(Grid grid);
  * @param col Initial column of the piece.
  * @return Piece A newly created random Tetris piece.
  */
-PieceType createRandomPiece(int col);
+PieceType createRandomPiece();
 
 #endif
