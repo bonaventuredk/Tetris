@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 #include "core_class.h"
 
 int main()
@@ -17,6 +19,30 @@ int main()
 
     sf::RectangleShape cell(sf::Vector2f(CELL - 1.f, CELL - 1.f)); // -1.f : to avoid overlaps at the edges    sf::Clock clock;
     sf::Clock clock;
+    // for sound
+    sf::Music music;
+    if (!music.openFromFile("../sounds/music.ogg"))
+        return -1;
+
+    music.setLooping(true);
+    music.setVolume(40.f);
+    music.play();
+
+    sf::SoundBuffer moveBuffer;
+    sf::SoundBuffer rotateBuffer;
+    sf::SoundBuffer dropBuffer;
+
+    if (!moveBuffer.loadFromFile("../sounds/move.wav") ||
+        !rotateBuffer.loadFromFile("../sounds/rotate.wav") ||
+        !dropBuffer.loadFromFile("../sounds/drop.wav"))
+    {
+        return -1; 
+    }
+
+    sf::Sound moveSound(moveBuffer);
+    sf::Sound rotateSound(rotateBuffer);
+    sf::Sound dropSound(dropBuffer);
+
     while (window.isOpen())
     {
         
@@ -28,18 +54,23 @@ int main()
             {
                 if (key->scancode ==sf::Keyboard::Scan::Left)
                     grid.move_piece(current, Move::left);
+                    moveSound.play();
                 if (key->scancode ==sf::Keyboard::Scan::Right)
                     grid.move_piece(current,Move::right);
+                    moveSound.play();
                 if (key->scancode== sf::Keyboard::Scan::Down)
                     grid.move_piece(current, Move::down);
+                    moveSound.play();
                 if (key->scancode ==sf::Keyboard::Scan::Up)
                     grid.move_piece(current,Move::clock_rotation);
+                    rotateSound.play();
             }
         }
         if (clock.getElapsedTime().asSeconds() > 0.6f) //checks if a certain amount of time has passed (0.6)
         {
             bool moved = grid.move_piece(current, Move::down);
             if (!moved){
+                dropSound.play();
                 grid.update();
                 current  =grid.put_piece(createRandomPiece());
             }
