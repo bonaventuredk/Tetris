@@ -1,24 +1,24 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+#include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 
 #include "core_class.h"
+#include "ui.h"
 
 int main()
 {
     Grid grid(18, 10);
     bool is_game_over=false;
     unsigned int score= grid.score();
-    const int ROWS = grid.column_size();
-    const int COLS = grid.row_size();
-    const int CELL = 30; //pixel's cell
+    const int rows = grid.column_size();
+    const int cols = grid.row_size();
     Piece current = grid.put_piece(createRandomPiece());
     
 
     sf::RenderWindow window(
-        sf::VideoMode(sf::Vector2u(COLS * CELL, ROWS * CELL)),"Tetris");
+        sf::VideoMode(sf::Vector2u(cols * UI::pixel_cell, rows * UI::pixel_cell)),"Tetris");
     window.setFramerateLimit(60);
 
-    sf::RectangleShape cell(sf::Vector2f(CELL - 1.f, CELL - 1.f)); // -1.f : to avoid overlaps at the edges    sf::Clock clock;
+
     sf::Clock clock;
     // for sound
     sf::Music music;
@@ -82,55 +82,12 @@ int main()
             }
             window.clear(sf::Color::Black);
             
+            draw_grid(grid, window);
 
-            
-            for (unsigned int r = 0; r < ROWS; ++r)
-            {
-                for (unsigned int c = 0; c < COLS; ++c)
-                {
-                    Color cell_color=grid(r,c).color();
-                    if (grid(r, c).is_full())
-                    {
-                        cell.setPosition(sf::Vector2f(
-                            c * CELL,
-                            r * CELL
-                        ));
-                        switch(cell_color)
-                        {
-                            case Color::blue : 
-                            cell.setFillColor(sf::Color::Blue);
-                            break;
-
-                            case Color::yellow :  
-                            cell.setFillColor(sf::Color::Yellow);
-                            break;
-
-                            case Color::purple : 
-                            cell.setFillColor(sf::Color::Cyan);
-                            break;
-
-                            case Color::orange : 
-                            cell.setFillColor(sf::Color::Cyan);
-                            break;
-
-                            case Color::pink : 
-                            cell.setFillColor(sf::Color::Cyan);
-                            break;
-
-                            case Color::red : 
-                            cell.setFillColor(sf::Color::Red);
-                            break;
-
-                            case Color::green : 
-                            cell.setFillColor(sf::Color::Green);
-                            break;
-                        }
-                        window.draw(cell);
-                    }
-                }
-            }
+           
             window.display();
         }
+        
         // Adding a question such as : restart or quit 
     }
 
