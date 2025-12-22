@@ -328,8 +328,19 @@ TEST_CASE("Grid::update")
     }
     grid(8,0).fill(block);
     grid(5,0).fill(block);
-    grid.update();
+    bool is_game_over= grid.update();
     expected_grid[1+8*12+0]='O';
     expected_grid[1+9*12+0]='O';
+    REQUIRE(is_game_over==false);
+    REQUIRE(get_grid(grid)==expected_grid);
+    unsigned int score= grid.score();
+    REQUIRE(score==5*11*3);
+    for(unsigned int i=0; i<10; ++i)
+    {
+        expected_grid[1+i*12+0]='O';
+        grid(i,0).fill(block);
+    }
+    is_game_over= grid.update();
+    REQUIRE(is_game_over==true);
     REQUIRE(get_grid(grid)==expected_grid);
 }

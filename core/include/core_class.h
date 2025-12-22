@@ -39,7 +39,6 @@ enum class Move{
 
 Move reverse_move(Move move);
 
-enum class PieceType { I, O, T, L, J, S, Z };
 
 /**
  * \class Block
@@ -113,6 +112,8 @@ class Block
         unsigned int _row; /**< The abscissa of the block. */
         unsigned int _column; /**< The ordinate of the block. */
 };
+
+enum class PieceType { I, O, T, L, J, S, Z };
 
 /**
  * @class Piece
@@ -272,14 +273,21 @@ class Grid
 
         /**
          * \brief Constructs the grid from the number of rows and colums it 
-         * should have. The size if of 18 rows and 10 columb by default.
+         * should have. The size if of 18 rows and 10 columns by default.The default score is 0.
          * \param nrow The number of rows of the grid.
          * \param ncol The number of columns of the grid.
-         * \param
         */
 
         Grid(unsigned int nrow=18, unsigned int ncol=10);
 
+        /**
+         * \brief A getter for the score of the player. 
+         * \param 
+         * \return The player's current score.
+        */
+
+        unsigned int score() const {return _score;}
+        
         /**
          * \brief Gets the Cell entity corresponding to a given position of the 
          * attribute \b matrix . 
@@ -301,20 +309,20 @@ class Grid
         Cell& operator()(unsigned int row, unsigned int column){return matrix[row][column];} 
 
         /**
-         * \brief Gets the number of rows of the grid . 
+         * \brief Gets the size of rows of the grid. 
          * \param
-         * \return The  number of rows of the grid.
+         * \return The size of rows of the grid.
         */
 
-        unsigned int row_size() const {return matrix.size();}
+        unsigned int row_size() const {return matrix[0].size();}
 
         /**
-         * \brief Gets the number of columns of the grid . 
+         * \brief Gets the size of columns of the grid . 
          * \param
-         * \return The number of columns of the grid.
+         * \return The size of columns of the grid.
         */
 
-        unsigned int column_size() const {return matrix[0].size();}
+        unsigned int column_size() const {return matrix.size();}
 
         /**
          * \brief Creates a piece of a given type and sets
@@ -341,15 +349,16 @@ class Grid
         /**
          * \brief Checks if the grid has full rows and supresses them. Makes the other
          * rows fall accordingly.
-         * \param
-         * \return 
+         * \param score The current score of the player
+         * \return A boolean asserting if the game is over or not.
         */
 
-        void update();
+        bool update();
 
     private :
 
         std::vector< std::vector<Cell> > matrix; /**< A matrix of Cell entities. */
+        unsigned int _score; /**< The player's score currently associated with the grid. */
 
         /**
          * \brief A method that get the index of the grid's lines
