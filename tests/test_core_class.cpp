@@ -7,7 +7,7 @@
 //////// Testing Block //////// 
 //////////////////////////////
 
-TEST_CASE("Block")
+TEST_CASE("Block movement")
 {
     Block block{1,2};
 
@@ -30,6 +30,33 @@ TEST_CASE("Block")
     REQUIRE(block.row()==1);
 }
 
+///////////////////////////////
+////////  Testing piece //////// 
+///////////////////////////////
+
+TEST_CASE("Piece colors")
+{
+    Piece piece {PieceType::I, 0 , 0};
+    REQUIRE(piece[0].color()==Color::blue);
+
+    piece= {PieceType::O, 0 , 0};
+    REQUIRE(piece[0].color()==Color::yellow);
+
+    piece= {PieceType::T, 0 , 0};
+    REQUIRE(piece[0].color()==Color::purple);
+
+    piece= {PieceType::L, 0 , 0};
+    REQUIRE(piece[0].color()==Color::orange);
+
+    piece= {PieceType::J, 0 , 0};
+    REQUIRE(piece[0].color()==Color::pink);
+
+    piece= {PieceType::S, 0 , 0};
+    REQUIRE(piece[0].color()==Color::red);
+
+    piece= {PieceType::Z, 0 , 0};
+    REQUIRE(piece[0].color()==Color::green);
+}
 
 ///////////////////////////////
 ////////  Testing grid //////// 

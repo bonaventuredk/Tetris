@@ -12,7 +12,6 @@ int main()
     const int COLS = grid.row_size();
     const int CELL = 30; //pixel's cell
     Piece current = grid.put_piece(createRandomPiece());
-
     
 
     sf::RenderWindow window(
@@ -48,7 +47,7 @@ int main()
     while (window.isOpen())
     {
         
-        while(!is_game_over)
+        while(!is_game_over && window.isOpen())
         {
             while(auto event = window.pollEvent())
             {
@@ -89,13 +88,43 @@ int main()
             {
                 for (unsigned int c = 0; c < COLS; ++c)
                 {
+                    Color cell_color=grid(r,c).color();
                     if (grid(r, c).is_full())
                     {
                         cell.setPosition(sf::Vector2f(
                             c * CELL,
                             r * CELL
                         ));
-                        cell.setFillColor(sf::Color::Cyan);
+                        switch(cell_color)
+                        {
+                            case Color::blue : 
+                            cell.setFillColor(sf::Color::Blue);
+                            break;
+
+                            case Color::yellow :  
+                            cell.setFillColor(sf::Color::Yellow);
+                            break;
+
+                            case Color::purple : 
+                            cell.setFillColor(sf::Color::Cyan);
+                            break;
+
+                            case Color::orange : 
+                            cell.setFillColor(sf::Color::Cyan);
+                            break;
+
+                            case Color::pink : 
+                            cell.setFillColor(sf::Color::Cyan);
+                            break;
+
+                            case Color::red : 
+                            cell.setFillColor(sf::Color::Red);
+                            break;
+
+                            case Color::green : 
+                            cell.setFillColor(sf::Color::Green);
+                            break;
+                        }
                         window.draw(cell);
                     }
                 }
