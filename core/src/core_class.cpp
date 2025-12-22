@@ -212,7 +212,7 @@ PieceType createRandomPiece()
 ////////////////////////
 
 
-Grid::Grid(unsigned int nrow, unsigned int ncol)
+Grid::Grid(unsigned int nrow, unsigned int ncol) : _score{0}
 {   
     std::vector<Cell>  column (ncol);
     for(unsigned int i=0; i<nrow; ++i)
@@ -226,10 +226,10 @@ std::vector<unsigned int> Grid::get_full_rows() const
 {
     std::vector<unsigned int> full_rows;
      bool check;
-    for(unsigned int row=0; row<(*this).row_size(); ++row)
+    for(unsigned int row=0; row<(*this).column_size(); ++row)
     {   
         check=true;
-        for(unsigned int column=0; column<(*this).column_size(); ++column)
+        for(unsigned int column=0; column<(*this).row_size(); ++column)
         {
             if(!(*this)(row,column).is_full())
             {
@@ -245,7 +245,7 @@ std::vector<unsigned int> Grid::get_full_rows() const
 
 Piece Grid::put_piece(PieceType ptype)
 {
-    Piece piece {ptype, 0, (*this).column_size()/2};
+    Piece piece {ptype, 0, (*this).row_size()/2};
     for(unsigned int block=0; block<piece.size(); ++block)
     {   
         (*this)(piece[block].row(), piece[block].column()).fill(piece[block]);
@@ -264,7 +264,7 @@ bool Grid::move_piece(Piece& piece, Move move, unsigned int length)
     bool is_movable=true;
     for(unsigned int block=0; block<piece.size(); ++block)
     { 
-        if(piece[block].row()>=(*this).row_size() || piece[block].column()>=(*this).column_size() 
+        if(piece[block].row()>=(*this).column_size() || piece[block].column()>=(*this).row_size() 
             || (*this)(piece[block].row(), piece[block].column()).is_full())
         {
             is_movable=false;
@@ -281,8 +281,10 @@ bool Grid::move_piece(Piece& piece, Move move, unsigned int length)
     return is_movable;
 }
 
-void Grid::update()
+bool Grid::update()
 {
+    // Destroying full rows
+   
     std::vector<unsigned int> full_rows= (*this).get_full_rows();
     for(unsigned int f_row : full_rows)
     {
@@ -290,17 +292,38 @@ void Grid::update()
         {
             matrix[row]=matrix[row-1];
         }
-        matrix[0]=std::vector<Cell>((*this).column_size());
+        matrix[0]=std::vector<Cell>((*this).row_size());
     }
-    return;
+
+    // Updating the score
+
+    _score= _score + (1+2*(full_rows.size()-1))*(*this).row_size()*full_rows.size();
+
+
+    // Checking if the game is over.
+
+    bool is_game_over=false;
+    for(unsigned int row=0; row<2; ++row)
+    {
+        for(unsigned int column=0; column<(*this).row_size(); ++column)
+        {
+            if((*this)(row,column).is_full())
+            {
+                is_game_over=true;
+                break;
+            }
+        }
+        if(is_game_over)break;
+    }
+    return is_game_over;
 }
 
 std::string get_grid(Grid grid)
 {
     std::string grid_as_str="\n";
-    for(unsigned int row=0; row<grid.row_size(); ++row)
+    for(unsigned int row=0; row<grid.column_size(); ++row)
     {
-        for(unsigned int column=0; column<grid.column_size(); ++column)
+        for(unsigned int column=0; column<grid.row_size(); ++column)
         {
             if(grid(row, column).is_full()) grid_as_str+='O';
             else grid_as_str+='.';
