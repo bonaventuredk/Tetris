@@ -75,10 +75,12 @@ void Block::move(Move direction, unsigned int length)
 /////////////////////////
 
 
-Piece::Piece(PieceType type, unsigned int pivotRow, unsigned int pivotCol)
-: _type(type), _pivot_idx(0)
-{
-    Block pivot{pivotRow, pivotCol};
+Piece::Piece(PieceType ptype, unsigned int pivotRow, unsigned int pivotCol)
+: _type(ptype), _pivot_idx(0)
+{   
+    int color_index= static_cast<int>(ptype);
+    Color color=static_cast<Color>(color_index);
+    Block pivot{pivotRow, pivotCol, color};
     for(unsigned int i=0; i<4; ++i)
     {
         _blocks.push_back(pivot);

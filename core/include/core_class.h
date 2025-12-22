@@ -39,6 +39,25 @@ enum class Move{
 
 Move reverse_move(Move move);
 
+enum class PieceType { I=0, O=1, T=2, L=3, J=4, S=5, Z=6 };
+
+/**
+ * \enum Move
+ * \brief An enum class to set the color of a given PieceType.
+ * They are mapped through indexes of the enum. 
+ */
+
+enum class Color{
+    blue=0, /**< Color associated with element number 0 of PieceType (I currently). */
+    yellow=1, /**< Color associated with element number 1 of PieceType (O currently). */
+    purple=2, /**< Color associated with element number 2 of PieceType (T currently. */
+    orange=3, /**< Color associated with element number 3 of PieceType (L currently). */
+    pink=4, /**< Color associated with element number 4 of PieceType (J currently). */
+    red=5, /**< Color associated with element number 5 of PieceType (S currently). */
+    green=6, /**< Color associated with element number 6 of PieceType (Z currently). */
+    none=7, /**< Color associated with empty cells of Tetris' grid. */
+}; 
+
 
 /**
  * \class Block
@@ -51,18 +70,17 @@ class Block
     public :
 
         /**
-         * \fn Block(unsigned int rrow=0, unsigned int ccolumn=0)
          * \brief Constructing the block from abscissa and ordinate specifications.
          * Constructs it with coordinates (0,0) by default.
          * \param rrolumn An unsigned integer corresponding to the abscissa of the block.
          * \param ccolumn An unsigned integer corresponding to the ordinate of the block.
+         * \param color The color of the block. It is Color::none by default.
          * \return
         */
 
-        Block(unsigned int rrow=0, unsigned int ccolumn=0) : _row{rrow}, _column{ccolumn} {}
+        Block(unsigned int rrow=0, unsigned int ccolumn=0, Color color=Color::none) : _row{rrow}, _column{ccolumn}, _color{color} {}
 
         /**
-         * \fn unsigned int row() const
          * \brief A getter for the attribute _row
          * \param.
          * \return The attribute _row.
@@ -71,7 +89,6 @@ class Block
         unsigned int row() const {return _row;} 
 
         /**
-         * \fn unsigned int& row()
          * \brief A setter for the attribute _row.
          * \param
          * \return A reference to the attribute _row.
@@ -80,7 +97,6 @@ class Block
         unsigned int& row() {return _row;}
 
         /**
-         * \fn unsigned int column() const
          * \brief A getter for the attribute _column.
          * \param
          * \return The attribute _column.
@@ -89,31 +105,43 @@ class Block
         unsigned int column() const {return _column;} 
 
         /**
-         * \fn unsigned int& column()
-         * \brief A setter for the attribute _column.
+         * \brief A getter for the attribute _column.
          * \param
-         * \return A reference to the attribute _column.
+         * \return The attribute _column.
         */
 
         unsigned int& column() {return _column;}
 
         /**
-         * \fn move(Move direction, unsigned int length=1);
-         * \brief A method to translate the blocks using enum class Move. The length of
-         * the move is 1 by default.
-         * \param direction The movement (not a rotation) from Move to be performed.
-         * \param length The length of the movement to be performed.
-         * \return
+         * \brief A getter for the attribute _column.
+         * \param 
+         * \return The attribute _column.
         */
+
+        Color color() const {return _color;} 
+
+        /**
+         * \brief A setter for the attribute _color.
+         * \param
+         * \return The attribute _color.
+        */
+
+        Color& color() {return _color;}
+
+        /**
+         * \brief A getter for the attribute _color.
+         * \param 
+         * \return The attribute _color.
+        */
+
 
         void move(Move direction, unsigned int length=1);
 
     private :
         unsigned int _row; /**< The abscissa of the block. */
         unsigned int _column; /**< The ordinate of the block. */
+        Color _color; /**< The color of the block. */
 };
-
-enum class PieceType { I, O, T, L, J, S, Z };
 
 /**
  * @class Piece
@@ -160,8 +188,8 @@ class Piece
 
       Block operator[](unsigned int i) const{return _blocks[i];}
       Block& operator[](unsigned int i){return _blocks[i];}
-      std::vector<Block> getBlocks() const { return _blocks; }
       
+      Color color() const {return (*this)[0].color();}
 
       /*!
        * \brief Returns the number of blocks
@@ -237,7 +265,7 @@ class Cell
          * \return
         */
 
-        void fill(Block& block){_is_full=true;}
+        void fill(Block& block){_is_full=true;_color=block.color();}
 
         /**
          * \brief Clears the cell by making it empty. 
@@ -245,7 +273,7 @@ class Cell
          * \return
         */
 
-        void clear(){_is_full=false;}
+        void clear(){_is_full=false; _color=Color::none;}
 
         /**
          * \brief Checks if the cell if full.
@@ -255,8 +283,17 @@ class Cell
 
         bool is_full() const {return _is_full;};
 
+        /**
+         * \brief A getter for the attribute _color.
+         * \param
+         * \return The attribute _color.
+        */
+
+        Color color() const{return _color;}
+
     private :
         bool _is_full; /**< A boolean indicating if the Cell is full. */
+        Color _color; /**< The color of the block. */
 };
 
 /**
