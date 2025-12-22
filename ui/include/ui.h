@@ -11,7 +11,7 @@
 namespace UI
 {
     constexpr unsigned int pixel_cell = 30; 
-    sf::RectangleShape cell(sf::Vector2f(UI::pixel_cell - 1.f, UI::pixel_cell - 1.f)); // -1.f : to avoid overlaps at the edges    sf::Clock clock;
+    extern sf::RectangleShape cell;  // -1.f : to avoid overlaps at the edges    
 };
 
 /**

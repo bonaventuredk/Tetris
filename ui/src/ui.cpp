@@ -52,3 +52,8 @@ void draw_grid(Grid& grid, sf::RenderWindow& window)
             }
         }
 }
+
+namespace UI
+{
+    sf::RectangleShape cell(sf::Vector2f(UI::pixel_cell - 1.f, UI::pixel_cell - 1.f));
+}
