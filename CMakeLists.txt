@@ -10,7 +10,7 @@ set(SFML_STATIC_LIBRARIES ON) # for linux
 
 find_package(Catch2 3 REQUIRED)
 find_package(SFML 3 COMPONENTS Graphics Audio REQUIRED)
-find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System) # for linux
+find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System) 
 #find_package(SFML 3 REQUIRED COMPONENTS graphics window system audio) # for linux
 
 
