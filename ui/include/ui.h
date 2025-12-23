@@ -31,6 +31,10 @@ namespace UI
     extern unsigned int right_side_width_in_cell; /**< The width in cells of the part of the window to the right of the grid. */
 
     extern sf::RectangleShape cell; /**< An SFML cell for display purposes */
+
+    extern const sf::Color orange; /**< Color orange for SFML. */
+    extern const sf::Color pink; /**< Color pink for SFML. */
+    extern const sf::Color purple; /**< Color purple for SFML. */
 };
 
 /**
