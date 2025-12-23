@@ -97,7 +97,7 @@ void draw_score(Grid& grid, sf::RenderWindow& window)
     text.setString("Score : ");
     text.setFillColor(sf::Color::White);
     text.setPosition(sf::Vector2f(
-                    1*UI::pixel_cell_size,
+                    3*UI::pixel_cell_size,
                     2 * UI::pixel_cell_size
                 ));
     window.draw(text);
