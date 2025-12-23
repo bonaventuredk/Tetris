@@ -11,9 +11,8 @@ int main()
     unsigned int score= grid.score();
     Piece current = grid.put_piece(createRandomPiece());
 
-    sf::RenderWindow window(
-        UI::current_video_mode,"Tetris", sf::Style::Default, sf::State::Fullscreen);
-    window.setFramerateLimit(60);
+   
+    UI::window.setFramerateLimit(60);
 
 
     sf::Clock clock;
@@ -41,15 +40,15 @@ int main()
     sf::Sound rotateSound(rotateBuffer);
     sf::Sound dropSound(dropBuffer);
 
-    while (window.isOpen())
+    while (UI::window.isOpen())
     {
         
-        while(!is_game_over && window.isOpen())
+        while(!is_game_over && UI::window.isOpen())
         {
-            while(auto event = window.pollEvent())
+            while(auto event = UI::window.pollEvent())
             {
                 if (event->is<sf::Event::Closed>()) //check if the received event corresponds to the window closing
-                    window.close(); 
+                    UI::window.close(); 
                 if (const auto* key = event->getIf<sf::Event::KeyPressed>()) // way to detect key presses in sfml
                 {
                     if (key->scancode ==sf::Keyboard::Scan::Left)
@@ -77,12 +76,12 @@ int main()
                 }
                 clock.restart();
             }
-            window.clear(sf::Color::Black);
+            UI::window.clear(sf::Color::Black);
             
-            draw_grid(grid, window);
+            draw_grid(grid, UI::window);
 
            
-            window.display();
+            UI:: window.display();
         }
         
         // Adding a question such as : restart or quit 

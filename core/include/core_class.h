@@ -253,10 +253,11 @@ class Cell
         /**
          * \brief Constructs the cell. Initiate it as empty by default.
          * \param iis_full A boolean asserting if the cell should be full.
+         * \param ccolor The color that correspond to the cell.
          * \return
         */
 
-        Cell(bool iis_full=false) : _is_full{iis_full} {}
+        Cell(bool iis_full=false, Color ccolor=Color::none) : _is_full{iis_full}, _color{ccolor} {}
 
         /**
          * \brief Fills the cell by setting the attribute _is_full to true. Also
@@ -292,8 +293,8 @@ class Cell
         Color color() const{return _color;}
 
     private :
-        bool _is_full; /**< A boolean indicating if the Cell is full. */
-        Color _color; /**< The color of the block. */
+        bool _is_full; /**< A boolean indicating if the Cell is full. False by default. */
+        Color _color; /**< The color of the block. This is none by default.*/
 };
 
 /**
