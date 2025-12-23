@@ -25,8 +25,12 @@ namespace UI
     unsigned int width_in_cell= current_video_mode.size.x/pixel_cell_size;
     unsigned int left_side_width_in_cell= (width_in_cell-column_number)/2;
     unsigned int right_side_width_in_cell= width_in_cell-left_side_width_in_cell-column_number;
-    
+
     sf::RectangleShape cell(sf::Vector2f(pixel_cell_size - 1.f, pixel_cell_size - 1.f));
+
+    const sf::Color orange{255, 128, 0};
+    const sf::Color pink{243 , 130, 185};
+    const sf::Color purple{ 224, 32, 255};
 }
 
 void draw_grid(Grid& grid, sf::RenderWindow& window)
@@ -53,15 +57,15 @@ void draw_grid(Grid& grid, sf::RenderWindow& window)
                         break;
 
                         case Color::purple : 
-                        UI::cell.setFillColor(sf::Color::Cyan);
+                        UI::cell.setFillColor(UI::purple);
                         break;
 
                         case Color::orange : 
-                        UI::cell.setFillColor(sf::Color::Cyan);
+                        UI::cell.setFillColor(UI::orange);
                         break;
 
                         case Color::pink : 
-                        UI::cell.setFillColor(sf::Color::Cyan);
+                        UI::cell.setFillColor(UI::pink);
                         break;
 
                         case Color::red : 
