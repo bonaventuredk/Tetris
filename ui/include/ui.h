@@ -33,12 +33,27 @@ namespace UI
 
     extern sf::RectangleShape cell; /**< An SFML rectangle to display Tetris' blocks. */
 
-
     constexpr sf::Color grey{110, 110, 110}; /**< Color grey for SFML. */
     constexpr sf::Color orange{255, 128, 0}; /**< Color orange for SFML. */
     constexpr sf::Color pink{243 , 130, 185}; /**< Color pink for SFML. */
     constexpr sf::Color purple{ 224, 32, 255}; /**< Color purple for SFML. */
+
+    extern sf::Font font; /**< A font for displaying texts with SFML (https://www.dafont.com/fr/tetris.font). */
 };
+
+/**
+ * \brief A function to draw the cells of a Tetris' grid on screen.
+ * \param grid The grid from which the cell come.
+ * \param window The window on which the cell will be drawn.
+ * \param cell_row The row of the top left cell of the grid.
+ * \param cell_column The column of the top left cell of the grid.
+ * \param row The row index of the cell in the grid.
+ * \param column The column index of the cell in the grid.
+ * \return 
+ */
+
+
+void draw_cell(Grid& grid, sf::RenderWindow& window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column);
 
 /**
  * \brief A function to draw the Tetris' grid on screen.
@@ -48,5 +63,24 @@ namespace UI
  */
 
 void draw_grid(Grid& grid, sf::RenderWindow& window);
+
+/**
+ * \brief A function to show the player's score on screen.
+ * \param grid The current game's grid which contains the player's score.
+ * \param window The window on which the score will be displayed.
+ * \return 
+ */
+
+void draw_score(Grid& next_piece_grid, sf::RenderWindow& window);
+
+/**
+ * \brief A function to show the piece that the player will get the next turn.
+ * \param window The window on which the next piece will be displayed.
+ *  \param newt_type The type of the next piece.
+ * \return 
+ */
+
+
+void draw_next_block(sf::RenderWindow& window, PieceType& next_type);
 
 #endif

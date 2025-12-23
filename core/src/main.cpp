@@ -8,8 +8,9 @@ int main()
 {
     Grid grid(UI::row_number, UI::column_number);
     bool is_game_over=false;
-    unsigned int score= grid.score();
     Piece current = grid.put_piece(createRandomPiece());
+    PieceType next = createRandomPiece();
+    
 
    
     UI::window.setFramerateLimit(60);
@@ -18,7 +19,7 @@ int main()
     sf::Clock clock;
     // for sound
     sf::Music music;
-    if (!music.openFromFile("../sounds/music.ogg"))
+    if (!music.openFromFile("../UI/sounds/music.ogg"))
         return -1;
 
     music.setLooping(true);
@@ -29,9 +30,9 @@ int main()
     sf::SoundBuffer rotateBuffer;
     sf::SoundBuffer dropBuffer;
 
-    if (!moveBuffer.loadFromFile("../sounds/move.wav") ||
-        !rotateBuffer.loadFromFile("../sounds/rotate.wav") ||
-        !dropBuffer.loadFromFile("../sounds/drop.wav"))
+    if (!moveBuffer.loadFromFile("../UI/sounds/move.wav") ||
+        !rotateBuffer.loadFromFile("../UI/sounds/rotate.wav") ||
+        !dropBuffer.loadFromFile("../UI/sounds/drop.wav"))
     {
         return -1; 
     }
@@ -71,15 +72,16 @@ int main()
                 if (!moved){
                     dropSound.play();
                     is_game_over=grid.update();
-                    score=grid.score();
-                    current =grid.put_piece(createRandomPiece());
+                    current =grid.put_piece(next);
+                    next = createRandomPiece();
                 }
                 clock.restart();
             }
             UI::window.clear(sf::Color::Black);
             
             draw_grid(grid, UI::window);
-
+            draw_score(grid, UI::window);
+            draw_next_block(UI::window, next);
            
             UI:: window.display();
         }
