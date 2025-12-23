@@ -18,6 +18,8 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
 include_directories(core/include ui/include)
 add_library(tetrix_core core/src/core_class.cpp)
 add_library(tetrix_ui ui/src/ui.cpp)
+target_link_libraries(tetrix_ui SFML::Graphics SFML::Window SFML::System SFML::Audio) 
+
 target_include_directories(tetrix_core PUBLIC core/include) # for linux : Vraiment nécessaire ? : Oui, sinon tetrix_game ne voit pas les headers du core(en tout cas chez moi).
 
 
