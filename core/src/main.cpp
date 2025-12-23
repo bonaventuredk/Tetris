@@ -6,16 +6,13 @@
 
 int main()
 {
-    Grid grid(18, 10);
+    Grid grid(UI::row_number, UI::column_number);
     bool is_game_over=false;
     unsigned int score= grid.score();
-    const int rows = grid.column_size();
-    const int cols = grid.row_size();
     Piece current = grid.put_piece(createRandomPiece());
-    
 
     sf::RenderWindow window(
-        sf::VideoMode(sf::Vector2u(cols * UI::pixel_cell, rows * UI::pixel_cell)),"Tetris");
+        UI::current_video_mode,"Tetris", sf::Style::Default, sf::State::Fullscreen);
     window.setFramerateLimit(60);
 
 
