@@ -25,16 +25,19 @@ namespace UI
     extern unsigned int column_number; /**< Number of columns of the Tetris' grid. */
 
     extern sf::VideoMode current_video_mode; /**< The SFML window mode to display (fullscreen). */
+    extern sf::RenderWindow window;
     extern unsigned int pixel_cell_size; /**< The size in pixel of a Cell.*/
     extern unsigned int width_in_cell; /**< The width in cells of the window. */
     extern unsigned int left_side_width_in_cell; /**< The width in cells of the part of the window to the left of the grid. */
     extern unsigned int right_side_width_in_cell; /**< The width in cells of the part of the window to the right of the grid. */
 
-    extern sf::RectangleShape cell; /**< An SFML cell for display purposes */
+    extern sf::RectangleShape cell; /**< An SFML rectangle to display Tetris' blocks. */
 
-    extern const sf::Color orange; /**< Color orange for SFML. */
-    extern const sf::Color pink; /**< Color pink for SFML. */
-    extern const sf::Color purple; /**< Color purple for SFML. */
+
+    constexpr sf::Color grey{110, 110, 110}; /**< Color grey for SFML. */
+    constexpr sf::Color orange{255, 128, 0}; /**< Color orange for SFML. */
+    constexpr sf::Color pink{243 , 130, 185}; /**< Color pink for SFML. */
+    constexpr sf::Color purple{ 224, 32, 255}; /**< Color purple for SFML. */
 };
 
 /**
