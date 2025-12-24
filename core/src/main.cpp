@@ -120,7 +120,9 @@ int main()
                     if (is_game_over) 
                     {
                         gameOverSound.play();
-                        handleGameOver(grid, current, next, is_game_over);
+                        music.stop();
+                        unsigned int score = grid.score(); 
+                        handleGameOver(grid, current, next, is_game_over, score);
                     }
                     if(grid.score() > score_threshold)
                     {
