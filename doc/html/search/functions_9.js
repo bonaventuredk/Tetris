@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['reverse_5fmove_0',['reverse_move',['../core__class_8h.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp'],['../core__class_8cpp.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp']]],
-  ['row_1',['row',['../class_block.html#a8114bb3ebc31622126a38a330427435e',1,'Block::row() const'],['../class_block.html#a57cca9110410ea2fe0963745a06b9158',1,'Block::row()']]],
-  ['row_5fsize_2',['row_size',['../class_grid.html#ad6bb2609093f85198d02446d33c78f6d',1,'Grid']]]
+  ['piece_0',['Piece',['../class_piece.html#ac921a4ac025477b92dec0e28b9f3c622',1,'Piece']]],
+  ['pivot_5fcol_1',['pivot_col',['../class_piece.html#a56107f66c7569859f19fde8fd9bdc05a',1,'Piece']]],
+  ['pivot_5frow_2',['pivot_row',['../class_piece.html#a8f3275de354718b2e52964d0ad95b331',1,'Piece']]],
+  ['put_5fpiece_3',['put_piece',['../class_grid.html#a36cdb860f6e802998839533d858b19ba',1,'Grid']]]
 ];

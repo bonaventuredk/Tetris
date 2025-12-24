@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['table_20des_20matières_0',['Table des Matières',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['tache_201_3a_20implémentation_20les_20class_20suivantes_3a_1',['Tache 1: Implémentation les &quot;class&quot; suivantes:',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['tetris_20project_2',['🎮 Tetris Project',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['type_3',['type',['../class_piece.html#a099bcf4db9b928bc9850d0cfacbf3f25',1,'Piece']]]
+  ['operator_28_29_0',['operator()',['../class_grid.html#ab210a536baa5ad1b289a33e01ec9a93f',1,'Grid::operator()(unsigned int row, unsigned int column) const'],['../class_grid.html#aadd15d5ed6900e769c59bdd57324c627',1,'Grid::operator()(unsigned int row, unsigned int column)']]],
+  ['operator_5b_5d_1',['operator[]',['../class_piece.html#a07be621b8c57bf5a786a035820f59b61',1,'Piece']]],
+  ['orange_2',['orange',['../namespace_u_i.html#a9e42b1cca7eeab378e85829ec354bba3',1,'UI::orange'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd',1,'orange:&#160;core_class.h']]]
 ];

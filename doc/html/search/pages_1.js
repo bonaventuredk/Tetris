@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['a_20implémentées_0',['Fonctionnalités A Implémentées',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['aborescence_20du_20projet_1',['Aborescence du Projet',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]]
+  ['2_3a_20logique_20du_20jeu_20✓_0',['Tâche 2: Logique du jeu ✓',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]]
 ];

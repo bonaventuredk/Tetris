@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Textrix: core/include/core_class.h File Reference</title>
+<title>Tetris: core/include/core_class.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Textrix<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Tetris
    </div>
   </td>
  </tr>
@@ -107,7 +107,7 @@ Classes</h2></td></tr>
 <tr class="memitem:Cell" id="r_Cell"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cell.html">Cell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which creates the entities representing the cells of the Tetris' grid. A cell contain several informations such as if it is empty or full.  <a href="class_cell.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Grid" id="r_Grid"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html">Grid</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which creates a 2D grid of <a class="el" href="class_cell.html" title="A class which creates the entities representing the cells of the Tetris&#39; grid. A cell contain several...">Cell</a> entities. It is actualised through methods using the creation and the movements of <a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a> entities. It is designed to be used as interface between the core of the game and it's UI made with SFML. The index (0,0) represents grid's top-left corner.  <a href="class_grid.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which creates a 2D grid of <a class="el" href="class_cell.html" title="A class which creates the entities representing the cells of the Tetris&#39; grid. A cell contain several...">Cell</a> entities. It is actualised through methods using the creation and the movements of <a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a> entities. It is designed to be used as interface between the core of the game and it's <a class="el" href="namespace_u_i.html" title="A namespace to store variables linked to the UI of the game.">UI</a> made with SFML. The index (0,0) represents grid's top-left corner.  <a href="class_grid.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -124,14 +124,26 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a19b869a01ca1a58f4164b4f75c2df388"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum class to manipulate in core basic movements of blocks and pieces as they should appear on screen later.  <a href="#a19b869a01ca1a58f4164b4f75c2df388">More...</a><br /></td></tr>
 <tr class="memitem:a12ed9719bbdf7bc596ff7a6f4bf3f021" id="r_a12ed9719bbdf7bc596ff7a6f4bf3f021"><td class="memItemLeft" align="right" valign="top"><a id="a12ed9719bbdf7bc596ff7a6f4bf3f021" name="a12ed9719bbdf7bc596ff7a6f4bf3f021"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>PieceType</b> { <br />
-&#160;&#160;<b>I</b>
-, <b>O</b>
-, <b>T</b>
-, <b>L</b>
+&#160;&#160;<b>I</b> =0
+, <b>O</b> =1
+, <b>T</b> =2
+, <b>L</b> =3
 , <br />
-&#160;&#160;<b>J</b>
-, <b>S</b>
-, <b>Z</b>
+&#160;&#160;<b>J</b> =4
+, <b>S</b> =5
+, <b>Z</b> =6
+<br />
+ }</td></tr>
+<tr class="memitem:ab87bacfdad76e61b9412d7124be44c1c" id="r_ab87bacfdad76e61b9412d7124be44c1c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> { <br />
+&#160;&#160;<a class="el" href="#ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f">blue</a> =0
+, <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351">yellow</a> =1
+, <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3">purple</a> =2
+, <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd">orange</a> =3
+, <br />
+&#160;&#160;<a class="el" href="#ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877">pink</a> =4
+, <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4">red</a> =5
+, <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8">green</a> =6
+, <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8">none</a> =7
 <br />
  }</td></tr>
 </table><table class="memberdecls">
@@ -141,8 +153,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4a818a195b9b6b8dfcfb23ed3a4bf4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple function to get the inverse move from one of the enum class <a class="el" href="#a19b869a01ca1a58f4164b4f75c2df388" title="An enum class to manipulate in core basic movements of blocks and pieces as they should appear on scr...">Move</a>.  <br /></td></tr>
 <tr class="memitem:a175f9fbd6504784b4f90cf8b5932dc18" id="r_a175f9fbd6504784b4f90cf8b5932dc18"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a175f9fbd6504784b4f90cf8b5932dc18">get_grid</a> (<a class="el" href="class_grid.html">Grid</a> grid)</td></tr>
 <tr class="memdesc:a175f9fbd6504784b4f90cf8b5932dc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes the grid in a string starting with '\n'. Every line of the grid is terminated by '\n'. Empty cells are reprented by '.', the full ones by 'O'. This function is designed to be used for debugging and testing of the <a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a> class.  <br /></td></tr>
-<tr class="memitem:ab34f6246dcd671b56284fe4261a1b5a2" id="r_ab34f6246dcd671b56284fe4261a1b5a2"><td class="memItemLeft" align="right" valign="top">PieceType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab34f6246dcd671b56284fe4261a1b5a2">createRandomPiece</a> (int col)</td></tr>
-<tr class="memdesc:ab34f6246dcd671b56284fe4261a1b5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a random Tetris piece.  <br /></td></tr>
+<tr class="memitem:a3542daf4187e8e8b9bebac6cc3c501b2" id="r_a3542daf4187e8e8b9bebac6cc3c501b2"><td class="memItemLeft" align="right" valign="top">PieceType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3542daf4187e8e8b9bebac6cc3c501b2">createRandomPiece</a> ()</td></tr>
+<tr class="memdesc:a3542daf4187e8e8b9bebac6cc3c501b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a random Tetris piece.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for core's classes. </p>
@@ -151,6 +163,46 @@ Functions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>19/12/2025 </dd></dl>
 </div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="ab87bacfdad76e61b9412d7124be44c1c" name="ab87bacfdad76e61b9412d7124be44c1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87bacfdad76e61b9412d7124be44c1c">&#9670;&#160;</a></span>Color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f" name="ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f"></a>blue&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 0 of PieceType (I currently). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351" name="ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351"></a>yellow&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 1 of PieceType (O currently). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3" name="ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3"></a>purple&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 2 of PieceType (T currently. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd" name="ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd"></a>orange&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 3 of PieceType (L currently). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877" name="ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877"></a>pink&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 4 of PieceType (J currently). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4" name="ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4"></a>red&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 5 of PieceType (S currently). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8" name="ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8"></a>green&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with element number 6 of PieceType (Z currently). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8" name="ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8"></a>none&#160;</td><td class="fielddoc"><p><a class="el" href="#ab87bacfdad76e61b9412d7124be44c1c">Color</a> associated with empty cells of Tetris' grid. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="a19b869a01ca1a58f4164b4f75c2df388" name="a19b869a01ca1a58f4164b4f75c2df388"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19b869a01ca1a58f4164b4f75c2df388">&#9670;&#160;</a></span>Move</h2>
 
@@ -172,6 +224,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>An enum class to manipulate in core basic movements of blocks and pieces as they should appear on screen later. </p>
+<p>An enum class to set the color of a given PieceType. They are mapped through indexes of the enum. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c" name="a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c"></a>up&#160;</td><td class="fielddoc"><p>Upward movement </p>
 </td></tr>
@@ -192,8 +245,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="ab34f6246dcd671b56284fe4261a1b5a2" name="ab34f6246dcd671b56284fe4261a1b5a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab34f6246dcd671b56284fe4261a1b5a2">&#9670;&#160;</a></span>createRandomPiece()</h2>
+<a id="a3542daf4187e8e8b9bebac6cc3c501b2" name="a3542daf4187e8e8b9bebac6cc3c501b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3542daf4187e8e8b9bebac6cc3c501b2">&#9670;&#160;</a></span>createRandomPiece()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +254,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">PieceType createRandomPiece </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['size_0',['size',['../class_piece.html#a4635cdc9afef9d1eff1cc2574a2edbf4',1,'Piece']]],
-  ['suivantes_3a_1',['Tache 1: Implémentation les &quot;class&quot; suivantes:',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]]
+  ['none_0',['none',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a334c4a4c42fdb79d7ebc3e73b517e6f8',1,'none:&#160;core_class.h'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8',1,'none:&#160;core_class.h']]]
 ];

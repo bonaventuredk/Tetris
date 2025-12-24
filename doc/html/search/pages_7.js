@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['implémentées_0',['Fonctionnalités A Implémentées',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['implémentation_20les_20class_20suivantes_3a_1',['Tache 1: Implémentation les &quot;class&quot; suivantes:',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['interdits_2',['interdits',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'Coups interdits'],['../md__r_e_a_d_m_e.html#autotoc_md5',1,'Déroulement du jeu/Coups valides et interdits']]]
+  ['classes_0',['Architecture des Classes',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['classes_20de_20base_20✓_1',['Tâche 1: Implémentation des classes de base ✓',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]],
+  ['cmake_2',['Compilation avec CMake',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
+  ['compilation_20avec_20cmake_3',['Compilation avec CMake',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
+  ['coups_20interdits_4',['Coups interdits',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'']]],
+  ['coups_20valides_5',['Coups valides',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['coups_20valides_20et_20interdits_6',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
 ];

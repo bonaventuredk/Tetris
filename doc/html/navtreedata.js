@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Textrix", "index.html", [
+  [ "Tetris", "index.html", [
     [ "🎮 Tetris Project", "md__r_e_a_d_m_e.html", [
       [ "Binôme:", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Table des Matières", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
@@ -35,9 +35,24 @@ var NAVTREE =
       [ "Déroulement du jeu", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
       [ "Coups valides", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
       [ "Coups interdits", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
-      [ "Aborescence du Projet", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
-      [ "Feuille de Route", "md__r_e_a_d_m_e.html#autotoc_md10", null ],
-      [ "Tache 1: Implémentation les \"class\" suivantes:", "md__r_e_a_d_m_e.html#autotoc_md11", null ]
+      [ "Aborescence du Projet", "md__r_e_a_d_m_e.html#autotoc_md9", [
+        [ "Architecture des Classes", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
+      ] ],
+      [ "Feuille de Route", "md__r_e_a_d_m_e.html#autotoc_md11", [
+        [ "Tâche 1: Implémentation des classes de base ✓", "md__r_e_a_d_m_e.html#autotoc_md12", null ],
+        [ "Tâche 2: Logique du jeu ✓", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
+        [ "Tâche 3: Interface graphique ✓", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
+        [ "Tâche 4: Fonctionnalités avancées", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
+        [ "Tâche 5:", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
+        [ "Compilation avec CMake", "md__r_e_a_d_m_e.html#autotoc_md17", null ]
+      ] ]
+    ] ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

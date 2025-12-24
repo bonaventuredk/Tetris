@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Textrix: 🎮 Tetris Project</title>
+<title>Tetris: 🎮 Tetris Project</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Textrix<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Tetris
    </div>
   </td>
  </tr>
@@ -234,25 +234,105 @@ Coups interdits</h1>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Aborescence du Projet</h1>
 <pre class="fragment">  TetrisProject/
-  ├── core/ 
-  │ ├──  include/
-  │ ├──  src/
-  ├──  doc/
-  ├── CMakeLists.txt 
+  ├── core/
+  │ ├── include/
+  │ │ └── core_class.h
+  │ └── src/
+  │   └── core_class.cpp
+  │   └── main.cpp
+  ├── doc/
+  ├── sounds/
+  │ ├── music.ogg
+  │ ├── move.wav
+  │ ├── rotate.wav
+  │ └── drop.wav
+  ├── tests/
+  ├── CMakeLists.txt
+  ├── DoxyFile
   ├── .gitignore
-  ├── doxygenfile  
-  └── README.md 
-</pre><p>##################### </p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
-Feuille de Route</h1>
-<p>#####################</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
-Tache 1: Implémentation les "class" suivantes:</h1>
-<ul>
-<li><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></li>
-<li><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></li>
-<li><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a> </li>
+  └── README.md
+</pre><h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Architecture des Classes</h2>
+<ol type="1">
+<li><b><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></b> : Représente un bloc individuel avec ses coordonnées (ligne, colonne)</li>
+<li><b><a class="el" href="class_cell.html" title="A class which creates the entities representing the cells of the Tetris&#39; grid. A cell contain several...">Cell</a></b> : Représente une cellule de la grille, pouvant être vide ou pleine</li>
+<li><b><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></b> : Groupe de 4 blocs formant une pièce Tetris, avec gestion des rotations</li>
+<li><b><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></b> : Grille de jeu contenant les cellules, gère la logique du jeu</li>
+<li><b>Enumérations</b> :<ul>
+<li><span class="tt"><a class="el" href="core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388" title="An enum class to manipulate in core basic movements of blocks and pieces as they should appear on scr...">Move</a></span> : Déplacements possibles (haut, bas, gauche, droite, rotations)</li>
+<li><span class="tt">PieceType</span> : Les 7 types de pièces Tetris</li>
 </ul>
+</li>
+</ol>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+Feuille de Route</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+Tâche 1: Implémentation des classes de base ✓</h2>
+<ul class="check">
+<li class="checked">Classe <span class="tt"><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></span></li>
+</ul>
+<ul class="check">
+<li class="checked">Classe <span class="tt"><a class="el" href="class_cell.html" title="A class which creates the entities representing the cells of the Tetris&#39; grid. A cell contain several...">Cell</a></span></li>
+</ul>
+<ul class="check">
+<li class="checked">Classe <span class="tt"><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></span></li>
+</ul>
+<ul class="check">
+<li class="checked">Classe <span class="tt"><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></span></li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+Tâche 2: Logique du jeu ✓</h2>
+<ul class="check">
+<li class="checked">Mouvement des pièces</li>
+</ul>
+<ul class="check">
+<li class="checked">Rotation des pièces</li>
+</ul>
+<ul class="check">
+<li class="checked">Détection des collisions</li>
+</ul>
+<ul class="check">
+<li class="checked">Suppression des lignes complètes</li>
+</ul>
+<ul class="check">
+<li class="checked">Génération aléatoire des pièces</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+Tâche 3: Interface graphique ✓</h2>
+<ul class="check">
+<li class="checked">Affichage de la grille</li>
+</ul>
+<ul class="check">
+<li class="checked">Affichage des pièces</li>
+</ul>
+<ul class="check">
+<li class="checked">Contrôles clavier</li>
+</ul>
+<ul class="check">
+<li class="checked">Système audio</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Tâche 4: Fonctionnalités avancées</h2>
+<ul class="check">
+<li class="unchecked">Système de scoring (points par ligne, etc.)</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Niveaux de difficulté progressive</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Menu principal et écrans d'interface</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Sauvegarde des meilleurs scores</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Effets visuels (animations et autres)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Tâche 5:</h2>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+Compilation avec CMake</h2>
+<p>```bash mkdir build cd build cmake .. make ./tetrix_game </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
