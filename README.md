@@ -25,7 +25,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
 
 ###  Fonctionnalités A Implémentées
-- [ ] Grille de jeu (10x20) standard
+- [ ] Grille de jeu 
 - [ ] Les 7 pièces classiques
 - [ ] Système de rotation des pièces
 - [ ] Mouvement (gauche/droite/descente rapide)
@@ -154,33 +154,41 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 
 ## Feuille de Route
 
-### Tâche 1: Implémentation des classes de base ✓
-- [x] Classe `Block`
-- [x] Classe `Cell` 
-- [x] Classe `Piece`
-- [x] Classe `Grid`
+### Tâche 1: Implémentation des classes de base 
+- [x] Classe `Block` ✓
+- [x] Classe `Cell`  ✓
+- [x] Classe `Piece` ✓
+- [x] Classe `Grid` ✓
 
-### Tâche 2: Logique du jeu ✓
-- [x] Mouvement des pièces
-- [x] Rotation des pièces
-- [x] Détection des collisions
-- [x] Suppression des lignes complètes
-- [x] Génération aléatoire des pièces
+### Tâche 2: Logique du jeu 
+- [x] Mouvement des pièces ✓
+- [x] Rotation des pièces ✓
+- [x] Détection des collisions ✓
+- [x] Suppression des lignes complètes ✓
+- [x] Génération aléatoire des pièces ✓
 
-### Tâche 3: Interface graphique ✓
-- [x] Affichage de la grille
-- [x] Affichage des pièces
-- [x] Contrôles clavier
-- [x] Système audio
+### Tâche 3: Interface graphique 
+- [x] Affichage de la grille ✓
+- [x] Affichage des pièces ✓
+- [x] Contrôles clavier ✓
+- [x] Système audio ✓
 
 ### Tâche 4: Fonctionnalités avancées
-- [ ] Système de scoring (points par ligne, etc.)
-- [ ] Niveaux de difficulté progressive
-- [ ] Menu principal et écrans d'interface
-- [ ] Sauvegarde des meilleurs scores
-- [ ] Effets visuels (animations et autres)
+- [ ] Système de scoring (points par ligne, etc.) ✓
+- [ ] Niveaux de difficulté progressive ✓
+- [ ] Menu principal et écrans d'interface 
+- [ ] Sauvegarde des meilleurs scores ✓
+- [ ] Effets visuels (animations et autres) ✓
 
-### Tâche 5:
+
+### Tâche 5: Qualité, tests et finalisation
+- [ ] Tests unitaires des classes principales (`Grid`, `Piece`, collisions) ✓
+- [ ] Gestion des erreurs (sons, chargement des ressources, police) ✓
+- [ ] Nettoyage et refactorisation du code 
+- [ ] Documentation du code (Doxygen) ✓
+- [ ] Portabilité Linux / Windows ✓
+- [ ] Livraison finale du projet 
+
 
 ### Compilation avec CMake
 ```bash
