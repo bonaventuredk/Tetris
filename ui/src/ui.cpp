@@ -196,4 +196,30 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
     );
     background.setPosition(backgroundPos);
     
+   
+    float currentY = backgroundPos.y + 30.f;
+    
+    gameOverText.setPosition(sf::Vector2f(
+        backgroundPos.x + (maxWidth - 200.f) / 2.f, // Approximation
+        currentY
+    ));
+    currentY += 70.f;
+    
+    scoreText.setPosition(sf::Vector2f(
+        backgroundPos.x + (maxWidth - 100.f) / 2.f, // Approximation
+        currentY
+    ));
+    currentY += 70.f;
+    
+    instructionText.setPosition(sf::Vector2f(
+        backgroundPos.x + (maxWidth - 300.f) / 2.f, // Approximation
+        currentY
+    ));
+
+    UI::window.clear(sf::Color::Black);
+    UI::window.draw(background);
+    UI::window.draw(gameOverText);
+    UI::window.draw(scoreText);
+    UI::window.draw(instructionText);
+    UI::window.display();
 }
