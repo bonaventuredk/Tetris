@@ -13,6 +13,7 @@
 #ifndef CORE_CLASS
 #define CORE_CLASS
 
+
 #include <vector>
 
 /**
@@ -432,5 +433,7 @@ std::string get_grid(Grid grid);
  * @return Piece A newly created random Tetris piece.
  */
 PieceType createRandomPiece();
+
+
 
 #endif

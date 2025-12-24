@@ -120,6 +120,7 @@ int main()
                     if (is_game_over) 
                     {
                         gameOverSound.play();
+                        handleGameOver(grid, current, next, is_game_over);
                     }
                     if(grid.score() > score_threshold)
                     {

@@ -13,7 +13,7 @@
 #define UI_INCLUDE
 
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Window.hpp>
 /**
  * \namespace UI
  * \brief A namespace to store variables linked to the UI of the game.
@@ -95,5 +95,16 @@ void draw_score(Grid& next_piece_grid, sf::RenderWindow& window);
 
 
 void draw_next_block(sf::RenderWindow& window, PieceType& next_type);
+
+/**
+ * @brief Handles the Game Over screen and allows the player to restart or quit.
+ * 
+ * @param grid Reference to the game grid.
+ * @param current Reference to the current Tetris piece.
+ * @param next Reference to the next Tetris piece.
+ * @param is_game_over Reference to the boolean flag indicating whether the game is over.
+ */
+
+void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over);
 
 #endif
