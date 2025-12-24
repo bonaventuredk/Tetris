@@ -271,7 +271,7 @@ void draw_controls(sf::RenderWindow& window)
     text.setCharacterSize(UI::font_size * 0.6f);
     text.setFillColor(sf::Color::White);
     
-    // Liste des contrôles
+    // List of controls
     std::vector<std::string> controls = {
         "Controls (Touches):",
         " < ou > : Gauche/Droite",
@@ -281,7 +281,7 @@ void draw_controls(sf::RenderWindow& window)
         "P : Pause/Resume"
     };
     
-    // Position de départ pour les contrôles
+    
     unsigned int start_row = 10;
     
     for(size_t i = 0; i < controls.size(); ++i)
@@ -290,6 +290,30 @@ void draw_controls(sf::RenderWindow& window)
         grid_sides_center_text(Move::right, text, start_row + i);
         window.draw(text);
     }
+}
+
+
+
+void draw_pause_screen(sf::RenderWindow& window)
+{
+    
+    sf::RectangleShape overlay(sf::Vector2f(window.getSize().x, window.getSize().y));
+    overlay.setFillColor(sf::Color(0, 0, 0, 150)); 
+    
+    sf::Text pauseText(UI::font);
+    pauseText.setCharacterSize(UI::font_size * 2);
+    pauseText.setFillColor(sf::Color::Yellow);
+    pauseText.setString("PAUSE");
+    
+    pauseText.setPosition(sf::Vector2f(
+        window.getSize().x / 2.0f - 270.0f,  
+        window.getSize().y / 2.0f - 50.0f    
+    ));
+    
+    
+    window.draw(overlay);
+    window.draw(pauseText);
+    
 }
 
 
