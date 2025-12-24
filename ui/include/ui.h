@@ -91,7 +91,7 @@ void draw_score(Grid& next_piece_grid, sf::RenderWindow& window);
 /**
  * \brief A function to show the piece that the player will get the next turn.
  * \param window The window on which the next piece will be displayed.
- *  \param newt_type The type of the next piece.
+ * \param newt_type The type of the next piece.
  * \return 
  */
 
@@ -101,17 +101,31 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type);
 /**
  * @brief Shows the Game Over screen and handles restart/quit, updating score, timer, and music.
  * 
- * @param grid The game grid.
- * @param current The current piece.
- * @param next The next piece.
- * @param is_game_over Game over flag.
- * @param score Player's score.
- * @param game_clock Game timer.
- * @param time_decrease_rate Game speed rate.
- * @param score_threshold Level-up score.
- * @param background_music Background music.
+ * \param grid The game grid.
+ * \param current The current piece.
+ * \param next The next piece.
+ * \param is_game_over Game over flag.
+ * \param score Player's score.
+ * \param game_clock Game timer.
+ * \param time_decrease_rate Game speed rate.
+ * \param score_threshold Level-up score.
+ * \param background_music Background music.
  */
-void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, 
+ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, 
                     int score, sf::Clock& game_clock, double& time_decrease_rate, 
                     double& score_threshold, sf::Music& background_music);
+/**
+ * \brief A function to show game controls on screen.
+ * \param window The window on which the controls will be displayed.
+ * \return 
+ */
+void draw_controls(sf::RenderWindow& window);
+
+/**
+ * \brief A function to show pause screen.
+ * \param window The window on which the pause screen will be displayed.
+ * \return 
+ */
+ void draw_pause_screen(sf::RenderWindow& window);
+
 #endif
