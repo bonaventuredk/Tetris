@@ -12,6 +12,7 @@
 #include <string>
 
 #include "SFML/Graphics.hpp"
+#include <SFML/Audio/Music.hpp>
 #include <SFML/Window.hpp>
 #include "core_class.h"
 #include "ui.h"
@@ -161,7 +162,9 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
             }
         }
 }
-void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, int score)
+void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, 
+                    int score, sf::Clock& game_clock, double& time_decrease_rate, 
+                    double& score_threshold, sf::Music& background_music)
 {
     
     sf::Text gameOverText(UI::font);
@@ -239,13 +242,21 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
             {
                 if (key->scancode == sf::Keyboard::Scan::R) // restart
                 {
+                   
                     grid = Grid(UI::row_number, UI::column_number);
-                    current = grid.put_piece(createRandomPiece());
+
+                   
                     next = createRandomPiece();
                     is_game_over = false;
+
+                    game_clock.restart();
+                    time_decrease_rate = 0;
+                    score_threshold = 200;
+                    background_music.play();
+
                     return;
                 }
-                else if (key->scancode == sf::Keyboard::Scan::Q) // quit
+                                else if (key->scancode == sf::Keyboard::Scan::Q) // quit
                 {
                     UI::window.close();
                     return;
