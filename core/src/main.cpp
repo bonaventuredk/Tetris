@@ -8,6 +8,7 @@
 
 int main()
 {
+    srand(static_cast<unsigned int>(time(nullptr)));
     Grid grid(UI::row_number, UI::column_number);
     bool is_game_over=false;
     Piece current = grid.put_piece(createRandomPiece());
@@ -27,7 +28,7 @@ int main()
         return -1;
 
     music.setLooping(true);
-    music.setVolume(40.f);
+    music.setVolume(10.f);
     music.play();
 
     sf::SoundBuffer moveLeftBuffer;
@@ -124,6 +125,7 @@ int main()
                     {
                         score_threshold*=2.25;
                         time_decrease_rate+=0.025;
+                        music.stop();
                         levelUpSound.play();
                     }
                     clock.restart();
