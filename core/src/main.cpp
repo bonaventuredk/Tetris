@@ -3,7 +3,7 @@
 #include <array>
 #include "core_class.h"
 #include "ui.h"
-
+int bestScore = 0;
 int main()
 {
     // Initialize random seed and game grid
@@ -83,6 +83,7 @@ int main()
     levelUpSound.setVolume(80.f);
     gameOverSound.setVolume(100.f);
     pauseSound.setVolume(60.f); 
+    
 
     // Main game loop
     while (UI::window.isOpen())
@@ -106,7 +107,7 @@ int main()
                             pauseSound.play();
                         } else {
                             music.play();
-                            pauseSound.pause();
+                            pauseSound.pause() ;
                         }
                     }
                     
@@ -143,7 +144,9 @@ int main()
                 if (!has_moved){
                     dropSound.play();
                     is_game_over = grid.update();
-                    
+                    extern int bestScore ;
+                    bestScore = std::max(bestScore, static_cast<int>(grid.score())); //saving of best score
+
                     if (is_game_over) {
                         gameOverSound.play();
                         music.stop();
