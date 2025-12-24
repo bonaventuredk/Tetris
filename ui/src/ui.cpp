@@ -222,4 +222,35 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
     UI::window.draw(scoreText);
     UI::window.draw(instructionText);
     UI::window.display();
+
+
+    while (is_game_over && UI::window.isOpen())
+    {
+        while (auto eventOpt = UI::window.pollEvent())
+        {
+            const sf::Event& event = *eventOpt;
+
+            if (event.is<sf::Event::Closed>())
+            {
+                UI::window.close();
+            }
+
+            if (const auto* key = event.getIf<sf::Event::KeyPressed>())
+            {
+                if (key->scancode == sf::Keyboard::Scan::R) // restart
+                {
+                    grid = Grid(UI::row_number, UI::column_number);
+                    current = grid.put_piece(createRandomPiece());
+                    next = createRandomPiece();
+                    is_game_over = false;
+                    return;
+                }
+                else if (key->scancode == sf::Keyboard::Scan::Q) // quit
+                {
+                    UI::window.close();
+                    return;
+                }
+            }
+        }
+    }
 }
