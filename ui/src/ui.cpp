@@ -12,6 +12,7 @@
 #include <string>
 
 #include "SFML/Graphics.hpp"
+#include <SFML/Window.hpp>
 #include "core_class.h"
 #include "ui.h"
 
@@ -159,4 +160,22 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
                 
             }
         }
+}
+void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over)
+{
+    sf::Text gameOverText(UI::font);
+    gameOverText.setCharacterSize(UI::font_size * 2);
+    gameOverText.setFillColor(sf::Color::Red);
+    gameOverText.setString("GAME OVER!\nPress R to restart or Q to quit");
+
+    
+    sf::Vector2f windowCenter(UI::window.getSize().x / 2.f, UI::window.getSize().y / 2.f);
+    gameOverText.setPosition(windowCenter);
+
+    UI::window.clear(sf::Color::Black);
+    UI::window.draw(gameOverText);
+    UI::window.display();
+
+    // Wait for player input
+    
 }

@@ -26,10 +26,8 @@ target_include_directories(tetrix_core PUBLIC core/include) # for linux : Vraime
 add_executable(test_core tests/test_core_class.cpp)
 target_link_libraries(test_core tetrix_core Catch2::Catch2WithMain)
 
-add_executable(tetrix_game core/src/main.cpp) 
+add_executable(tetrix_game core/src/main.cpp ui/src/ui.cpp) 
 target_link_libraries(tetrix_game tetrix_core tetrix_ui SFML::Graphics SFML::Window SFML::System SFML::Audio) 
-
-
 
 
 
