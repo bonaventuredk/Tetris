@@ -105,6 +105,6 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type);
  * @param is_game_over Reference to the boolean flag indicating whether the game is over.
  */
 
-void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over);
+void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, int score);
 
 #endif
