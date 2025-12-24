@@ -29,7 +29,7 @@ namespace UI
 
     sf::RectangleShape cell(sf::Vector2f(pixel_cell_size - 1.f, pixel_cell_size - 1.f));
 
-    sf::Font font("../UI/Tetris_font.ttf");
+    sf::Font font("../ui/Tetris_font.ttf");
     unsigned int font_size= pixel_cell_size*left_side_width_in_cell/10;
 }
 
