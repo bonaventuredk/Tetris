@@ -8,6 +8,7 @@
 
 int main()
 {
+    srand(static_cast<unsigned int>(time(nullptr)));
     Grid grid(UI::row_number, UI::column_number);
     bool is_game_over=false;
     Piece current = grid.put_piece(createRandomPiece());
@@ -23,27 +24,54 @@ int main()
     sf::Clock clock;
     // for sound
     sf::Music music;
-    if (!music.openFromFile("../UI/sounds/music.ogg"))
+    if (!music.openFromFile("../ui/sounds/music.ogg"))
         return -1;
 
     music.setLooping(true);
-    music.setVolume(40.f);
+    music.setVolume(10.f);
     music.play();
 
-    sf::SoundBuffer moveBuffer;
-    sf::SoundBuffer rotateBuffer;
+    sf::SoundBuffer moveLeftBuffer;
+    sf::SoundBuffer moveRightBuffer;
+    sf::SoundBuffer cloclwiseBuffer;
+    sf::SoundBuffer anticloclwiseBuffer;
+    sf::SoundBuffer gameoverBuffer;
+    sf::SoundBuffer LevelUpBuffer;
+    sf::SoundBuffer successBuffer;
     sf::SoundBuffer dropBuffer;
 
-    if (!moveBuffer.loadFromFile("../UI/sounds/move.wav") ||
-        !rotateBuffer.loadFromFile("../UI/sounds/rotate.wav") ||
-        !dropBuffer.loadFromFile("../UI/sounds/drop.wav"))
+    if (!moveLeftBuffer.loadFromFile("../ui/sounds/clickleft.wav") ||
+    !moveRightBuffer.loadFromFile("../ui/sounds/clickright.wav") ||
+    !cloclwiseBuffer.loadFromFile("../ui/sounds/clockwise.wav") ||
+    !anticloclwiseBuffer.loadFromFile("../ui/sounds/anticlockwise.wav") ||
+    !dropBuffer.loadFromFile("../ui/sounds/drop.wav") ||
+    !successBuffer.loadFromFile("../ui/sounds/success_linedisapear.wav") ||
+    !LevelUpBuffer.loadFromFile("../ui/sounds/higherlevelup.wav") ||
+    !gameoverBuffer.loadFromFile("../ui/sounds/game_over.wav"))
     {
-        return -1; 
+        return -1;
     }
 
-    sf::Sound moveSound(moveBuffer);
-    sf::Sound rotateSound(rotateBuffer);
+
+    sf::Sound moveLeftSound(moveLeftBuffer);
+    sf::Sound moveRightSound(moveRightBuffer);
+
+    sf::Sound clockwiseSound(cloclwiseBuffer);
+    sf::Sound anticlockwiseSound(anticloclwiseBuffer);
+
     sf::Sound dropSound(dropBuffer);
+    sf::Sound successSound(successBuffer); //for line disapear
+    sf::Sound levelUpSound(LevelUpBuffer);
+    sf::Sound gameOverSound(gameoverBuffer);
+
+    moveLeftSound.setVolume(50.f);  
+    moveRightSound.setVolume(50.f);
+    dropSound.setVolume(70.f);
+    clockwiseSound.setVolume(40.f);
+    anticlockwiseSound.setVolume(40.f);
+    successSound.setVolume(60.f);
+    levelUpSound.setVolume(80.f);
+    gameOverSound.setVolume(100.f);
 
     while (UI::window.isOpen())
     {
@@ -56,18 +84,30 @@ int main()
                     UI::window.close(); 
                 if (const auto* key = event->getIf<sf::Event::KeyPressed>()) // way to detect key presses in sfml
                 {
-                    if (key->scancode ==sf::Keyboard::Scan::Left)
+                    if (key->scancode == sf::Keyboard::Scan::Left) {
                         grid.move_piece(current, Move::left);
-                        moveSound.play();
-                    if (key->scancode ==sf::Keyboard::Scan::Right)
-                        grid.move_piece(current,Move::right);
-                        moveSound.play();
-                    if (key->scancode== sf::Keyboard::Scan::Down)
+                        moveLeftSound.play();
+                    }
+
+                    if (key->scancode == sf::Keyboard::Scan::Right) {
+                        grid.move_piece(current, Move::right);
+                        moveRightSound.play();
+                    }
+
+                    if (key->scancode == sf::Keyboard::Scan::Down) {
                         grid.move_piece(current, Move::down);
-                        moveSound.play();
-                    if (key->scancode ==sf::Keyboard::Scan::Up)
-                        grid.move_piece(current,Move::clock_rotation);
-                        rotateSound.play();
+                        dropSound.play();
+                    }
+
+                    if (key->scancode == sf::Keyboard::Scan::Up) {
+                        grid.move_piece(current, Move::clock_rotation);
+                        clockwiseSound.play();
+                    }
+
+                    if (key->scancode == sf::Keyboard::Scan::Space) {
+                        grid.move_piece(current, Move::anticlock_rotation);
+                        anticlockwiseSound.play();
+                    }
                 }
             }
             if (clock.getElapsedTime().asSeconds() > (1-time_decrease_rate)*waiting_time) //checks if a certain amount of time has passed (0.6)
@@ -77,10 +117,16 @@ int main()
                 if (!has_moved){
                     dropSound.play();
                     is_game_over=grid.update();
+                    if (is_game_over) 
+                    {
+                        gameOverSound.play();
+                    }
                     if(grid.score() > score_threshold)
                     {
                         score_threshold*=2.25;
                         time_decrease_rate+=0.025;
+                        music.stop();
+                        levelUpSound.play();
                     }
                     clock.restart();
                     if(!is_game_over)
