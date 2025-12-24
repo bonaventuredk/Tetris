@@ -34,11 +34,13 @@ namespace UI
     extern sf::RectangleShape cell; /**< An SFML rectangle to display Tetris' blocks. */
 
     constexpr sf::Color grey{110, 110, 110}; /**< Color grey for SFML. */
+    constexpr sf::Color spawn_grey{70, 70, 70}; /**< Other color grey for SFML. */
     constexpr sf::Color orange{255, 128, 0}; /**< Color orange for SFML. */
     constexpr sf::Color pink{243 , 130, 185}; /**< Color pink for SFML. */
-    constexpr sf::Color purple{ 224, 32, 255}; /**< Color purple for SFML. */
+    constexpr sf::Color purple{224, 32, 255}; /**< Color purple for SFML. */
 
     extern sf::Font font; /**< A font for displaying texts with SFML (https://www.dafont.com/fr/tetris.font). */
+    extern unsigned int font_size; /**< The size of the font in pixels. */
 };
 
 /**
@@ -63,6 +65,17 @@ void draw_cell(Grid& grid, sf::RenderWindow& window, unsigned int cell_row, unsi
  */
 
 void draw_grid(Grid& grid, sf::RenderWindow& window);
+
+/**
+ * \brief A function to center a text on a line of cells on sides of the Tetris' grid.
+ * \param move Asserting if it is to be centered to the left or to the right of the grid.
+ * \param text The text that has to be centered.
+ * \param cell_column The column of the cell on which the text starts.
+ * \return 
+ */
+
+
+void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_column);
 
 /**
  * \brief A function to show the player's score on screen.

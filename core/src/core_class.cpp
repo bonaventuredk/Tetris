@@ -251,9 +251,9 @@ std::vector<unsigned int> Grid::get_full_rows() const
 }
 
 
-Piece Grid::put_piece(PieceType ptype)
+Piece Grid::put_piece(PieceType ptype, unsigned int pivot)
 {
-    Piece piece {ptype, 0, (*this).row_size()/2};
+    Piece piece {ptype, pivot, (*this).row_size()/2};
     for(unsigned int block=0; block<piece.size(); ++block)
     {   
         (*this)(piece[block].row(), piece[block].column()).fill(piece[block]);
@@ -311,7 +311,7 @@ bool Grid::update()
     // Checking if the game is over.
 
     bool is_game_over=false;
-    for(unsigned int row=0; row<2; ++row)
+    for(unsigned int row=0; row<4; ++row)
     {
         for(unsigned int column=0; column<(*this).row_size(); ++column)
         {
