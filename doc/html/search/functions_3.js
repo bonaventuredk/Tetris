@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['fill_0',['fill',['../class_cell.html#a7624f45cb2ad3ada2289a0c8be57f8cc',1,'Cell']]]
+  ['draw_5fcell_0',['draw_cell',['../ui_8h.html#a823d6381a9ce159b16627d07c5da6411',1,'draw_cell(Grid &amp;grid, sf::RenderWindow &amp;window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column):&#160;ui.cpp'],['../ui_8cpp.html#a823d6381a9ce159b16627d07c5da6411',1,'draw_cell(Grid &amp;grid, sf::RenderWindow &amp;window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column):&#160;ui.cpp']]],
+  ['draw_5fgrid_1',['draw_grid',['../ui_8h.html#af8e300693c4831d670e49551ef703443',1,'draw_grid(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#af8e300693c4831d670e49551ef703443',1,'draw_grid(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp']]],
+  ['draw_5fnext_5fblock_2',['draw_next_block',['../ui_8h.html#aade659d64ce42344fdaba439fa25d224',1,'draw_next_block(sf::RenderWindow &amp;window, PieceType &amp;next_type):&#160;ui.cpp'],['../ui_8cpp.html#aade659d64ce42344fdaba439fa25d224',1,'draw_next_block(sf::RenderWindow &amp;window, PieceType &amp;next_type):&#160;ui.cpp']]],
+  ['draw_5fscore_3',['draw_score',['../ui_8h.html#a2dab8c370c4629c2d93446e2a915a6c7',1,'draw_score(Grid &amp;next_piece_grid, sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#a4038794bdcc5cfd437195140575246fc',1,'draw_score(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp']]]
 ];

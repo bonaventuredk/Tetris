@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['les_20class_20suivantes_3a_0',['Tache 1: Implémentation les &quot;class&quot; suivantes:',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]]
+  ['et_20interdits_0',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
 ];

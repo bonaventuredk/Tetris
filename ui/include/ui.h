@@ -68,7 +68,7 @@ void draw_grid(Grid& grid, sf::RenderWindow& window);
 
 /**
  * \brief A function to center a text on a line of cells on sides of the Tetris' grid.
- * \param move Asserting if it is to be centered to the left or to the right of the grid.
+ * \param move Indicate if it has to be centered to the left or to the right of the grid.
  * \param text The text that has to be centered.
  * \param cell_column The column of the cell on which the text starts.
  * \return 

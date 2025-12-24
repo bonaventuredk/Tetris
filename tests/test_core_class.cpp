@@ -245,7 +245,6 @@ TEST_CASE("Grid::move_piece, O type, no edge cases")
 
 
     expected_grid=set_empty_grid(10,11);
-    has_moved=grid.move_piece(piece, Move::down);
     has_moved=grid.move_piece(piece, Move::clock_rotation);
     REQUIRE(has_moved==true);
     expected_grid[1+0*12+4]='O';
@@ -257,10 +256,10 @@ TEST_CASE("Grid::move_piece, O type, no edge cases")
     expected_grid=set_empty_grid(10,11);
     has_moved=grid.move_piece(piece, Move::anticlock_rotation);
     REQUIRE(has_moved==true);
+    expected_grid[1+0*12+4]='O';
+    expected_grid[1+0*12+5]='O';
     expected_grid[1+1*12+4]='O';
     expected_grid[1+1*12+5]='O';
-    expected_grid[1+2*12+4]='O';
-    expected_grid[1+2*12+5]='O';
     REQUIRE(get_grid(grid)==expected_grid);
 }
 

@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['déroulement_20du_20jeu_0',['Déroulement du jeu',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
-  ['déroulement_20du_20jeu_20coups_20valides_20et_20interdits_1',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
-  ['de_20route_2',['Feuille de Route',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
-  ['des_20matières_3',['Table des Matières',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['description_4',['Description',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['down_5',['down',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d',1,'core_class.h']]],
-  ['du_20jeu_6',['Déroulement du jeu',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
-  ['du_20jeu_20coups_20valides_20et_20interdits_7',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]],
-  ['du_20projet_8',['Aborescence du Projet',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]]
+  ['_5fblocks_0',['_blocks',['../class_piece.html#aa8c045e7831a8473e6aaa61d88cbd191',1,'Piece']]],
+  ['_5fcolor_1',['_color',['../class_block.html#a36c9bff272fcb4d182a6c60b830f41d7',1,'Block::_color'],['../class_cell.html#a2970c9b9947bc4e6c2466f1f004130ac',1,'Cell::_color']]],
+  ['_5fcolumn_2',['_column',['../class_block.html#a827a44690d4d9738a299c2265a7a8ae7',1,'Block']]],
+  ['_5fis_5ffull_3',['_is_full',['../class_cell.html#a5fdb872b309acc01ccc43a52ec37af0c',1,'Cell']]],
+  ['_5fpivot_5fidx_4',['_pivot_idx',['../class_piece.html#a337e2dbf1591cf2ea1e743011f461d61',1,'Piece']]],
+  ['_5frow_5',['_row',['../class_block.html#a42b2f054e380c57f4a9011dfceba152b',1,'Block']]],
+  ['_5fscore_6',['_score',['../class_grid.html#aacf612eae31162b7e2f962b3c63a52cd',1,'Grid']]],
+  ['_5ftype_7',['_type',['../class_piece.html#a3384f03bf40eb49e44ce7940ad004032',1,'Piece']]]
 ];
