@@ -96,12 +96,14 @@ int main()
                     
                     if (key->scancode == sf::Keyboard::Scan::P) {
                         is_paused = !is_paused;
-                        pauseSound.play(); 
                         
                         if (is_paused) {
-                            music.pause(); 
+                            music.pause();
+                            pauseSound.stop();
+                            pauseSound.play();
                         } else {
-                            music.play(); 
+                            music.play();
+                            pauseSound.stop();
                         }
                     }
 
