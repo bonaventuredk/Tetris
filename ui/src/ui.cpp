@@ -309,11 +309,20 @@ void draw_pause_screen(sf::RenderWindow& window)
         window.getSize().x / 2.0f - 270.0f,  
         window.getSize().y / 2.0f - 50.0f    
     ));
+    sf::Text instructionText(UI::font);
+    instructionText.setCharacterSize(UI::font_size);
+    instructionText.setFillColor(sf::Color::White);
+    instructionText.setString("Press P to resume");
+    
+    instructionText.setPosition(sf::Vector2f(
+        window.getSize().x / 2.0f - 340.0f,  
+        window.getSize().y / 2.0f + 100.0f    
+    ));
     
     
     window.draw(overlay);
     window.draw(pauseText);
-    
+    window.draw(instructionText);
 }
 
 

@@ -93,19 +93,19 @@ int main()
                     UI::window.close(); 
                 if (const auto* key = event->getIf<sf::Event::KeyPressed>()) // way to detect key presses in sfml
                 {
-                    // ← AJOUT: Gestion de la touche P pour pause
+                    
                     if (key->scancode == sf::Keyboard::Scan::P) {
                         is_paused = !is_paused;
-                        pauseSound.play(); // Jouer le son de pause
+                        pauseSound.play(); 
                         
                         if (is_paused) {
-                            music.pause(); // Mettre en pause la musique
+                            music.pause(); 
                         } else {
-                            music.play(); // Reprendre la musique
+                            music.play(); 
                         }
                     }
 
-                    // ← MODIFICATION: Ne traiter les autres touches que si le jeu n'est pas en pause
+                    
                     if (!is_paused) {
                         if (key->scancode == sf::Keyboard::Scan::Left) {
                             grid.move_piece(current, Move::left);
@@ -135,7 +135,7 @@ int main()
                 }
             }
             
-            // ← MODIFICATION: Ne mettre à jour le jeu que s'il n'est pas en pause
+            
             if (!is_paused && clock.getElapsedTime().asSeconds() > (1-time_decrease_rate)*waiting_time)
             {
                 bool has_moved = grid.move_piece(current, Move::down);
@@ -173,9 +173,9 @@ int main()
             draw_grid(grid, UI::window);
             draw_score(grid, UI::window);
             draw_next_block(UI::window, next);
-            draw_controls(UI::window); // ← AJOUT: Afficher les contrôles
+            draw_controls(UI::window); 
             
-            // ← AJOUT: Afficher l'écran de pause si le jeu est en pause
+           
             if (is_paused) {
                 draw_pause_screen(UI::window);
             }
