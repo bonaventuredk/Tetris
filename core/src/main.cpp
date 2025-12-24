@@ -106,6 +106,7 @@ int main()
                             pauseSound.play();
                         } else {
                             music.play();
+                            pauseSound.pause();
                         }
                     }
                     
