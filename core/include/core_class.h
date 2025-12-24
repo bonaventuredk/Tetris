@@ -150,95 +150,132 @@ class Block
  * @brief Tetris pieces description
 
 */
+/**
+ * @class Piece
+ * @brief Represents a Tetris piece with blocks, type, pivot, and rotation logic.
+ *
+ * - Initialize blocks for a given piece type at specific pivot coordinates.
+ * - Provide access to block positions, pivot, and color.
+ * - Support rotation around the pivot (clockwise and counterclockwise).
+ * - Support basic movement operations along the grid.
+ */
 class Piece
 {
-    public:
-      /**
-       * \brief Constructor for a Piece object.
-       *
-       * Creates a piece of the given type and places it at the initial pivot coordinates.
-       *
-       * \param type The type of the piece (I, O, T, J, L, S, Z)
-       * \param pivotRow The row index of the pivot point
-       * \param pivotCol The column index of the pivot point
-       */
-      Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0);
+public:
+    /**
+     * @brief Constructs a Piece of a given type at the specified pivot coordinates.
+     * 
+     * The constructor initializes the blocks for the specified piece type and sets
+     * the pivot index. The piece is positioned on the grid according to the provided
+     * pivot coordinates.
+     * 
+     * @param type The type of the piece (I, O, T, J, L, S, Z).
+     * @param pivotRow Row index of the pivot block (default 0).
+     * @param pivotCol Column index of the pivot block (default 0).
+     */
+    Piece(PieceType type = PieceType::I, unsigned int pivotRow = 0, unsigned int pivotCol = 0);
 
-      /*!
-       * \brief Returns the type of the piece
-       * \return piece type
-       */
-      PieceType type() const { return _type; }
+    /**
+     * @brief Returns the type of the piece.
+     * @return PieceType enum value representing the piece type.
+     */
+    PieceType type() const { return _type; }
 
-      /*!
-       * \brief Returns the pivot row
-       * \return pivot row index
-       */
-      unsigned int pivot_row() const { return _blocks[_pivot_idx].row(); }
+    /**
+     * @brief Returns the row index of the pivot block.
+     * 
+     * The pivot is the reference block around which rotations are performed.
+     * 
+     * @return Row index of the pivot block.
+     */
+    unsigned int pivot_row() const { return _blocks[_pivot_idx].row(); }
 
-      /*!
-       * \brief Returns the pivot column
-       * \return pivot column index
-       */
-      unsigned int pivot_col() const { return _blocks[_pivot_idx].column(); }
+    /**
+     * @brief Returns the column index of the pivot block.
+     * 
+     * @return Column index of the pivot block.
+     */
+    unsigned int pivot_col() const { return _blocks[_pivot_idx].column(); }
 
-      /*!
-       * \brief Returns the blocks of the piece
-       * \return vector of blocks
-       */
+    /**
+     * @brief Access a block at the specified index.
+     * 
+     * Provides read-only access to a specific block in the piece.
+     * 
+     * @param i Index of the block (0 to size()-1).
+     * @return Copy of the Block at the given index.
+     */
+    Block operator[](unsigned int i) const { return _blocks[i]; }
 
-      Block operator[](unsigned int i) const{return _blocks[i];}
-      Block& operator[](unsigned int i){return _blocks[i];}
-      
-      Color color() const {return (*this)[0].color();}
+    /**
+     * @brief Access a block at the specified index.
+     * 
+     * Provides read/write access to a specific block in the piece.
+     * 
+     * @param i Index of the block (0 to size()-1).
+     * @return Reference to the Block at the given index.
+     */
+    Block& operator[](unsigned int i) { return _blocks[i]; }
 
-      /*!
-       * \brief Returns the number of blocks
-       * \return size of the piece
-       */
-      unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
-      /**
-       * @brief Rotates the piece in the specified direction.
-       * 
-       * Rotates the piece 90° around its pivot block.
-       * Clockwise or counterclockwise rotation can be selected.
-       *
-       * @param direction Direction of rotation: Move::clock_rotation or Move::anticlock_rotation
-       */
+    /**
+     * @brief Returns the color of the piece.
+     * 
+     * The color is taken from the first block of the piece. All blocks of a piece
+     * typically share the same color.
+     * 
+     * @return Color of the piece.
+     */
+    Color color() const { return (*this)[0].color(); }
 
-       void move(Move direction, unsigned int length=1);
+    /**
+     * @brief Returns the number of blocks composing the piece.
+     * @return Number of blocks (usually 4 for standard Tetris pieces).
+     */
+    unsigned int size() const { return static_cast<unsigned int>(_blocks.size()); }
 
+    /**
+     * @brief Moves or rotates the piece.
+     * 
+     * Depending on the direction parameter, this function either moves the piece
+     * horizontally/vertically or rotates it around its pivot.
+     * 
+     * @param direction Direction of movement or rotation. Can be:
+     *                  - Move::left, Move::right, Move::down for movement
+     *                  - Move::clock_rotation for clockwise rotation
+     *                  - Move::anticlock_rotation for counterclockwise rotation
+     * @param length Number of steps to move (ignored for rotation). Default is 1.
+     */
+    void move(Move direction, unsigned int length = 1);
 
 private:
-      PieceType _type; /*!< Type of the piece */
-      std::vector<Block> _blocks; /*!< Blocks composing the piece */
-      unsigned int _pivot_idx; /*!< Index of the pivot block */
+    PieceType _type;                  /*!< Type of the piece (I, O, T, J, L, S, Z) */
+    std::vector<Block> _blocks;       /*!< Blocks composing the piece */
+    unsigned int _pivot_idx;          /*!< Index of the pivot block in _blocks */
 
-      /**
-       * \brief Initializes the blocks for the piece based on its type.
-       *
-       * Sets the default shape of the piece and assigns the pivot block index.
-       * Moves the piece to the provided pivot coordinates on the grid.
-       *
-       * \param pivotRow Row index where the pivot block should be placed
-       * \param pivotCol Column index where the pivot block should be placed
-       */
-      void initializeBlocks();
-      /**
-       * \brief Rotates the piece 90° clockwise around its pivot.
-       *
-       * Uses the pivot block as the center and rotates all blocks around it.
-       *
-       */
-      void clock_rotate();
+    /**
+     * @brief Initializes the blocks for the piece based on its type.
+     * 
+     * Sets the default shape of the piece and determines which block is the pivot.
+     * Moves the piece to the provided pivot coordinates on the grid.
+     * 
+     */
+    void initializeBlocks();
 
-      /**
-       * \brief Rotates the piece 90° counterclockwise around its pivot.
-       *
-       * Uses the pivot block as the center and rotates all blocks around it
-       * in the opposite direction.
-       */
-      void anticlock_rotate();
+    /**
+     * @brief Rotates the piece 90° clockwise around its pivot.
+     * 
+     * Uses the pivot block as the center and rotates all other blocks around it
+     * according to standard Tetris rotation rules.
+     */
+    void clock_rotate();
+
+    /**
+     * @brief Rotates the piece 90° counterclockwise around its pivot.
+     * 
+     * Uses the pivot block as the center and rotates all other blocks around it
+     * in the opposite direction of clock_rotate().
+     */
+    void anticlock_rotate();
 };
 
 /**
