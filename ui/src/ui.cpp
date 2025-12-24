@@ -129,6 +129,13 @@ void draw_score(Grid& grid, sf::RenderWindow& window)
     text.setString(std::to_string(grid.score()));
     grid_sides_center_text(Move::left, text, 4);
     window.draw(text);
+
+    // Display better score saved
+    extern int bestScore;
+    text.setString("Best : " + std::to_string(bestScore));
+    grid_sides_center_text(Move::left, text, 6);
+    window.draw(text);
+
 }
 
 void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
@@ -274,10 +281,10 @@ void draw_controls(sf::RenderWindow& window)
     // List of controls
     std::vector<std::string> controls = {
         "Controls (Touches):",
-        " < ou > : Gauche/Droite",
-        " Direction bas : Descendre ",
-        " Direction haut : Rotate directe",
-        "Space : Rotate indirecte",
+        " <- -> : Gauche/Droite",
+        " v : Descendre ",
+        " ^ : Rotate directe",
+        " Space : Rotate indirecte",
         "P : Pause/Resume"
     };
     
