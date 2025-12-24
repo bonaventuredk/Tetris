@@ -203,19 +203,19 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
     float currentY = backgroundPos.y + 30.f;
     
     gameOverText.setPosition(sf::Vector2f(
-        backgroundPos.x + (maxWidth - 200.f) / 2.f, // Approximation
+        backgroundPos.x + (maxWidth - 200.f) / 2.f - 100, // Approximation
         currentY
     ));
     currentY += 70.f;
     
     scoreText.setPosition(sf::Vector2f(
-        backgroundPos.x + (maxWidth - 100.f) / 2.f, // Approximation
+        backgroundPos.x + (maxWidth - 100.f) / 2.f -70, // Approximation
         currentY
     ));
     currentY += 70.f;
     
     instructionText.setPosition(sf::Vector2f(
-        backgroundPos.x + (maxWidth - 300.f) / 2.f, // Approximation
+        backgroundPos.x + (maxWidth - 300.f) / 2.f -100, // Approximation
         currentY
     ));
 
@@ -265,3 +265,32 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
         }
     }
 }
+void draw_controls(sf::RenderWindow& window)
+{
+    sf::Text text(UI::font);
+    text.setCharacterSize(UI::font_size * 0.6f);
+    text.setFillColor(sf::Color::White);
+    
+    // Liste des contrôles
+    std::vector<std::string> controls = {
+        "Controls (Touches):",
+        " < ou > : Gauche/Droite",
+        " Direction bas : Descendre ",
+        " Direction haut : Rotate directe",
+        "Space : Rotate indirecte",
+        "P : Pause/Resume"
+    };
+    
+    // Position de départ pour les contrôles
+    unsigned int start_row = 10;
+    
+    for(size_t i = 0; i < controls.size(); ++i)
+    {
+        text.setString(controls[i]);
+        grid_sides_center_text(Move::right, text, start_row + i);
+        window.draw(text);
+    }
+}
+
+
+

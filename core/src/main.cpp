@@ -11,6 +11,7 @@ int main()
     srand(static_cast<unsigned int>(time(nullptr)));
     Grid grid(UI::row_number, UI::column_number);
     bool is_game_over=false;
+    bool is_paused=false;
     Piece current = grid.put_piece(createRandomPiece());
     PieceType next = createRandomPiece();
     
@@ -22,6 +23,7 @@ int main()
 
 
     sf::Clock clock;
+    sf::Clock pauseClock;
     // for sound
     sf::Music music;
     if (!music.openFromFile("../ui/sounds/music.ogg"))
@@ -39,6 +41,7 @@ int main()
     sf::SoundBuffer LevelUpBuffer;
     sf::SoundBuffer successBuffer;
     sf::SoundBuffer dropBuffer;
+    sf::SoundBuffer pauseBuffer;
 
     if (!moveLeftBuffer.loadFromFile("../ui/sounds/clickleft.wav") ||
     !moveRightBuffer.loadFromFile("../ui/sounds/clickright.wav") ||
@@ -51,7 +54,11 @@ int main()
     {
         return -1;
     }
-
+    if (!pauseBuffer.loadFromFile("../ui/sounds/higherlevelup.wav"))
+    {
+        // Si le fichier n'existe pas, on peut utiliser un son par défaut ou ignorer
+        // Pour l'instant, on ne fait rien
+    }
 
     sf::Sound moveLeftSound(moveLeftBuffer);
     sf::Sound moveRightSound(moveRightBuffer);
@@ -63,6 +70,7 @@ int main()
     sf::Sound successSound(successBuffer); //for line disapear
     sf::Sound levelUpSound(LevelUpBuffer);
     sf::Sound gameOverSound(gameoverBuffer);
+    sf::Sound pauseSound(pauseBuffer);
 
     moveLeftSound.setVolume(50.f);  
     moveRightSound.setVolume(50.f);
@@ -72,6 +80,7 @@ int main()
     successSound.setVolume(60.f);
     levelUpSound.setVolume(80.f);
     gameOverSound.setVolume(100.f);
+    pauseSound.setVolume(60.f); 
 
     while (UI::window.isOpen())
     {
@@ -84,33 +93,50 @@ int main()
                     UI::window.close(); 
                 if (const auto* key = event->getIf<sf::Event::KeyPressed>()) // way to detect key presses in sfml
                 {
-                    if (key->scancode == sf::Keyboard::Scan::Left) {
-                        grid.move_piece(current, Move::left);
-                        moveLeftSound.play();
+                    // ← AJOUT: Gestion de la touche P pour pause
+                    if (key->scancode == sf::Keyboard::Scan::P) {
+                        is_paused = !is_paused;
+                        pauseSound.play(); // Jouer le son de pause
+                        
+                        if (is_paused) {
+                            music.pause(); // Mettre en pause la musique
+                        } else {
+                            music.play(); // Reprendre la musique
+                        }
                     }
 
-                    if (key->scancode == sf::Keyboard::Scan::Right) {
-                        grid.move_piece(current, Move::right);
-                        moveRightSound.play();
-                    }
+                    // ← MODIFICATION: Ne traiter les autres touches que si le jeu n'est pas en pause
+                    if (!is_paused) {
+                        if (key->scancode == sf::Keyboard::Scan::Left) {
+                            grid.move_piece(current, Move::left);
+                            moveLeftSound.play();
+                        }
 
-                    if (key->scancode == sf::Keyboard::Scan::Down) {
-                        grid.move_piece(current, Move::down);
-                        dropSound.play();
-                    }
+                        if (key->scancode == sf::Keyboard::Scan::Right) {
+                            grid.move_piece(current, Move::right);
+                            moveRightSound.play();
+                        }
 
-                    if (key->scancode == sf::Keyboard::Scan::Up) {
-                        grid.move_piece(current, Move::clock_rotation);
-                        clockwiseSound.play();
-                    }
+                        if (key->scancode == sf::Keyboard::Scan::Down) {
+                            grid.move_piece(current, Move::down);
+                            dropSound.play();
+                        }
 
-                    if (key->scancode == sf::Keyboard::Scan::Space) {
-                        grid.move_piece(current, Move::anticlock_rotation);
-                        anticlockwiseSound.play();
+                        if (key->scancode == sf::Keyboard::Scan::Up) {
+                            grid.move_piece(current, Move::clock_rotation);
+                            clockwiseSound.play();
+                        }
+
+                        if (key->scancode == sf::Keyboard::Scan::Space) {
+                            grid.move_piece(current, Move::anticlock_rotation);
+                            anticlockwiseSound.play();
+                        }
                     }
                 }
             }
-            if (clock.getElapsedTime().asSeconds() > (1-time_decrease_rate)*waiting_time) //checks if a certain amount of time has passed (0.6)
+            
+            // ← MODIFICATION: Ne mettre à jour le jeu que s'il n'est pas en pause
+            if (!is_paused && clock.getElapsedTime().asSeconds() > (1-time_decrease_rate)*waiting_time)
             {
                 bool has_moved = grid.move_piece(current, Move::down);
 
@@ -141,19 +167,23 @@ int main()
                 }
                 clock.restart();
             }
+            
             UI::window.clear(sf::Color::Black);
             
             draw_grid(grid, UI::window);
             draw_score(grid, UI::window);
             draw_next_block(UI::window, next);
+            draw_controls(UI::window); // ← AJOUT: Afficher les contrôles
+            
+            // ← AJOUT: Afficher l'écran de pause si le jeu est en pause
+            if (is_paused) {
+                draw_pause_screen(UI::window);
+            }
            
             UI:: window.display();
             while(clock.getElapsedTime().asSeconds() < 0.04){}
         }
-        
-        // Adding a question such as : restart or quit 
     }
 
     return 0;
 }
-
