@@ -17,7 +17,7 @@
 
 namespace UI
 {   
-    unsigned int row_number=18; 
+    unsigned int row_number=20; 
     unsigned int column_number=10;
 
     sf::VideoMode current_video_mode= sf::VideoMode::getDesktopMode(); 
@@ -30,6 +30,7 @@ namespace UI
     sf::RectangleShape cell(sf::Vector2f(pixel_cell_size - 1.f, pixel_cell_size - 1.f));
 
     sf::Font font("../UI/Tetris_font.ttf");
+    unsigned int font_size= pixel_cell_size*left_side_width_in_cell/10;
 }
 
 void draw_cell(Grid& grid, sf::RenderWindow& window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column)
@@ -70,7 +71,9 @@ void draw_cell(Grid& grid, sf::RenderWindow& window, unsigned int cell_row, unsi
         break;
 
         case Color::none :
-        UI::cell.setFillColor(UI::grey);
+        if(row > 3)UI::cell.setFillColor(UI::grey);
+        else UI::cell.setFillColor(UI::spawn_grey);
+        break;
     }
     window.draw(UI::cell);
 }
@@ -87,28 +90,42 @@ void draw_grid(Grid& grid, sf::RenderWindow& window)
         }
 }
 
+void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_column)
+{
+    unsigned int text_size= text.getGlobalBounds().size.x;
+    unsigned int margin=0;
+    switch(move)
+    {
+        case Move::left :
+            margin= (UI::left_side_width_in_cell*UI::pixel_cell_size - text_size)/2;
+            break;
+
+        case Move::right :
+            margin= (UI::left_side_width_in_cell + UI::column_number)*UI::pixel_cell_size;
+            margin= margin + (UI::right_side_width_in_cell*UI::pixel_cell_size - text_size)/2;
+            break;
+        default :
+            break;
+    }
+    text.setPosition(sf::Vector2f(margin, cell_column* UI::pixel_cell_size));
+}
+
 void draw_score(Grid& grid, sf::RenderWindow& window)
 {
     sf::Text text(UI::font);
 
     // Display legend :
 
-    text.setCharacterSize(76);
-    text.setString("Score : ");
+    text.setCharacterSize(UI::font_size);
+    text.setString("Score :");
     text.setFillColor(sf::Color::White);
-    text.setPosition(sf::Vector2f(
-                    3*UI::pixel_cell_size,
-                    2 * UI::pixel_cell_size
-                ));
+    grid_sides_center_text(Move::left, text, 2);
     window.draw(text);
             
     // Display score :
 
     text.setString(std::to_string(grid.score()));
-    text.setPosition(sf::Vector2f(
-                    1*UI::pixel_cell_size,
-                    4 * UI::pixel_cell_size
-                ));
+    grid_sides_center_text(Move::left, text, 4);
     window.draw(text);
 }
 
@@ -117,24 +134,22 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
     // Display legend :
 
     sf::Text text(UI::font);
-    text.setCharacterSize(76);
-    text.setString("Next piece : ");
+    text.setCharacterSize(UI::font_size);
+    text.setString("Next piece :");
     text.setFillColor(sf::Color::White);
-    text.setPosition(sf::Vector2f(
-                    (UI::left_side_width_in_cell + UI::column_number + 1)*UI::pixel_cell_size,
-                    2 * UI::pixel_cell_size
-                ));
+    grid_sides_center_text(Move::right, text, 2);
     window.draw(text);
 
     // Creating the grid 
 
     Grid next_piece_grid(2,4);
-    next_piece_grid.put_piece(next_type);
+    next_piece_grid.put_piece(next_type,0);
 
     // Drawing next piece
 
     unsigned int row= 4;
-    unsigned cell_column= UI::left_side_width_in_cell + UI::column_number + 3;
+    unsigned cell_column= UI::left_side_width_in_cell + UI::column_number;
+    cell_column = cell_column + (UI::right_side_width_in_cell-4)/2;
     for (unsigned int r = 0; r < next_piece_grid.column_size(); ++r)
         {
             for (unsigned int c = 0; c <next_piece_grid.row_size(); ++c)

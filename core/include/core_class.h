@@ -366,10 +366,11 @@ class Grid
          * \brief Creates a piece of a given type and sets
          * the grid accordingly. 
          * \param ptype The type of the piece that has to be created.
+         * \param row The row of the piece's pivot. It's 0 by default.
          * \return The piece that has been created.
         */
 
-        Piece put_piece(PieceType ptype);
+        Piece put_piece(PieceType ptype, unsigned int row=0);
 
         /**
          * \brief Moves an existing piece, checks if the move is possible in the grid and

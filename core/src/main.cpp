@@ -1,6 +1,8 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 
+#include <array>
+
 #include "core_class.h"
 #include "ui.h"
 
@@ -11,8 +13,10 @@ int main()
     Piece current = grid.put_piece(createRandomPiece());
     PieceType next = createRandomPiece();
     
+    double waiting_time= 0.6;
+    double time_decrease_rate =0;
+    double score_threshold= 200;
 
-   
     UI::window.setFramerateLimit(60);
 
 
@@ -66,14 +70,24 @@ int main()
                         rotateSound.play();
                 }
             }
-            if (clock.getElapsedTime().asSeconds() > 0.6f) //checks if a certain amount of time has passed (0.6)
+            if (clock.getElapsedTime().asSeconds() > (1-time_decrease_rate)*waiting_time) //checks if a certain amount of time has passed (0.6)
             {
-                bool moved = grid.move_piece(current, Move::down);
-                if (!moved){
+                bool has_moved = grid.move_piece(current, Move::down);
+
+                if (!has_moved){
                     dropSound.play();
                     is_game_over=grid.update();
-                    current =grid.put_piece(next);
-                    next = createRandomPiece();
+                    if(grid.score() > score_threshold)
+                    {
+                        score_threshold*=2.25;
+                        time_decrease_rate+=0.025;
+                    }
+                    clock.restart();
+                    if(!is_game_over)
+                    {
+                        current =grid.put_piece(next);
+                        next = createRandomPiece();
+                    }
                 }
                 clock.restart();
             }
@@ -84,6 +98,7 @@ int main()
             draw_next_block(UI::window, next);
            
             UI:: window.display();
+            while(clock.getElapsedTime().asSeconds() < 0.04){}
         }
         
         // Adding a question such as : restart or quit 
