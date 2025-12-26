@@ -28,6 +28,7 @@ namespace UI
 
     extern sf::VideoMode current_video_mode; /**< The SFML window mode to display (fullscreen). */
     extern sf::RenderWindow window;
+    extern unsigned int height_in_cell; /**< The height in cells of the window. */
     extern unsigned int pixel_cell_size; /**< The size in pixel of a Cell.*/
     extern unsigned int width_in_cell; /**< The width in cells of the window. */
     extern unsigned int left_side_width_in_cell; /**< The width in cells of the part of the window to the left of the grid. */
@@ -72,12 +73,12 @@ void draw_grid(Grid& grid, sf::RenderWindow& window);
  * \brief A function to center a text on a line of cells on sides of the Tetris' grid.
  * \param move Indicate if it has to be centered to the left or to the right of the grid.
  * \param text The text that has to be centered.
- * \param cell_column The column of the cell on which the text starts.
+ * \param cell_row The column of the cell on which the text starts.
  * \return 
  */
 
 
-void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_column);
+void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_row);
 
 /**
  * \brief A function to show the player's score on screen.
@@ -96,7 +97,7 @@ void draw_score(Grid& next_piece_grid, sf::RenderWindow& window);
  */
 
 
-void draw_next_block(sf::RenderWindow& window, PieceType& next_type);
+void draw_next_piece(sf::RenderWindow& window, PieceType& next_type);
 
 /**
  * @brief Shows the Game Over screen and handles restart/quit, updating score, timer, and music.

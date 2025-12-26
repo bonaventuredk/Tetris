@@ -24,7 +24,8 @@ namespace UI
 
     sf::VideoMode current_video_mode= sf::VideoMode::getDesktopMode(); 
     sf::RenderWindow window(UI::current_video_mode,"Tetris", sf::Style::Default, sf::State::Fullscreen);
-    unsigned int pixel_cell_size= current_video_mode.size.y/row_number;
+    unsigned int height_in_cell= row_number+2;
+    unsigned int pixel_cell_size= current_video_mode.size.y/height_in_cell;
     unsigned int width_in_cell= current_video_mode.size.x/pixel_cell_size;
     unsigned int left_side_width_in_cell= (width_in_cell-column_number)/2;
     unsigned int right_side_width_in_cell= width_in_cell-left_side_width_in_cell-column_number;
@@ -86,13 +87,13 @@ void draw_grid(Grid& grid, sf::RenderWindow& window)
         {
             for (unsigned int c = 0; c < grid.row_size(); ++c)
             {   
-                draw_cell(grid, window, 0, UI::left_side_width_in_cell, r, c);
+                draw_cell(grid, window, 1, UI::left_side_width_in_cell, r, c);
                 
             }
         }
 }
 
-void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_column)
+void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_row)
 {
     unsigned int text_size= text.getGlobalBounds().size.x;
     unsigned int margin=0;
@@ -109,7 +110,7 @@ void grid_sides_center_text(Move move, sf::Text& text, unsigned int cell_column)
         default :
             break;
     }
-    text.setPosition(sf::Vector2f(margin, cell_column* UI::pixel_cell_size));
+    text.setPosition(sf::Vector2f(margin, cell_row* UI::pixel_cell_size));
 }
 
 void draw_score(Grid& grid, sf::RenderWindow& window)
@@ -138,7 +139,7 @@ void draw_score(Grid& grid, sf::RenderWindow& window)
 
 }
 
-void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
+void draw_next_piece(sf::RenderWindow& window, PieceType& next_type)
 {   
     // Display legend :
 
@@ -156,7 +157,6 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
 
     // Drawing next piece
 
-    unsigned int row= 4;
     unsigned cell_column= UI::left_side_width_in_cell + UI::column_number;
     cell_column = cell_column + (UI::right_side_width_in_cell-4)/2;
     for (unsigned int r = 0; r < next_piece_grid.column_size(); ++r)
@@ -164,11 +164,12 @@ void draw_next_block(sf::RenderWindow& window, PieceType& next_type)
             for (unsigned int c = 0; c <next_piece_grid.row_size(); ++c)
             {   
 
-                if(next_piece_grid(r,c).is_full()) draw_cell(next_piece_grid, window, 4, cell_column,r, c);
+                if(next_piece_grid(r,c).is_full()) draw_cell(next_piece_grid, window, 5, cell_column,r, c);
                 
             }
         }
 }
+
 void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, 
                     int score, sf::Clock& game_clock, double& time_decrease_rate, 
                     double& score_threshold, sf::Music& background_music)
@@ -191,8 +192,8 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
     instructionText.setString("Press R to restart or Q to quit");
     
     
-    float maxWidth = 1600.0f;
-    float totalHeight = 250.0f;
+    float maxWidth = 0.75*UI::width_in_cell*UI::pixel_cell_size;
+    float totalHeight = 0.25*UI::height_in_cell*UI::pixel_cell_size;
     
     sf::RectangleShape background(sf::Vector2f(maxWidth, totalHeight));
     background.setFillColor(sf::Color(30, 30, 30, 230)); 
@@ -205,25 +206,26 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
         windowSize.y / 2.f - totalHeight / 2.f
     );
     background.setPosition(backgroundPos);
-    
-   
-    float currentY = backgroundPos.y + 30.f;
-    
+
+    double box_upper_row = backgroundPos.y;
+    double box_height= background.getGlobalBounds().size.y;
+
+    unsigned int text_width= gameOverText.getGlobalBounds().size.x;
     gameOverText.setPosition(sf::Vector2f(
-        backgroundPos.x + (maxWidth - 200.f) / 2.f - 100, // Approximation
-        currentY
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2, 
+        box_upper_row + 1*box_height/10
     ));
-    currentY += 70.f;
     
+    text_width= scoreText.getGlobalBounds().size.x;
     scoreText.setPosition(sf::Vector2f(
-        backgroundPos.x + (maxWidth - 100.f) / 2.f -70, // Approximation
-        currentY
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
+        box_upper_row + 4*box_height/10
     ));
-    currentY += 70.f;
     
+    text_width= instructionText.getGlobalBounds().size.x;
     instructionText.setPosition(sf::Vector2f(
-        backgroundPos.x + (maxWidth - 300.f) / 2.f -100, // Approximation
-        currentY
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
+        box_upper_row + 7*box_height/10
     ));
 
     UI::window.clear(sf::Color::Black);
@@ -272,29 +274,36 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
         }
     }
 }
+
 void draw_controls(sf::RenderWindow& window)
 {
     sf::Text text(UI::font);
-    text.setCharacterSize(UI::font_size * 0.6f);
+    text.setCharacterSize(UI::font_size);
     text.setFillColor(sf::Color::White);
     
     // List of controls
     std::vector<std::string> controls = {
-        "Controls (Touches):",
-        " <- -> : Gauche/Droite",
-        " v : Descendre ",
-        " ^ : Rotate directe",
-        " Space : Rotate indirecte",
-        "P : Pause/Resume"
+        " left arrow : Moving left",
+        " right arrow : Moving right",
+        " down arrow : Moving down ",
+        " up arrow : Anti-clockwise rotation",
+        " Space : Clockwise rotation",
+        "P : Resume"
     };
     
-    
     unsigned int start_row = 10;
+
+    text.setString("Controls :");
+    grid_sides_center_text(Move::right, text, start_row);
+    window.draw(text);
     
+    start_row = 13;
+    text.setCharacterSize(UI::font_size * 0.7f);
+
     for(size_t i = 0; i < controls.size(); ++i)
     {
         text.setString(controls[i]);
-        grid_sides_center_text(Move::right, text, start_row + i);
+        grid_sides_center_text(Move::right, text, start_row+i);
         window.draw(text);
     }
 }
@@ -303,33 +312,37 @@ void draw_controls(sf::RenderWindow& window)
 
 void draw_pause_screen(sf::RenderWindow& window)
 {
-    
     sf::RectangleShape overlay(sf::Vector2f(window.getSize().x, window.getSize().y));
     overlay.setFillColor(sf::Color(0, 0, 0, 150)); 
     
-    sf::Text pauseText(UI::font);
-    pauseText.setCharacterSize(UI::font_size * 2);
-    pauseText.setFillColor(sf::Color::Yellow);
-    pauseText.setString("PAUSE");
+    sf::Text pause_text(UI::font);
+    pause_text.setCharacterSize(UI::font_size * 1.5);
+    pause_text.setFillColor(sf::Color::Yellow);
+    pause_text.setString("PAUSE");
     
-    pauseText.setPosition(sf::Vector2f(
-        window.getSize().x / 2.0f - 270.0f,  
-        window.getSize().y / 2.0f - 50.0f    
+    unsigned int text_width= pause_text.getGlobalBounds().size.x;
+    unsigned int text_height= pause_text.getGlobalBounds().size.y;
+    pause_text.setPosition(sf::Vector2f(
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,  
+        ((UI::height_in_cell-6)*UI::pixel_cell_size-text_height)/2    
     ));
-    sf::Text instructionText(UI::font);
-    instructionText.setCharacterSize(UI::font_size);
-    instructionText.setFillColor(sf::Color::White);
-    instructionText.setString("Press P to resume");
+    sf::Text instruction_text(UI::font);
+    instruction_text.setCharacterSize(UI::font_size);
+    instruction_text.setFillColor(sf::Color::White);
+    instruction_text.setString("Press P to resume, R to start a new game or Q to quit.");
     
-    instructionText.setPosition(sf::Vector2f(
-        window.getSize().x / 2.0f - 340.0f,  
-        window.getSize().y / 2.0f + 100.0f    
+    text_width= instruction_text.getGlobalBounds().size.x;
+    text_height= instruction_text.getGlobalBounds().size.y;
+
+    instruction_text.setPosition(sf::Vector2f(
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,  
+        ((UI::height_in_cell+2)*UI::pixel_cell_size - text_height)/2    
     ));
     
     
     window.draw(overlay);
-    window.draw(pauseText);
-    window.draw(instructionText);
+    window.draw(pause_text);
+    window.draw(instruction_text);
 }
 
 
