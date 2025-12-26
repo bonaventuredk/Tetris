@@ -3,7 +3,9 @@
 #include <array>
 #include "core_class.h"
 #include "ui.h"
+
 int bestScore = 0;
+
 int main()
 {
     // Initialize random seed and game grid
@@ -11,6 +13,7 @@ int main()
     Grid grid(UI::row_number, UI::column_number);
     bool is_game_over = false;
     bool is_paused = false;
+    bool is_quit = false;
     Piece current = grid.put_piece(createRandomPiece());
     PieceType next = createRandomPiece();
     
@@ -86,10 +89,10 @@ int main()
     
 
     // Main game loop
-    while (UI::window.isOpen())
+    while (UI::window.isOpen() && !is_quit)
     {
         // Gameplay loop (while game is not over)
-        while(!is_game_over && UI::window.isOpen())
+        while(!is_game_over && UI::window.isOpen() && !is_quit)
         {
             // Event handling
             while(auto event = UI::window.pollEvent())
@@ -157,7 +160,7 @@ int main()
                     // Level progression
                     if(grid.score() > score_threshold) {
                         score_threshold *= 2.25;
-                        time_decrease_rate += 0.025;
+                        time_decrease_rate += 0.05;
                         music.stop();
                         levelUpSound.play();
                     }
@@ -175,7 +178,7 @@ int main()
             UI::window.clear(sf::Color::Black);
             draw_grid(grid, UI::window);
             draw_score(grid, UI::window);
-            draw_next_block(UI::window, next);
+            draw_next_piece(UI::window, next);
             draw_controls(UI::window);
             
             // Draw pause screen if paused
