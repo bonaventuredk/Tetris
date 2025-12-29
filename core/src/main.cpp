@@ -228,14 +228,6 @@ int main()
                     is_game_over = grid.update(); // Update grid and check for game over
                     bestScore = std::max(bestScore, static_cast<int>(grid.score())); // Save best score
 
-                    // Saving best score in a file
-                    std::ofstream writing_score_file{score_file_name, std::ios::out};
-                    if(writing_score_file.is_open())
-                    {   
-                        writing_score_file << bestScore;
-                        writing_score_file.close();
-                    }
-
                     if (is_game_over) {
                         gameOverSound.play();         // Play game over sound
                         music.stop();                 // Stop background music
@@ -292,6 +284,14 @@ int main()
             while(clock.getElapsedTime().asSeconds() < 0.04){}
         }
 
+    }
+
+    // Saving best score in a file
+    std::ofstream writing_score_file{score_file_name, std::ios::out};
+    if(writing_score_file.is_open())
+    {   
+        writing_score_file << bestScore;
+        writing_score_file.close();
     }
 
     return 0;
