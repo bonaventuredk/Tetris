@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tetris: 🎮 Tetris Project</title>
+<title>Tetris: 🎮 Projet : le jeu Tetris</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,29 +88,58 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">🎮 Tetris Project </div></div>
+  <div class="headertitle"><div class="title">🎮 Projet : le jeu Tetris </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<p>Un jeu Tetris classique développé en C++ avec interface graphique, réalisé en binôme.</p>
+<p>Un jeu Tetris classique développé en C++ et avec un interface graphique.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Binôme:</h1>
+Auteurs :</h1>
 <pre class="fragment">* Alexandre Bleuler 
 * Bonaventure Dohemeto
-</pre><p><img src="tetrominoes_notations.png" alt="Description de l'image" class="inline"/></p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+</pre><h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Table des Matières</h1>
 <ul>
-<li>Description</li>
+<li>Description du jeu Tetris</li>
+<li>Installation du jeu et dépendances</li>
+<li>Aborescence du Projet</li>
 <li>Fonctionnalités</li>
 <li>Déroulement du jeu/Coups valides et interdits</li>
-<li>Aborescence du Projet</li>
 <li>Feuille de Route</li>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Description</h1>
-<p><b>Tetris Project</b> est une implémentation du célèbre jeu Tetris en C++ moderne.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Description du jeu Tetris</h1>
+<p>Tetris est un célèbre jeu-vidéo dont le but est d'obtenir le meilleur score possible en remplissant des lignes de blocs dans une grille.</p>
+<p>Pour ce faire, des pièces composées de quatre blocs (voir image ci-dessous) tombent depuis le haut de la grille et le joueur doit les déplacer pour les poser à l'endroit qu'il juge le plus approprié. Les déplacements possible sont vers le bas, la gauche et la droite. Des rotations horaires et anti-horaires sont également possibles.</p>
+<p>Lorsqu'une ligne est remplie, elle disparaît et les lignes du dessus descendent d'un cran. Si après disparition des lignes pleines un bloc de trouve toujours dans l'une des quatre plus hautes lignes de la grille, la partie est perdue !</p>
+<center> &lt;figure&gt; <img src="tetrominoes_notations.png" alt="" width="500" height="400" class="inline"/> &lt;/figure&gt; </center><h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Installation du jeu et dépendances</h1>
+<p>Le jeu est conçu pour être compilé à l'aide de <span class="tt">CMake</span>, de préférence dans un dossier <span class="tt">/build</span> à la racine du dossier d'installation. Un fichier <span class="tt">CMakeLists.txt</span> est notamment fourni à cette même racine.</p>
+<p>De petites adaptations en fonction du système d'exploitation utilisé devront éventuellement être faites, notamment en ce qui concerne les dépendances suivantes :</p><ul>
+<li>la librairie <span class="tt">Catch2 version 3 (32 bits)</span>;</li>
+<li>la librairie <span class="tt">SFML version 3.0.2. (64 bits)</span>.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Aborescence du Projet</h1>
+<pre class="fragment">    TetrisProject/
+    ├── core/
+    │ ├── include/
+    │ │ └── core_class.h
+    │ └── src/
+    │   └── core_class.cpp
+    │   └── main.cpp
+    ├── doc/
+    ├── sounds/
+    │ ├── music.ogg
+    │ ├── move.wav
+    │ ├── rotate.wav
+    │ └── drop.wav
+    ├── tests/
+    ├── CMakeLists.txt
+    ├── DoxyFile
+    ├── .gitignore
+    └── README.md
+</pre><h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Fonctionnalités A Implémentées</h2>
 <ul class="check">
 <li class="unchecked">Grille de jeu</li>
@@ -139,9 +168,9 @@ Fonctionnalités A Implémentées</h2>
 <ul class="check">
 <li class="unchecked">Contrôles clavier</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 Déroulement du jeu/Coups valides et interdits</h1>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 Déroulement du jeu</h1>
 <ul class="check">
 <li class="unchecked">Une pièce apparaît en haut de la grille.</li>
@@ -167,7 +196,7 @@ Déroulement du jeu</h1>
 <ul class="check">
 <li class="unchecked">Si une pièce ne peut pas apparaître (entièrement) =&gt; perdu.</li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Coups valides</h1>
 <ul class="check">
 <li class="unchecked">Déplacements <pre class="fragment">  -Déplacer la pièce vers la gauche (si pas d’obstacle)
@@ -199,7 +228,7 @@ Coups valides</h1>
   -Engendrer une nouvelle pièce selon les règles
 </pre></li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 Coups interdits</h1>
 <ul class="check">
 <li class="unchecked">Déplacements interdits <pre class="fragment">  -Sortir de la grille (à gauche, à droite ou sous le bas)
@@ -231,7 +260,7 @@ Coups interdits</h1>
   -Déplacer une pièce lorsque le jeu est en pause
 </pre></li>
 </ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Aborescence du Projet</h1>
 <pre class="fragment">  TetrisProject/
   ├── core/
@@ -251,7 +280,7 @@ Aborescence du Projet</h1>
   ├── DoxyFile
   ├── .gitignore
   └── README.md
-</pre><h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+</pre><h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 Architecture des Classes</h2>
 <ol type="1">
 <li><b><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></b> : Représente un bloc individuel avec ses coordonnées (ligne, colonne)</li>
@@ -264,9 +293,9 @@ Architecture des Classes</h2>
 </ul>
 </li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 Feuille de Route</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 Tâche 1: Implémentation des classes de base</h2>
 <ul class="check">
 <li class="checked">Classe <span class="tt"><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></span> ✓</li>
@@ -280,7 +309,7 @@ Tâche 1: Implémentation des classes de base</h2>
 <ul class="check">
 <li class="checked">Classe <span class="tt"><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></span> ✓</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 Tâche 2: Logique du jeu</h2>
 <ul class="check">
 <li class="checked">Mouvement des pièces ✓</li>
@@ -297,7 +326,7 @@ Tâche 2: Logique du jeu</h2>
 <ul class="check">
 <li class="checked">Génération aléatoire des pièces ✓</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
 Tâche 3: Interface graphique</h2>
 <ul class="check">
 <li class="checked">Affichage de la grille ✓</li>
@@ -311,7 +340,7 @@ Tâche 3: Interface graphique</h2>
 <ul class="check">
 <li class="checked">Système audio ✓</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 Tâche 4: Fonctionnalités avancées</h2>
 <ul class="check">
 <li class="unchecked">Système de scoring (points par ligne, etc.) ✓</li>
@@ -328,7 +357,7 @@ Tâche 4: Fonctionnalités avancées</h2>
 <ul class="check">
 <li class="unchecked">Effets visuels (animations et autres) ✓</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Tâche 5: Qualité, tests et finalisation</h2>
 <ul class="check">
 <li class="unchecked">Tests unitaires des classes principales (<span class="tt"><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></span>, <span class="tt"><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></span>, collisions) ✓</li>
@@ -348,7 +377,7 @@ Tâche 5: Qualité, tests et finalisation</h2>
 <ul class="check">
 <li class="unchecked">Livraison finale du projet</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 Compilation avec CMake</h2>
 <p>```bash mkdir build cd build cmake .. make ./tetrix_game </p>
 </div></div><!-- contents -->

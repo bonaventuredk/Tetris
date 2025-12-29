@@ -1,6 +1,6 @@
 /**
  * \file ui.h
- * \brief  * This file contains functions and variables déclarations used to make the 
+ * \brief  This file contains functions and variables déclarations used to make the 
  * user interface of Tetris. Variables are encapsulated in the namespace UI.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
  * \version 1.0
