@@ -1,25 +1,57 @@
-\chapter{🎮 Tetris Project }
-\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{🎮 Tetris Project@{🎮 Tetris Project}}
+\chapter{🎮 Projet \+: le jeu Tetris }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{🎮 Projet : le jeu Tetris@{🎮 Projet : le jeu Tetris}}
 \label{md__r_e_a_d_m_e_autotoc_md0}%
 \Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
 
 
-Un jeu Tetris classique développé en C++ avec interface graphique, réalisé en binôme.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Binôme\+:}{Binôme\+:}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Un jeu Tetris classique développé en C++ et avec un interface graphique.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Auteurs \+:}{Auteurs \+:}}\label{md__r_e_a_d_m_e_autotoc_md1}
 \begin{DoxyVerb}* Alexandre Bleuler 
 * Bonaventure Dohemeto
 \end{DoxyVerb}
-
-
 \hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Table des Matières}{Table des Matières}}\label{md__r_e_a_d_m_e_autotoc_md2}
 
 \begin{DoxyItemize}
-\item Description
+\item Description du jeu Tetris
+\item Installation du jeu et dépendances
+\item Aborescence du Projet
 \item Fonctionnalités
 \item Déroulement du jeu/\+Coups valides et interdits
-\item Aborescence du Projet
 \item Feuille de Route
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Description}{Description}}\label{md__r_e_a_d_m_e_autotoc_md3}
-{\bfseries{Tetris Project}} est une implémentation du célèbre jeu Tetris en C++ moderne.\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Fonctionnalités A Implémentées}{Fonctionnalités A Implémentées}}\label{md__r_e_a_d_m_e_autotoc_md4}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Description du jeu Tetris}{Description du jeu Tetris}}\label{md__r_e_a_d_m_e_autotoc_md3}
+Tetris est un célèbre jeu-\/vidéo dont le but est d\textquotesingle{}obtenir le meilleur score possible en remplissant des lignes de blocs dans une grille.
+
+Pour ce faire, des pièces composées de quatre blocs (voir image ci-\/dessous) tombent depuis le haut de la grille et le joueur doit les déplacer pour les poser à l\textquotesingle{}endroit qu\textquotesingle{}il juge le plus approprié. Les déplacements possible sont vers le bas, la gauche et la droite. Des rotations horaires et anti-\/horaires sont également possibles.
+
+Lorsqu\textquotesingle{}une ligne est remplie, elle disparaît et les lignes du dessus descendent d\textquotesingle{}un cran. Si après disparition des lignes pleines un bloc de trouve toujours dans l\textquotesingle{}une des quatre plus hautes lignes de la grille, la partie est perdue !
+
+\begin{center} $<$figure$>$  $<$/figure$>$ \end{center} \hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Installation du jeu et dépendances}{Installation du jeu et dépendances}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Le jeu est conçu pour être compilé à l\textquotesingle{}aide de {\ttfamily CMake}, de préférence dans un dossier {\ttfamily /build} à la racine du dossier d\textquotesingle{}installation. Un fichier {\ttfamily CMake\+Lists.\+txt} est notamment fourni à cette même racine.
+
+De petites adaptations en fonction du système d\textquotesingle{}exploitation utilisé devront éventuellement être faites, notamment en ce qui concerne les dépendances suivantes \+:
+\begin{DoxyItemize}
+\item la librairie {\ttfamily Catch2 version 3 (32 bits)};
+\item la librairie {\ttfamily SFML version 3.\+0.\+2. (64 bits)}.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Aborescence du Projet}{Aborescence du Projet}}\label{md__r_e_a_d_m_e_autotoc_md5}
+\begin{DoxyVerb}    TetrisProject/
+    ├── core/
+    │ ├── include/
+    │ │ └── core_class.h
+    │ └── src/
+    │   └── core_class.cpp
+    │   └── main.cpp
+    ├── doc/
+    ├── sounds/
+    │ ├── music.ogg
+    │ ├── move.wav
+    │ ├── rotate.wav
+    │ └── drop.wav
+    ├── tests/
+    ├── CMakeLists.txt
+    ├── DoxyFile
+    ├── .gitignore
+    └── README.md
+\end{DoxyVerb}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Fonctionnalités A Implémentées}{Fonctionnalités A Implémentées}}\label{md__r_e_a_d_m_e_autotoc_md6}
 
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Grille de jeu
@@ -47,8 +79,8 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Contrôles clavier
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Déroulement du jeu/\+Coups valides et interdits}{Déroulement du jeu/\+Coups valides et interdits}}\label{md__r_e_a_d_m_e_autotoc_md5}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Déroulement du jeu}{Déroulement du jeu}}\label{md__r_e_a_d_m_e_autotoc_md6}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Déroulement du jeu/\+Coups valides et interdits}{Déroulement du jeu/\+Coups valides et interdits}}\label{md__r_e_a_d_m_e_autotoc_md7}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Déroulement du jeu}{Déroulement du jeu}}\label{md__r_e_a_d_m_e_autotoc_md8}
 
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Une pièce apparaît en haut de la grille.
@@ -73,7 +105,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Si une pièce ne peut pas apparaître (entièrement) =\texorpdfstring{$>$}{>} perdu.
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Coups valides}{Coups valides}}\label{md__r_e_a_d_m_e_autotoc_md7}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Coups valides}{Coups valides}}\label{md__r_e_a_d_m_e_autotoc_md9}
 
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Déplacements \begin{DoxyVerb}  -Déplacer la pièce vers la gauche (si pas d’obstacle)
@@ -114,7 +146,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
   -Engendrer une nouvelle pièce selon les règles
 \end{DoxyVerb}
 
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Coups interdits}{Coups interdits}}\label{md__r_e_a_d_m_e_autotoc_md8}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{Coups interdits}{Coups interdits}}\label{md__r_e_a_d_m_e_autotoc_md10}
 
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Déplacements interdits \begin{DoxyVerb}  -Sortir de la grille (à gauche, à droite ou sous le bas)
@@ -152,7 +184,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
   -Déplacer une pièce lorsque le jeu est en pause
 \end{DoxyVerb}
 
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Aborescence du Projet}{Aborescence du Projet}}\label{md__r_e_a_d_m_e_autotoc_md9}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Aborescence du Projet}{Aborescence du Projet}}\label{md__r_e_a_d_m_e_autotoc_md11}
 \begin{DoxyVerb}  TetrisProject/
   ├── core/
   │ ├── include/
@@ -172,7 +204,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
   ├── .gitignore
   └── README.md
 \end{DoxyVerb}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{Architecture des Classes}{Architecture des Classes}}\label{md__r_e_a_d_m_e_autotoc_md10}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{Architecture des Classes}{Architecture des Classes}}\label{md__r_e_a_d_m_e_autotoc_md12}
 
 \begin{DoxyEnumerate}
 \item {\bfseries{\doxylink{class_block}{Block}}} \+: Représente un bloc individuel avec ses coordonnées (ligne, colonne)
@@ -184,8 +216,8 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \item {\ttfamily \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} \+: Déplacements possibles (haut, bas, gauche, droite, rotations)
 \item {\ttfamily \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \+: Les 7 types de pièces Tetris
 \end{DoxyItemize}
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Feuille de Route}{Feuille de Route}}\label{md__r_e_a_d_m_e_autotoc_md11}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{Tâche 1\+: Implémentation des classes de base}{Tâche 1\+: Implémentation des classes de base}}\label{md__r_e_a_d_m_e_autotoc_md12}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Feuille de Route}{Feuille de Route}}\label{md__r_e_a_d_m_e_autotoc_md13}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{Tâche 1\+: Implémentation des classes de base}{Tâche 1\+: Implémentation des classes de base}}\label{md__r_e_a_d_m_e_autotoc_md14}
 
 \begin{DoxyItemize}
 \item[\DoxyChecked] Classe {\ttfamily \doxylink{class_block}{Block}} ✓
@@ -198,7 +230,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyChecked] Classe {\ttfamily \doxylink{class_grid}{Grid}} ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{\texorpdfstring{Tâche 2\+: Logique du jeu}{Tâche 2\+: Logique du jeu}}\label{md__r_e_a_d_m_e_autotoc_md13}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Tâche 2\+: Logique du jeu}{Tâche 2\+: Logique du jeu}}\label{md__r_e_a_d_m_e_autotoc_md15}
 
 \begin{DoxyItemize}
 \item[\DoxyChecked] Mouvement des pièces ✓
@@ -214,7 +246,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyChecked] Génération aléatoire des pièces ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{Tâche 3\+: Interface graphique}{Tâche 3\+: Interface graphique}}\label{md__r_e_a_d_m_e_autotoc_md14}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Tâche 3\+: Interface graphique}{Tâche 3\+: Interface graphique}}\label{md__r_e_a_d_m_e_autotoc_md16}
 
 \begin{DoxyItemize}
 \item[\DoxyChecked] Affichage de la grille ✓
@@ -227,7 +259,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyChecked] Système audio ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Tâche 4\+: Fonctionnalités avancées}{Tâche 4\+: Fonctionnalités avancées}}\label{md__r_e_a_d_m_e_autotoc_md15}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Tâche 4\+: Fonctionnalités avancées}{Tâche 4\+: Fonctionnalités avancées}}\label{md__r_e_a_d_m_e_autotoc_md17}
 
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Système de scoring (points par ligne, etc.) ✓
@@ -243,7 +275,7 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Effets visuels (animations et autres) ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Tâche 5\+: Qualité, tests et finalisation}{Tâche 5\+: Qualité, tests et finalisation}}\label{md__r_e_a_d_m_e_autotoc_md16}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysubsection{\texorpdfstring{Tâche 5\+: Qualité, tests et finalisation}{Tâche 5\+: Qualité, tests et finalisation}}\label{md__r_e_a_d_m_e_autotoc_md18}
 
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Tests unitaires des classes principales ({\ttfamily \doxylink{class_grid}{Grid}}, {\ttfamily \doxylink{class_piece}{Piece}}, collisions) ✓
@@ -262,5 +294,5 @@ Un jeu Tetris classique développé en C++ avec interface graphique, réalisé e
 \end{DoxyItemize}
 \begin{DoxyItemize}
 \item[\DoxyUnchecked] Livraison finale du projet
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Compilation avec CMake}{Compilation avec CMake}}\label{md__r_e_a_d_m_e_autotoc_md17}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysubsection{\texorpdfstring{Compilation avec CMake}{Compilation avec CMake}}\label{md__r_e_a_d_m_e_autotoc_md19}
 \`{}\`{}\`{}bash mkdir build cd build cmake .. make ./tetrix\+\_\+game 

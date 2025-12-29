@@ -286,7 +286,8 @@ int main()
 
     }
 
-    // Saving best score in a file
+    // Saving best score in a fil
+    
     std::ofstream writing_score_file{score_file_name, std::ios::out};
     if(writing_score_file.is_open())
     {   
