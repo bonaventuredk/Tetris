@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['jeu_0',['Déroulement du jeu',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
-  ['jeu_20✓_1',['Tâche 2: Logique du jeu ✓',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
-  ['jeu_20coups_20valides_20et_20interdits_2',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
+  ['i_0',['I',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f',1,'core_class.h']]],
+  ['implémentées_1',['Fonctionnalités A Implémentées',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
+  ['implémentation_20des_20classes_20de_20base_2',['Tâche 1: Implémentation des classes de base',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]],
+  ['initializeblocks_3',['initializeBlocks',['../class_piece.html#a0071dbad5eaf96f1e5847d7ac352d53a',1,'Piece']]],
+  ['interdits_4',['interdits',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'Coups interdits'],['../md__r_e_a_d_m_e.html#autotoc_md5',1,'Déroulement du jeu/Coups valides et interdits']]],
+  ['interface_20graphique_5',['Tâche 3: Interface graphique',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
+  ['is_5ffull_6',['is_full',['../class_cell.html#abff348d6f61b519e835442d8e78f23d4',1,'Cell']]]
 ];

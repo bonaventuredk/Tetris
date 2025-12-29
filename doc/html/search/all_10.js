@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['matières_0',['Table des Matières',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['matrix_1',['matrix',['../class_grid.html#a87cdea7dab568dcdf630aa678c0b1a86',1,'Grid']]],
-  ['move_2',['Move',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388',1,'core_class.h']]],
-  ['move_3',['move',['../class_block.html#adb439c8b93ee29e13735294344c209bd',1,'Block::move()'],['../class_piece.html#a82dfe825e10bb6b8967a71622a6ed71f',1,'Piece::move()']]],
-  ['move_5fpiece_4',['move_piece',['../class_grid.html#a1205d8261d090f9996ac75da9891343a',1,'Grid']]]
+  ['l_0',['L',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021ad20caec3b48a1eef164cb4ca81ba2587',1,'core_class.h']]],
+  ['left_1',['left',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a811882fecd5c7618d7099ebbd39ea254',1,'core_class.h']]],
+  ['left_5fside_5fwidth_5fin_5fcell_2',['left_side_width_in_cell',['../namespace_u_i.html#afc759781fa48e61aab8144d5cc3fd6db',1,'UI']]],
+  ['logique_20du_20jeu_3',['Tâche 2: Logique du jeu',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]]
 ];

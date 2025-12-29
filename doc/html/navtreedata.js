@@ -39,11 +39,11 @@ var NAVTREE =
         [ "Architecture des Classes", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
       ] ],
       [ "Feuille de Route", "md__r_e_a_d_m_e.html#autotoc_md11", [
-        [ "Tâche 1: Implémentation des classes de base ✓", "md__r_e_a_d_m_e.html#autotoc_md12", null ],
-        [ "Tâche 2: Logique du jeu ✓", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
-        [ "Tâche 3: Interface graphique ✓", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
+        [ "Tâche 1: Implémentation des classes de base", "md__r_e_a_d_m_e.html#autotoc_md12", null ],
+        [ "Tâche 2: Logique du jeu", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
+        [ "Tâche 3: Interface graphique", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
         [ "Tâche 4: Fonctionnalités avancées", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
-        [ "Tâche 5:", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
+        [ "Tâche 5: Qualité, tests et finalisation", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
         [ "Compilation avec CMake", "md__r_e_a_d_m_e.html#autotoc_md17", null ]
       ] ]
     ] ],
@@ -68,6 +68,7 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ]
       ] ]
     ] ]

@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['red_0',['red',['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4',1,'core_class.h']]],
-  ['reverse_5fmove_1',['reverse_move',['../core__class_8h.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp'],['../core__class_8cpp.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp']]],
-  ['right_2',['right',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d',1,'core_class.h']]],
-  ['right_5fside_5fwidth_5fin_5fcell_3',['right_side_width_in_cell',['../namespace_u_i.html#a9717976ab1a0cb0384645e16f858efab',1,'UI']]],
-  ['route_4',['Feuille de Route',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
-  ['row_5',['row',['../class_block.html#a8114bb3ebc31622126a38a330427435e',1,'Block::row() const'],['../class_block.html#a57cca9110410ea2fe0963745a06b9158',1,'Block::row()']]],
-  ['row_5fnumber_6',['row_number',['../namespace_u_i.html#a311468b7f4e379037039b042f4aec8c4',1,'UI']]],
-  ['row_5fsize_7',['row_size',['../class_grid.html#ad6bb2609093f85198d02446d33c78f6d',1,'Grid']]]
+  ['piece_0',['Piece',['../class_piece.html',1,'Piece'],['../class_piece.html#ac921a4ac025477b92dec0e28b9f3c622',1,'Piece::Piece()']]],
+  ['piecetype_1',['PieceType',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021',1,'core_class.h']]],
+  ['pink_2',['pink',['../namespace_u_i.html#a0074c0f7bf68e8244c30769a3f9a3b86',1,'UI::pink'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877',1,'pink:&#160;core_class.h']]],
+  ['pivot_5fcol_3',['pivot_col',['../class_piece.html#a56107f66c7569859f19fde8fd9bdc05a',1,'Piece']]],
+  ['pivot_5frow_4',['pivot_row',['../class_piece.html#a8f3275de354718b2e52964d0ad95b331',1,'Piece']]],
+  ['pixel_5fcell_5fsize_5',['pixel_cell_size',['../namespace_u_i.html#a18d30be9b3a981aacb49aef4157ee004',1,'UI']]],
+  ['project_6',['🎮 Tetris Project',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['projet_7',['Aborescence du Projet',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
+  ['purple_8',['purple',['../namespace_u_i.html#ad496738b44b9a0dd5848a4df763e4b11',1,'UI::purple'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3',1,'purple:&#160;core_class.h']]],
+  ['put_5fpiece_9',['put_piece',['../class_grid.html#a36cdb860f6e802998839533d858b19ba',1,'Grid']]]
 ];

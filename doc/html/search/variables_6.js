@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orange_0',['orange',['../namespace_u_i.html#a9e42b1cca7eeab378e85829ec354bba3',1,'UI']]]
+  ['left_5fside_5fwidth_5fin_5fcell_0',['left_side_width_in_cell',['../namespace_u_i.html#afc759781fa48e61aab8144d5cc3fd6db',1,'UI']]]
 ];

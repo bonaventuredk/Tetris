@@ -1,12 +1,10 @@
 /**
  * \file core_class.cpp
- * \brief Implementation of core's classes.
+ * \brief This file contains definitions for Block, Cell, Piece, Grid classes methos.
+ * Also contains few auxiliary functions.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
  * \version 1.0
  * \date 19/12/2025
- *
- * This file contains definitions for Block, Cell, Piece, Grid classes methos.
- * Also contains few auxiliary functions.
  */
 #include <iostream>
 #include <vector>

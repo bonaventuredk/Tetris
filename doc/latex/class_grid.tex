@@ -1,0 +1,257 @@
+\doxysection{Grid Class Reference}
+\hypertarget{class_grid}{}\label{class_grid}\index{Grid@{Grid}}
+
+
+A class which creates a 2D grid of \doxylink{class_cell}{Cell} entities. It is actualised through methods using the creation and the movements of \doxylink{class_piece}{Piece} entities. It is designed to be used as interface between the core of the game and it\textquotesingle{}s \doxylink{namespace_u_i}{UI} made with SFML. The index (0,0) represents grid\textquotesingle{}s top-\/left corner.  
+
+
+
+
+{\ttfamily \#include $<$core\+\_\+class.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grid_a514db32850ae00cbfa8ceb68f2b7a1a9}{Grid}} (unsigned int nrow=18, unsigned int ncol=10)
+\begin{DoxyCompactList}\small\item\em Constructs the grid from the number of rows and colums it should have. The size if of 18 rows and 10 columns by default.\+The default score is 0. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_grid_a3fbb5818b3bb41803eddb63f122e896d}{score}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the score of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell}{Cell}} \mbox{\hyperlink{class_grid_ab210a536baa5ad1b289a33e01ec9a93f}{operator()}} (unsigned int row, unsigned int column) const
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{class_cell}{Cell} entity corresponding to a given position of the attribute {\bfseries{matrix}} . \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell}{Cell}} \& \mbox{\hyperlink{class_grid_aadd15d5ed6900e769c59bdd57324c627}{operator()}} (unsigned int row, unsigned int column)
+\begin{DoxyCompactList}\small\item\em Sets the \doxylink{class_cell}{Cell} entity corresponding to a given position of the attribute {\bfseries{matrix}} . \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_grid_ad6bb2609093f85198d02446d33c78f6d}{row\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the size of rows of the grid. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_grid_a655920b683b0e4db695c02cddf32c90d}{column\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the size of columns of the grid . \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_piece}{Piece}} \mbox{\hyperlink{class_grid_a36cdb860f6e802998839533d858b19ba}{put\+\_\+piece}} (\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} ptype, unsigned int row=0)
+\begin{DoxyCompactList}\small\item\em Creates a piece of a given type and sets the grid accordingly. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grid_a1205d8261d090f9996ac75da9891343a}{move\+\_\+piece}} (\mbox{\hyperlink{class_piece}{Piece}} \&piece, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} move, unsigned int length=1)
+\begin{DoxyCompactList}\small\item\em Moves an existing piece, checks if the move is possible in the grid and moves the piece back the piece if it isn\textquotesingle{}t. Also sets the grid accordingly to the result of the different movement. The length of the movement is 1 by default. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_grid_ae42ae070976cf3994e89988865560154}{update}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the grid has full rows and supresses them. Makes the other rows fall accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_grid_aef1b76d7c48b12ebbd9c0f12781e4977}{get\+\_\+full\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em A method that get the index of the grid\textquotesingle{}s lines that are full. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$ $>$ \mbox{\hyperlink{class_grid_a87cdea7dab568dcdf630aa678c0b1a86}{matrix}}
+\item 
+unsigned int \mbox{\hyperlink{class_grid_aacf612eae31162b7e2f962b3c63a52cd}{\+\_\+score}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which creates a 2D grid of \doxylink{class_cell}{Cell} entities. It is actualised through methods using the creation and the movements of \doxylink{class_piece}{Piece} entities. It is designed to be used as interface between the core of the game and it\textquotesingle{}s \doxylink{namespace_u_i}{UI} made with SFML. The index (0,0) represents grid\textquotesingle{}s top-\/left corner. 
+
+\label{doc-constructors}
+\Hypertarget{class_grid_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_grid_a514db32850ae00cbfa8ceb68f2b7a1a9}\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily \label{class_grid_a514db32850ae00cbfa8ceb68f2b7a1a9} 
+Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{unsigned int}]{nrow}{ = {\ttfamily 18}, }\item[{unsigned int}]{ncol}{ = {\ttfamily 10}}\end{DoxyParamCaption})}
+
+
+
+Constructs the grid from the number of rows and colums it should have. The size if of 18 rows and 10 columns by default.\+The default score is 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nrow} & The number of rows of the grid. \\
+\hline
+{\em ncol} & The number of columns of the grid. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_grid_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_grid_a655920b683b0e4db695c02cddf32c90d}\index{Grid@{Grid}!column\_size@{column\_size}}
+\index{column\_size@{column\_size}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{column\_size()}{column\_size()}}
+{\footnotesize\ttfamily \label{class_grid_a655920b683b0e4db695c02cddf32c90d} 
+unsigned int Grid\+::column\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the size of columns of the grid . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The size of columns of the grid. \Hypertarget{class_grid_aef1b76d7c48b12ebbd9c0f12781e4977}\index{Grid@{Grid}!get\_full\_rows@{get\_full\_rows}}
+\index{get\_full\_rows@{get\_full\_rows}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{get\_full\_rows()}{get\_full\_rows()}}
+{\footnotesize\ttfamily \label{class_grid_aef1b76d7c48b12ebbd9c0f12781e4977} 
+std\+::vector$<$ unsigned int $>$ Grid\+::get\+\_\+full\+\_\+rows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A method that get the index of the grid\textquotesingle{}s lines that are full. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return A vector containing the indexes of full lines, from top to bottom (from 0 to the maximum index). \Hypertarget{class_grid_a1205d8261d090f9996ac75da9891343a}\index{Grid@{Grid}!move\_piece@{move\_piece}}
+\index{move\_piece@{move\_piece}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{move\_piece()}{move\_piece()}}
+{\footnotesize\ttfamily \label{class_grid_a1205d8261d090f9996ac75da9891343a} 
+bool Grid\+::move\+\_\+piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{piece}{, }\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{move}{, }\item[{unsigned int}]{length}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Moves an existing piece, checks if the move is possible in the grid and moves the piece back the piece if it isn\textquotesingle{}t. Also sets the grid accordingly to the result of the different movement. The length of the movement is 1 by default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & A reference to the piece that will be moved. \\
+\hline
+{\em move} & The move from \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move} that has to be performed. \\
+\hline
+{\em length} & The length of the movement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean asserting if the movement was possible. 
+\end{DoxyReturn}
+\Hypertarget{class_grid_aadd15d5ed6900e769c59bdd57324c627}\index{Grid@{Grid}!operator()@{operator()}}
+\index{operator()@{operator()}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_grid_aadd15d5ed6900e769c59bdd57324c627} 
+\mbox{\hyperlink{class_cell}{Cell}} \& Grid\+::operator() (\begin{DoxyParamCaption}\item[{unsigned int}]{row}{, }\item[{unsigned int}]{column}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \doxylink{class_cell}{Cell} entity corresponding to a given position of the attribute {\bfseries{matrix}} . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row\textquotesingle{}s index of the cell. \\
+\hline
+{\em col} & The column\textquotesingle{}s index of the cell \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell\textquotesingle{}s reference corresponding to the position ( {\bfseries{row}} , {\bfseries{col}} ). 
+\end{DoxyReturn}
+\Hypertarget{class_grid_ab210a536baa5ad1b289a33e01ec9a93f}\index{Grid@{Grid}!operator()@{operator()}}
+\index{operator()@{operator()}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_grid_ab210a536baa5ad1b289a33e01ec9a93f} 
+\mbox{\hyperlink{class_cell}{Cell}} Grid\+::operator() (\begin{DoxyParamCaption}\item[{unsigned int}]{row}{, }\item[{unsigned int}]{column}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the \doxylink{class_cell}{Cell} entity corresponding to a given position of the attribute {\bfseries{matrix}} . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row\textquotesingle{}s index of the cell. \\
+\hline
+{\em col} & The column\textquotesingle{}s index of the cell \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cell corresponding to the position ( {\bfseries{row}} , {\bfseries{col}} ). 
+\end{DoxyReturn}
+\Hypertarget{class_grid_a36cdb860f6e802998839533d858b19ba}\index{Grid@{Grid}!put\_piece@{put\_piece}}
+\index{put\_piece@{put\_piece}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{put\_piece()}{put\_piece()}}
+{\footnotesize\ttfamily \label{class_grid_a36cdb860f6e802998839533d858b19ba} 
+\mbox{\hyperlink{class_piece}{Piece}} Grid\+::put\+\_\+piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}}}]{ptype}{, }\item[{unsigned int}]{row}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Creates a piece of a given type and sets the grid accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptype} & The type of the piece that has to be created. \\
+\hline
+{\em row} & The row of the piece\textquotesingle{}s pivot. It\textquotesingle{}s 0 by default. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The piece that has been created. 
+\end{DoxyReturn}
+\Hypertarget{class_grid_ad6bb2609093f85198d02446d33c78f6d}\index{Grid@{Grid}!row\_size@{row\_size}}
+\index{row\_size@{row\_size}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{row\_size()}{row\_size()}}
+{\footnotesize\ttfamily \label{class_grid_ad6bb2609093f85198d02446d33c78f6d} 
+unsigned int Grid\+::row\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the size of rows of the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The size of rows of the grid. \Hypertarget{class_grid_a3fbb5818b3bb41803eddb63f122e896d}\index{Grid@{Grid}!score@{score}}
+\index{score@{score}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{score()}{score()}}
+{\footnotesize\ttfamily \label{class_grid_a3fbb5818b3bb41803eddb63f122e896d} 
+unsigned int Grid\+::score (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A getter for the score of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The player\textquotesingle{}s current score. \Hypertarget{class_grid_ae42ae070976cf3994e89988865560154}\index{Grid@{Grid}!update@{update}}
+\index{update@{update}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_grid_ae42ae070976cf3994e89988865560154} 
+bool Grid\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the grid has full rows and supresses them. Makes the other rows fall accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & The current score of the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean asserting if the game is over or not. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_grid_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_grid_aacf612eae31162b7e2f962b3c63a52cd}\index{Grid@{Grid}!\_score@{\_score}}
+\index{\_score@{\_score}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{\_score}{\_score}}
+{\footnotesize\ttfamily \label{class_grid_aacf612eae31162b7e2f962b3c63a52cd} 
+unsigned int Grid\+::\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+The player\textquotesingle{}s score currently associated with the grid. \Hypertarget{class_grid_a87cdea7dab568dcdf630aa678c0b1a86}\index{Grid@{Grid}!matrix@{matrix}}
+\index{matrix@{matrix}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily \label{class_grid_a87cdea7dab568dcdf630aa678c0b1a86} 
+std\+::vector$<$ std\+::vector$<$\mbox{\hyperlink{class_cell}{Cell}}$>$ $>$ Grid\+::matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+A matrix of \doxylink{class_cell}{Cell} entities. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/include/\mbox{\hyperlink{core__class_8h}{core\+\_\+class.\+h}}\item 
+core/src/\mbox{\hyperlink{core__class_8cpp}{core\+\_\+class.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,262 @@
+\doxysection{ui/include/ui.h File Reference}
+\hypertarget{ui_8h}{}\label{ui_8h}\index{ui/include/ui.h@{ui/include/ui.h}}
+
+
+
+\begin{DoxyItemize}
+\item This file contains functions and variables déclarations used to make the user interface of Tetris. Variables are encapsulated in the namespace \doxylink{namespace_u_i}{UI}. 
+\end{DoxyItemize} 
+
+
+{\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Audio/\+Music.\+hpp$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_u_i}{UI}}
+\begin{DoxyCompactList}\small\item\em A namespace to store variables linked to the \doxylink{namespace_u_i}{UI} of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ui_8h_a823d6381a9ce159b16627d07c5da6411}{draw\+\_\+cell}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, sf\+::\+Render\+Window \&window, unsigned int cell\+\_\+row, unsigned int cell\+\_\+column, unsigned int row, unsigned int column)
+\begin{DoxyCompactList}\small\item\em A function to draw the cells of a Tetris\textquotesingle{} grid on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_af8e300693c4831d670e49551ef703443}{draw\+\_\+grid}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em A function to draw the Tetris\textquotesingle{} grid on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a9f0b57658f0a2a92708daaf9847aae34}{grid\+\_\+sides\+\_\+center\+\_\+text}} (\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} move, sf\+::\+Text \&text, unsigned int cell\+\_\+row)
+\begin{DoxyCompactList}\small\item\em A function to center a text on a line of cells on sides of the Tetris\textquotesingle{} grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a2dab8c370c4629c2d93446e2a915a6c7}{draw\+\_\+score}} (\mbox{\hyperlink{class_grid}{Grid}} \&next\+\_\+piece\+\_\+grid, sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em A function to show the player\textquotesingle{}s score on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a567eb7112813d1a3a3482d9e942e1797}{draw\+\_\+next\+\_\+piece}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next\+\_\+type)
+\begin{DoxyCompactList}\small\item\em A function to show the piece that the player will get the next turn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a16e0691e424f0636f12f5d010cb81ddd}{draw\+\_\+game\+\_\+over\+\_\+screen}} (sf\+::\+Render\+Window \&window, int score, int \mbox{\hyperlink{main_8cpp_ad1d2ebe3608dccbcbdcddae74232eb59}{best\+Score}})
+\begin{DoxyCompactList}\small\item\em Draws the game over screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_aeb8f97254d44ef934b28d6cbb37463ef}{draw\+\_\+controls}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em A function to show game controls on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a97309e2dca077b519414dd795b661647}{draw\+\_\+pause\+\_\+screen}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em A function to show pause screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{UI\+::row\+\_\+number}} =20
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{UI\+::column\+\_\+number}} =10
+\item 
+sf\+::\+Video\+Mode \mbox{\hyperlink{namespace_u_i_a4e8843c58982b9005af1bf14c2d5d6e9}{UI\+::current\+\_\+video\+\_\+mode}} = sf\+::\+Video\+Mode\+::get\+Desktop\+Mode()
+\item 
+\Hypertarget{namespace_u_i_afd9f868fdd89c60233e91374269f5599}\label{namespace_u_i_afd9f868fdd89c60233e91374269f5599} 
+sf\+::\+Render\+Window {\bfseries UI\+::window}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{UI\+::height\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{row\+\_\+number}}+2
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{UI\+::pixel\+\_\+cell\+\_\+size}} = current\+\_\+video\+\_\+mode.\+size.\+y/\mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{height\+\_\+in\+\_\+cell}}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{UI\+::width\+\_\+in\+\_\+cell}} = current\+\_\+video\+\_\+mode.\+size.\+x/\mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{UI\+::left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = (\mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}})/2
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a9717976ab1a0cb0384645e16f858efab}{UI\+::right\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{namespace_u_i_a6a9536f56ae05bc8740b6d5b2ef78f8e}{UI\+::cell}}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a73873b56fd82272eeb55f77020024685}{UI\+::grey}} \{110, 110, 110\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a3739efa6ff954c1b799e5e25131d3029}{UI\+::spawn\+\_\+grey}} \{70, 70, 70\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a9e42b1cca7eeab378e85829ec354bba3}{UI\+::orange}} \{255, 128, 0\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a0074c0f7bf68e8244c30769a3f9a3b86}{UI\+::pink}} \{243 , 130, 185\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_ad496738b44b9a0dd5848a4df763e4b11}{UI\+::purple}} \{224, 32, 255\}
+\item 
+sf\+::\+Font \mbox{\hyperlink{namespace_u_i_ab21a964c3d423f185dca7bf3d809329f}{UI\+::font}}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_ae5b01422c9ea59958c79c068126d41ed}{UI\+::font\+\_\+size}} = \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}/10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyItemize}
+\item This file contains functions and variables déclarations used to make the user interface of Tetris. Variables are encapsulated in the namespace \doxylink{namespace_u_i}{UI}. 
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Alexandre Bleuler -\/ Bonaventure Dohemeto 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+23/12/2025 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{ui_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ui_8h_a823d6381a9ce159b16627d07c5da6411}\index{ui.h@{ui.h}!draw\_cell@{draw\_cell}}
+\index{draw\_cell@{draw\_cell}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_cell()}{draw\_cell()}}
+{\footnotesize\ttfamily \label{ui_8h_a823d6381a9ce159b16627d07c5da6411} 
+void draw\+\_\+cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{unsigned int}]{cell\+\_\+row}{, }\item[{unsigned int}]{cell\+\_\+column}{, }\item[{unsigned int}]{row}{, }\item[{unsigned int}]{column}{}\end{DoxyParamCaption})}
+
+
+
+A function to draw the cells of a Tetris\textquotesingle{} grid on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid from which the cell come. \\
+\hline
+{\em window} & The window on which the cell will be drawn. \\
+\hline
+{\em cell\+\_\+row} & The row of the top left cell of the grid. \\
+\hline
+{\em cell\+\_\+column} & The column of the top left cell of the grid. \\
+\hline
+{\em row} & The row index of the cell in the grid. \\
+\hline
+{\em column} & The column index of the cell in the grid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_aeb8f97254d44ef934b28d6cbb37463ef}\index{ui.h@{ui.h}!draw\_controls@{draw\_controls}}
+\index{draw\_controls@{draw\_controls}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_controls()}{draw\_controls()}}
+{\footnotesize\ttfamily \label{ui_8h_aeb8f97254d44ef934b28d6cbb37463ef} 
+void draw\+\_\+controls (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+A function to show game controls on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window on which the controls will be displayed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a16e0691e424f0636f12f5d010cb81ddd}\index{ui.h@{ui.h}!draw\_game\_over\_screen@{draw\_game\_over\_screen}}
+\index{draw\_game\_over\_screen@{draw\_game\_over\_screen}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_over\_screen()}{draw\_game\_over\_screen()}}
+{\footnotesize\ttfamily \label{ui_8h_a16e0691e424f0636f12f5d010cb81ddd} 
+void draw\+\_\+game\+\_\+over\+\_\+screen (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{int}]{score}{, }\item[{int}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Draws the game over screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The render window \\
+\hline
+{\em score} & Current score \\
+\hline
+{\em best\+Score} & Best score \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui_8h_af8e300693c4831d670e49551ef703443}\index{ui.h@{ui.h}!draw\_grid@{draw\_grid}}
+\index{draw\_grid@{draw\_grid}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_grid()}{draw\_grid()}}
+{\footnotesize\ttfamily \label{ui_8h_af8e300693c4831d670e49551ef703443} 
+void draw\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+A function to draw the Tetris\textquotesingle{} grid on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid to draw. \\
+\hline
+{\em window} & The window on which the grid will be drawn. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a567eb7112813d1a3a3482d9e942e1797}\index{ui.h@{ui.h}!draw\_next\_piece@{draw\_next\_piece}}
+\index{draw\_next\_piece@{draw\_next\_piece}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_next\_piece()}{draw\_next\_piece()}}
+{\footnotesize\ttfamily \label{ui_8h_a567eb7112813d1a3a3482d9e942e1797} 
+void draw\+\_\+next\+\_\+piece (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next\+\_\+type}{}\end{DoxyParamCaption})}
+
+
+
+A function to show the piece that the player will get the next turn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window on which the next piece will be displayed. \\
+\hline
+{\em newt\+\_\+type} & The type of the next piece. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a97309e2dca077b519414dd795b661647}\index{ui.h@{ui.h}!draw\_pause\_screen@{draw\_pause\_screen}}
+\index{draw\_pause\_screen@{draw\_pause\_screen}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_pause\_screen()}{draw\_pause\_screen()}}
+{\footnotesize\ttfamily \label{ui_8h_a97309e2dca077b519414dd795b661647} 
+void draw\+\_\+pause\+\_\+screen (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+A function to show pause screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window on which the pause screen will be displayed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a2dab8c370c4629c2d93446e2a915a6c7}\index{ui.h@{ui.h}!draw\_score@{draw\_score}}
+\index{draw\_score@{draw\_score}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_score()}{draw\_score()}}
+{\footnotesize\ttfamily \label{ui_8h_a2dab8c370c4629c2d93446e2a915a6c7} 
+void draw\+\_\+score (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{next\+\_\+piece\+\_\+grid}{, }\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+A function to show the player\textquotesingle{}s score on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The current game\textquotesingle{}s grid which contains the player\textquotesingle{}s score. \\
+\hline
+{\em window} & The window on which the score will be displayed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a9f0b57658f0a2a92708daaf9847aae34}\index{ui.h@{ui.h}!grid\_sides\_center\_text@{grid\_sides\_center\_text}}
+\index{grid\_sides\_center\_text@{grid\_sides\_center\_text}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{grid\_sides\_center\_text()}{grid\_sides\_center\_text()}}
+{\footnotesize\ttfamily \label{ui_8h_a9f0b57658f0a2a92708daaf9847aae34} 
+void grid\+\_\+sides\+\_\+center\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{move}{, }\item[{sf\+::\+Text \&}]{text}{, }\item[{unsigned int}]{cell\+\_\+row}{}\end{DoxyParamCaption})}
+
+
+
+A function to center a text on a line of cells on sides of the Tetris\textquotesingle{} grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & Indicate if it has to be centered to the left or to the right of the grid. \\
+\hline
+{\em text} & The text that has to be centered. \\
+\hline
+{\em cell\+\_\+row} & The column of the cell on which the text starts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

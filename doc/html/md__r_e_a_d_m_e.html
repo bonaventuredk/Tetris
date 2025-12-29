@@ -113,7 +113,7 @@ Description</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Fonctionnalités A Implémentées</h2>
 <ul class="check">
-<li class="unchecked">Grille de jeu (10x20) standard</li>
+<li class="unchecked">Grille de jeu</li>
 </ul>
 <ul class="check">
 <li class="unchecked">Les 7 pièces classiques</li>
@@ -260,76 +260,94 @@ Architecture des Classes</h2>
 <li><b><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></b> : Grille de jeu contenant les cellules, gère la logique du jeu</li>
 <li><b>Enumérations</b> :<ul>
 <li><span class="tt"><a class="el" href="core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388" title="An enum class to manipulate in core basic movements of blocks and pieces as they should appear on scr...">Move</a></span> : Déplacements possibles (haut, bas, gauche, droite, rotations)</li>
-<li><span class="tt">PieceType</span> : Les 7 types de pièces Tetris</li>
+<li><span class="tt"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021" title="An enum class to manipulate type of Tetris&#39; blocks (see the readme.md to check the corresponding piec...">PieceType</a></span> : Les 7 types de pièces Tetris</li>
 </ul>
 </li>
 </ol>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Feuille de Route</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-Tâche 1: Implémentation des classes de base ✓</h2>
+Tâche 1: Implémentation des classes de base</h2>
 <ul class="check">
-<li class="checked">Classe <span class="tt"><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></span></li>
+<li class="checked">Classe <span class="tt"><a class="el" href="class_block.html" title="A class which creates the entities representing the Tetris&#39; blocks. It&#39;s essentially a couple of non ...">Block</a></span> ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Classe <span class="tt"><a class="el" href="class_cell.html" title="A class which creates the entities representing the cells of the Tetris&#39; grid. A cell contain several...">Cell</a></span></li>
+<li class="checked">Classe <span class="tt"><a class="el" href="class_cell.html" title="A class which creates the entities representing the cells of the Tetris&#39; grid. A cell contain several...">Cell</a></span> ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Classe <span class="tt"><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></span></li>
+<li class="checked">Classe <span class="tt"><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></span> ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Classe <span class="tt"><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></span></li>
+<li class="checked">Classe <span class="tt"><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></span> ✓</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
-Tâche 2: Logique du jeu ✓</h2>
+Tâche 2: Logique du jeu</h2>
 <ul class="check">
-<li class="checked">Mouvement des pièces</li>
+<li class="checked">Mouvement des pièces ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Rotation des pièces</li>
+<li class="checked">Rotation des pièces ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Détection des collisions</li>
+<li class="checked">Détection des collisions ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Suppression des lignes complètes</li>
+<li class="checked">Suppression des lignes complètes ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Génération aléatoire des pièces</li>
+<li class="checked">Génération aléatoire des pièces ✓</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
-Tâche 3: Interface graphique ✓</h2>
+Tâche 3: Interface graphique</h2>
 <ul class="check">
-<li class="checked">Affichage de la grille</li>
+<li class="checked">Affichage de la grille ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Affichage des pièces</li>
+<li class="checked">Affichage des pièces ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Contrôles clavier</li>
+<li class="checked">Contrôles clavier ✓</li>
 </ul>
 <ul class="check">
-<li class="checked">Système audio</li>
+<li class="checked">Système audio ✓</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 Tâche 4: Fonctionnalités avancées</h2>
 <ul class="check">
-<li class="unchecked">Système de scoring (points par ligne, etc.)</li>
+<li class="unchecked">Système de scoring (points par ligne, etc.) ✓</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Niveaux de difficulté progressive</li>
+<li class="unchecked">Niveaux de difficulté progressive ✓</li>
 </ul>
 <ul class="check">
 <li class="unchecked">Menu principal et écrans d'interface</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Sauvegarde des meilleurs scores</li>
+<li class="unchecked">Sauvegarde des meilleurs scores ✓</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Effets visuels (animations et autres)</li>
+<li class="unchecked">Effets visuels (animations et autres) ✓</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
-Tâche 5:</h2>
+Tâche 5: Qualité, tests et finalisation</h2>
+<ul class="check">
+<li class="unchecked">Tests unitaires des classes principales (<span class="tt"><a class="el" href="class_grid.html" title="A class which creates a 2D grid of Cell entities. It is actualised through methods using the creation...">Grid</a></span>, <span class="tt"><a class="el" href="class_piece.html" title="Tetris pieces description.">Piece</a></span>, collisions) ✓</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Gestion des erreurs (sons, chargement des ressources, police) ✓</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Nettoyage et refactorisation du code</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Documentation du code (Doxygen) ✓</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Portabilité Linux / Windows ✓</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Livraison finale du projet</li>
+</ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 Compilation avec CMake</h2>
 <p>```bash mkdir build cd build cmake .. make ./tetrix_game </p>

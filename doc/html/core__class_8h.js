@@ -23,6 +23,14 @@ var core__class_8h =
       [ "anticlock_rotation", "core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a7d42f748ba083e6380dd8f351f93c549", null ],
       [ "none", "core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a334c4a4c42fdb79d7ebc3e73b517e6f8", null ]
     ] ],
+    [ "PieceType", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021", [
+      [ "I", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f", null ],
+      [ "O", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021af186217753c37b9b9f958d906208506e", null ],
+      [ "T", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021ab9ece18c950afbfa6b0fdbfa4ff731d3", null ],
+      [ "L", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021ad20caec3b48a1eef164cb4ca81ba2587", null ],
+      [ "J", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021aff44570aca8241914870afbc310cdb85", null ],
+      [ "S", "core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021a5dbc98dcc983a70728bd082d1a47546e", null ]
+    ] ],
     [ "createRandomPiece", "core__class_8h.html#a3542daf4187e8e8b9bebac6cc3c501b2", null ],
     [ "get_grid", "core__class_8h.html#a175f9fbd6504784b4f90cf8b5932dc18", null ],
     [ "reverse_move", "core__class_8h.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3", null ]

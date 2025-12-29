@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['piece_0',['Piece',['../class_piece.html',1,'Piece'],['../class_piece.html#ac921a4ac025477b92dec0e28b9f3c622',1,'Piece::Piece()']]],
-  ['pink_1',['pink',['../namespace_u_i.html#a0074c0f7bf68e8244c30769a3f9a3b86',1,'UI::pink'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877',1,'pink:&#160;core_class.h']]],
-  ['pivot_5fcol_2',['pivot_col',['../class_piece.html#a56107f66c7569859f19fde8fd9bdc05a',1,'Piece']]],
-  ['pivot_5frow_3',['pivot_row',['../class_piece.html#a8f3275de354718b2e52964d0ad95b331',1,'Piece']]],
-  ['pixel_5fcell_5fsize_4',['pixel_cell_size',['../namespace_u_i.html#a18d30be9b3a981aacb49aef4157ee004',1,'UI']]],
-  ['project_5',['🎮 Tetris Project',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['projet_6',['Aborescence du Projet',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
-  ['purple_7',['purple',['../namespace_u_i.html#ad496738b44b9a0dd5848a4df763e4b11',1,'UI::purple'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3',1,'purple:&#160;core_class.h']]],
-  ['put_5fpiece_8',['put_piece',['../class_grid.html#a36cdb860f6e802998839533d858b19ba',1,'Grid']]]
+  ['o_0',['O',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021af186217753c37b9b9f958d906208506e',1,'core_class.h']]],
+  ['operator_28_29_1',['operator()',['../class_grid.html#ab210a536baa5ad1b289a33e01ec9a93f',1,'Grid::operator()(unsigned int row, unsigned int column) const'],['../class_grid.html#aadd15d5ed6900e769c59bdd57324c627',1,'Grid::operator()(unsigned int row, unsigned int column)']]],
+  ['operator_5b_5d_2',['operator[]',['../class_piece.html#a07be621b8c57bf5a786a035820f59b61',1,'Piece::operator[](unsigned int i) const'],['../class_piece.html#a8c390fed1f3750e106012e78e8b80c18',1,'Piece::operator[](unsigned int i)']]],
+  ['orange_3',['orange',['../namespace_u_i.html#a9e42b1cca7eeab378e85829ec354bba3',1,'UI::orange'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd',1,'orange:&#160;core_class.h']]]
 ];

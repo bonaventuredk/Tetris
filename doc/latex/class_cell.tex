@@ -1,0 +1,149 @@
+\doxysection{Cell Class Reference}
+\hypertarget{class_cell}{}\label{class_cell}\index{Cell@{Cell}}
+
+
+A class which creates the entities representing the cells of the Tetris\textquotesingle{} grid. A cell contain several informations such as if it is empty or full.  
+
+
+
+
+{\ttfamily \#include $<$core\+\_\+class.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_a68e75d02664f51a27bc3fa4c5e02a077}{Cell}} (bool iis\+\_\+full=false, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} ccolor=\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}{Color\+::none}})
+\begin{DoxyCompactList}\small\item\em Constructs the cell. Initiate it as empty by default. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a7624f45cb2ad3ada2289a0c8be57f8cc}{fill}} (\mbox{\hyperlink{class_block}{Block}} \&block)
+\begin{DoxyCompactList}\small\item\em Fills the cell by setting the attribute \+\_\+is\+\_\+full to true. Also updates the other attributes accordingly to the block that correspond to the cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cell_a275274592fde050fefcda8515b5a8d3f}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the cell by making it empty. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cell_abff348d6f61b519e835442d8e78f23d4}{is\+\_\+full}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the cell if full. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_cell_ae84ecc3061342d96019f15d605f6b417}{color}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the attribute \+\_\+color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_cell_a5fdb872b309acc01ccc43a52ec37af0c}{\+\_\+is\+\_\+full}}
+\item 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_cell_a2970c9b9947bc4e6c2466f1f004130ac}{\+\_\+color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which creates the entities representing the cells of the Tetris\textquotesingle{} grid. A cell contain several informations such as if it is empty or full. 
+
+\label{doc-constructors}
+\Hypertarget{class_cell_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cell_a68e75d02664f51a27bc3fa4c5e02a077}\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Cell()}{Cell()}}
+{\footnotesize\ttfamily \label{class_cell_a68e75d02664f51a27bc3fa4c5e02a077} 
+Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{bool}]{iis\+\_\+full}{ = {\ttfamily false}, }\item[{\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}}}]{ccolor}{ = {\ttfamily \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}{Color\+::none}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs the cell. Initiate it as empty by default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iis\+\_\+full} & A boolean asserting if the cell should be full. \\
+\hline
+{\em ccolor} & The color that correspond to the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\label{doc-func-members}
+\Hypertarget{class_cell_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cell_a275274592fde050fefcda8515b5a8d3f}\index{Cell@{Cell}!clear@{clear}}
+\index{clear@{clear}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{class_cell_a275274592fde050fefcda8515b5a8d3f} 
+void Cell\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears the cell by making it empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return \Hypertarget{class_cell_ae84ecc3061342d96019f15d605f6b417}\index{Cell@{Cell}!color@{color}}
+\index{color@{color}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}}
+{\footnotesize\ttfamily \label{class_cell_ae84ecc3061342d96019f15d605f6b417} 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} Cell\+::color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A getter for the attribute \+\_\+color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The attribute \+\_\+color. \Hypertarget{class_cell_a7624f45cb2ad3ada2289a0c8be57f8cc}\index{Cell@{Cell}!fill@{fill}}
+\index{fill@{fill}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily \label{class_cell_a7624f45cb2ad3ada2289a0c8be57f8cc} 
+void Cell\+::fill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_block}{Block}} \&}]{block}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fills the cell by setting the attribute \+\_\+is\+\_\+full to true. Also updates the other attributes accordingly to the block that correspond to the cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & The instance of type \doxylink{class_block}{Block} that correspond to the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_cell_abff348d6f61b519e835442d8e78f23d4}\index{Cell@{Cell}!is\_full@{is\_full}}
+\index{is\_full@{is\_full}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{is\_full()}{is\_full()}}
+{\footnotesize\ttfamily \label{class_cell_abff348d6f61b519e835442d8e78f23d4} 
+bool Cell\+::is\+\_\+full (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the cell if full. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return A boolean asserting if the cell is full. 
+
+\label{doc-variable-members}
+\Hypertarget{class_cell_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_cell_a2970c9b9947bc4e6c2466f1f004130ac}\index{Cell@{Cell}!\_color@{\_color}}
+\index{\_color@{\_color}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{\_color}{\_color}}
+{\footnotesize\ttfamily \label{class_cell_a2970c9b9947bc4e6c2466f1f004130ac} 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} Cell\+::\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+The color of the block. This is none by default. \Hypertarget{class_cell_a5fdb872b309acc01ccc43a52ec37af0c}\index{Cell@{Cell}!\_is\_full@{\_is\_full}}
+\index{\_is\_full@{\_is\_full}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{\_is\_full}{\_is\_full}}
+{\footnotesize\ttfamily \label{class_cell_a5fdb872b309acc01ccc43a52ec37af0c} 
+bool Cell\+::\+\_\+is\+\_\+full\hspace{0.3cm}{\ttfamily [private]}}
+
+A boolean indicating if the \doxylink{class_cell}{Cell} is full. False by default. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+core/include/\mbox{\hyperlink{core__class_8h}{core\+\_\+class.\+h}}\end{DoxyCompactItemize}

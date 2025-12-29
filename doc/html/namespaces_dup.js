@@ -7,6 +7,7 @@ var namespaces_dup =
       [ "font", "namespace_u_i.html#ab21a964c3d423f185dca7bf3d809329f", null ],
       [ "font_size", "namespace_u_i.html#ae5b01422c9ea59958c79c068126d41ed", null ],
       [ "grey", "namespace_u_i.html#a73873b56fd82272eeb55f77020024685", null ],
+      [ "height_in_cell", "namespace_u_i.html#a11cdb8e995a36417f76e84531a3f75d6", null ],
       [ "left_side_width_in_cell", "namespace_u_i.html#afc759781fa48e61aab8144d5cc3fd6db", null ],
       [ "orange", "namespace_u_i.html#a9e42b1cca7eeab378e85829ec354bba3", null ],
       [ "pink", "namespace_u_i.html#a0074c0f7bf68e8244c30769a3f9a3b86", null ],

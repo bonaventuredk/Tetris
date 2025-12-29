@@ -1,12 +1,10 @@
 /**
  * \file ui.cpp
- * \brief Definition for user interface of the game.
+ * \brief  This file contains functions and variables definitions used to make the 
+ * user interface of Tetris. Variables are encapsulated in the namespace UI.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
  * \version 1.0
  * \date 23/12/2025
- *
- * This file contains functions and variables definitions used to make the 
- * user interface of Tetris. Variables are encapsulated in the namespace UI.
  */
 
 #include <string>
@@ -190,10 +188,10 @@ void draw_game_over_screen(sf::RenderWindow& window, int score, int bestScore)
     sf::Text instructionText(UI::font);
     instructionText.setCharacterSize(UI::font_size * 0.5);
     instructionText.setFillColor(sf::Color::Yellow);
-    instructionText.setString("Press R to restart or Esc to quit");
+    instructionText.setString("Press R to restart or Esc to quit !");
     
     float maxWidth = 0.75*UI::width_in_cell*UI::pixel_cell_size;
-    float totalHeight = 0.25*UI::height_in_cell*UI::pixel_cell_size;
+    float totalHeight = 0.40*UI::height_in_cell*UI::pixel_cell_size;
     
     sf::RectangleShape background(sf::Vector2f(maxWidth, totalHeight));
     background.setFillColor(sf::Color(30, 30, 30, 230));
@@ -219,13 +217,13 @@ void draw_game_over_screen(sf::RenderWindow& window, int score, int bestScore)
     text_width = scoreText.getGlobalBounds().size.x;
     scoreText.setPosition(sf::Vector2f(
         (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
-        box_upper_row + 4*box_height/10
+        box_upper_row + 3*box_height/10
     ));
     
     text_width = bestScoreText.getGlobalBounds().size.x;
     bestScoreText.setPosition(sf::Vector2f(
         (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
-        box_upper_row + 5.5*box_height/10
+        box_upper_row + 5*box_height/10
     ));
     
     text_width = instructionText.getGlobalBounds().size.x;
@@ -294,7 +292,7 @@ void draw_pause_screen(sf::RenderWindow& window)
     sf::Text instruction_text(UI::font);
     instruction_text.setCharacterSize(UI::font_size);
     instruction_text.setFillColor(sf::Color::White);
-    instruction_text.setString("Press P to resume, R to start a new game or Esc to quit.");
+    instruction_text.setString("Press P to resume, R to start a new game or Esc to quit !");
     
     text_width= instruction_text.getGlobalBounds().size.x;
     text_height= instruction_text.getGlobalBounds().size.y;

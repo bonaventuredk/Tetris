@@ -1,3 +1,11 @@
+/**
+ * \file main.cpp
+ * \brief The file that executes Tetris.
+ * \author Alexandre Bleuler - Bonaventure Dohemeto
+ * \version 1.0
+ * \date 29/12/2025
+ */
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include <array>

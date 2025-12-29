@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['ui_0',['UI',['../namespace_u_i.html',1,'']]],
-  ['ui_2ecpp_1',['ui.cpp',['../ui_8cpp.html',1,'']]],
-  ['ui_2eh_2',['ui.h',['../ui_8h.html',1,'']]],
-  ['up_3',['up',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c',1,'core_class.h']]],
-  ['update_4',['update',['../class_grid.html#ae42ae070976cf3994e89988865560154',1,'Grid']]]
+  ['s_0',['S',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021a5dbc98dcc983a70728bd082d1a47546e',1,'core_class.h']]],
+  ['score_1',['score',['../class_grid.html#a3fbb5818b3bb41803eddb63f122e896d',1,'Grid']]],
+  ['size_2',['size',['../class_piece.html#a4635cdc9afef9d1eff1cc2574a2edbf4',1,'Piece']]],
+  ['spawn_5fgrey_3',['spawn_grey',['../namespace_u_i.html#a3739efa6ff954c1b799e5e25131d3029',1,'UI']]]
 ];

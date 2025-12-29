@@ -1,10 +1,8 @@
 /**
  * \file core_class.h
- * \brief Header for core's classes.
- * 
+ * \brief 
  * This file contains the declarations of the fundamental classes
  * of Tetris' logic: Block, Piece, Cell, and Grid.
- *
  * \author Alexandre Bleuler - Bonaventure Dohemeto
  * \version 1.0
  * \date 19/12/2025
@@ -40,7 +38,19 @@ enum class Move{
 
 Move reverse_move(Move move);
 
-enum class PieceType { I=0, O=1, T=2, L=3, J=4, S=5, Z=6 };
+/**
+ * \enum PieceType
+ * \brief An enum class to manipulate type of Tetris' blocks (see the readme.md to check the corresponding piece).
+ */
+
+enum class PieceType { 
+    I=0, /**< I piece */
+    O=1, /**< O piece */
+    T=2, /**< T piece */
+     L=3, /**< L piece */
+     J=4, /**< J piece */
+     S=5, /**< S piece */
+     Z=6 }; /**< Z piece */
 
 /**
  * \enum Move
