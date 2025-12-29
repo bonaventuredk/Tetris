@@ -170,37 +170,37 @@ void draw_next_piece(sf::RenderWindow& window, PieceType& next_type)
         }
 }
 
-void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, 
-                    int score, sf::Clock& game_clock, double& time_decrease_rate, 
-                    double& score_threshold, sf::Music& background_music)
+void draw_game_over_screen(sf::RenderWindow& window, int score, int bestScore)
 {
-    
     sf::Text gameOverText(UI::font);
     gameOverText.setCharacterSize(UI::font_size * 1);
     gameOverText.setFillColor(sf::Color::Red);
     gameOverText.setString("GAME OVER!");
-
     
     sf::Text scoreText(UI::font);
     scoreText.setCharacterSize(UI::font_size * 0.75f);
     scoreText.setFillColor(sf::Color::White);
     scoreText.setString("Score: " + std::to_string(score));
     
+    sf::Text bestScoreText(UI::font);
+    bestScoreText.setCharacterSize(UI::font_size * 0.75f);
+    bestScoreText.setFillColor(sf::Color::Yellow);
+    bestScoreText.setString("Best: " + std::to_string(bestScore));
+    
     sf::Text instructionText(UI::font);
     instructionText.setCharacterSize(UI::font_size * 0.5);
     instructionText.setFillColor(sf::Color::Yellow);
-    instructionText.setString("Press R to restart or Q to quit");
-    
+    instructionText.setString("Press R to restart or Esc to quit");
     
     float maxWidth = 0.75*UI::width_in_cell*UI::pixel_cell_size;
     float totalHeight = 0.25*UI::height_in_cell*UI::pixel_cell_size;
     
     sf::RectangleShape background(sf::Vector2f(maxWidth, totalHeight));
-    background.setFillColor(sf::Color(30, 30, 30, 230)); 
+    background.setFillColor(sf::Color(30, 30, 30, 230));
     background.setOutlineThickness(3.f);
     background.setOutlineColor(sf::Color::White);
     
-    sf::Vector2f windowSize(UI::window.getSize().x, UI::window.getSize().y);
+    sf::Vector2f windowSize(window.getSize().x, window.getSize().y);
     sf::Vector2f backgroundPos(
         windowSize.x / 2.f - maxWidth / 2.f,
         windowSize.y / 2.f - totalHeight / 2.f
@@ -208,73 +208,38 @@ void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_o
     background.setPosition(backgroundPos);
 
     double box_upper_row = backgroundPos.y;
-    double box_height= background.getGlobalBounds().size.y;
+    double box_height = background.getGlobalBounds().size.y;
 
-    unsigned int text_width= gameOverText.getGlobalBounds().size.x;
+    unsigned int text_width = gameOverText.getGlobalBounds().size.x;
     gameOverText.setPosition(sf::Vector2f(
-        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2, 
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
         box_upper_row + 1*box_height/10
     ));
     
-    text_width= scoreText.getGlobalBounds().size.x;
+    text_width = scoreText.getGlobalBounds().size.x;
     scoreText.setPosition(sf::Vector2f(
         (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
         box_upper_row + 4*box_height/10
     ));
     
-    text_width= instructionText.getGlobalBounds().size.x;
+    text_width = bestScoreText.getGlobalBounds().size.x;
+    bestScoreText.setPosition(sf::Vector2f(
+        (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
+        box_upper_row + 5.5*box_height/10
+    ));
+    
+    text_width = instructionText.getGlobalBounds().size.x;
     instructionText.setPosition(sf::Vector2f(
         (UI::width_in_cell*UI::pixel_cell_size - text_width)/2,
         box_upper_row + 7*box_height/10
     ));
 
-    UI::window.clear(sf::Color::Black);
-    UI::window.draw(background);
-    UI::window.draw(gameOverText);
-    UI::window.draw(scoreText);
-    UI::window.draw(instructionText);
-    UI::window.display();
-
-
-    while (is_game_over && UI::window.isOpen())
-    {
-        while (auto eventOpt = UI::window.pollEvent())
-        {
-            const sf::Event& event = *eventOpt;
-
-            if (event.is<sf::Event::Closed>())
-            {
-                UI::window.close();
-            }
-
-            if (const auto* key = event.getIf<sf::Event::KeyPressed>())
-            {
-                if (key->scancode == sf::Keyboard::Scan::R) // restart
-                {
-                   
-                    grid = Grid(UI::row_number, UI::column_number);
-
-                   
-                    next = createRandomPiece();
-                    is_game_over = false;
-
-                    game_clock.restart();
-                    time_decrease_rate = 0;
-                    score_threshold = 200;
-                    background_music.play();
-
-                    return;
-                }
-                                else if (key->scancode == sf::Keyboard::Scan::Q) // quit
-                {
-                    UI::window.close();
-                    return;
-                }
-            }
-        }
-    }
+    window.draw(background);
+    window.draw(gameOverText);
+    window.draw(scoreText);
+    window.draw(bestScoreText);
+    window.draw(instructionText);
 }
-
 void draw_controls(sf::RenderWindow& window)
 {
     sf::Text text(UI::font);
@@ -329,7 +294,7 @@ void draw_pause_screen(sf::RenderWindow& window)
     sf::Text instruction_text(UI::font);
     instruction_text.setCharacterSize(UI::font_size);
     instruction_text.setFillColor(sf::Color::White);
-    instruction_text.setString("Press P to resume, R to start a new game or Q to quit.");
+    instruction_text.setString("Press P to resume, R to start a new game or Esc to quit.");
     
     text_width= instruction_text.getGlobalBounds().size.x;
     text_height= instruction_text.getGlobalBounds().size.y;

@@ -100,21 +100,12 @@ void draw_score(Grid& next_piece_grid, sf::RenderWindow& window);
 void draw_next_piece(sf::RenderWindow& window, PieceType& next_type);
 
 /**
- * @brief Shows the Game Over screen and handles restart/quit, updating score, timer, and music.
- * 
- * \param grid The game grid.
- * \param current The current piece.
- * \param next The next piece.
- * \param is_game_over Game over flag.
- * \param score Player's score.
- * \param game_clock Game timer.
- * \param time_decrease_rate Game speed rate.
- * \param score_threshold Level-up score.
- * \param background_music Background music.
+ * @brief Draws the game over screen
+ * @param window The render window
+ * @param score Current score
+ * @param bestScore Best score
  */
- void handleGameOver(Grid& grid, Piece& current, PieceType& next, bool& is_game_over, 
-                    int score, sf::Clock& game_clock, double& time_decrease_rate, 
-                    double& score_threshold, sf::Music& background_music);
+void draw_game_over_screen(sf::RenderWindow& window, int score, int bestScore);
 /**
  * \brief A function to show game controls on screen.
  * \param window The window on which the controls will be displayed.
