@@ -1,0 +1,296 @@
+\doxysection{Piece Class Reference}
+\hypertarget{class_piece}{}\label{class_piece}\index{Piece@{Piece}}
+
+
+Tetris pieces description.  
+
+
+
+
+{\ttfamily \#include $<$core\+\_\+class.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_piece_ac921a4ac025477b92dec0e28b9f3c622}{Piece}} (\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \mbox{\hyperlink{class_piece_a099bcf4db9b928bc9850d0cfacbf3f25}{type}}=\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f}{Piece\+Type\+::I}}, unsigned int pivot\+Row=0, unsigned int pivot\+Col=0)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_piece}{Piece} of a given type at the specified pivot coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \mbox{\hyperlink{class_piece_a099bcf4db9b928bc9850d0cfacbf3f25}{type}} () const
+\begin{DoxyCompactList}\small\item\em Returns the type of the piece. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_piece_a8f3275de354718b2e52964d0ad95b331}{pivot\+\_\+row}} () const
+\begin{DoxyCompactList}\small\item\em Returns the row index of the pivot block. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_piece_a56107f66c7569859f19fde8fd9bdc05a}{pivot\+\_\+col}} () const
+\begin{DoxyCompactList}\small\item\em Returns the column index of the pivot block. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_block}{Block}} \mbox{\hyperlink{class_piece_a07be621b8c57bf5a786a035820f59b61}{operator\mbox{[}$\,$\mbox{]}}} (unsigned int i) const
+\begin{DoxyCompactList}\small\item\em Access a block at the specified index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_block}{Block}} \& \mbox{\hyperlink{class_piece_a8c390fed1f3750e106012e78e8b80c18}{operator\mbox{[}$\,$\mbox{]}}} (unsigned int i)
+\begin{DoxyCompactList}\small\item\em Access a block at the specified index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_piece_a64f39c04983082cf4a1c02cf3b14ad55}{color}} () const
+\begin{DoxyCompactList}\small\item\em Returns the color of the piece. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_piece_a4635cdc9afef9d1eff1cc2574a2edbf4}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of blocks composing the piece. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_a82dfe825e10bb6b8967a71622a6ed71f}{move}} (\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} direction, unsigned int length=1)
+\begin{DoxyCompactList}\small\item\em Moves or rotates the piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_piece_a0071dbad5eaf96f1e5847d7ac352d53a}{initialize\+Blocks}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the blocks for the piece based on its type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_a63848a7d82b0e70af9bb9275c94117b7}{clock\+\_\+rotate}} ()
+\begin{DoxyCompactList}\small\item\em Rotates the piece 90° clockwise around its pivot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_af4f0230c4155cbe461cfe4488a62ff13}{anticlock\+\_\+rotate}} ()
+\begin{DoxyCompactList}\small\item\em Rotates the piece 90° counterclockwise around its pivot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \mbox{\hyperlink{class_piece_a3384f03bf40eb49e44ce7940ad004032}{\+\_\+type}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_block}{Block}} $>$ \mbox{\hyperlink{class_piece_aa8c045e7831a8473e6aaa61d88cbd191}{\+\_\+blocks}}
+\item 
+unsigned int \mbox{\hyperlink{class_piece_a337e2dbf1591cf2ea1e743011f461d61}{\+\_\+pivot\+\_\+idx}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tetris pieces description. 
+
+Represents a Tetris piece with blocks, type, pivot, and rotation logic.
+
+
+\begin{DoxyItemize}
+\item Initialize blocks for a given piece type at specific pivot coordinates.
+\item Provide access to block positions, pivot, and color.
+\item Support rotation around the pivot (clockwise and counterclockwise).
+\item Support basic movement operations along the grid. 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{class_piece_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_piece_ac921a4ac025477b92dec0e28b9f3c622}\index{Piece@{Piece}!Piece@{Piece}}
+\index{Piece@{Piece}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{Piece()}{Piece()}}
+{\footnotesize\ttfamily \label{class_piece_ac921a4ac025477b92dec0e28b9f3c622} 
+Piece\+::\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f}{Piece\+Type\+::I}}}, }\item[{unsigned int}]{pivot\+Row}{ = {\ttfamily 0}, }\item[{unsigned int}]{pivot\+Col}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_piece}{Piece} of a given type at the specified pivot coordinates. 
+
+The constructor initializes the blocks for the specified piece type and sets the pivot index. The piece is positioned on the grid according to the provided pivot coordinates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the piece (I, O, T, J, L, S, Z). \\
+\hline
+{\em pivot\+Row} & Row index of the pivot block (default 0). \\
+\hline
+{\em pivot\+Col} & Column index of the pivot block (default 0). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_piece_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piece_af4f0230c4155cbe461cfe4488a62ff13}\index{Piece@{Piece}!anticlock\_rotate@{anticlock\_rotate}}
+\index{anticlock\_rotate@{anticlock\_rotate}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{anticlock\_rotate()}{anticlock\_rotate()}}
+{\footnotesize\ttfamily \label{class_piece_af4f0230c4155cbe461cfe4488a62ff13} 
+void Piece\+::anticlock\+\_\+rotate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Rotates the piece 90° counterclockwise around its pivot. 
+
+Uses the pivot block as the center and rotates all other blocks around it in the opposite direction of \doxylink{class_piece_a63848a7d82b0e70af9bb9275c94117b7}{clock\+\_\+rotate()}. \texorpdfstring{$<$}{<} Pivot row
+
+\texorpdfstring{$<$}{<} Pivot column
+
+\texorpdfstring{$<$}{<} Relative row to pivot
+
+\texorpdfstring{$<$}{<} Relative column to pivot
+
+\texorpdfstring{$<$}{<} New row after clockwise rotation
+
+\texorpdfstring{$<$}{<} New column after clockwise rotation\Hypertarget{class_piece_a63848a7d82b0e70af9bb9275c94117b7}\index{Piece@{Piece}!clock\_rotate@{clock\_rotate}}
+\index{clock\_rotate@{clock\_rotate}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{clock\_rotate()}{clock\_rotate()}}
+{\footnotesize\ttfamily \label{class_piece_a63848a7d82b0e70af9bb9275c94117b7} 
+void Piece\+::clock\+\_\+rotate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Rotates the piece 90° clockwise around its pivot. 
+
+Uses the pivot block as the center and rotates all other blocks around it according to standard Tetris rotation rules. \Hypertarget{class_piece_a64f39c04983082cf4a1c02cf3b14ad55}\index{Piece@{Piece}!color@{color}}
+\index{color@{color}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}}
+{\footnotesize\ttfamily \label{class_piece_a64f39c04983082cf4a1c02cf3b14ad55} 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} Piece\+::color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the color of the piece. 
+
+The color is taken from the first block of the piece. All blocks of a piece typically share the same color.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} of the piece. 
+\end{DoxyReturn}
+\Hypertarget{class_piece_a0071dbad5eaf96f1e5847d7ac352d53a}\index{Piece@{Piece}!initializeBlocks@{initializeBlocks}}
+\index{initializeBlocks@{initializeBlocks}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{initializeBlocks()}{initializeBlocks()}}
+{\footnotesize\ttfamily \label{class_piece_a0071dbad5eaf96f1e5847d7ac352d53a} 
+void Piece\+::initialize\+Blocks (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the blocks for the piece based on its type. 
+
+Sets the default shape of the piece and determines which block is the pivot. Moves the piece to the provided pivot coordinates on the grid. \Hypertarget{class_piece_a82dfe825e10bb6b8967a71622a6ed71f}\index{Piece@{Piece}!move@{move}}
+\index{move@{move}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{class_piece_a82dfe825e10bb6b8967a71622a6ed71f} 
+void Piece\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{direction}{, }\item[{unsigned int}]{length}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Moves or rotates the piece. 
+
+Depending on the direction parameter, this function either moves the piece horizontally/vertically or rotates it around its pivot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & Direction of movement or rotation. Can be\+:
+\begin{DoxyItemize}
+\item \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a811882fecd5c7618d7099ebbd39ea254}{Move\+::left}, \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d}{Move\+::right}, \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d}{Move\+::down} for movement
+\item \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a6d884e803df4a9f4e74bb5f5702eab35}{Move\+::clock\+\_\+rotation} for clockwise rotation
+\item \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7d42f748ba083e6380dd8f351f93c549}{Move\+::anticlock\+\_\+rotation} for counterclockwise rotation 
+\end{DoxyItemize}\\
+\hline
+{\em length} & Number of steps to move (ignored for rotation). Default is 1. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_piece_a8c390fed1f3750e106012e78e8b80c18}\index{Piece@{Piece}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_piece_a8c390fed1f3750e106012e78e8b80c18} 
+\mbox{\hyperlink{class_block}{Block}} \& Piece\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access a block at the specified index. 
+
+Provides read/write access to a specific block in the piece.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the block (0 to \doxylink{class_piece_a4635cdc9afef9d1eff1cc2574a2edbf4}{size()}-\/1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_block}{Block} at the given index. 
+\end{DoxyReturn}
+\Hypertarget{class_piece_a07be621b8c57bf5a786a035820f59b61}\index{Piece@{Piece}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_piece_a07be621b8c57bf5a786a035820f59b61} 
+\mbox{\hyperlink{class_block}{Block}} Piece\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access a block at the specified index. 
+
+Provides read-\/only access to a specific block in the piece.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the block (0 to \doxylink{class_piece_a4635cdc9afef9d1eff1cc2574a2edbf4}{size()}-\/1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Copy of the \doxylink{class_block}{Block} at the given index. 
+\end{DoxyReturn}
+\Hypertarget{class_piece_a56107f66c7569859f19fde8fd9bdc05a}\index{Piece@{Piece}!pivot\_col@{pivot\_col}}
+\index{pivot\_col@{pivot\_col}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{pivot\_col()}{pivot\_col()}}
+{\footnotesize\ttfamily \label{class_piece_a56107f66c7569859f19fde8fd9bdc05a} 
+unsigned int Piece\+::pivot\+\_\+col (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the column index of the pivot block. 
+
+\begin{DoxyReturn}{Returns}
+Column index of the pivot block. 
+\end{DoxyReturn}
+\Hypertarget{class_piece_a8f3275de354718b2e52964d0ad95b331}\index{Piece@{Piece}!pivot\_row@{pivot\_row}}
+\index{pivot\_row@{pivot\_row}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{pivot\_row()}{pivot\_row()}}
+{\footnotesize\ttfamily \label{class_piece_a8f3275de354718b2e52964d0ad95b331} 
+unsigned int Piece\+::pivot\+\_\+row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the row index of the pivot block. 
+
+The pivot is the reference block around which rotations are performed.
+
+\begin{DoxyReturn}{Returns}
+Row index of the pivot block. 
+\end{DoxyReturn}
+\Hypertarget{class_piece_a4635cdc9afef9d1eff1cc2574a2edbf4}\index{Piece@{Piece}!size@{size}}
+\index{size@{size}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{class_piece_a4635cdc9afef9d1eff1cc2574a2edbf4} 
+unsigned int Piece\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of blocks composing the piece. 
+
+\begin{DoxyReturn}{Returns}
+Number of blocks (usually 4 for standard Tetris pieces). 
+\end{DoxyReturn}
+\Hypertarget{class_piece_a099bcf4db9b928bc9850d0cfacbf3f25}\index{Piece@{Piece}!type@{type}}
+\index{type@{type}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \label{class_piece_a099bcf4db9b928bc9850d0cfacbf3f25} 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} Piece\+::type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the type of the piece. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} enum value representing the piece type. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_piece_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piece_aa8c045e7831a8473e6aaa61d88cbd191}\index{Piece@{Piece}!\_blocks@{\_blocks}}
+\index{\_blocks@{\_blocks}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{\_blocks}{\_blocks}}
+{\footnotesize\ttfamily \label{class_piece_aa8c045e7831a8473e6aaa61d88cbd191} 
+std\+::vector$<$\mbox{\hyperlink{class_block}{Block}}$>$ Piece\+::\+\_\+blocks\hspace{0.3cm}{\ttfamily [private]}}
+
+Blocks composing the piece \Hypertarget{class_piece_a337e2dbf1591cf2ea1e743011f461d61}\index{Piece@{Piece}!\_pivot\_idx@{\_pivot\_idx}}
+\index{\_pivot\_idx@{\_pivot\_idx}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{\_pivot\_idx}{\_pivot\_idx}}
+{\footnotesize\ttfamily \label{class_piece_a337e2dbf1591cf2ea1e743011f461d61} 
+unsigned int Piece\+::\+\_\+pivot\+\_\+idx\hspace{0.3cm}{\ttfamily [private]}}
+
+Index of the pivot block in \+\_\+blocks \Hypertarget{class_piece_a3384f03bf40eb49e44ce7940ad004032}\index{Piece@{Piece}!\_type@{\_type}}
+\index{\_type@{\_type}!Piece@{Piece}}
+\doxysubsubsection{\texorpdfstring{\_type}{\_type}}
+{\footnotesize\ttfamily \label{class_piece_a3384f03bf40eb49e44ce7940ad004032} 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} Piece\+::\+\_\+type\hspace{0.3cm}{\ttfamily [private]}}
+
+Type of the piece (I, O, T, J, L, S, Z) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/include/\mbox{\hyperlink{core__class_8h}{core\+\_\+class.\+h}}\item 
+core/src/\mbox{\hyperlink{core__class_8cpp}{core\+\_\+class.\+cpp}}\end{DoxyCompactItemize}

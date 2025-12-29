@@ -1,0 +1,266 @@
+\chapter{🎮 Tetris Project }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{🎮 Tetris Project@{🎮 Tetris Project}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+Un jeu Tetris classique développé en C++ avec interface graphique, réalisé en binôme.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Binôme\+:}{Binôme\+:}}\label{md__r_e_a_d_m_e_autotoc_md1}
+\begin{DoxyVerb}* Alexandre Bleuler 
+* Bonaventure Dohemeto
+\end{DoxyVerb}
+
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Table des Matières}{Table des Matières}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Description
+\item Fonctionnalités
+\item Déroulement du jeu/\+Coups valides et interdits
+\item Aborescence du Projet
+\item Feuille de Route
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Description}{Description}}\label{md__r_e_a_d_m_e_autotoc_md3}
+{\bfseries{Tetris Project}} est une implémentation du célèbre jeu Tetris en C++ moderne.\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Fonctionnalités A Implémentées}{Fonctionnalités A Implémentées}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Grille de jeu
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Les 7 pièces classiques
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Système de rotation des pièces
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Mouvement (gauche/droite/descente rapide)
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Suppression des lignes complètes
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Système de scoring progressif
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Augmentation de la difficulté avec les niveaux
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Interface graphique
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Contrôles clavier
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Déroulement du jeu/\+Coups valides et interdits}{Déroulement du jeu/\+Coups valides et interdits}}\label{md__r_e_a_d_m_e_autotoc_md5}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Déroulement du jeu}{Déroulement du jeu}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Une pièce apparaît en haut de la grille.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Le joueur peut la déplacer (haut, bas, droite,gauche) ou la faire tourner.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] La pièce tombe progressivement.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Lorsqu’elle touche le bas ou un bloc déjà posé \+: elle se verrouille, on génère une nouvelle pièce.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Les lignes complètes sont supprimées automatiquement.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Le score augmente.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] La vitesse augmente au fur et à mesure des niveaux.
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Si une pièce ne peut pas apparaître (entièrement) =\texorpdfstring{$>$}{>} perdu.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Coups valides}{Coups valides}}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Déplacements \begin{DoxyVerb}  -Déplacer la pièce vers la gauche (si pas d’obstacle)
+
+  -Déplacer la pièce vers la droite
+
+  -Faire une descente rapide
+
+  -Faire un hard drop (descente instantanée)
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Rotations \begin{DoxyVerb}  -Tourner la pièce dans le sens horaire
+
+  -Tourner la pièce dans le sens antihoraire
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Actions spéciales \begin{DoxyVerb}  -Pause du jeu
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Actions de jeu correctes \begin{DoxyVerb}  -Verrouiller une pièce lorsqu’elle touche le fond
+
+  -Supprimer les lignes complètes
+
+  -Passer au niveau supérieur
+
+  -Engendrer une nouvelle pièce selon les règles
+\end{DoxyVerb}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Coups interdits}{Coups interdits}}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Déplacements interdits \begin{DoxyVerb}  -Sortir de la grille (à gauche, à droite ou sous le bas)
+
+  -Monter la pièce vers le haut
+
+  -Pénétrer dans un bloc déjà placé
+
+  -Déplacer une pièce après qu’elle soit verrouillée
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Rotations invalides \begin{DoxyVerb}  -Tourner si une rotation ferait sortir la pièce de la grille
+
+  -Tourner si la pièce entre dans un bloc déjà occupé
+
+  -Tourner alors que la pièce est déjà verrouillée
+\end{DoxyVerb}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Autres actions impossibles \begin{DoxyVerb}  -Faire apparaître une nouvelle pièce si l’espace de spawn (l’endroit où les nouvelles pièces apparaissent au début) est occupé
+
+  -Modifier le score de manière manuelle
+
+  -Supprimer une ligne qui n’est pas entièrement remplie
+
+  -Ralentir la gravité
+
+  -Déplacer une pièce lorsque le jeu est en pause
+\end{DoxyVerb}
+
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Aborescence du Projet}{Aborescence du Projet}}\label{md__r_e_a_d_m_e_autotoc_md9}
+\begin{DoxyVerb}  TetrisProject/
+  ├── core/
+  │ ├── include/
+  │ │ └── core_class.h
+  │ └── src/
+  │   └── core_class.cpp
+  │   └── main.cpp
+  ├── doc/
+  ├── sounds/
+  │ ├── music.ogg
+  │ ├── move.wav
+  │ ├── rotate.wav
+  │ └── drop.wav
+  ├── tests/
+  ├── CMakeLists.txt
+  ├── DoxyFile
+  ├── .gitignore
+  └── README.md
+\end{DoxyVerb}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{Architecture des Classes}{Architecture des Classes}}\label{md__r_e_a_d_m_e_autotoc_md10}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{\doxylink{class_block}{Block}}} \+: Représente un bloc individuel avec ses coordonnées (ligne, colonne)
+\item {\bfseries{\doxylink{class_cell}{Cell}}} \+: Représente une cellule de la grille, pouvant être vide ou pleine
+\item {\bfseries{\doxylink{class_piece}{Piece}}} \+: Groupe de 4 blocs formant une pièce Tetris, avec gestion des rotations
+\item {\bfseries{\doxylink{class_grid}{Grid}}} \+: Grille de jeu contenant les cellules, gère la logique du jeu
+\item {\bfseries{Enumérations}} \+:
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} \+: Déplacements possibles (haut, bas, gauche, droite, rotations)
+\item {\ttfamily \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \+: Les 7 types de pièces Tetris
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Feuille de Route}{Feuille de Route}}\label{md__r_e_a_d_m_e_autotoc_md11}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{Tâche 1\+: Implémentation des classes de base}{Tâche 1\+: Implémentation des classes de base}}\label{md__r_e_a_d_m_e_autotoc_md12}
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_block}{Block}} ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_cell}{Cell}} ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_piece}{Piece}} ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_grid}{Grid}} ✓
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{\texorpdfstring{Tâche 2\+: Logique du jeu}{Tâche 2\+: Logique du jeu}}\label{md__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] Mouvement des pièces ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Rotation des pièces ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Détection des collisions ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Suppression des lignes complètes ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Génération aléatoire des pièces ✓
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{Tâche 3\+: Interface graphique}{Tâche 3\+: Interface graphique}}\label{md__r_e_a_d_m_e_autotoc_md14}
+
+\begin{DoxyItemize}
+\item[\DoxyChecked] Affichage de la grille ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Affichage des pièces ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Contrôles clavier ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyChecked] Système audio ✓
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Tâche 4\+: Fonctionnalités avancées}{Tâche 4\+: Fonctionnalités avancées}}\label{md__r_e_a_d_m_e_autotoc_md15}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Système de scoring (points par ligne, etc.) ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Niveaux de difficulté progressive ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Menu principal et écrans d\textquotesingle{}interface
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Sauvegarde des meilleurs scores ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Effets visuels (animations et autres) ✓
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Tâche 5\+: Qualité, tests et finalisation}{Tâche 5\+: Qualité, tests et finalisation}}\label{md__r_e_a_d_m_e_autotoc_md16}
+
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Tests unitaires des classes principales ({\ttfamily \doxylink{class_grid}{Grid}}, {\ttfamily \doxylink{class_piece}{Piece}}, collisions) ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Gestion des erreurs (sons, chargement des ressources, police) ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Nettoyage et refactorisation du code
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Documentation du code (Doxygen) ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Portabilité Linux / Windows ✓
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item[\DoxyUnchecked] Livraison finale du projet
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Compilation avec CMake}{Compilation avec CMake}}\label{md__r_e_a_d_m_e_autotoc_md17}
+\`{}\`{}\`{}bash mkdir build cd build cmake .. make ./tetrix\+\_\+game 

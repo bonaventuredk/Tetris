@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['yellow_0',['yellow',['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351',1,'core_class.h']]]
+  ['valides_0',['Coups valides',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['valides_20et_20interdits_1',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
 ];

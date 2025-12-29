@@ -101,8 +101,8 @@ Functions</h2></td></tr>
 sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>window</b> (<a class="el" href="#a4e8843c58982b9005af1bf14c2d5d6e9">UI::current_video_mode</a>,&quot;Tetris&quot;, sf::Style::Default, sf::State::Fullscreen)</td></tr>
 <tr class="memitem:a491efdf086d7353e0936618abe5927c0" id="r_a491efdf086d7353e0936618abe5927c0"><td class="memItemLeft" align="right" valign="top"><a id="a491efdf086d7353e0936618abe5927c0" name="a491efdf086d7353e0936618abe5927c0"></a>
 sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>cell</b> (sf::Vector2f(<a class="el" href="#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a> - 1.f, <a class="el" href="#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a> - 1.f))</td></tr>
-<tr class="memitem:ad5cc597ff44b9ffc246c19ebe792db1a" id="r_ad5cc597ff44b9ffc246c19ebe792db1a"><td class="memItemLeft" align="right" valign="top"><a id="ad5cc597ff44b9ffc246c19ebe792db1a" name="ad5cc597ff44b9ffc246c19ebe792db1a"></a>
-sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>font</b> (&quot;../UI/Tetris_font.ttf&quot;)</td></tr>
+<tr class="memitem:a26a89969197de334769128d705de1ea6" id="r_a26a89969197de334769128d705de1ea6"><td class="memItemLeft" align="right" valign="top"><a id="a26a89969197de334769128d705de1ea6" name="a26a89969197de334769128d705de1ea6"></a>
+sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>font</b> (&quot;../ui/Tetris_font.ttf&quot;)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -111,7 +111,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a4e8843c58982b9005af1bf14c2d5d6e9" id="r_a4e8843c58982b9005af1bf14c2d5d6e9"><td class="memItemLeft" align="right" valign="top">sf::VideoMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e8843c58982b9005af1bf14c2d5d6e9">current_video_mode</a> = sf::VideoMode::getDesktopMode()</td></tr>
 <tr class="memitem:afd9f868fdd89c60233e91374269f5599" id="r_afd9f868fdd89c60233e91374269f5599"><td class="memItemLeft" align="right" valign="top"><a id="afd9f868fdd89c60233e91374269f5599" name="afd9f868fdd89c60233e91374269f5599"></a>
 sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></td></tr>
-<tr class="memitem:a18d30be9b3a981aacb49aef4157ee004" id="r_a18d30be9b3a981aacb49aef4157ee004"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a> = current_video_mode.size.y/<a class="el" href="#a311468b7f4e379037039b042f4aec8c4">row_number</a></td></tr>
+<tr class="memitem:a11cdb8e995a36417f76e84531a3f75d6" id="r_a11cdb8e995a36417f76e84531a3f75d6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11cdb8e995a36417f76e84531a3f75d6">height_in_cell</a> = <a class="el" href="#a311468b7f4e379037039b042f4aec8c4">row_number</a>+2</td></tr>
+<tr class="memitem:a18d30be9b3a981aacb49aef4157ee004" id="r_a18d30be9b3a981aacb49aef4157ee004"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a> = current_video_mode.size.y/<a class="el" href="#a11cdb8e995a36417f76e84531a3f75d6">height_in_cell</a></td></tr>
 <tr class="memitem:a1470a0265f4b335edda8fa05b9cc5bac" id="r_a1470a0265f4b335edda8fa05b9cc5bac"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1470a0265f4b335edda8fa05b9cc5bac">width_in_cell</a> = current_video_mode.size.x/<a class="el" href="#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a></td></tr>
 <tr class="memitem:afc759781fa48e61aab8144d5cc3fd6db" id="r_afc759781fa48e61aab8144d5cc3fd6db"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc759781fa48e61aab8144d5cc3fd6db">left_side_width_in_cell</a> = (<a class="el" href="#a1470a0265f4b335edda8fa05b9cc5bac">width_in_cell</a>-<a class="el" href="#a9bd3aad7eed5a6b6b3ce7f79ff86af09">column_number</a>)/2</td></tr>
 <tr class="memitem:a9717976ab1a0cb0384645e16f858efab" id="r_a9717976ab1a0cb0384645e16f858efab"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9717976ab1a0cb0384645e16f858efab">right_side_width_in_cell</a> = <a class="el" href="#a1470a0265f4b335edda8fa05b9cc5bac">width_in_cell</a>-<a class="el" href="#afc759781fa48e61aab8144d5cc3fd6db">left_side_width_in_cell</a>-<a class="el" href="#a9bd3aad7eed5a6b6b3ce7f79ff86af09">column_number</a></td></tr>
@@ -199,7 +200,7 @@ sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>window</b
   </tr>
 </table>
 </div><div class="memdoc">
-<p>A font for displaying texts with SFML (<a href="https://www.dafont.com/fr/tetris.font">https://www.dafont.com/fr/tetris.font</a>). </p>
+<p>A font for displaying texts with SFML (<a href="https://fontstruct.com/fontstructions/show/2350408">https://fontstruct.com/fontstructions/show/2350408</a>). </p>
 
 </div>
 </div>
@@ -238,6 +239,21 @@ sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>window</b
 </table>
 </div><div class="memdoc">
 <p><a class="el" href="core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> grey for SFML. </p>
+
+</div>
+</div>
+<a id="a11cdb8e995a36417f76e84531a3f75d6" name="a11cdb8e995a36417f76e84531a3f75d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11cdb8e995a36417f76e84531a3f75d6">&#9670;&#160;</a></span>height_in_cell</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int UI::height_in_cell = <a class="el" href="#a311468b7f4e379037039b042f4aec8c4">row_number</a>+2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The height in cells of the window. </p>
 
 </div>
 </div>
@@ -309,7 +325,7 @@ sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>window</b
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int UI::pixel_cell_size = current_video_mode.size.y/<a class="el" href="#a311468b7f4e379037039b042f4aec8c4">row_number</a></td>
+          <td class="memname">unsigned int UI::pixel_cell_size = current_video_mode.size.y/<a class="el" href="#a11cdb8e995a36417f76e84531a3f75d6">height_in_cell</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

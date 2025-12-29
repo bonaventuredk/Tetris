@@ -1,0 +1,261 @@
+\doxysection{core/include/core\+\_\+class.h File Reference}
+\hypertarget{core__class_8h}{}\label{core__class_8h}\index{core/include/core\_class.h@{core/include/core\_class.h}}
+
+
+This file contains the declarations of the fundamental classes of Tetris\textquotesingle{} logic\+: \doxylink{class_block}{Block}, \doxylink{class_piece}{Piece}, \doxylink{class_cell}{Cell}, and \doxylink{class_grid}{Grid}.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_block}{Block}}
+\begin{DoxyCompactList}\small\item\em A class which creates the entities representing the Tetris\textquotesingle{} blocks. It\textquotesingle{}s essentially a couple of non negative integer coordinates. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_piece}{Piece}}
+\begin{DoxyCompactList}\small\item\em Tetris pieces description. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_cell}{Cell}}
+\begin{DoxyCompactList}\small\item\em A class which creates the entities representing the cells of the Tetris\textquotesingle{} grid. A cell contain several informations such as if it is empty or full. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_grid}{Grid}}
+\begin{DoxyCompactList}\small\item\em A class which creates a 2D grid of \doxylink{class_cell}{Cell} entities. It is actualised through methods using the creation and the movements of \doxylink{class_piece}{Piece} entities. It is designed to be used as interface between the core of the game and it\textquotesingle{}s \doxylink{namespace_u_i}{UI} made with SFML. The index (0,0) represents grid\textquotesingle{}s top-\/left corner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} \{ \newline
+\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c}{up}}
+, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d}{down}}
+, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a811882fecd5c7618d7099ebbd39ea254}{left}}
+, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d}{right}}
+, \newline
+\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a6d884e803df4a9f4e74bb5f5702eab35}{clock\+\_\+rotation}}
+, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7d42f748ba083e6380dd8f351f93c549}{anticlock\+\_\+rotation}}
+, \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a334c4a4c42fdb79d7ebc3e73b517e6f8}{none}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enum class to manipulate in core basic movements of blocks and pieces as they should appear on screen later. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \{ \newline
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f}{I}} =0
+, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021af186217753c37b9b9f958d906208506e}{O}} =1
+, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021ab9ece18c950afbfa6b0fdbfa4ff731d3}{T}} =2
+, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021ad20caec3b48a1eef164cb4ca81ba2587}{L}} =3
+, \newline
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021aff44570aca8241914870afbc310cdb85}{J}} =4
+, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021a5dbc98dcc983a70728bd082d1a47546e}{S}} =5
+, {\bfseries Z} =6
+ \}
+\begin{DoxyCompactList}\small\item\em An enum class to manipulate type of Tetris\textquotesingle{} blocks (see the readme.\+md to check the corresponding piece). \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \{ \newline
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f}{blue}} =0
+, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351}{yellow}} =1
+, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3}{purple}} =2
+, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd}{orange}} =3
+, \newline
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877}{pink}} =4
+, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4}{red}} =5
+, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8}{green}} =6
+, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}{none}} =7
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} \mbox{\hyperlink{core__class_8h_a4a818a195b9b6b8dfcfb23ed3a4bf4b3}{reverse\+\_\+move}} (\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} move)
+\begin{DoxyCompactList}\small\item\em A simple function to get the inverse move from one of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{core__class_8h_a175f9fbd6504784b4f90cf8b5932dc18}{get\+\_\+grid}} (\mbox{\hyperlink{class_grid}{Grid}} grid)
+\begin{DoxyCompactList}\small\item\em Encodes the grid in a string starting with \textquotesingle{}\textbackslash{}n\textquotesingle{}. Every line of the grid is terminated by \textquotesingle{}\textbackslash{}n\textquotesingle{}. Empty cells are reprented by \textquotesingle{}.\textquotesingle{}, the full ones by \textquotesingle{}O\textquotesingle{}. This function is designed to be used for debugging and testing of the \doxylink{class_grid}{Grid} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \mbox{\hyperlink{core__class_8h_a3542daf4187e8e8b9bebac6cc3c501b2}{create\+Random\+Piece}} ()
+\begin{DoxyCompactList}\small\item\em Creates a random Tetris piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the declarations of the fundamental classes of Tetris\textquotesingle{} logic\+: \doxylink{class_block}{Block}, \doxylink{class_piece}{Piece}, \doxylink{class_cell}{Cell}, and \doxylink{class_grid}{Grid}. 
+
+\begin{DoxyAuthor}{Author}
+Alexandre Bleuler -\/ Bonaventure Dohemeto 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19/12/2025 
+\end{DoxyDate}
+
+
+\label{doc-enum-members}
+\Hypertarget{core__class_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}\index{core\_class.h@{core\_class.h}!Color@{Color}}
+\index{Color@{Color}!core\_class.h@{core\_class.h}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily \label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c} 
+enum class \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{blue@{blue}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!blue@{blue}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca48d6215903dff56238e52e8891380c8f} 
+blue&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 0 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (I currently). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{yellow@{yellow}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!yellow@{yellow}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cad487dd0b55dfcacdd920ccbdaeafa351} 
+yellow&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 1 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (O currently). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{purple@{purple}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!purple@{purple}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3} 
+purple&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 2 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (T currently. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{orange@{orange}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!orange@{orange}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cafe01d67a002dfa0f3ac084298142eccd} 
+orange&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 3 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (L currently). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{pink@{pink}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!pink@{pink}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877} 
+pink&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 4 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (J currently). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{red@{red}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!red@{red}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4} 
+red&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 5 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (S currently). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{green@{green}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!green@{green}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca9f27410725ab8cc8854a2769c7a516b8} 
+green&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with element number 6 of \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type} (Z currently). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{none@{none}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!none@{none}}}\Hypertarget{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}\label{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8} 
+none&\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} associated with empty cells of Tetris\textquotesingle{} grid. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}\index{core\_class.h@{core\_class.h}!Move@{Move}}
+\index{Move@{Move}!core\_class.h@{core\_class.h}}
+\doxysubsubsection{\texorpdfstring{Move}{Move}}
+{\footnotesize\ttfamily \label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388} 
+enum class \mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enum class to manipulate in core basic movements of blocks and pieces as they should appear on screen later. 
+
+An enum class to set the color of a given \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}. They are mapped through indexes of the enum. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{up@{up}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!up@{up}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c} 
+up&Upward movement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{down@{down}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!down@{down}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d} 
+down&Downward movement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{left@{left}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!left@{left}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a811882fecd5c7618d7099ebbd39ea254}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a811882fecd5c7618d7099ebbd39ea254} 
+left&Leftward movement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{right@{right}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!right@{right}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d} 
+right&Rightward movement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{clock\_rotation@{clock\_rotation}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!clock\_rotation@{clock\_rotation}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a6d884e803df4a9f4e74bb5f5702eab35}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a6d884e803df4a9f4e74bb5f5702eab35} 
+clock\+\_\+rotation&Clockwise rotation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{anticlock\_rotation@{anticlock\_rotation}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!anticlock\_rotation@{anticlock\_rotation}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7d42f748ba083e6380dd8f351f93c549}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a7d42f748ba083e6380dd8f351f93c549} 
+anticlock\+\_\+rotation&Anticlockwise rotation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{none@{none}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!none@{none}}}\Hypertarget{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a334c4a4c42fdb79d7ebc3e73b517e6f8}\label{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388a334c4a4c42fdb79d7ebc3e73b517e6f8} 
+none&No movement \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}\index{core\_class.h@{core\_class.h}!PieceType@{PieceType}}
+\index{PieceType@{PieceType}!core\_class.h@{core\_class.h}}
+\doxysubsubsection{\texorpdfstring{PieceType}{PieceType}}
+{\footnotesize\ttfamily \label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021} 
+enum class \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enum class to manipulate type of Tetris\textquotesingle{} blocks (see the readme.\+md to check the corresponding piece). 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I@{I}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!I@{I}}}\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f}\label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f} 
+I&I piece \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O@{O}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!O@{O}}}\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021af186217753c37b9b9f958d906208506e}\label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021af186217753c37b9b9f958d906208506e} 
+O&O piece \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T@{T}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!T@{T}}}\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021ab9ece18c950afbfa6b0fdbfa4ff731d3}\label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021ab9ece18c950afbfa6b0fdbfa4ff731d3} 
+T&T piece \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L@{L}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!L@{L}}}\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021ad20caec3b48a1eef164cb4ca81ba2587}\label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021ad20caec3b48a1eef164cb4ca81ba2587} 
+L&L piece \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{J@{J}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!J@{J}}}\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021aff44570aca8241914870afbc310cdb85}\label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021aff44570aca8241914870afbc310cdb85} 
+J&J piece \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S@{S}!core\_class.h@{core\_class.h}}\index{core\_class.h@{core\_class.h}!S@{S}}}\Hypertarget{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021a5dbc98dcc983a70728bd082d1a47546e}\label{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021a5dbc98dcc983a70728bd082d1a47546e} 
+S&S piece \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{core__class_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{core__class_8h_a3542daf4187e8e8b9bebac6cc3c501b2}\index{core\_class.h@{core\_class.h}!createRandomPiece@{createRandomPiece}}
+\index{createRandomPiece@{createRandomPiece}!core\_class.h@{core\_class.h}}
+\doxysubsubsection{\texorpdfstring{createRandomPiece()}{createRandomPiece()}}
+{\footnotesize\ttfamily \label{core__class_8h_a3542daf4187e8e8b9bebac6cc3c501b2} 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} create\+Random\+Piece (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a random Tetris piece. 
+
+Randomly selects one of the seven standard Tetrix pieces (I, O, T, L, J, S, Z) and initializes it at row 0 and the given column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & Initial column of the piece. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_piece}{Piece} A newly created random Tetris piece. 
+\end{DoxyReturn}
+\Hypertarget{core__class_8h_a175f9fbd6504784b4f90cf8b5932dc18}\index{core\_class.h@{core\_class.h}!get\_grid@{get\_grid}}
+\index{get\_grid@{get\_grid}!core\_class.h@{core\_class.h}}
+\doxysubsubsection{\texorpdfstring{get\_grid()}{get\_grid()}}
+{\footnotesize\ttfamily \label{core__class_8h_a175f9fbd6504784b4f90cf8b5932dc18} 
+std\+::string get\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}}}]{grid}{}\end{DoxyParamCaption})}
+
+
+
+Encodes the grid in a string starting with \textquotesingle{}\textbackslash{}n\textquotesingle{}. Every line of the grid is terminated by \textquotesingle{}\textbackslash{}n\textquotesingle{}. Empty cells are reprented by \textquotesingle{}.\textquotesingle{}, the full ones by \textquotesingle{}O\textquotesingle{}. This function is designed to be used for debugging and testing of the \doxylink{class_grid}{Grid} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid which is going to be encoded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string encoding the grid. 
+\end{DoxyReturn}
+\Hypertarget{core__class_8h_a4a818a195b9b6b8dfcfb23ed3a4bf4b3}\index{core\_class.h@{core\_class.h}!reverse\_move@{reverse\_move}}
+\index{reverse\_move@{reverse\_move}!core\_class.h@{core\_class.h}}
+\doxysubsubsection{\texorpdfstring{reverse\_move()}{reverse\_move()}}
+{\footnotesize\ttfamily \label{core__class_8h_a4a818a195b9b6b8dfcfb23ed3a4bf4b3} 
+\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} reverse\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{move}{}\end{DoxyParamCaption})}
+
+
+
+A simple function to get the inverse move from one of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & An element of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An element of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move} which is the opposite of {\bfseries{move}} . 
+\end{DoxyReturn}

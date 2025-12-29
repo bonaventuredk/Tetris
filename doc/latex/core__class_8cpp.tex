@@ -1,0 +1,96 @@
+\doxysection{core/src/core\+\_\+class.cpp File Reference}
+\hypertarget{core__class_8cpp}{}\label{core__class_8cpp}\index{core/src/core\_class.cpp@{core/src/core\_class.cpp}}
+
+
+This file contains definitions for \doxylink{class_block}{Block}, \doxylink{class_cell}{Cell}, \doxylink{class_piece}{Piece}, \doxylink{class_grid}{Grid} classes methos. Also contains few auxiliary functions.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include "{}core\+\_\+class.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} \mbox{\hyperlink{core__class_8cpp_a4a818a195b9b6b8dfcfb23ed3a4bf4b3}{reverse\+\_\+move}} (\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} move)
+\begin{DoxyCompactList}\small\item\em A simple function to get the inverse move from one of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \mbox{\hyperlink{core__class_8cpp_a3542daf4187e8e8b9bebac6cc3c501b2}{create\+Random\+Piece}} ()
+\begin{DoxyCompactList}\small\item\em Creates a random Tetris piece. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{core__class_8cpp_a175f9fbd6504784b4f90cf8b5932dc18}{get\+\_\+grid}} (\mbox{\hyperlink{class_grid}{Grid}} grid)
+\begin{DoxyCompactList}\small\item\em Encodes the grid in a string starting with \textquotesingle{}\textbackslash{}n\textquotesingle{}. Every line of the grid is terminated by \textquotesingle{}\textbackslash{}n\textquotesingle{}. Empty cells are reprented by \textquotesingle{}.\textquotesingle{}, the full ones by \textquotesingle{}O\textquotesingle{}. This function is designed to be used for debugging and testing of the \doxylink{class_grid}{Grid} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains definitions for \doxylink{class_block}{Block}, \doxylink{class_cell}{Cell}, \doxylink{class_piece}{Piece}, \doxylink{class_grid}{Grid} classes methos. Also contains few auxiliary functions. 
+
+\begin{DoxyAuthor}{Author}
+Alexandre Bleuler -\/ Bonaventure Dohemeto 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+19/12/2025 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{core__class_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{core__class_8cpp_a3542daf4187e8e8b9bebac6cc3c501b2}\index{core\_class.cpp@{core\_class.cpp}!createRandomPiece@{createRandomPiece}}
+\index{createRandomPiece@{createRandomPiece}!core\_class.cpp@{core\_class.cpp}}
+\doxysubsubsection{\texorpdfstring{createRandomPiece()}{createRandomPiece()}}
+{\footnotesize\ttfamily \label{core__class_8cpp_a3542daf4187e8e8b9bebac6cc3c501b2} 
+\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} create\+Random\+Piece (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a random Tetris piece. 
+
+Randomly selects one of the seven standard Tetrix pieces (I, O, T, L, J, S, Z) and initializes it at row 0 and the given column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & Initial column of the piece. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_piece}{Piece} A newly created random Tetris piece. 
+\end{DoxyReturn}
+\Hypertarget{core__class_8cpp_a175f9fbd6504784b4f90cf8b5932dc18}\index{core\_class.cpp@{core\_class.cpp}!get\_grid@{get\_grid}}
+\index{get\_grid@{get\_grid}!core\_class.cpp@{core\_class.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_grid()}{get\_grid()}}
+{\footnotesize\ttfamily \label{core__class_8cpp_a175f9fbd6504784b4f90cf8b5932dc18} 
+std\+::string get\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}}}]{grid}{}\end{DoxyParamCaption})}
+
+
+
+Encodes the grid in a string starting with \textquotesingle{}\textbackslash{}n\textquotesingle{}. Every line of the grid is terminated by \textquotesingle{}\textbackslash{}n\textquotesingle{}. Empty cells are reprented by \textquotesingle{}.\textquotesingle{}, the full ones by \textquotesingle{}O\textquotesingle{}. This function is designed to be used for debugging and testing of the \doxylink{class_grid}{Grid} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid which is going to be encoded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string encoding the grid. 
+\end{DoxyReturn}
+\Hypertarget{core__class_8cpp_a4a818a195b9b6b8dfcfb23ed3a4bf4b3}\index{core\_class.cpp@{core\_class.cpp}!reverse\_move@{reverse\_move}}
+\index{reverse\_move@{reverse\_move}!core\_class.cpp@{core\_class.cpp}}
+\doxysubsubsection{\texorpdfstring{reverse\_move()}{reverse\_move()}}
+{\footnotesize\ttfamily \label{core__class_8cpp_a4a818a195b9b6b8dfcfb23ed3a4bf4b3} 
+\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} reverse\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{move}{}\end{DoxyParamCaption})}
+
+
+
+A simple function to get the inverse move from one of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & An element of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An element of the enum class \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move} which is the opposite of {\bfseries{move}} . 
+\end{DoxyReturn}

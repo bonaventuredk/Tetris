@@ -1,0 +1,211 @@
+\doxysection{Block Class Reference}
+\hypertarget{class_block}{}\label{class_block}\index{Block@{Block}}
+
+
+A class which creates the entities representing the Tetris\textquotesingle{} blocks. It\textquotesingle{}s essentially a couple of non negative integer coordinates.  
+
+
+
+
+{\ttfamily \#include $<$core\+\_\+class.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_block_a44623e712749c2185cf1b60950f3071b}{Block}} (unsigned int rrow=0, unsigned int ccolumn=0, \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_block_a2774670fcfd0ace6c012b491b5a1a62d}{color}}=\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}{Color\+::none}})
+\begin{DoxyCompactList}\small\item\em Constructing the block from abscissa and ordinate specifications. Constructs it with coordinates (0,0) by default. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_block_a8114bb3ebc31622126a38a330427435e}{row}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the attribute \+\_\+row. \end{DoxyCompactList}\item 
+unsigned int \& \mbox{\hyperlink{class_block_a57cca9110410ea2fe0963745a06b9158}{row}} ()
+\begin{DoxyCompactList}\small\item\em A setter for the attribute \+\_\+row. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_block_a5a4a9abf526ed7f95f04a6c504138626}{column}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the attribute \+\_\+column. \end{DoxyCompactList}\item 
+unsigned int \& \mbox{\hyperlink{class_block_a6536fdf5eff48252c49a4828805b64d7}{column}} ()
+\begin{DoxyCompactList}\small\item\em A getter for the attribute \+\_\+column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_block_a2774670fcfd0ace6c012b491b5a1a62d}{color}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the attribute \+\_\+column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \& \mbox{\hyperlink{class_block_a78bc573880666ceef4ccb245ccf63ccb}{color}} ()
+\begin{DoxyCompactList}\small\item\em A setter for the attribute \+\_\+color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_block_adb439c8b93ee29e13735294344c209bd}{move}} (\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} direction, unsigned int length=1)
+\begin{DoxyCompactList}\small\item\em A getter for the attribute \+\_\+color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_block_a42b2f054e380c57f4a9011dfceba152b}{\+\_\+row}}
+\item 
+unsigned int \mbox{\hyperlink{class_block_a827a44690d4d9738a299c2265a7a8ae7}{\+\_\+column}}
+\item 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \mbox{\hyperlink{class_block_a36c9bff272fcb4d182a6c60b830f41d7}{\+\_\+color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which creates the entities representing the Tetris\textquotesingle{} blocks. It\textquotesingle{}s essentially a couple of non negative integer coordinates. 
+
+\label{doc-constructors}
+\Hypertarget{class_block_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_block_a44623e712749c2185cf1b60950f3071b}\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{Block()}{Block()}}
+{\footnotesize\ttfamily \label{class_block_a44623e712749c2185cf1b60950f3071b} 
+Block\+::\+Block (\begin{DoxyParamCaption}\item[{unsigned int}]{rrow}{ = {\ttfamily 0}, }\item[{unsigned int}]{ccolumn}{ = {\ttfamily 0}, }\item[{\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}}}]{color}{ = {\ttfamily \mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}{Color\+::none}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructing the block from abscissa and ordinate specifications. Constructs it with coordinates (0,0) by default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rrolumn} & An unsigned integer corresponding to the abscissa of the block. \\
+\hline
+{\em ccolumn} & An unsigned integer corresponding to the ordinate of the block. \\
+\hline
+{\em color} & The color of the block. It is \doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1ca334c4a4c42fdb79d7ebc3e73b517e6f8}{Color\+::none} by default. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\label{doc-func-members}
+\Hypertarget{class_block_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_block_a78bc573880666ceef4ccb245ccf63ccb}\index{Block@{Block}!color@{color}}
+\index{color@{color}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_block_a78bc573880666ceef4ccb245ccf63ccb} 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} \& Block\+::color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A setter for the attribute \+\_\+color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The attribute \+\_\+color. \Hypertarget{class_block_a2774670fcfd0ace6c012b491b5a1a62d}\index{Block@{Block}!color@{color}}
+\index{color@{color}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{color()}{color()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_block_a2774670fcfd0ace6c012b491b5a1a62d} 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} Block\+::color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A getter for the attribute \+\_\+column. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The attribute \+\_\+column. \Hypertarget{class_block_a6536fdf5eff48252c49a4828805b64d7}\index{Block@{Block}!column@{column}}
+\index{column@{column}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_block_a6536fdf5eff48252c49a4828805b64d7} 
+unsigned int \& Block\+::column (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A getter for the attribute \+\_\+column. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The attribute \+\_\+column. \Hypertarget{class_block_a5a4a9abf526ed7f95f04a6c504138626}\index{Block@{Block}!column@{column}}
+\index{column@{column}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_block_a5a4a9abf526ed7f95f04a6c504138626} 
+unsigned int Block\+::column (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A getter for the attribute \+\_\+column. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The attribute \+\_\+column. \Hypertarget{class_block_adb439c8b93ee29e13735294344c209bd}\index{Block@{Block}!move@{move}}
+\index{move@{move}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{class_block_adb439c8b93ee29e13735294344c209bd} 
+void Block\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}}}]{direction}{, }\item[{unsigned int}]{length}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+A getter for the attribute \+\_\+color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return The attribute \+\_\+color. \Hypertarget{class_block_a57cca9110410ea2fe0963745a06b9158}\index{Block@{Block}!row@{row}}
+\index{row@{row}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{row()}{row()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_block_a57cca9110410ea2fe0963745a06b9158} 
+unsigned int \& Block\+::row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A setter for the attribute \+\_\+row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+return A reference to the attribute \+\_\+row. \Hypertarget{class_block_a8114bb3ebc31622126a38a330427435e}\index{Block@{Block}!row@{row}}
+\index{row@{row}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{row()}{row()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_block_a8114bb3ebc31622126a38a330427435e} 
+unsigned int Block\+::row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A getter for the attribute \+\_\+row. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em .} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The attribute \+\_\+row. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_block_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_block_a36c9bff272fcb4d182a6c60b830f41d7}\index{Block@{Block}!\_color@{\_color}}
+\index{\_color@{\_color}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{\_color}{\_color}}
+{\footnotesize\ttfamily \label{class_block_a36c9bff272fcb4d182a6c60b830f41d7} 
+\mbox{\hyperlink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color}} Block\+::\+\_\+color\hspace{0.3cm}{\ttfamily [private]}}
+
+The color of the block. \Hypertarget{class_block_a827a44690d4d9738a299c2265a7a8ae7}\index{Block@{Block}!\_column@{\_column}}
+\index{\_column@{\_column}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{\_column}{\_column}}
+{\footnotesize\ttfamily \label{class_block_a827a44690d4d9738a299c2265a7a8ae7} 
+unsigned int Block\+::\+\_\+column\hspace{0.3cm}{\ttfamily [private]}}
+
+The ordinate of the block. \Hypertarget{class_block_a42b2f054e380c57f4a9011dfceba152b}\index{Block@{Block}!\_row@{\_row}}
+\index{\_row@{\_row}!Block@{Block}}
+\doxysubsubsection{\texorpdfstring{\_row}{\_row}}
+{\footnotesize\ttfamily \label{class_block_a42b2f054e380c57f4a9011dfceba152b} 
+unsigned int Block\+::\+\_\+row\hspace{0.3cm}{\ttfamily [private]}}
+
+The abscissa of the block. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+core/include/\mbox{\hyperlink{core__class_8h}{core\+\_\+class.\+h}}\item 
+core/src/\mbox{\hyperlink{core__class_8cpp}{core\+\_\+class.\+cpp}}\end{DoxyCompactItemize}

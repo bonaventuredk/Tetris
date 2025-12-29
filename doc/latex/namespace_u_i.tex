@@ -1,0 +1,162 @@
+\doxysection{UI Namespace Reference}
+\hypertarget{namespace_u_i}{}\label{namespace_u_i}\index{UI@{UI}}
+
+
+A namespace to store variables linked to the \doxylink{namespace_u_i}{UI} of the game.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_u_i_a1de31aa9234fe634faf4897ea09c5039}\label{namespace_u_i_a1de31aa9234fe634faf4897ea09c5039} 
+sf\+::\+Render\+Window {\bfseries window} (\mbox{\hyperlink{namespace_u_i_a4e8843c58982b9005af1bf14c2d5d6e9}{UI\+::current\+\_\+video\+\_\+mode}},"{}Tetris"{}, sf\+::\+Style\+::\+Default, sf\+::\+State\+::\+Fullscreen)
+\item 
+\Hypertarget{namespace_u_i_a491efdf086d7353e0936618abe5927c0}\label{namespace_u_i_a491efdf086d7353e0936618abe5927c0} 
+sf\+::\+Rectangle\+Shape {\bfseries cell} (sf\+::\+Vector2f(\mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}} -\/ 1.f, \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}} -\/ 1.f))
+\item 
+\Hypertarget{namespace_u_i_a26a89969197de334769128d705de1ea6}\label{namespace_u_i_a26a89969197de334769128d705de1ea6} 
+sf\+::\+Font {\bfseries font} ("{}../ui/Tetris\+\_\+font.\+ttf"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{row\+\_\+number}} =20
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}} =10
+\item 
+sf\+::\+Video\+Mode \mbox{\hyperlink{namespace_u_i_a4e8843c58982b9005af1bf14c2d5d6e9}{current\+\_\+video\+\_\+mode}} = sf\+::\+Video\+Mode\+::get\+Desktop\+Mode()
+\item 
+\Hypertarget{namespace_u_i_afd9f868fdd89c60233e91374269f5599}\label{namespace_u_i_afd9f868fdd89c60233e91374269f5599} 
+sf\+::\+Render\+Window {\bfseries window}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{height\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{row\+\_\+number}}+2
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}} = current\+\_\+video\+\_\+mode.\+size.\+y/\mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{height\+\_\+in\+\_\+cell}}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}} = current\+\_\+video\+\_\+mode.\+size.\+x/\mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = (\mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}})/2
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_a9717976ab1a0cb0384645e16f858efab}{right\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{namespace_u_i_a6a9536f56ae05bc8740b6d5b2ef78f8e}{cell}}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a73873b56fd82272eeb55f77020024685}{grey}} \{110, 110, 110\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a3739efa6ff954c1b799e5e25131d3029}{spawn\+\_\+grey}} \{70, 70, 70\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a9e42b1cca7eeab378e85829ec354bba3}{orange}} \{255, 128, 0\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_a0074c0f7bf68e8244c30769a3f9a3b86}{pink}} \{243 , 130, 185\}
+\item 
+constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_ad496738b44b9a0dd5848a4df763e4b11}{purple}} \{224, 32, 255\}
+\item 
+sf\+::\+Font \mbox{\hyperlink{namespace_u_i_ab21a964c3d423f185dca7bf3d809329f}{font}}
+\item 
+unsigned int \mbox{\hyperlink{namespace_u_i_ae5b01422c9ea59958c79c068126d41ed}{font\+\_\+size}} = \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}/10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A namespace to store variables linked to the \doxylink{namespace_u_i}{UI} of the game. 
+
+\label{doc-var-members}
+\Hypertarget{namespace_u_i_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_u_i_a6a9536f56ae05bc8740b6d5b2ef78f8e}\index{UI@{UI}!cell@{cell}}
+\index{cell@{cell}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{cell}{cell}}
+{\footnotesize\ttfamily \label{namespace_u_i_a6a9536f56ae05bc8740b6d5b2ef78f8e} 
+sf\+::\+Rectangle\+Shape UI\+::cell\hspace{0.3cm}{\ttfamily [extern]}}
+
+An SFML rectangle to display Tetris\textquotesingle{} blocks. \Hypertarget{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}\index{UI@{UI}!column\_number@{column\_number}}
+\index{column\_number@{column\_number}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{column\_number}{column\_number}}
+{\footnotesize\ttfamily \label{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09} 
+unsigned int UI\+::column\+\_\+number =10}
+
+Number of columns of the Tetris\textquotesingle{} grid. \Hypertarget{namespace_u_i_a4e8843c58982b9005af1bf14c2d5d6e9}\index{UI@{UI}!current\_video\_mode@{current\_video\_mode}}
+\index{current\_video\_mode@{current\_video\_mode}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{current\_video\_mode}{current\_video\_mode}}
+{\footnotesize\ttfamily \label{namespace_u_i_a4e8843c58982b9005af1bf14c2d5d6e9} 
+sf\+::\+Video\+Mode UI\+::current\+\_\+video\+\_\+mode = sf\+::\+Video\+Mode\+::get\+Desktop\+Mode()}
+
+The SFML window mode to display (fullscreen). \Hypertarget{namespace_u_i_ab21a964c3d423f185dca7bf3d809329f}\index{UI@{UI}!font@{font}}
+\index{font@{font}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily \label{namespace_u_i_ab21a964c3d423f185dca7bf3d809329f} 
+sf\+::\+Font UI\+::font\hspace{0.3cm}{\ttfamily [extern]}}
+
+A font for displaying texts with SFML (\href{https://fontstruct.com/fontstructions/show/2350408}{\texttt{https\+://fontstruct.\+com/fontstructions/show/2350408}}). \Hypertarget{namespace_u_i_ae5b01422c9ea59958c79c068126d41ed}\index{UI@{UI}!font\_size@{font\_size}}
+\index{font\_size@{font\_size}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{font\_size}{font\_size}}
+{\footnotesize\ttfamily \label{namespace_u_i_ae5b01422c9ea59958c79c068126d41ed} 
+unsigned int UI\+::font\+\_\+size = \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}/10}
+
+The size of the font in pixels. \Hypertarget{namespace_u_i_a73873b56fd82272eeb55f77020024685}\index{UI@{UI}!grey@{grey}}
+\index{grey@{grey}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{grey}{grey}}
+{\footnotesize\ttfamily \label{namespace_u_i_a73873b56fd82272eeb55f77020024685} 
+sf\+::\+Color UI\+::grey \{110, 110, 110\}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} grey for SFML. \Hypertarget{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}\index{UI@{UI}!height\_in\_cell@{height\_in\_cell}}
+\index{height\_in\_cell@{height\_in\_cell}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{height\_in\_cell}{height\_in\_cell}}
+{\footnotesize\ttfamily \label{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6} 
+unsigned int UI\+::height\+\_\+in\+\_\+cell = \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{row\+\_\+number}}+2}
+
+The height in cells of the window. \Hypertarget{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}\index{UI@{UI}!left\_side\_width\_in\_cell@{left\_side\_width\_in\_cell}}
+\index{left\_side\_width\_in\_cell@{left\_side\_width\_in\_cell}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{left\_side\_width\_in\_cell}{left\_side\_width\_in\_cell}}
+{\footnotesize\ttfamily \label{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db} 
+unsigned int UI\+::left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell = (\mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}})/2}
+
+The width in cells of the part of the window to the left of the grid. \Hypertarget{namespace_u_i_a9e42b1cca7eeab378e85829ec354bba3}\index{UI@{UI}!orange@{orange}}
+\index{orange@{orange}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{orange}{orange}}
+{\footnotesize\ttfamily \label{namespace_u_i_a9e42b1cca7eeab378e85829ec354bba3} 
+sf\+::\+Color UI\+::orange \{255, 128, 0\}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} orange for SFML. \Hypertarget{namespace_u_i_a0074c0f7bf68e8244c30769a3f9a3b86}\index{UI@{UI}!pink@{pink}}
+\index{pink@{pink}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{pink}{pink}}
+{\footnotesize\ttfamily \label{namespace_u_i_a0074c0f7bf68e8244c30769a3f9a3b86} 
+sf\+::\+Color UI\+::pink \{243 , 130, 185\}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} pink for SFML. \Hypertarget{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}\index{UI@{UI}!pixel\_cell\_size@{pixel\_cell\_size}}
+\index{pixel\_cell\_size@{pixel\_cell\_size}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{pixel\_cell\_size}{pixel\_cell\_size}}
+{\footnotesize\ttfamily \label{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004} 
+unsigned int UI\+::pixel\+\_\+cell\+\_\+size = current\+\_\+video\+\_\+mode.\+size.\+y/\mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{height\+\_\+in\+\_\+cell}}}
+
+The size in pixel of a \doxylink{class_cell}{Cell}. \Hypertarget{namespace_u_i_ad496738b44b9a0dd5848a4df763e4b11}\index{UI@{UI}!purple@{purple}}
+\index{purple@{purple}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{purple}{purple}}
+{\footnotesize\ttfamily \label{namespace_u_i_ad496738b44b9a0dd5848a4df763e4b11} 
+sf\+::\+Color UI\+::purple \{224, 32, 255\}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\doxylink{core__class_8h_ab87bacfdad76e61b9412d7124be44c1c}{Color} purple for SFML. \Hypertarget{namespace_u_i_a9717976ab1a0cb0384645e16f858efab}\index{UI@{UI}!right\_side\_width\_in\_cell@{right\_side\_width\_in\_cell}}
+\index{right\_side\_width\_in\_cell@{right\_side\_width\_in\_cell}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{right\_side\_width\_in\_cell}{right\_side\_width\_in\_cell}}
+{\footnotesize\ttfamily \label{namespace_u_i_a9717976ab1a0cb0384645e16f858efab} 
+unsigned int UI\+::right\+\_\+side\+\_\+width\+\_\+in\+\_\+cell = \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}}}
+
+The width in cells of the part of the window to the right of the grid. \Hypertarget{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}\index{UI@{UI}!row\_number@{row\_number}}
+\index{row\_number@{row\_number}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{row\_number}{row\_number}}
+{\footnotesize\ttfamily \label{namespace_u_i_a311468b7f4e379037039b042f4aec8c4} 
+unsigned int UI\+::row\+\_\+number =20}
+
+Number of rows of the Tetris\textquotesingle{} grid. \Hypertarget{namespace_u_i_a3739efa6ff954c1b799e5e25131d3029}\index{UI@{UI}!spawn\_grey@{spawn\_grey}}
+\index{spawn\_grey@{spawn\_grey}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{spawn\_grey}{spawn\_grey}}
+{\footnotesize\ttfamily \label{namespace_u_i_a3739efa6ff954c1b799e5e25131d3029} 
+sf\+::\+Color UI\+::spawn\+\_\+grey \{70, 70, 70\}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Other color grey for SFML. \Hypertarget{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}\index{UI@{UI}!width\_in\_cell@{width\_in\_cell}}
+\index{width\_in\_cell@{width\_in\_cell}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{width\_in\_cell}{width\_in\_cell}}
+{\footnotesize\ttfamily \label{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac} 
+unsigned int UI\+::width\+\_\+in\+\_\+cell = current\+\_\+video\+\_\+mode.\+size.\+x/\mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}}
+
+The width in cells of the window. 

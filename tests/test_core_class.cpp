@@ -1,3 +1,13 @@
+/**
+ * \file test_core_class.cpp
+ * \brief A series of Catch2 tests to garanty the good functionning
+ *  of the key parts of the core.
+ * \author Alexandre Bleuler - Bonaventure Dohemeto
+ * \version 1.0
+ * \date 23/12/2025
+ */
+
+
 #include "catch2/catch_test_macros.hpp"
 #include "core_class.h"
 #include <string>

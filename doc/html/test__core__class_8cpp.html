@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Textrix: tests/test_core_class.cpp File Reference</title>
+<title>Tetris: tests/test_core_class.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Textrix<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Tetris
    </div>
   </td>
  </tr>
@@ -91,308 +91,50 @@ $(function(){initNavTree('test__core__class_8cpp.html','',''); });
   <div class="headertitle"><div class="title">test_core_class.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A series of Catch2 tests to garanty the good functionning of the key parts of the core.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;catch2/catch_test_macros.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="core__class_8h_source.html">core_class.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ace59cbf5254631db4ce5e9cae31eea1f" id="r_ace59cbf5254631db4ce5e9cae31eea1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace59cbf5254631db4ce5e9cae31eea1f">TEST_CASE</a> (&quot;Block&quot;)</td></tr>
-<tr class="memitem:a4848e9aed319382f96e2c25421296dc5" id="r_a4848e9aed319382f96e2c25421296dc5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4848e9aed319382f96e2c25421296dc5">set_empty_grid</a> (unsigned int nrow, unsigned int ncol)</td></tr>
-<tr class="memitem:a479a350287921af8ed02670e1ac75ae7" id="r_a479a350287921af8ed02670e1ac75ae7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a479a350287921af8ed02670e1ac75ae7">TEST_CASE</a> (&quot;Grid display, <a class="el" href="class_cell.html#a7624f45cb2ad3ada2289a0c8be57f8cc">Cell::fill</a>(), <a class="el" href="class_cell.html#a275274592fde050fefcda8515b5a8d3f">Cell::clear</a>()&quot;)</td></tr>
-<tr class="memitem:ab8bbd9acd988f52e57b4e50186b28c2f" id="r_ab8bbd9acd988f52e57b4e50186b28c2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8bbd9acd988f52e57b4e50186b28c2f">TEST_CASE</a> (&quot;Grid::put_piece, O type&quot;)</td></tr>
-<tr class="memitem:aaecc7b91f1fe1a474f1a8fe5a83b7d6f" id="r_aaecc7b91f1fe1a474f1a8fe5a83b7d6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaecc7b91f1fe1a474f1a8fe5a83b7d6f">TEST_CASE</a> (&quot;Grid::put_piece, I type&quot;)</td></tr>
-<tr class="memitem:a4ca7373eb45923b73342f6e40dbb0d07" id="r_a4ca7373eb45923b73342f6e40dbb0d07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ca7373eb45923b73342f6e40dbb0d07">TEST_CASE</a> (&quot;Grid::put_piece, S type&quot;)</td></tr>
-<tr class="memitem:a1286778bfee16762f3f9f655d9d117a1" id="r_a1286778bfee16762f3f9f655d9d117a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1286778bfee16762f3f9f655d9d117a1">TEST_CASE</a> (&quot;Grid::put_piece, Z type&quot;)</td></tr>
-<tr class="memitem:a13a2e8913e5da541723542fc27b28228" id="r_a13a2e8913e5da541723542fc27b28228"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13a2e8913e5da541723542fc27b28228">TEST_CASE</a> (&quot;Grid::put_piece, L type&quot;)</td></tr>
-<tr class="memitem:aea27bc9c2aa461af8f9e8c708cdcb4a2" id="r_aea27bc9c2aa461af8f9e8c708cdcb4a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea27bc9c2aa461af8f9e8c708cdcb4a2">TEST_CASE</a> (&quot;Grid::put_piece, J type&quot;)</td></tr>
-<tr class="memitem:afae864136da0713ec7d57aa92448319d" id="r_afae864136da0713ec7d57aa92448319d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afae864136da0713ec7d57aa92448319d">TEST_CASE</a> (&quot;Grid::put_piece, T type&quot;)</td></tr>
-<tr class="memitem:a46b83ea888b5a272ef1f893e3cc070d2" id="r_a46b83ea888b5a272ef1f893e3cc070d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46b83ea888b5a272ef1f893e3cc070d2">TEST_CASE</a> (&quot;Grid::move_piece, O type, no edge cases&quot;)</td></tr>
-<tr class="memitem:a5b8bbd58cff1bcd5965073b5edb19f8e" id="r_a5b8bbd58cff1bcd5965073b5edb19f8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b8bbd58cff1bcd5965073b5edb19f8e">TEST_CASE</a> (&quot;Grid::move_piece, I type, edge cases&quot;)</td></tr>
-<tr class="memitem:ae5a38d5bc301cb2bff405b60b48a2817" id="r_ae5a38d5bc301cb2bff405b60b48a2817"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5a38d5bc301cb2bff405b60b48a2817">TEST_CASE</a> (&quot;Grid::update&quot;)</td></tr>
+<tr class="memitem:a1bfbc45307fcc939bb7efc82ac03a760" id="r_a1bfbc45307fcc939bb7efc82ac03a760"><td class="memItemLeft" align="right" valign="top"><a id="a1bfbc45307fcc939bb7efc82ac03a760" name="a1bfbc45307fcc939bb7efc82ac03a760"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Block movement&quot;)</td></tr>
+<tr class="memitem:a9be0ec4fded8228e02e5129bd8012319" id="r_a9be0ec4fded8228e02e5129bd8012319"><td class="memItemLeft" align="right" valign="top"><a id="a9be0ec4fded8228e02e5129bd8012319" name="a9be0ec4fded8228e02e5129bd8012319"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Piece colors&quot;)</td></tr>
+<tr class="memitem:a4848e9aed319382f96e2c25421296dc5" id="r_a4848e9aed319382f96e2c25421296dc5"><td class="memItemLeft" align="right" valign="top"><a id="a4848e9aed319382f96e2c25421296dc5" name="a4848e9aed319382f96e2c25421296dc5"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>set_empty_grid</b> (unsigned int nrow, unsigned int ncol)</td></tr>
+<tr class="memitem:a479a350287921af8ed02670e1ac75ae7" id="r_a479a350287921af8ed02670e1ac75ae7"><td class="memItemLeft" align="right" valign="top"><a id="a479a350287921af8ed02670e1ac75ae7" name="a479a350287921af8ed02670e1ac75ae7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid display, <a class="el" href="class_cell.html#a7624f45cb2ad3ada2289a0c8be57f8cc">Cell::fill</a>(), <a class="el" href="class_cell.html#a275274592fde050fefcda8515b5a8d3f">Cell::clear</a>()&quot;)</td></tr>
+<tr class="memitem:ab8bbd9acd988f52e57b4e50186b28c2f" id="r_ab8bbd9acd988f52e57b4e50186b28c2f"><td class="memItemLeft" align="right" valign="top"><a id="ab8bbd9acd988f52e57b4e50186b28c2f" name="ab8bbd9acd988f52e57b4e50186b28c2f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, O type&quot;)</td></tr>
+<tr class="memitem:aaecc7b91f1fe1a474f1a8fe5a83b7d6f" id="r_aaecc7b91f1fe1a474f1a8fe5a83b7d6f"><td class="memItemLeft" align="right" valign="top"><a id="aaecc7b91f1fe1a474f1a8fe5a83b7d6f" name="aaecc7b91f1fe1a474f1a8fe5a83b7d6f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, I type&quot;)</td></tr>
+<tr class="memitem:a4ca7373eb45923b73342f6e40dbb0d07" id="r_a4ca7373eb45923b73342f6e40dbb0d07"><td class="memItemLeft" align="right" valign="top"><a id="a4ca7373eb45923b73342f6e40dbb0d07" name="a4ca7373eb45923b73342f6e40dbb0d07"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, S type&quot;)</td></tr>
+<tr class="memitem:a1286778bfee16762f3f9f655d9d117a1" id="r_a1286778bfee16762f3f9f655d9d117a1"><td class="memItemLeft" align="right" valign="top"><a id="a1286778bfee16762f3f9f655d9d117a1" name="a1286778bfee16762f3f9f655d9d117a1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, Z type&quot;)</td></tr>
+<tr class="memitem:a13a2e8913e5da541723542fc27b28228" id="r_a13a2e8913e5da541723542fc27b28228"><td class="memItemLeft" align="right" valign="top"><a id="a13a2e8913e5da541723542fc27b28228" name="a13a2e8913e5da541723542fc27b28228"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, L type&quot;)</td></tr>
+<tr class="memitem:aea27bc9c2aa461af8f9e8c708cdcb4a2" id="r_aea27bc9c2aa461af8f9e8c708cdcb4a2"><td class="memItemLeft" align="right" valign="top"><a id="aea27bc9c2aa461af8f9e8c708cdcb4a2" name="aea27bc9c2aa461af8f9e8c708cdcb4a2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, J type&quot;)</td></tr>
+<tr class="memitem:afae864136da0713ec7d57aa92448319d" id="r_afae864136da0713ec7d57aa92448319d"><td class="memItemLeft" align="right" valign="top"><a id="afae864136da0713ec7d57aa92448319d" name="afae864136da0713ec7d57aa92448319d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::put_piece, T type&quot;)</td></tr>
+<tr class="memitem:a46b83ea888b5a272ef1f893e3cc070d2" id="r_a46b83ea888b5a272ef1f893e3cc070d2"><td class="memItemLeft" align="right" valign="top"><a id="a46b83ea888b5a272ef1f893e3cc070d2" name="a46b83ea888b5a272ef1f893e3cc070d2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::move_piece, O type, no edge cases&quot;)</td></tr>
+<tr class="memitem:a5b8bbd58cff1bcd5965073b5edb19f8e" id="r_a5b8bbd58cff1bcd5965073b5edb19f8e"><td class="memItemLeft" align="right" valign="top"><a id="a5b8bbd58cff1bcd5965073b5edb19f8e" name="a5b8bbd58cff1bcd5965073b5edb19f8e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::move_piece, I type, edge cases&quot;)</td></tr>
+<tr class="memitem:ae5a38d5bc301cb2bff405b60b48a2817" id="r_ae5a38d5bc301cb2bff405b60b48a2817"><td class="memItemLeft" align="right" valign="top"><a id="ae5a38d5bc301cb2bff405b60b48a2817" name="ae5a38d5bc301cb2bff405b60b48a2817"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST_CASE</b> (&quot;Grid::update&quot;)</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a4848e9aed319382f96e2c25421296dc5" name="a4848e9aed319382f96e2c25421296dc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4848e9aed319382f96e2c25421296dc5">&#9670;&#160;</a></span>set_empty_grid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string set_empty_grid </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>nrow</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>ncol</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ace59cbf5254631db4ce5e9cae31eea1f" name="ace59cbf5254631db4ce5e9cae31eea1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace59cbf5254631db4ce5e9cae31eea1f">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[1/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Block&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a479a350287921af8ed02670e1ac75ae7" name="a479a350287921af8ed02670e1ac75ae7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a479a350287921af8ed02670e1ac75ae7">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[2/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid</td>          <td class="paramname"><span class="paramname"><em>display</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_cell.html#a7624f45cb2ad3ada2289a0c8be57f8cc">Cell::fill</a>()</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_cell.html#a275274592fde050fefcda8515b5a8d3f">Cell::clear</a>()&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5b8bbd58cff1bcd5965073b5edb19f8e" name="a5b8bbd58cff1bcd5965073b5edb19f8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b8bbd58cff1bcd5965073b5edb19f8e">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[3/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::move_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">edge cases&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a46b83ea888b5a272ef1f893e3cc070d2" name="a46b83ea888b5a272ef1f893e3cc070d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46b83ea888b5a272ef1f893e3cc070d2">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[4/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::move_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">O</td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">no edge cases&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaecc7b91f1fe1a474f1a8fe5a83b7d6f" name="aaecc7b91f1fe1a474f1a8fe5a83b7d6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaecc7b91f1fe1a474f1a8fe5a83b7d6f">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[5/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">I type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea27bc9c2aa461af8f9e8c708cdcb4a2" name="aea27bc9c2aa461af8f9e8c708cdcb4a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea27bc9c2aa461af8f9e8c708cdcb4a2">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[6/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">J type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a13a2e8913e5da541723542fc27b28228" name="a13a2e8913e5da541723542fc27b28228"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13a2e8913e5da541723542fc27b28228">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[7/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">L type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab8bbd9acd988f52e57b4e50186b28c2f" name="ab8bbd9acd988f52e57b4e50186b28c2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8bbd9acd988f52e57b4e50186b28c2f">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[8/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">O type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4ca7373eb45923b73342f6e40dbb0d07" name="a4ca7373eb45923b73342f6e40dbb0d07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ca7373eb45923b73342f6e40dbb0d07">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[9/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">S type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afae864136da0713ec7d57aa92448319d" name="afae864136da0713ec7d57aa92448319d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afae864136da0713ec7d57aa92448319d">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[10/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1286778bfee16762f3f9f655d9d117a1" name="a1286778bfee16762f3f9f655d9d117a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1286778bfee16762f3f9f655d9d117a1">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[11/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::put_piece</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Z type&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae5a38d5bc301cb2bff405b60b48a2817" name="ae5a38d5bc301cb2bff405b60b48a2817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5a38d5bc301cb2bff405b60b48a2817">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[12/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Grid::update&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A series of Catch2 tests to garanty the good functionning of the key parts of the core. </p>
+<dl class="section author"><dt>Author</dt><dd>Alexandre Bleuler - Bonaventure Dohemeto </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>23/12/2025 </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -405,7 +147,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li><li class="navelem"><a href="test__core__class_8cpp.html">test_core_class.cpp</a></li>
+    <li class="navelem"><b>tests</b></li><li class="navelem"><a href="test__core__class_8cpp.html">test_core_class.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

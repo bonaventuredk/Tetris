@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['tâche_201_3a_20implémentation_20des_20classes_20de_20base_20✓_0',['Tâche 1: Implémentation des classes de base ✓',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]],
-  ['tâche_202_3a_20logique_20du_20jeu_20✓_1',['Tâche 2: Logique du jeu ✓',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
-  ['tâche_203_3a_20interface_20graphique_20✓_2',['Tâche 3: Interface graphique ✓',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['tâche_204_3a_20fonctionnalités_20avancées_3',['Tâche 4: Fonctionnalités avancées',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]],
-  ['tâche_205_3a_4',['Tâche 5:',['../md__r_e_a_d_m_e.html#autotoc_md16',1,'']]],
-  ['table_20des_20matières_5',['Table des Matières',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['tetris_20project_6',['🎮 Tetris Project',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['type_7',['type',['../class_piece.html#a099bcf4db9b928bc9850d0cfacbf3f25',1,'Piece']]]
+  ['red_0',['red',['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4',1,'core_class.h']]],
+  ['reverse_5fmove_1',['reverse_move',['../core__class_8h.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp'],['../core__class_8cpp.html#a4a818a195b9b6b8dfcfb23ed3a4bf4b3',1,'reverse_move(Move move):&#160;core_class.cpp']]],
+  ['right_2',['right',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d',1,'core_class.h']]],
+  ['right_5fside_5fwidth_5fin_5fcell_3',['right_side_width_in_cell',['../namespace_u_i.html#a9717976ab1a0cb0384645e16f858efab',1,'UI']]],
+  ['route_4',['Feuille de Route',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
+  ['row_5',['row',['../class_block.html#a8114bb3ebc31622126a38a330427435e',1,'Block::row() const'],['../class_block.html#a57cca9110410ea2fe0963745a06b9158',1,'Block::row()']]],
+  ['row_5fnumber_6',['row_number',['../namespace_u_i.html#a311468b7f4e379037039b042f4aec8c4',1,'UI']]],
+  ['row_5fsize_7',['row_size',['../class_grid.html#ad6bb2609093f85198d02446d33c78f6d',1,'Grid']]]
 ];

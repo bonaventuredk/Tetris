@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['✓_0',['✓',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'Tâche 1: Implémentation des classes de base ✓'],['../md__r_e_a_d_m_e.html#autotoc_md13',1,'Tâche 2: Logique du jeu ✓'],['../md__r_e_a_d_m_e.html#autotoc_md14',1,'Tâche 3: Interface graphique ✓']]]
+  ['valides_0',['Coups valides',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['valides_20et_20interdits_1',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'']]]
 ];

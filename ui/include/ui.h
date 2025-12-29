@@ -1,12 +1,10 @@
 /**
  * \file ui.h
- * \brief Declaration for user interface of the game.
+ * \brief  * This file contains functions and variables déclarations used to make the 
+ * user interface of Tetris. Variables are encapsulated in the namespace UI.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
  * \version 1.0
  * \date 23/12/2025
- *
- * This file contains functions and variables déclarations used to make the 
- * user interface of Tetris. Variables are encapsulated in the namespace UI.
  */
 
 #ifndef UI_INCLUDE
@@ -42,7 +40,7 @@ namespace UI
     constexpr sf::Color pink{243 , 130, 185}; /**< Color pink for SFML. */
     constexpr sf::Color purple{224, 32, 255}; /**< Color purple for SFML. */
 
-    extern sf::Font font; /**< A font for displaying texts with SFML (https://www.dafont.com/fr/tetris.font). */
+    extern sf::Font font; /**< A font for displaying texts with SFML (https://fontstruct.com/fontstructions/show/2350408). */
     extern unsigned int font_size; /**< The size of the font in pixels. */
 };
 
