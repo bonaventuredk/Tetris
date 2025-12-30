@@ -20,8 +20,6 @@ int bestScore = 0; // Global variable to store the highest score across game ses
 int main()
 {
     const std::string scoreFileName = "best_score.txt";
-    int bestScore = 0;
-    
     loadBestScore(scoreFileName, bestScore);
     
     // Main program loop
