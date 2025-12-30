@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['4_3a_20fonctionnalités_20avancées_0',['Tâche 4: Fonctionnalités avancées',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]]
+  ['core_0',['Brève description du core',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]]
 ];

@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['piece_0',['Piece',['../class_piece.html',1,'Piece'],['../class_piece.html#ac921a4ac025477b92dec0e28b9f3c622',1,'Piece::Piece()']]],
-  ['piecetype_1',['PieceType',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021',1,'core_class.h']]],
-  ['pink_2',['pink',['../namespace_u_i.html#a0074c0f7bf68e8244c30769a3f9a3b86',1,'UI::pink'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1ca4a0b0dcedd48f780778d1cd1bb8f9877',1,'pink:&#160;core_class.h']]],
-  ['pivot_5fcol_3',['pivot_col',['../class_piece.html#a56107f66c7569859f19fde8fd9bdc05a',1,'Piece']]],
-  ['pivot_5frow_4',['pivot_row',['../class_piece.html#a8f3275de354718b2e52964d0ad95b331',1,'Piece']]],
-  ['pixel_5fcell_5fsize_5',['pixel_cell_size',['../namespace_u_i.html#a18d30be9b3a981aacb49aef4157ee004',1,'UI']]],
-  ['projet_6',['Projet',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'Aborescence du Projet'],['../md__r_e_a_d_m_e.html#autotoc_md11',1,'Aborescence du Projet']]],
-  ['projet_20_3a_20le_20jeu_20tetris_7',['🎮 Projet : le jeu Tetris',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['purple_8',['purple',['../namespace_u_i.html#ad496738b44b9a0dd5848a4df763e4b11',1,'UI::purple'],['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cabb7aedfa61007447dd6efaf9f37641e3',1,'purple:&#160;core_class.h']]],
-  ['put_5fpiece_9',['put_piece',['../class_grid.html#a36cdb860f6e802998839533d858b19ba',1,'Grid']]]
+  ['ui_0',['UI',['../namespace_u_i.html',1,'']]],
+  ['ui_1',['Brève description de l&apos;ui',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['ui_2ecpp_2',['ui.cpp',['../ui_8cpp.html',1,'']]],
+  ['ui_2eh_3',['ui.h',['../ui_8h.html',1,'']]],
+  ['un_20jeu_20vidéo_20_3a_20tetris_4',['🎮 Un jeu vidéo : Tetris',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['up_5',['up',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a46c48bec0d282018b9d167eef7711b2c',1,'core_class.h']]],
+  ['update_6',['update',['../class_grid.html#ae42ae070976cf3994e89988865560154',1,'Grid']]],
+  ['updategame_7',['updateGame',['../ui_8h.html#a63385400f9c9b012e3bc907ecfe238e3',1,'updateGame(Grid &amp;grid, Piece &amp;current, PieceType &amp;next, bool &amp;gameOver, sf::Clock &amp;clock, double &amp;timeDecreaseRate, double &amp;scoreThreshold, sf::Sound &amp;dropSound, sf::Sound &amp;successSound, sf::Sound &amp;levelUpSound, sf::Sound &amp;gameOverSound, sf::Music &amp;music, int &amp;bestScore):&#160;ui.cpp'],['../ui_8cpp.html#a63385400f9c9b012e3bc907ecfe238e3',1,'updateGame(Grid &amp;grid, Piece &amp;current, PieceType &amp;next, bool &amp;gameOver, sf::Clock &amp;clock, double &amp;timeDecreaseRate, double &amp;scoreThreshold, sf::Sound &amp;dropSound, sf::Sound &amp;successSound, sf::Sound &amp;levelUpSound, sf::Sound &amp;gameOverSound, sf::Music &amp;music, int &amp;bestScore):&#160;ui.cpp']]]
 ];

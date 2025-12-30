@@ -49,7 +49,7 @@ De petites adaptations en fonction du système d'exploitation utilisé devront �
 
 ## Jouer au jeu
 
-Une fois l'installation réalisée, il suffit alors d'exécuter le fichier `tetrix_game`. Ce fichier se trouve à la racine de l'installation faite via `CMake` (donc dans le dossier `/build` avec les instructions précédentes). Une fenêtre en plein écran s'ouvrira alors et vous proposera de lancer une partie (touche `R` du clavier) ou de quitter le jeu (touche `Esc`).
+Une fois l'installation réalisée, il suffit alors d'exécuter le fichier `tetrix_game`. Ce fichier se trouve à la racine de l'installation faite via `CMake` (donc dans le dossier `/build` avec les instructions précédentes). Une fenêtre en plein écran s'ouvrira alors et vous proposera notamment de lancer une partie ou de quitter le jeu.
 
 Au cours d'une partie, les touches du clavier utilisables seront :
 - `left arrow` pour bouger la pièce vers la gauche;
@@ -141,10 +141,8 @@ Le dossier `/ui` contient les fichiers `ui.cpp`  et `ui.h` permettant de créer 
 - variables permettant de définir les caractéristiques de l'interface, comme par exemple la hauteur en pixels de l'écran, au sein du namespace `UI` ;
 - des fonctions permettant de faciliter la manipulation de la librarie `SFML` dans la fonction `main` du jeu. 
 
-Ces éléments permettent notamment de fournir un affichage plein écran qui s'adapte automatiquement à la résolution native de l'écran, par exemple pour le centrage des textes de menu ou sur les côtés de la grille. Mentionnons que la police d'écriture utilisée tire sa source de https://fontstruct.com/fontstructions/show/2350408. De même, les effets sonores utilisés dans ce projet proviennent de https://pixabay.com/fr/sound-effects/search/musique%20pour%20tetris/?utm_source=chatgpt.com et de https://www.voicy.network/fr/search/tetris-sound-effects.
+Ces éléments permettent notamment d'utiliser les classes du core pour générer la boucle de jeu à l'aide de diverses fonctions. Ils permettent également de fournir un affichage plein écran qui s'adapte automatiquement à la résolution native de l'écran, par exemple pour le centrage des textes de menu ou sur les côtés de la grille. Mentionnons que la police d'écriture utilisée tire sa source de https://fontstruct.com/fontstructions/show/2350408. Finalement, ils permettent la diffusion de sons et musiques d'ambiance. Ils proviennent de https://pixabay.com/fr/sound-effects/search/musique%20pour%20tetris/?utm_source=chatgpt.com et de https://www.voicy.network/fr/search/tetris-sound-effects. Il n'y a cependant pas d'option de réglages des volumes sonores à l'intérieur du jeu. 
 
-Finalement, l'ui du jeu gère la diffusion de sons et musiquesd d'ambiance. Il n'y a cependant pas d'option de réglages des volumes sonores à l'intérieur du jeu. 
-        
 
 ## Documentation 
 

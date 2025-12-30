@@ -3,8 +3,8 @@
  * \brief This file contains definitions for Block, Cell, Piece, Grid classes methos.
  * Also contains few auxiliary functions.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.0
- * \date 19/12/2025
+ * \version 2.0
+ * \date 30/12/2025
  */
 #include <iostream>
 #include <vector>

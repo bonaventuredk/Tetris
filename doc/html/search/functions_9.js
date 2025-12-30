@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['piece_0',['Piece',['../class_piece.html#ac921a4ac025477b92dec0e28b9f3c622',1,'Piece']]],
-  ['pivot_5fcol_1',['pivot_col',['../class_piece.html#a56107f66c7569859f19fde8fd9bdc05a',1,'Piece']]],
-  ['pivot_5frow_2',['pivot_row',['../class_piece.html#a8f3275de354718b2e52964d0ad95b331',1,'Piece']]],
-  ['put_5fpiece_3',['put_piece',['../class_grid.html#a36cdb860f6e802998839533d858b19ba',1,'Grid']]]
+  ['loadbestscore_0',['loadBestScore',['../ui_8h.html#a712dafe58e0e3322fa0898234e420527',1,'loadBestScore(const std::string &amp;filename, int &amp;bestScore):&#160;ui.cpp'],['../ui_8cpp.html#a712dafe58e0e3322fa0898234e420527',1,'loadBestScore(const std::string &amp;filename, int &amp;bestScore):&#160;ui.cpp']]],
+  ['loadsounds_1',['loadSounds',['../ui_8h.html#a24449e5c5791804fbd8203acce7fea80',1,'loadSounds(sf::SoundBuffer soundBuffers[], std::vector&lt; std::unique_ptr&lt; sf::Sound &gt; &gt; &amp;sounds, const char *filenames[], size_t count):&#160;ui.cpp'],['../ui_8cpp.html#a24449e5c5791804fbd8203acce7fea80',1,'loadSounds(sf::SoundBuffer soundBuffers[], std::vector&lt; std::unique_ptr&lt; sf::Sound &gt; &gt; &amp;sounds, const char *filenames[], size_t count):&#160;ui.cpp']]]
 ];

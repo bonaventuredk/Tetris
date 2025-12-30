@@ -2,8 +2,8 @@
  * \file ui.cpp
  * \brief User interface implementation for Tetris game
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.0
- * \date 23/12/2025
+ * \version 2.0
+ * \date 30/12/2025
  */
 
 #include <string>
@@ -186,7 +186,7 @@ void draw_game_over_screen(sf::RenderWindow& window, int score, int bestScore)
     sf::Text instructionText(UI::font);
     instructionText.setCharacterSize(UI::font_size * 0.5);
     instructionText.setFillColor(sf::Color::Yellow);
-    instructionText.setString("Press R to restart, M (qwerty) to menu or Esc to quit !");
+    instructionText.setString("Press R to restart or Esc to return to menu !");
     
     // Background panel
     float maxWidth = 0.75f * UI::width_in_cell * UI::pixel_cell_size;
@@ -295,7 +295,7 @@ void draw_pause_screen(sf::RenderWindow& window)
     sf::Text instruction_text(UI::font);
     instruction_text.setCharacterSize(UI::font_size);
     instruction_text.setFillColor(sf::Color::White);
-    instruction_text.setString("Press |P: resume | R: start a new game | M: menu | Esc: quit ");
+    instruction_text.setString("Press |P: resume | R: start a new game |  Esc: return to menu ");
    
     text_width = instruction_text.getGlobalBounds().size.x;
     text_height = instruction_text.getGlobalBounds().size.y;
@@ -571,11 +571,6 @@ void handlePauseInput(bool& isPaused, bool& isQuit, bool& goToMenu, Grid& grid,
             {
                 isQuit = true;
             }
-            else if (key->scancode == sf::Keyboard::Scan::M)
-            {
-                goToMenu = true;
-                isPaused = false;
-            }
             else if (key->scancode == sf::Keyboard::Scan::R)
             {
                 restartGame(grid, current, next, isPaused, isPaused, clock,
@@ -600,11 +595,6 @@ void handleGameOverInput(Grid& grid, Piece& current, PieceType& next,
                 restartGame(grid, current, next, gameOver, isPaused, clock,
                            timeDecreaseRate, scoreThreshold, music);
                 goToMenu = false;
-            }
-            else if (key->scancode == sf::Keyboard::Scan::M)
-            {
-                goToMenu = true;
-                gameOver = false;
             }
             else if (key->scancode == sf::Keyboard::Scan::Escape)
             {
@@ -682,14 +672,13 @@ void draw_controls_screen(sf::RenderWindow& window)
     controlsTitle.setString("CONTROLS");
     
     std::vector<std::string> controls = {
-        "Left/Right Arrow  : Move piece left/right",
-        "Down Arrow  : Move piece down faster",
-        "Up Arrow    : Rotate anti-clockwise",
-        "Space       : Rotate clockwise",
-        "P           : Pause/Resume game",
-        "R           : Restart game",
-        "M           : Return to menu",
-        "ESC         : Quit game/Exit"
+        "Left/Right Arrow : Move piece to the left/right",
+        "Down Arrow : Move piece downward faster",
+        "Up Arrow : Anti-clockwise rotation",
+        "Space : Clockwise rotation",
+        "P : Pause/Resume game",
+        "R : Restart game",
+        "ESC : Quit game/Exit"
     };
     
     sf::Text backText(UI::font);

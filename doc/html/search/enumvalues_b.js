@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['red_0',['red',['../core__class_8h.html#ab87bacfdad76e61b9412d7124be44c1cabda9643ac6601722a28f238714274da4',1,'core_class.h']]],
-  ['right_1',['right',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a7c4f29407893c334a6cb7a87bf045c0d',1,'core_class.h']]]
+  ['quit_0',['Quit',['../ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9deaa0d82790b0612935992bd564a17ce37d6',1,'ui.h']]]
 ];

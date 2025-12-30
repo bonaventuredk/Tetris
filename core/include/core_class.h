@@ -4,8 +4,8 @@
  * This file contains the declarations of the fundamental classes
  * of Tetris' logic: Block, Piece, Cell, and Grid.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.0
- * \date 19/12/2025
+ * \version 2.0
+ * \date 30/12/2025
  */
 
 #ifndef CORE_CLASS
