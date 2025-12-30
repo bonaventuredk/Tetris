@@ -141,7 +141,7 @@ Le dossier `/ui` contient les fichiers `ui.cpp`  et `ui.h` permettant de créer 
 - variables permettant de définir les caractéristiques de l'interface, comme par exemple la hauteur en pixels de l'écran, au sein du namespace `UI` ;
 - des fonctions permettant de faciliter la manipulation de la librarie `SFML` dans la fonction `main` du jeu. 
 
-Ces éléments permettent notamment de fournir un affichage plein écran qui s'adapte automatiquement à la résolution native de l'écran, par exemple pour le centrage des textes de menu ou sur les côtés de la grille. Mentionnons également que la police d'écriture utilisée tire sa source de https://fontstruct.com/fontstructions/show/2350408. 
+Ces éléments permettent notamment de fournir un affichage plein écran qui s'adapte automatiquement à la résolution native de l'écran, par exemple pour le centrage des textes de menu ou sur les côtés de la grille. Mentionnons que la police d'écriture utilisée tire sa source de https://fontstruct.com/fontstructions/show/2350408. De même, les effets sonores utilisés dans ce projet proviennent de https://pixabay.com/fr/sound-effects/search/musique%20pour%20tetris/?utm_source=chatgpt.com et de https://www.voicy.network/fr/search/tetris-sound-effects.
 
 Finalement, l'ui du jeu gère la diffusion de sons et musiquesd d'ambiance. Il n'y a cependant pas d'option de réglages des volumes sonores à l'intérieur du jeu. 
         
