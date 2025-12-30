@@ -1,6 +1,6 @@
 /**
  * \file ui.h
- * \brief  This file contains functions and variables déclarations used to make the 
+ * \brief  This file contains functions and variables declarations used to make the 
  * user interface of Tetris. Variables are encapsulated in the namespace UI.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
  * \version 1.0
@@ -13,6 +13,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Audio/Music.hpp>
+#include <SFML/Audio/Sound.hpp>  
+#include <SFML/Audio/SoundBuffer.hpp>  
 
 /**
  * \namespace UI
@@ -102,6 +104,7 @@ void draw_next_piece(sf::RenderWindow& window, PieceType& next_type);
  * @param window The render window
  * @param score Current score
  * @param bestScore Best score
+ * \return 
  */
 void draw_game_over_screen(sf::RenderWindow& window, int score, int bestScore);
 /**
@@ -117,5 +120,163 @@ void draw_controls(sf::RenderWindow& window);
  * \return 
  */
  void draw_pause_screen(sf::RenderWindow& window);
+
+/**
+ * @brief Enumeration for menu choices
+ * \return
+ */
+enum class MenuChoice {StartGame,Controls,BestScore,Quit,None};
+
+/**
+ * @brief Draws the main menu screen
+ * @param window The render window
+ * @param selectedChoice The currently selected menu option
+ * @param bestScore The best score to display
+ * \return
+ */
+void draw_menu_screen(sf::RenderWindow& window, MenuChoice selectedChoice, int bestScore);
+/**
+ * @brief Displays the main menu and handles menu navigation
+ * @param currentBestScore The best score to display
+ * @return The menu choice selected by the player
+ * \return
+ */
+MenuChoice showMenu(int currentBestScore);
+/**
+ * @brief Displays the controls screen
+ * @param window The render window
+ */
+void draw_controls_screen(sf::RenderWindow& window);
+
+/**
+ * @brief Displays the best score screen
+ * @param window The render window
+ * @param bestScore The best score to display
+ */
+void draw_best_score_screen(sf::RenderWindow& window, int bestScore);
+
+/**
+ * @brief Handles the menu navigation
+ * @param selectedChoice Reference to the currently selected menu option
+ * @param event The SFML event
+ * @return True if a menu action was performed
+ */
+bool handleMenuNavigation(MenuChoice& selectedChoice, const sf::Event& event);
+
+/**
+ * @brief Executes the selected menu action
+ * @param selectedChoice The menu choice selected
+ * @param inMenu Reference to menu state flag
+ * @param window Reference to the render window
+ * @param bestScore The current best score
+ * @return True if the game should start
+ */
+bool executeMenuAction(MenuChoice selectedChoice, bool& inMenu, 
+                       sf::RenderWindow& window, int bestScore);
+
+/**
+ * @brief Initializes the game state
+ * @details Sets up grid, current and next piece, and game parameters.
+ * @param grid Reference to the game grid
+ * @param current Reference to the current piece
+ * @param next Reference to the next piece
+ * @param gameOver Reference to the game over flag
+ * @param timeDecreaseRate Reference to speed increase rate
+ * @param scoreThreshold Reference to score threshold for level up
+ */
+void initializeGame(Grid& grid, Piece& current, PieceType& next, bool& gameOver, 
+                    double& timeDecreaseRate, double& scoreThreshold);
+
+/**
+ * @brief Restarts the game
+ * @details Resets the game to its initial state and restarts the music.
+ */
+void restartGame(Grid& grid, Piece& current, PieceType& next, bool& gameOver, 
+                 bool& isPaused, sf::Clock& clock, double& timeDecreaseRate, 
+                 double& scoreThreshold, sf::Music& music);
+
+/**
+ * @brief Handles player input during gameplay
+ * @details Processes movement, rotation, drop, and menu navigation keys.
+ */
+void handleGameInput(Grid& grid, Piece& current, bool& isPaused, bool& isQuit,
+                     bool& goToMenu, sf::Sound& moveLeftSound, sf::Sound& moveRightSound,
+                     sf::Sound& clockwiseSound, sf::Sound& anticlockwiseSound,
+                     sf::Sound& dropSound);
+
+/**
+ * @brief Handles input when game is paused
+ * @details Allows resuming, quitting, or returning to menu while paused.
+ */
+void handlePauseInput(bool& isPaused, bool& isQuit, bool& goToMenu, Grid& grid,
+                      Piece& current, PieceType& next, double& timeDecreaseRate,
+                      double& scoreThreshold, sf::Clock& clock, sf::Music& music,
+                      sf::Sound& pauseSound);
+
+/**
+ * @brief Handles input when game is over
+ * @details Allows restarting or quitting the game after Game Over.
+ */
+void handleGameOverInput(Grid& grid, Piece& current, PieceType& next, 
+                         bool& gameOver, bool& isPaused, sf::Clock& clock, 
+                         double& timeDecreaseRate, double& scoreThreshold, 
+                         sf::Music& music, bool& isQuit, bool& goToMenu);
+
+/**
+ * @brief Updates game logic: movement, collision, scoring
+ * @details Updates piece position, checks for lines, updates score and speed.
+ */
+void updateGame(Grid& grid, Piece& current, PieceType& next, bool& gameOver,
+                sf::Clock& clock, double& timeDecreaseRate, double& scoreThreshold,
+                sf::Sound& dropSound, sf::Sound& successSound, sf::Sound& levelUpSound,
+                sf::Sound& gameOverSound, sf::Music& music, int& bestScore);
+
+/**
+ * @brief Renders the current game state
+ * @details Draws the grid, current and next pieces, and pause overlay if needed.
+ */
+void drawGame(sf::RenderWindow& window, Grid& grid, PieceType& next, bool isPaused);
+/**
+ * @brief Loads the best score from file
+ * @param filename The name of the score file
+ */
+void loadBestScore(const std::string& filename, int& bestScore);
+
+/**
+ * @brief Saves the best score to file
+ * @param filename The name of the score file
+ */
+void saveBestScore(const std::string& filename, int bestScore);
+
+/**
+ * @brief Loads all game sounds.
+ *
+ * @param soundBuffers Array of sound buffers to load.
+ * @param sounds Vector of unique_ptr<sf::Sound> to store the sounds.
+ * @param filenames Array of filenames corresponding to the sounds.
+ * @param count Number of sounds to load.
+ *
+ * @note The sound effects were downloaded from Pixabay:
+ *       https://pixabay.com/fr/sound-effects/search/musique-pour-tetris/ and
+ *       https://www.voicy.network/fr/search/tetris-sound-effects
+ *
+ * @return True if all sounds were loaded successfully.
+ */
+bool loadSounds(sf::SoundBuffer soundBuffers[], std::vector<std::unique_ptr<sf::Sound>>& sounds, const char* filenames[], size_t count);
+
+/**
+ * @brief Runs the main game loop.
+ *
+ * @details This function initializes the game state and continuously updates,
+ * processes events, and renders graphics until the game is exited.
+ */
+void runGame();
+
+/**
+ * @brief Main menu loop
+ * @return True if game should start, false if should quit
+ */
+bool showMainMenu(int bestScore);
+
 
 #endif
