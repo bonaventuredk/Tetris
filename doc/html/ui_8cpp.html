@@ -92,14 +92,17 @@ $(function(){initNavTree('ui_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains functions and variables definitions used to make the user interface of Tetris. Variables are encapsulated in the namespace <a class="el" href="namespace_u_i.html" title="A namespace to store variables linked to the UI of the game.">UI</a>.  
+<p>User interface implementation for Tetris game.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &quot;SFML/Graphics.hpp&quot;</code><br />
 <code>#include &lt;SFML/Audio/Music.hpp&gt;</code><br />
 <code>#include &lt;SFML/Window.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="core__class_8h_source.html">core_class.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ui_8h_source.html">ui.h</a>&quot;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -108,8 +111,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1de31aa9234fe634faf4897ea09c5039" id="r_a1de31aa9234fe634faf4897ea09c5039"><td class="memItemLeft" align="right" valign="top"><a id="a1de31aa9234fe634faf4897ea09c5039" name="a1de31aa9234fe634faf4897ea09c5039"></a>
-sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>UI::window</b> (<a class="el" href="namespace_u_i.html#a4e8843c58982b9005af1bf14c2d5d6e9">UI::current_video_mode</a>,&quot;Tetris&quot;, sf::Style::Default, sf::State::Fullscreen)</td></tr>
+<tr class="memitem:ac8fe9421ba591b3f8b305602bddd355b" id="r_ac8fe9421ba591b3f8b305602bddd355b"><td class="memItemLeft" align="right" valign="top"><a id="ac8fe9421ba591b3f8b305602bddd355b" name="ac8fe9421ba591b3f8b305602bddd355b"></a>
+sf::RenderWindow&#160;</td><td class="memItemRight" valign="bottom"><b>UI::window</b> (<a class="el" href="namespace_u_i.html#a4e8843c58982b9005af1bf14c2d5d6e9">UI::current_video_mode</a>, &quot;Tetris&quot;, sf::Style::Default, sf::State::Fullscreen)</td></tr>
 <tr class="memitem:a491efdf086d7353e0936618abe5927c0" id="r_a491efdf086d7353e0936618abe5927c0"><td class="memItemLeft" align="right" valign="top"><a id="a491efdf086d7353e0936618abe5927c0" name="a491efdf086d7353e0936618abe5927c0"></a>
 sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>UI::cell</b> (sf::Vector2f(<a class="el" href="namespace_u_i.html#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a> - 1.f, <a class="el" href="namespace_u_i.html#a18d30be9b3a981aacb49aef4157ee004">pixel_cell_size</a> - 1.f))</td></tr>
 <tr class="memitem:a26a89969197de334769128d705de1ea6" id="r_a26a89969197de334769128d705de1ea6"><td class="memItemLeft" align="right" valign="top"><a id="a26a89969197de334769128d705de1ea6" name="a26a89969197de334769128d705de1ea6"></a>
@@ -130,13 +133,84 @@ sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>UI::font</b> (&qu
 <tr class="memdesc:aeb8f97254d44ef934b28d6cbb37463ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to show game controls on screen.  <br /></td></tr>
 <tr class="memitem:a97309e2dca077b519414dd795b661647" id="r_a97309e2dca077b519414dd795b661647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97309e2dca077b519414dd795b661647">draw_pause_screen</a> (sf::RenderWindow &amp;window)</td></tr>
 <tr class="memdesc:a97309e2dca077b519414dd795b661647"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to show pause screen.  <br /></td></tr>
+<tr class="memitem:ae5af9b3c661135ae95d8290dd79100f3" id="r_ae5af9b3c661135ae95d8290dd79100f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5af9b3c661135ae95d8290dd79100f3">draw_menu_screen</a> (sf::RenderWindow &amp;window, <a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a> selectedChoice, int bestScore)</td></tr>
+<tr class="memdesc:ae5af9b3c661135ae95d8290dd79100f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the main menu screen.  <br /></td></tr>
+<tr class="memitem:a400a914d662973b979ba14ffdf12f686" id="r_a400a914d662973b979ba14ffdf12f686"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a400a914d662973b979ba14ffdf12f686">showMenu</a> (int bestScore)</td></tr>
+<tr class="memdesc:a400a914d662973b979ba14ffdf12f686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the main menu and handles menu navigation.  <br /></td></tr>
+<tr class="memitem:a72e3c6255c785272fa9ad287c2f941a6" id="r_a72e3c6255c785272fa9ad287c2f941a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72e3c6255c785272fa9ad287c2f941a6">initializeGame</a> (<a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="class_piece.html">Piece</a> &amp;current, <a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;next, bool &amp;gameOver, double &amp;timeDecreaseRate, double &amp;scoreThreshold)</td></tr>
+<tr class="memdesc:a72e3c6255c785272fa9ad287c2f941a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the game state.  <br /></td></tr>
+<tr class="memitem:a40921ade9ffe30ffb9cc7c14e462864f" id="r_a40921ade9ffe30ffb9cc7c14e462864f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40921ade9ffe30ffb9cc7c14e462864f">restartGame</a> (<a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="class_piece.html">Piece</a> &amp;current, <a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;next, bool &amp;gameOver, bool &amp;isPaused, sf::Clock &amp;clock, double &amp;timeDecreaseRate, double &amp;scoreThreshold, sf::Music &amp;music)</td></tr>
+<tr class="memdesc:a40921ade9ffe30ffb9cc7c14e462864f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the game.  <br /></td></tr>
+<tr class="memitem:a5d7bf558b2408e016cf6fe41b9e87602" id="r_a5d7bf558b2408e016cf6fe41b9e87602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d7bf558b2408e016cf6fe41b9e87602">handleGameInput</a> (<a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="class_piece.html">Piece</a> &amp;current, bool &amp;isPaused, bool &amp;isQuit, bool &amp;goToMenu, sf::Sound &amp;moveLeftSound, sf::Sound &amp;moveRightSound, sf::Sound &amp;clockwiseSound, sf::Sound &amp;anticlockwiseSound, sf::Sound &amp;dropSound)</td></tr>
+<tr class="memdesc:a5d7bf558b2408e016cf6fe41b9e87602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles player input during gameplay.  <br /></td></tr>
+<tr class="memitem:aaca369958bc1424b98bc6a91e71b6492" id="r_aaca369958bc1424b98bc6a91e71b6492"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaca369958bc1424b98bc6a91e71b6492">handlePauseInput</a> (bool &amp;isPaused, bool &amp;isQuit, bool &amp;goToMenu, <a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="class_piece.html">Piece</a> &amp;current, <a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;next, double &amp;timeDecreaseRate, double &amp;scoreThreshold, sf::Clock &amp;clock, sf::Music &amp;music, sf::Sound &amp;pauseSound)</td></tr>
+<tr class="memdesc:aaca369958bc1424b98bc6a91e71b6492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles input when game is paused.  <br /></td></tr>
+<tr class="memitem:a792e6ec522df83c73fcff4ceb8256e3c" id="r_a792e6ec522df83c73fcff4ceb8256e3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a792e6ec522df83c73fcff4ceb8256e3c">handleGameOverInput</a> (<a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="class_piece.html">Piece</a> &amp;current, <a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;next, bool &amp;gameOver, bool &amp;isPaused, sf::Clock &amp;clock, double &amp;timeDecreaseRate, double &amp;scoreThreshold, sf::Music &amp;music, bool &amp;isQuit, bool &amp;goToMenu)</td></tr>
+<tr class="memdesc:a792e6ec522df83c73fcff4ceb8256e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles input when game is over.  <br /></td></tr>
+<tr class="memitem:a63385400f9c9b012e3bc907ecfe238e3" id="r_a63385400f9c9b012e3bc907ecfe238e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63385400f9c9b012e3bc907ecfe238e3">updateGame</a> (<a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="class_piece.html">Piece</a> &amp;current, <a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;next, bool &amp;gameOver, sf::Clock &amp;clock, double &amp;timeDecreaseRate, double &amp;scoreThreshold, sf::Sound &amp;dropSound, sf::Sound &amp;successSound, sf::Sound &amp;levelUpSound, sf::Sound &amp;gameOverSound, sf::Music &amp;music, int &amp;bestScore)</td></tr>
+<tr class="memdesc:a63385400f9c9b012e3bc907ecfe238e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates game logic: movement, collision, scoring.  <br /></td></tr>
+<tr class="memitem:a1fff06f1a0a1e377a940bffe4e392916" id="r_a1fff06f1a0a1e377a940bffe4e392916"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fff06f1a0a1e377a940bffe4e392916">drawGame</a> (sf::RenderWindow &amp;window, <a class="el" href="class_grid.html">Grid</a> &amp;grid, <a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;next, bool isPaused)</td></tr>
+<tr class="memdesc:a1fff06f1a0a1e377a940bffe4e392916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the current game state.  <br /></td></tr>
+<tr class="memitem:a01453caebc3d362ed0331799306d0e84" id="r_a01453caebc3d362ed0331799306d0e84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01453caebc3d362ed0331799306d0e84">draw_controls_screen</a> (sf::RenderWindow &amp;window)</td></tr>
+<tr class="memdesc:a01453caebc3d362ed0331799306d0e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the controls screen.  <br /></td></tr>
+<tr class="memitem:a1abb6ad34c77789eee78c689241e58cf" id="r_a1abb6ad34c77789eee78c689241e58cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1abb6ad34c77789eee78c689241e58cf">draw_best_score_screen</a> (sf::RenderWindow &amp;window, int bestScore)</td></tr>
+<tr class="memdesc:a1abb6ad34c77789eee78c689241e58cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the best score screen.  <br /></td></tr>
+<tr class="memitem:ab2347feed9caa98d8879c87538713a96" id="r_ab2347feed9caa98d8879c87538713a96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2347feed9caa98d8879c87538713a96">handleMenuNavigation</a> (<a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a> &amp;selectedChoice, const sf::Event &amp;event)</td></tr>
+<tr class="memdesc:ab2347feed9caa98d8879c87538713a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the menu navigation.  <br /></td></tr>
+<tr class="memitem:a9a37c0c7582894cc7dd94136950611db" id="r_a9a37c0c7582894cc7dd94136950611db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a37c0c7582894cc7dd94136950611db">executeMenuAction</a> (<a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a> selectedChoice, bool &amp;inMenu, sf::RenderWindow &amp;window, int bestScore)</td></tr>
+<tr class="memdesc:a9a37c0c7582894cc7dd94136950611db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the selected menu action.  <br /></td></tr>
+<tr class="memitem:a712dafe58e0e3322fa0898234e420527" id="r_a712dafe58e0e3322fa0898234e420527"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712dafe58e0e3322fa0898234e420527">loadBestScore</a> (const std::string &amp;filename, int &amp;bestScore)</td></tr>
+<tr class="memdesc:a712dafe58e0e3322fa0898234e420527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the best score from file.  <br /></td></tr>
+<tr class="memitem:a18098944336478dfba4922d90c3badf4" id="r_a18098944336478dfba4922d90c3badf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18098944336478dfba4922d90c3badf4">saveBestScore</a> (const std::string &amp;filename, int bestScore)</td></tr>
+<tr class="memdesc:a18098944336478dfba4922d90c3badf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the best score to file.  <br /></td></tr>
+<tr class="memitem:a24449e5c5791804fbd8203acce7fea80" id="r_a24449e5c5791804fbd8203acce7fea80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24449e5c5791804fbd8203acce7fea80">loadSounds</a> (sf::SoundBuffer soundBuffers[], std::vector&lt; std::unique_ptr&lt; sf::Sound &gt; &gt; &amp;sounds, const char *filenames[], size_t count)</td></tr>
+<tr class="memdesc:a24449e5c5791804fbd8203acce7fea80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads all game sounds.  <br /></td></tr>
+<tr class="memitem:aa3a42b6202b319d9d236a4519d088e62" id="r_aa3a42b6202b319d9d236a4519d088e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3a42b6202b319d9d236a4519d088e62">runGame</a> ()</td></tr>
+<tr class="memdesc:aa3a42b6202b319d9d236a4519d088e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the main game loop.  <br /></td></tr>
+<tr class="memitem:af454d84abb21c88e8ae295e8f2e38a49" id="r_af454d84abb21c88e8ae295e8f2e38a49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af454d84abb21c88e8ae295e8f2e38a49">showMainMenu</a> (int bestScore)</td></tr>
+<tr class="memdesc:af454d84abb21c88e8ae295e8f2e38a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main menu loop.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad1d2ebe3608dccbcbdcddae74232eb59" id="r_ad1d2ebe3608dccbcbdcddae74232eb59"><td class="memItemLeft" align="right" valign="top"><a id="ad1d2ebe3608dccbcbdcddae74232eb59" name="ad1d2ebe3608dccbcbdcddae74232eb59"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>bestScore</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains functions and variables definitions used to make the user interface of Tetris. Variables are encapsulated in the namespace <a class="el" href="namespace_u_i.html" title="A namespace to store variables linked to the UI of the game.">UI</a>. </p>
+<div class="textblock"><p>User interface implementation for Tetris game. </p>
 <dl class="section author"><dt>Author</dt><dd>Alexandre Bleuler - Bonaventure Dohemeto </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>23/12/2025 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>30/12/2025 </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a1abb6ad34c77789eee78c689241e58cf" name="a1abb6ad34c77789eee78c689241e58cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1abb6ad34c77789eee78c689241e58cf">&#9670;&#160;</a></span>draw_best_score_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_best_score_screen </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays the best score screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The render window </td></tr>
+    <tr><td class="paramname">bestScore</td><td>The best score to display </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a823d6381a9ce159b16627d07c5da6411" name="a823d6381a9ce159b16627d07c5da6411"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a823d6381a9ce159b16627d07c5da6411">&#9670;&#160;</a></span>draw_cell()</h2>
 
@@ -218,6 +292,31 @@ sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>UI::font</b> (&qu
 
 </div>
 </div>
+<a id="a01453caebc3d362ed0331799306d0e84" name="a01453caebc3d362ed0331799306d0e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01453caebc3d362ed0331799306d0e84">&#9670;&#160;</a></span>draw_controls_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_controls_screen </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays the controls screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The render window </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a16e0691e424f0636f12f5d010cb81ddd" name="a16e0691e424f0636f12f5d010cb81ddd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a16e0691e424f0636f12f5d010cb81ddd">&#9670;&#160;</a></span>draw_game_over_screen()</h2>
 
@@ -251,6 +350,7 @@ sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>UI::font</b> (&qu
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -278,6 +378,43 @@ sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>UI::font</b> (&qu
   <table class="params">
     <tr><td class="paramname">grid</td><td>The grid to draw. </td></tr>
     <tr><td class="paramname">window</td><td>The window on which the grid will be drawn. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ae5af9b3c661135ae95d8290dd79100f3" name="ae5af9b3c661135ae95d8290dd79100f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5af9b3c661135ae95d8290dd79100f3">&#9670;&#160;</a></span>draw_menu_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void draw_menu_screen </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a></td>          <td class="paramname"><span class="paramname"><em>selectedChoice</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the main menu screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The render window </td></tr>
+    <tr><td class="paramname">selectedChoice</td><td>The currently selected menu option </td></tr>
+    <tr><td class="paramname">bestScore</td><td>The best score to display </td></tr>
   </table>
   </dd>
 </dl>
@@ -373,6 +510,83 @@ sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>UI::font</b> (&qu
 
 </div>
 </div>
+<a id="a1fff06f1a0a1e377a940bffe4e392916" name="a1fff06f1a0a1e377a940bffe4e392916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fff06f1a0a1e377a940bffe4e392916">&#9670;&#160;</a></span>drawGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawGame </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isPaused</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the current game state. </p>
+<p>Draws the grid, current and next pieces, and pause overlay if needed. </p>
+
+</div>
+</div>
+<a id="a9a37c0c7582894cc7dd94136950611db" name="a9a37c0c7582894cc7dd94136950611db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a37c0c7582894cc7dd94136950611db">&#9670;&#160;</a></span>executeMenuAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool executeMenuAction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a></td>          <td class="paramname"><span class="paramname"><em>selectedChoice</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>inMenu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::RenderWindow &amp;</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes the selected menu action. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selectedChoice</td><td>The menu choice selected </td></tr>
+    <tr><td class="paramname">inMenu</td><td>Reference to menu state flag </td></tr>
+    <tr><td class="paramname">window</td><td>Reference to the render window </td></tr>
+    <tr><td class="paramname">bestScore</td><td>The current best score </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the game should start </dd></dl>
+
+</div>
+</div>
 <a id="a9f0b57658f0a2a92708daaf9847aae34" name="a9f0b57658f0a2a92708daaf9847aae34"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f0b57658f0a2a92708daaf9847aae34">&#9670;&#160;</a></span>grid_sides_center_text()</h2>
 
@@ -407,6 +621,601 @@ sf::Font&#160;</td><td class="memItemRight" valign="bottom"><b>UI::font</b> (&qu
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a5d7bf558b2408e016cf6fe41b9e87602" name="a5d7bf558b2408e016cf6fe41b9e87602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d7bf558b2408e016cf6fe41b9e87602">&#9670;&#160;</a></span>handleGameInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handleGameInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isPaused</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isQuit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>goToMenu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>moveLeftSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>moveRightSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>clockwiseSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>anticlockwiseSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>dropSound</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles player input during gameplay. </p>
+<p>Processes movement, rotation, drop, and menu navigation keys. </p>
+
+</div>
+</div>
+<a id="a792e6ec522df83c73fcff4ceb8256e3c" name="a792e6ec522df83c73fcff4ceb8256e3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792e6ec522df83c73fcff4ceb8256e3c">&#9670;&#160;</a></span>handleGameOverInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handleGameOverInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>gameOver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isPaused</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Clock &amp;</td>          <td class="paramname"><span class="paramname"><em>clock</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>timeDecreaseRate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scoreThreshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Music &amp;</td>          <td class="paramname"><span class="paramname"><em>music</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isQuit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>goToMenu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles input when game is over. </p>
+<p>Allows restarting or quitting the game after Game Over. </p>
+
+</div>
+</div>
+<a id="ab2347feed9caa98d8879c87538713a96" name="ab2347feed9caa98d8879c87538713a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2347feed9caa98d8879c87538713a96">&#9670;&#160;</a></span>handleMenuNavigation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool handleMenuNavigation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>selectedChoice</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sf::Event &amp;</td>          <td class="paramname"><span class="paramname"><em>event</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the menu navigation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selectedChoice</td><td>Reference to the currently selected menu option </td></tr>
+    <tr><td class="paramname">event</td><td>The SFML event </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if a menu action was performed </dd></dl>
+
+</div>
+</div>
+<a id="aaca369958bc1424b98bc6a91e71b6492" name="aaca369958bc1424b98bc6a91e71b6492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaca369958bc1424b98bc6a91e71b6492">&#9670;&#160;</a></span>handlePauseInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handlePauseInput </td>
+          <td>(</td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isPaused</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isQuit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>goToMenu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>timeDecreaseRate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scoreThreshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Clock &amp;</td>          <td class="paramname"><span class="paramname"><em>clock</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Music &amp;</td>          <td class="paramname"><span class="paramname"><em>music</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>pauseSound</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles input when game is paused. </p>
+<p>Allows resuming, quitting, or returning to menu while paused. </p>
+
+</div>
+</div>
+<a id="a72e3c6255c785272fa9ad287c2f941a6" name="a72e3c6255c785272fa9ad287c2f941a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72e3c6255c785272fa9ad287c2f941a6">&#9670;&#160;</a></span>initializeGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initializeGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>gameOver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>timeDecreaseRate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scoreThreshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the game state. </p>
+<p>Sets up grid, current and next piece, and game parameters. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">grid</td><td>Reference to the game grid </td></tr>
+    <tr><td class="paramname">current</td><td>Reference to the current piece </td></tr>
+    <tr><td class="paramname">next</td><td>Reference to the next piece </td></tr>
+    <tr><td class="paramname">gameOver</td><td>Reference to the game over flag </td></tr>
+    <tr><td class="paramname">timeDecreaseRate</td><td>Reference to speed increase rate </td></tr>
+    <tr><td class="paramname">scoreThreshold</td><td>Reference to score threshold for level up </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a712dafe58e0e3322fa0898234e420527" name="a712dafe58e0e3322fa0898234e420527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712dafe58e0e3322fa0898234e420527">&#9670;&#160;</a></span>loadBestScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loadBestScore </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the best score from file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the score file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24449e5c5791804fbd8203acce7fea80" name="a24449e5c5791804fbd8203acce7fea80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24449e5c5791804fbd8203acce7fea80">&#9670;&#160;</a></span>loadSounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loadSounds </td>
+          <td>(</td>
+          <td class="paramtype">sf::SoundBuffer</td>          <td class="paramname"><span class="paramname"><em>soundBuffers</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::unique_ptr&lt; sf::Sound &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>sounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filenames</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads all game sounds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">soundBuffers</td><td>Array of sound buffers to load. </td></tr>
+    <tr><td class="paramname">sounds</td><td>Vector of unique_ptr&lt;sf::Sound&gt; to store the sounds. </td></tr>
+    <tr><td class="paramname">filenames</td><td>Array of filenames corresponding to the sounds. </td></tr>
+    <tr><td class="paramname">count</td><td>Number of sounds to load.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The sound effects were downloaded from Pixabay: <a href="https://pixabay.com/fr/sound-effects/search/musique-pour-tetris/">https://pixabay.com/fr/sound-effects/search/musique-pour-tetris/</a> and <a href="https://www.voicy.network/fr/search/tetris-sound-effects">https://www.voicy.network/fr/search/tetris-sound-effects</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if all sounds were loaded successfully. </dd></dl>
+
+</div>
+</div>
+<a id="a40921ade9ffe30ffb9cc7c14e462864f" name="a40921ade9ffe30ffb9cc7c14e462864f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40921ade9ffe30ffb9cc7c14e462864f">&#9670;&#160;</a></span>restartGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void restartGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>gameOver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>isPaused</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Clock &amp;</td>          <td class="paramname"><span class="paramname"><em>clock</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>timeDecreaseRate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scoreThreshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Music &amp;</td>          <td class="paramname"><span class="paramname"><em>music</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restarts the game. </p>
+<p>Resets the game to its initial state and restarts the music. </p>
+
+</div>
+</div>
+<a id="aa3a42b6202b319d9d236a4519d088e62" name="aa3a42b6202b319d9d236a4519d088e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a42b6202b319d9d236a4519d088e62">&#9670;&#160;</a></span>runGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void runGame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs the main game loop. </p>
+<p>This function initializes the game state and continuously updates, processes events, and renders graphics until the game is exited. </p>
+
+</div>
+</div>
+<a id="a18098944336478dfba4922d90c3badf4" name="a18098944336478dfba4922d90c3badf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18098944336478dfba4922d90c3badf4">&#9670;&#160;</a></span>saveBestScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saveBestScore </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves the best score to file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the score file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af454d84abb21c88e8ae295e8f2e38a49" name="af454d84abb21c88e8ae295e8f2e38a49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af454d84abb21c88e8ae295e8f2e38a49">&#9670;&#160;</a></span>showMainMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool showMainMenu </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main menu loop. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if game should start, false if should quit </dd></dl>
+
+</div>
+</div>
+<a id="a400a914d662973b979ba14ffdf12f686" name="a400a914d662973b979ba14ffdf12f686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a400a914d662973b979ba14ffdf12f686">&#9670;&#160;</a></span>showMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ui_8h.html#a482cfe33dfe81cd20e4ae29c449b9dea">MenuChoice</a> showMenu </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>currentBestScore</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays the main menu and handles menu navigation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentBestScore</td><td>The best score to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The menu choice selected by the player </dd>
+<dd>
+</dd></dl>
+
+</div>
+</div>
+<a id="a63385400f9c9b012e3bc907ecfe238e3" name="a63385400f9c9b012e3bc907ecfe238e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63385400f9c9b012e3bc907ecfe238e3">&#9670;&#160;</a></span>updateGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_piece.html">Piece</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>current</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021">PieceType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>next</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>gameOver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Clock &amp;</td>          <td class="paramname"><span class="paramname"><em>clock</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>timeDecreaseRate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>scoreThreshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>dropSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>successSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>levelUpSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Sound &amp;</td>          <td class="paramname"><span class="paramname"><em>gameOverSound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Music &amp;</td>          <td class="paramname"><span class="paramname"><em>music</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>bestScore</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates game logic: movement, collision, scoring. </p>
+<p>Updates piece position, checks for lines, updates score and speed. </p>
 
 </div>
 </div>

@@ -1,5 +1,28 @@
 var searchData=
 [
-  ['_3a_0',['Auteurs :',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
-  ['_3a_20le_20jeu_20tetris_1',['🎮 Projet : le jeu Tetris',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['dépendances_0',['Téléchargement, installation et dépendances',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
+  ['de_20l_20ui_1',['Brève description de l&apos;ui',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['des_20fichiers_2',['Aborescence des fichiers',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'']]],
+  ['des_20fonctionnalités_20du_20jeu_3',['Description des fonctionnalités du jeu',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
+  ['des_20matières_4',['Table des Matières',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
+  ['description_20de_20l_20ui_5',['Brève description de l&apos;ui',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['description_20des_20fonctionnalités_20du_20jeu_6',['Description des fonctionnalités du jeu',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
+  ['description_20du_20core_7',['Brève description du core',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
+  ['description_20générale_20du_20jeu_20tetris_8',['Description générale du jeu Tetris',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
+  ['documentation_9',['Documentation',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]],
+  ['down_10',['down',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d',1,'core_class.h']]],
+  ['draw_5fbest_5fscore_5fscreen_11',['draw_best_score_screen',['../ui_8h.html#a1abb6ad34c77789eee78c689241e58cf',1,'draw_best_score_screen(sf::RenderWindow &amp;window, int bestScore):&#160;ui.cpp'],['../ui_8cpp.html#a1abb6ad34c77789eee78c689241e58cf',1,'draw_best_score_screen(sf::RenderWindow &amp;window, int bestScore):&#160;ui.cpp']]],
+  ['draw_5fcell_12',['draw_cell',['../ui_8h.html#a823d6381a9ce159b16627d07c5da6411',1,'draw_cell(Grid &amp;grid, sf::RenderWindow &amp;window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column):&#160;ui.cpp'],['../ui_8cpp.html#a823d6381a9ce159b16627d07c5da6411',1,'draw_cell(Grid &amp;grid, sf::RenderWindow &amp;window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column):&#160;ui.cpp']]],
+  ['draw_5fcontrols_13',['draw_controls',['../ui_8h.html#aeb8f97254d44ef934b28d6cbb37463ef',1,'draw_controls(sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#aeb8f97254d44ef934b28d6cbb37463ef',1,'draw_controls(sf::RenderWindow &amp;window):&#160;ui.cpp']]],
+  ['draw_5fcontrols_5fscreen_14',['draw_controls_screen',['../ui_8h.html#a01453caebc3d362ed0331799306d0e84',1,'draw_controls_screen(sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#a01453caebc3d362ed0331799306d0e84',1,'draw_controls_screen(sf::RenderWindow &amp;window):&#160;ui.cpp']]],
+  ['draw_5fgame_5fover_5fscreen_15',['draw_game_over_screen',['../ui_8h.html#a16e0691e424f0636f12f5d010cb81ddd',1,'draw_game_over_screen(sf::RenderWindow &amp;window, int score, int bestScore):&#160;ui.cpp'],['../ui_8cpp.html#a16e0691e424f0636f12f5d010cb81ddd',1,'draw_game_over_screen(sf::RenderWindow &amp;window, int score, int bestScore):&#160;ui.cpp']]],
+  ['draw_5fgrid_16',['draw_grid',['../ui_8h.html#af8e300693c4831d670e49551ef703443',1,'draw_grid(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#af8e300693c4831d670e49551ef703443',1,'draw_grid(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp']]],
+  ['draw_5fmenu_5fscreen_17',['draw_menu_screen',['../ui_8h.html#ae5af9b3c661135ae95d8290dd79100f3',1,'draw_menu_screen(sf::RenderWindow &amp;window, MenuChoice selectedChoice, int bestScore):&#160;ui.cpp'],['../ui_8cpp.html#ae5af9b3c661135ae95d8290dd79100f3',1,'draw_menu_screen(sf::RenderWindow &amp;window, MenuChoice selectedChoice, int bestScore):&#160;ui.cpp']]],
+  ['draw_5fnext_5fpiece_18',['draw_next_piece',['../ui_8h.html#a567eb7112813d1a3a3482d9e942e1797',1,'draw_next_piece(sf::RenderWindow &amp;window, PieceType &amp;next_type):&#160;ui.cpp'],['../ui_8cpp.html#a567eb7112813d1a3a3482d9e942e1797',1,'draw_next_piece(sf::RenderWindow &amp;window, PieceType &amp;next_type):&#160;ui.cpp']]],
+  ['draw_5fpause_5fscreen_19',['draw_pause_screen',['../ui_8h.html#a97309e2dca077b519414dd795b661647',1,'draw_pause_screen(sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#a97309e2dca077b519414dd795b661647',1,'draw_pause_screen(sf::RenderWindow &amp;window):&#160;ui.cpp']]],
+  ['draw_5fscore_20',['draw_score',['../ui_8h.html#a2dab8c370c4629c2d93446e2a915a6c7',1,'draw_score(Grid &amp;next_piece_grid, sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#a4038794bdcc5cfd437195140575246fc',1,'draw_score(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp']]],
+  ['drawgame_21',['drawGame',['../ui_8h.html#a1fff06f1a0a1e377a940bffe4e392916',1,'drawGame(sf::RenderWindow &amp;window, Grid &amp;grid, PieceType &amp;next, bool isPaused):&#160;ui.cpp'],['../ui_8cpp.html#a1fff06f1a0a1e377a940bffe4e392916',1,'drawGame(sf::RenderWindow &amp;window, Grid &amp;grid, PieceType &amp;next, bool isPaused):&#160;ui.cpp']]],
+  ['du_20core_22',['Brève description du core',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
+  ['du_20jeu_23',['du jeu',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'Description des fonctionnalités du jeu'],['../md__r_e_a_d_m_e.html#autotoc_md7',1,'Implémentation du jeu']]],
+  ['du_20jeu_20tetris_24',['Description générale du jeu Tetris',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]]
 ];

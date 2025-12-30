@@ -1,25 +1,9 @@
 var searchData=
 [
-  ['dépendances_0',['Installation du jeu et dépendances',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['déroulement_20du_20jeu_1',['Déroulement du jeu',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'']]],
-  ['déroulement_20du_20jeu_20coups_20valides_20et_20interdits_2',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
-  ['de_20base_3',['Tâche 1: Implémentation des classes de base',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['de_20route_4',['Feuille de Route',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
-  ['des_20classes_5',['Architecture des Classes',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]],
-  ['des_20classes_20de_20base_6',['Tâche 1: Implémentation des classes de base',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['des_20matières_7',['Table des Matières',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
-  ['description_20du_20jeu_20tetris_8',['Description du jeu Tetris',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['down_9',['down',['../core__class_8h.html#a19b869a01ca1a58f4164b4f75c2df388a74e8333ad11685ff3bdae589c8f6e34d',1,'core_class.h']]],
-  ['draw_5fcell_10',['draw_cell',['../ui_8h.html#a823d6381a9ce159b16627d07c5da6411',1,'draw_cell(Grid &amp;grid, sf::RenderWindow &amp;window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column):&#160;ui.cpp'],['../ui_8cpp.html#a823d6381a9ce159b16627d07c5da6411',1,'draw_cell(Grid &amp;grid, sf::RenderWindow &amp;window, unsigned int cell_row, unsigned int cell_column, unsigned int row, unsigned int column):&#160;ui.cpp']]],
-  ['draw_5fcontrols_11',['draw_controls',['../ui_8h.html#aeb8f97254d44ef934b28d6cbb37463ef',1,'draw_controls(sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#aeb8f97254d44ef934b28d6cbb37463ef',1,'draw_controls(sf::RenderWindow &amp;window):&#160;ui.cpp']]],
-  ['draw_5fgame_5fover_5fscreen_12',['draw_game_over_screen',['../ui_8h.html#a16e0691e424f0636f12f5d010cb81ddd',1,'draw_game_over_screen(sf::RenderWindow &amp;window, int score, int bestScore):&#160;ui.cpp'],['../ui_8cpp.html#a16e0691e424f0636f12f5d010cb81ddd',1,'draw_game_over_screen(sf::RenderWindow &amp;window, int score, int bestScore):&#160;ui.cpp']]],
-  ['draw_5fgrid_13',['draw_grid',['../ui_8h.html#af8e300693c4831d670e49551ef703443',1,'draw_grid(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#af8e300693c4831d670e49551ef703443',1,'draw_grid(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp']]],
-  ['draw_5fnext_5fpiece_14',['draw_next_piece',['../ui_8h.html#a567eb7112813d1a3a3482d9e942e1797',1,'draw_next_piece(sf::RenderWindow &amp;window, PieceType &amp;next_type):&#160;ui.cpp'],['../ui_8cpp.html#a567eb7112813d1a3a3482d9e942e1797',1,'draw_next_piece(sf::RenderWindow &amp;window, PieceType &amp;next_type):&#160;ui.cpp']]],
-  ['draw_5fpause_5fscreen_15',['draw_pause_screen',['../ui_8h.html#a97309e2dca077b519414dd795b661647',1,'draw_pause_screen(sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#a97309e2dca077b519414dd795b661647',1,'draw_pause_screen(sf::RenderWindow &amp;window):&#160;ui.cpp']]],
-  ['draw_5fscore_16',['draw_score',['../ui_8h.html#a2dab8c370c4629c2d93446e2a915a6c7',1,'draw_score(Grid &amp;next_piece_grid, sf::RenderWindow &amp;window):&#160;ui.cpp'],['../ui_8cpp.html#a4038794bdcc5cfd437195140575246fc',1,'draw_score(Grid &amp;grid, sf::RenderWindow &amp;window):&#160;ui.cpp']]],
-  ['du_20jeu_17',['du jeu',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'Déroulement du jeu'],['../md__r_e_a_d_m_e.html#autotoc_md15',1,'Tâche 2: Logique du jeu']]],
-  ['du_20jeu_20coups_20valides_20et_20interdits_18',['Déroulement du jeu/Coups valides et interdits',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
-  ['du_20jeu_20et_20dépendances_19',['Installation du jeu et dépendances',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
-  ['du_20jeu_20tetris_20',['Description du jeu Tetris',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]],
-  ['du_20projet_21',['du Projet',['../md__r_e_a_d_m_e.html#autotoc_md5',1,'Aborescence du Projet'],['../md__r_e_a_d_m_e.html#autotoc_md11',1,'Aborescence du Projet']]]
+  ['i_0',['I',['../core__class_8h.html#a12ed9719bbdf7bc596ff7a6f4bf3f021add7536794b63bf90eccfd37f9b147d7f',1,'core_class.h']]],
+  ['implémentation_20du_20jeu_1',['Implémentation du jeu',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]],
+  ['initializeblocks_2',['initializeBlocks',['../class_piece.html#a0071dbad5eaf96f1e5847d7ac352d53a',1,'Piece']]],
+  ['initializegame_3',['initializeGame',['../ui_8h.html#a72e3c6255c785272fa9ad287c2f941a6',1,'initializeGame(Grid &amp;grid, Piece &amp;current, PieceType &amp;next, bool &amp;gameOver, double &amp;timeDecreaseRate, double &amp;scoreThreshold):&#160;ui.cpp'],['../ui_8cpp.html#a72e3c6255c785272fa9ad287c2f941a6',1,'initializeGame(Grid &amp;grid, Piece &amp;current, PieceType &amp;next, bool &amp;gameOver, double &amp;timeDecreaseRate, double &amp;scoreThreshold):&#160;ui.cpp']]],
+  ['installation_20et_20dépendances_4',['Téléchargement, installation et dépendances',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]],
+  ['is_5ffull_5',['is_full',['../class_cell.html#abff348d6f61b519e835442d8e78f23d4',1,'Cell']]]
 ];

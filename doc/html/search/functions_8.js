@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['operator_28_29_0',['operator()',['../class_grid.html#ab210a536baa5ad1b289a33e01ec9a93f',1,'Grid::operator()(unsigned int row, unsigned int column) const'],['../class_grid.html#aadd15d5ed6900e769c59bdd57324c627',1,'Grid::operator()(unsigned int row, unsigned int column)']]],
-  ['operator_5b_5d_1',['operator[]',['../class_piece.html#a07be621b8c57bf5a786a035820f59b61',1,'Piece::operator[](unsigned int i) const'],['../class_piece.html#a8c390fed1f3750e106012e78e8b80c18',1,'Piece::operator[](unsigned int i)']]]
+  ['initializeblocks_0',['initializeBlocks',['../class_piece.html#a0071dbad5eaf96f1e5847d7ac352d53a',1,'Piece']]],
+  ['initializegame_1',['initializeGame',['../ui_8h.html#a72e3c6255c785272fa9ad287c2f941a6',1,'initializeGame(Grid &amp;grid, Piece &amp;current, PieceType &amp;next, bool &amp;gameOver, double &amp;timeDecreaseRate, double &amp;scoreThreshold):&#160;ui.cpp'],['../ui_8cpp.html#a72e3c6255c785272fa9ad287c2f941a6',1,'initializeGame(Grid &amp;grid, Piece &amp;current, PieceType &amp;next, bool &amp;gameOver, double &amp;timeDecreaseRate, double &amp;scoreThreshold):&#160;ui.cpp']]],
+  ['is_5ffull_2',['is_full',['../class_cell.html#abff348d6f61b519e835442d8e78f23d4',1,'Cell']]]
 ];

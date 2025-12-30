@@ -25,29 +25,20 @@
 var NAVTREE =
 [
   [ "Tetris", "index.html", [
-    [ "🎮 Projet : le jeu Tetris", "md__r_e_a_d_m_e.html", [
+    [ "🎮 Un jeu vidéo : Tetris", "md__r_e_a_d_m_e.html", [
       [ "Auteurs :", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Table des Matières", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Description du jeu Tetris", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "Installation du jeu et dépendances", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
-      [ "Aborescence du Projet", "md__r_e_a_d_m_e.html#autotoc_md5", [
-        [ "Fonctionnalités A Implémentées", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
+      [ "Description générale du jeu Tetris", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "Téléchargement, installation et dépendances", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+      [ "Jouer au jeu", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
+      [ "Description des fonctionnalités du jeu", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
+      [ "Implémentation du jeu", "md__r_e_a_d_m_e.html#autotoc_md7", [
+        [ "Aborescence des fichiers", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
+        [ "Brève description du core", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
+        [ "Brève description de l'ui", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
       ] ],
-      [ "Déroulement du jeu/Coups valides et interdits", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
-      [ "Déroulement du jeu", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
-      [ "Coups valides", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
-      [ "Coups interdits", "md__r_e_a_d_m_e.html#autotoc_md10", null ],
-      [ "Aborescence du Projet", "md__r_e_a_d_m_e.html#autotoc_md11", [
-        [ "Architecture des Classes", "md__r_e_a_d_m_e.html#autotoc_md12", null ]
-      ] ],
-      [ "Feuille de Route", "md__r_e_a_d_m_e.html#autotoc_md13", [
-        [ "Tâche 1: Implémentation des classes de base", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
-        [ "Tâche 2: Logique du jeu", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
-        [ "Tâche 3: Interface graphique", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
-        [ "Tâche 4: Fonctionnalités avancées", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-        [ "Tâche 5: Qualité, tests et finalisation", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
-        [ "Compilation avec CMake", "md__r_e_a_d_m_e.html#autotoc_md19", null ]
-      ] ]
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md11", null ],
+      [ "Tests", "md__r_e_a_d_m_e.html#autotoc_md12", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

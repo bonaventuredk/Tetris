@@ -3,8 +3,8 @@
  * \brief  This file contains functions and variables declarations used to make the 
  * user interface of Tetris. Variables are encapsulated in the namespace UI.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.0
- * \date 23/12/2025
+ * \version 2.0
+ * \date 30/12/2025
  */
 
 #ifndef UI_INCLUDE
@@ -125,7 +125,12 @@ void draw_controls(sf::RenderWindow& window);
  * @brief Enumeration for menu choices
  * \return
  */
-enum class MenuChoice {StartGame,Controls,BestScore,Quit,None};
+enum class MenuChoice {
+    StartGame, /**< Main menu */
+    Controls, /**< Menu of the controls */
+    BestScore, /**< Menu of the best score */
+    Quit, /**< Quitting menu */ 
+    None};/**< Nothing */
 
 /**
  * @brief Draws the main menu screen
@@ -262,6 +267,7 @@ void saveBestScore(const std::string& filename, int bestScore);
  *
  * @return True if all sounds were loaded successfully.
  */
+
 bool loadSounds(sf::SoundBuffer soundBuffers[], std::vector<std::unique_ptr<sf::Sound>>& sounds, const char* filenames[], size_t count);
 
 /**

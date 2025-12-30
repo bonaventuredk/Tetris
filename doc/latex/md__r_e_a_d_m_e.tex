@@ -1,298 +1,152 @@
-\chapter{🎮 Projet \+: le jeu Tetris }
-\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{🎮 Projet : le jeu Tetris@{🎮 Projet : le jeu Tetris}}
+\chapter{🎮 Un jeu vidéo \+: Tetris }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{🎮  Un jeu vidéo : Tetris@{🎮  Un jeu vidéo : Tetris}}
 \label{md__r_e_a_d_m_e_autotoc_md0}%
 \Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
 
 
-Un jeu Tetris classique développé en C++ et avec un interface graphique.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Auteurs \+:}{Auteurs \+:}}\label{md__r_e_a_d_m_e_autotoc_md1}
+Un jeu Tetris classique développé en C++ et avec un interface graphique et sonore disponible sur \href{https://github.com/bonaventuredk/Tetris}{\texttt{https\+://github.\+com/bonaventuredk/\+Tetris}}.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Auteurs \+:}{Auteurs \+:}}\label{md__r_e_a_d_m_e_autotoc_md1}
 \begin{DoxyVerb}* Alexandre Bleuler 
 * Bonaventure Dohemeto
 \end{DoxyVerb}
 \hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Table des Matières}{Table des Matières}}\label{md__r_e_a_d_m_e_autotoc_md2}
 
 \begin{DoxyItemize}
-\item Description du jeu Tetris
-\item Installation du jeu et dépendances
-\item Aborescence du Projet
-\item Fonctionnalités
-\item Déroulement du jeu/\+Coups valides et interdits
-\item Feuille de Route
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Description du jeu Tetris}{Description du jeu Tetris}}\label{md__r_e_a_d_m_e_autotoc_md3}
+\item Description générale du jeu Tetris
+\item Téléchargement, installation et dépendances
+\item Jouer au jeu
+\item Description des fonctionnalités du jeu
+\item Implémentation du jeu
+\item Documentation
+\item Tests
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Description générale du jeu Tetris}{Description générale du jeu Tetris}}\label{md__r_e_a_d_m_e_autotoc_md3}
 Tetris est un célèbre jeu-\/vidéo dont le but est d\textquotesingle{}obtenir le meilleur score possible en remplissant des lignes de blocs dans une grille.
 
 Pour ce faire, des pièces composées de quatre blocs (voir image ci-\/dessous) tombent depuis le haut de la grille et le joueur doit les déplacer pour les poser à l\textquotesingle{}endroit qu\textquotesingle{}il juge le plus approprié. Les déplacements possible sont vers le bas, la gauche et la droite. Des rotations horaires et anti-\/horaires sont également possibles.
 
 Lorsqu\textquotesingle{}une ligne est remplie, elle disparaît et les lignes du dessus descendent d\textquotesingle{}un cran. Si après disparition des lignes pleines un bloc de trouve toujours dans l\textquotesingle{}une des quatre plus hautes lignes de la grille, la partie est perdue !
 
-\begin{center} $<$figure$>$  $<$/figure$>$ \end{center} \hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Installation du jeu et dépendances}{Installation du jeu et dépendances}}\label{md__r_e_a_d_m_e_autotoc_md4}
-Le jeu est conçu pour être compilé à l\textquotesingle{}aide de {\ttfamily CMake}, de préférence dans un dossier {\ttfamily /build} à la racine du dossier d\textquotesingle{}installation. Un fichier {\ttfamily CMake\+Lists.\+txt} est notamment fourni à cette même racine.
+\begin{center} $<$figure$>$  $<$/figure$>$ \end{center} \hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Téléchargement, installation et dépendances}{Téléchargement, installation et dépendances}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Le jeu peut-\/être téléchargé ici \+: \href{https://github.com/bonaventuredk/Tetris}{\texttt{https\+://github.\+com/bonaventuredk/\+Tetris}}.
 
-De petites adaptations en fonction du système d\textquotesingle{}exploitation utilisé devront éventuellement être faites, notamment en ce qui concerne les dépendances suivantes \+:
+Pour ce qui est de l\textquotesingle{}installation du jeu, celle-\/ci est conçue pour être réalisée à l\textquotesingle{}aide de {\ttfamily CMake}, de préférence dans un dossier {\ttfamily /build} à la racine du dossier de téléchargement. Un fichier {\ttfamily CMake\+Lists.\+txt} est notamment fourni à cette fin. Une façon de de faire cela est d\textquotesingle{}utiliser dans un terminal à la racine du dossier de téléchargement les commandes \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+\DoxyCodeLine{cd\ build}
+\DoxyCodeLine{cmake\ ..}
+
+\end{DoxyCode}
+
+
+De petites adaptations en fonction du système d\textquotesingle{}exploitation utilisé devront éventuellement être faites, notamment en ce qui concerne les dépendances suivantes qui doivent préalablement être installées et trouvables par {\ttfamily CMake} \+:
 \begin{DoxyItemize}
 \item la librairie {\ttfamily Catch2 version 3 (32 bits)};
 \item la librairie {\ttfamily SFML version 3.\+0.\+2. (64 bits)}.
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Aborescence du Projet}{Aborescence du Projet}}\label{md__r_e_a_d_m_e_autotoc_md5}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{\texorpdfstring{Jouer au jeu}{Jouer au jeu}}\label{md__r_e_a_d_m_e_autotoc_md5}
+Une fois l\textquotesingle{}installation réalisée, il suffit alors d\textquotesingle{}exécuter le fichier {\ttfamily tetrix\+\_\+game}. Ce fichier se trouve à la racine de l\textquotesingle{}installation faite via {\ttfamily CMake} (donc dans le dossier {\ttfamily /build} avec les instructions précédentes). Une fenêtre en plein écran s\textquotesingle{}ouvrira alors et vous proposera notamment de lancer une partie ou de quitter le jeu.
+
+Au cours d\textquotesingle{}une partie, les touches du clavier utilisables seront \+:
+\begin{DoxyItemize}
+\item {\ttfamily left arrow} pour bouger la pièce vers la gauche;
+\item {\ttfamily right arrow} pour bouger la pièce vers la droite;
+\item {\ttfamily down arrow} pour bouger la pièce vers le bas;
+\item {\ttfamily up arrow} pour faire une rotation de la pièce dans le sens anti-\/horaire;
+\item {\ttfamily space} pour faire une rotation de la pièce dans le sens horaire;
+\item et {\ttfamily P} pour mettre le jeu sur pause.
+\end{DoxyItemize}
+
+Finalement, mentionnons qu\textquotesingle{}un mouvement qui ferait sortir la pièce de la grille de jeu ne sera pas comptabilisé.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Description des fonctionnalités du jeu}{Description des fonctionnalités du jeu}}\label{md__r_e_a_d_m_e_autotoc_md6}
+Outre la réalisation et la mise à l\textquotesingle{}écran des éléments clés du jeu décrits au paragraphe Description du jeu Tetris , le jeu fournit plusieurs menus qui permettent de lancer une nouvelle partie ou de quitter le jeu \+: un menu au démarrage du jeu, un menu pause permettant de figer l\textquotesingle{}état de la partie et enfin un menu de fin de partie.
+
+Également, un affichage de la prochaine pièce à jouer est réalisé à droite de la grille du jeu. A sa gauche, l\textquotesingle{}affichage du score de la partie actuelle est également affiché de même que le meilleur score jamais réalisé pour cette installation du jeu.
+
+FInalement, en plus des diverses touches du clavier permettant de jouer au jeu, des effets sonores ainsi que des musiques d\textquotesingle{}ambiance ont été ajoutés. Cependant, le jeu ne possède pas de réglage interne du son. Celui-\/ci doit donc être ajusté directement avec le mélangeur de volumes de l\textquotesingle{}ordinateur. En particulier, il est recommandé de faire attention à la puissance du son lors du premier lancement du jeu, celui-\/ci pourrait être trop fort en l\textquotesingle{}absence de réglages préalables.\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Implémentation du jeu}{Implémentation du jeu}}\label{md__r_e_a_d_m_e_autotoc_md7}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Aborescence des fichiers}{Aborescence des fichiers}}\label{md__r_e_a_d_m_e_autotoc_md8}
 \begin{DoxyVerb}    TetrisProject/
-    ├── core/
-    │ ├── include/
-    │ │ └── core_class.h
-    │ └── src/
-    │   └── core_class.cpp
-    │   └── main.cpp
-    ├── doc/
-    ├── sounds/
-    │ ├── music.ogg
-    │ ├── move.wav
-    │ ├── rotate.wav
-    │ └── drop.wav
-    ├── tests/
-    ├── CMakeLists.txt
-    ├── DoxyFile
-    ├── .gitignore
-    └── README.md
+    │
+    ├─── core/
+    │ ├─── include/
+    │ │ └─── core_class.h
+    │ └─── src/
+    │   ├─── core_class.cpp
+    │   └─── main.cpp
+    │
+    ├─── doc/
+    │
+    ├─── tests/
+    │ └─── test_core_class.cpp
+
+    ├─── ui/
+    │ ├─── include/
+    │ │ └─── ui.h
+    │ ├─── src/
+    │ │ └─── ui.cpp
+    │ ├─── sound/
+    │ │ ├─── anticlockwise.wav
+    │ │ ├─── clickleft.wav
+    │ │ ├─── clickright.wav
+    │ │ ├─── clockwise.wav
+    │ │ ├─── drop.wav
+    │ │ ├─── game_over.wav
+    │ │ ├─── higherlevelup.wav
+    │ │ ├─── music.ogg
+    │ │ └─── success_linedisapear.wav
+    │ └─── Tetris_font.ttf
+    │
+    ├─── .gitignore
+    ├─── CMakeLists.txt
+    ├─── DoxyFile
+    ├─── README.md
+    └─── tetrominoes_notations.png
 \end{DoxyVerb}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Fonctionnalités A Implémentées}{Fonctionnalités A Implémentées}}\label{md__r_e_a_d_m_e_autotoc_md6}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{Brève description du core}{Brève description du core}}\label{md__r_e_a_d_m_e_autotoc_md9}
+Le dossier {\ttfamily /core} contient les fichiers permettant de de définir la logique du jeu.
 
+En particulier, les fichiers {\ttfamily \doxylink{core__class_8cpp}{core\+\_\+class.\+cpp}} et {\ttfamily \doxylink{core__class_8h}{core\+\_\+class.\+h}} contiennent respectivement les définitions et déclarations des quatre classes constituant le coeur de l\textquotesingle{}implémentation \+:
 \begin{DoxyItemize}
-\item[\DoxyUnchecked] Grille de jeu
+\item {\ttfamily \doxylink{class_block}{Block}}
+\item {\ttfamily \doxylink{class_piece}{Piece}}
+\item {\ttfamily \doxylink{class_cell}{Cell}}
+\item {\ttfamily \doxylink{class_grid}{Grid}}
 \end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Les 7 pièces classiques
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Système de rotation des pièces
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Mouvement (gauche/droite/descente rapide)
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Suppression des lignes complètes
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Système de scoring progressif
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Augmentation de la difficulté avec les niveaux
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Interface graphique
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Contrôles clavier
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{\texorpdfstring{Déroulement du jeu/\+Coups valides et interdits}{Déroulement du jeu/\+Coups valides et interdits}}\label{md__r_e_a_d_m_e_autotoc_md7}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Déroulement du jeu}{Déroulement du jeu}}\label{md__r_e_a_d_m_e_autotoc_md8}
 
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Une pièce apparaît en haut de la grille.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Le joueur peut la déplacer (haut, bas, droite,gauche) ou la faire tourner.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] La pièce tombe progressivement.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Lorsqu’elle touche le bas ou un bloc déjà posé \+: elle se verrouille, on génère une nouvelle pièce.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Les lignes complètes sont supprimées automatiquement.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Le score augmente.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] La vitesse augmente au fur et à mesure des niveaux.
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Si une pièce ne peut pas apparaître (entièrement) =\texorpdfstring{$>$}{>} perdu.
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Coups valides}{Coups valides}}\label{md__r_e_a_d_m_e_autotoc_md9}
+{\ttfamily \doxylink{class_block}{Block}} est essentiellement un couple de coordonnées entières positives et sur lequel l\textquotesingle{}on peut faire des translations à partir du mouvement décrit tel qu\textquotesingle{}il apparaîtrait sur un écran. {\ttfamily \doxylink{class_piece}{Piece}} est alors un agrégat de quatre blocs dont les positions relatives permettent de définir les formes décrites au paragraphe Description générale du jeu Tetris. Une pièce possède également une méthode permettant de réaliser les mêmes types de mouvement que les blocs auxquels on ajoute les rotations horaires et anti-\/horaires autour d\textquotesingle{}un bloc pivot définit préalablement.
 
+La classe {\ttfamily \doxylink{class_cell}{Cell}} est quant à elle une classe réprésentant les cases d\textquotesingle{}une grille de jeu Tetris. Elle contient donc des attributs et méthodes donnant des informations sur la case \+: sa couleur et si elle est vide ou non. La classe {\ttfamily \doxylink{class_grid}{Grid}} est alors un grille d\textquotesingle{}objets de type {\ttfamily \doxylink{class_cell}{Cell}} et est l\textquotesingle{}interface du core du jeu. En particulier, une partie de Tetris est constitué d\textquotesingle{}itérations du type \+:
 \begin{DoxyItemize}
-\item[\DoxyUnchecked] Déplacements \begin{DoxyVerb}  -Déplacer la pièce vers la gauche (si pas d’obstacle)
+\item la création de la prochaine pièce à jouer et son positionnement (méthode {\ttfamily put\+\_\+piece} de {\ttfamily \doxylink{class_grid}{Grid}}) ;
+\item le déplacement de la pièce jusqu\textquotesingle{}à qu\textquotesingle{}elle ne puisse plus descendre (méthode {\ttfamily move\+\_\+piece} de {\ttfamily \doxylink{class_grid}{Grid}}) ;
+\item la mise à jour de la grille avec la suppression des lignes pleines et la vérification de la fin de partie (méthode {\ttfamily update} de {\ttfamily \doxylink{class_grid}{Grid}}).
+\end{DoxyItemize}
 
-  -Déplacer la pièce vers la droite
+Précisons en outre le lien entre une pièce et une grilles. En effet, il s\textquotesingle{}avère que la pièce contrôlée par le joueur n\textquotesingle{}évolue pas directement dans la grille. Elle existe plutôt séparément et la grille actualise ses cellules en mettant en parallèle les coordonnées des blocks de la pièce et les index des cellules.
 
-  -Faire une descente rapide
+Le premier avantage de cela est que cela facilite la vérification de la légalité des mouvements de la pièce. En effet, il faut que pendant une partie de Tetris la pièce ne sorte pas de la grille. La pièce ayant une existence indépendante de la grille, nous pouvons donc la déplacer sans s\textquotesingle{}en préoccuper dans un premier temps. Il est alors facile dans un second temps de vérifier en regardant directement les coordonnées des blocs de la pièce si celles-\/ci correspondent à des indices possibles de la grille et si les cellules correspondantes sont bien vides. Si ces deux choses sont vérifiées, le déplacement de la pièce est validé, sinon la pièce est remise à sa position initiale. De cette façon, si l\textquotesingle{}affichage graphique de l\textquotesingle{}état de la grille est réalisé après ces étapes, la pièce ne se sera pas déplacée pour le joueur en cas de mouvement illégal.
 
-  -Faire un hard drop (descente instantanée)
-\end{DoxyVerb}
+Le deuxième avantage est que cela n\textquotesingle{}oblige pas à stocker les pièces tout au long de la partie mais juste à changer le caractère vide ou plein des cellules de la grille au fur et mesure. Il s\textquotesingle{}agit donc essentiellement de stocker un booléen au lieu d\textquotesingle{}un couple de {\ttfamily unsigned int}, ce qui est plus efficace en terme de mémoire.
+
+Finalement, le core du jeu contient également le fichier {\ttfamily \doxylink{main_8cpp}{main.\+cpp}} qui est comme son nom l\textquotesingle{}indique le fichier contenant la fonction {\ttfamily main}. II s\textquotesingle{}agit du fichier organisant l\textquotesingle{}ensemble du jeu, notamment en reliant l\textquotesingle{}interface du core, les objets de type {\ttfamily \doxylink{class_grid}{Grid}} gérant la logique interne du jeu, à l\textquotesingle{}interface utilisateur permettant par exemple d\textquotesingle{}afficher le jeu à l\textquotesingle{}écran tel qu\textquotesingle{}attendu.\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{Brève description de l\textquotesingle{}ui}{Brève description de l\textquotesingle{}ui}}\label{md__r_e_a_d_m_e_autotoc_md10}
+Le dossier {\ttfamily /ui} contient les fichiers {\ttfamily \doxylink{ui_8cpp}{ui.\+cpp}} et {\ttfamily \doxylink{ui_8h}{ui.\+h}} permettant de créer l\textquotesingle{}interface utilisateur de jeu à l\textquotesingle{}aide de la librairie {\ttfamily SFML}. Il s\textquotesingle{}agit essentiellement de la définition et la déclaration des \+:
+\begin{DoxyItemize}
+\item variables permettant de définir les caractéristiques de l\textquotesingle{}interface, comme par exemple la hauteur en pixels de l\textquotesingle{}écran, au sein du namespace {\ttfamily \doxylink{namespace_u_i}{UI}} ;
+\item des fonctions permettant de faciliter la manipulation de la librarie {\ttfamily SFML} dans la fonction {\ttfamily main} du jeu.
+\end{DoxyItemize}
+
+Ces éléments permettent notamment d\textquotesingle{}utiliser les classes du core pour générer la boucle de jeu à l\textquotesingle{}aide de diverses fonctions. Ils permettent également de fournir un affichage plein écran qui s\textquotesingle{}adapte automatiquement à la résolution native de l\textquotesingle{}écran, par exemple pour le centrage des textes de menu ou sur les côtés de la grille. Mentionnons que la police d\textquotesingle{}écriture utilisée tire sa source de \href{https://fontstruct.com/fontstructions/show/2350408}{\texttt{https\+://fontstruct.\+com/fontstructions/show/2350408}}. Finalement, ils permettent la diffusion de sons et musiques d\textquotesingle{}ambiance. Ils proviennent de \href{https://pixabay.com/fr/sound-effects/search/musique\%20pour\%20tetris/?utm_source=chatgpt.com}{\texttt{https\+://pixabay.\+com/fr/sound-\/effects/search/musique\%20pour\%20tetris/?utm\+\_\+source=chatgpt.\+com}} et de \href{https://www.voicy.network/fr/search/tetris-sound-effects}{\texttt{https\+://www.\+voicy.\+network/fr/search/tetris-\/sound-\/effects}}. Il n\textquotesingle{}y a cependant pas d\textquotesingle{}option de réglages des volumes sonores à l\textquotesingle{}intérieur du jeu.\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{md__r_e_a_d_m_e_autotoc_md11}
+La documentation des fichiers du jeu a été générée à l\textquotesingle{}aide de {\ttfamily Doxygen}. Les fichiers générés sont au format {\ttfamily html} ou {\ttfamily Latex} au sein du fichier {\ttfamily /doc}. Le format le plus simple à utiliser est le format {\ttfamily html} puisqu\textquotesingle{}il suffit de l\textquotesingle{}ouvrir dans un navigateur internet pour pouvoir en consulter le contenu.
+
+La documentation générée permet d\textquotesingle{}obtenir l\textquotesingle{}ensemble des déclarations des éléments importants du jeu (classes, fonctions, namespace etc) ainsi qu\textquotesingle{}une brève description de ce que cela représente ou de ce que cela est censé accomplir.\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{Tests}{Tests}}\label{md__r_e_a_d_m_e_autotoc_md12}
+La core du jeu a été testé à l\textquotesingle{}aide de la librarie {\ttfamily Catch 2}. Cela a permis l\textquotesingle{}implémentation de tests systématiques des éléments clés de la logique interne du jeu. Ces tests sont exécutables en exécutant le fichier {\ttfamily test\+\_\+core} qui a été crée au même endroit que {\ttfamily tetrix\+\_\+game} lors de l\textquotesingle{}installation.
+
+Les premiers tests sont simplement des vérifications sommaires de la méthode {\ttfamily move} de la classe {\ttfamily \doxylink{class_block}{Block}} ainsi que de l\textquotesingle{}attribution des couleurs des blocs d\textquotesingle{}une pièce en fonction de sa forme. Les autres tests, plus importants, consistent à tester la classe {\ttfamily \doxylink{class_grid}{Grid}} puisqu\textquotesingle{}elle contient les fonctions d\textquotesingle{}interface du core. En outre, son bon fonctionnement valide également celui des autres classes puisqu\textquotesingle{}il en dépend. La philosophie de ces tests est la suivante \+:
+\begin{DoxyItemize}
+\item on crée un objet de type {\ttfamily string} qui représente un état du jeu bien précis et dont l\textquotesingle{}état peut-\/être controlé au besoin en l\textquotesingle{}affichant dans le terminal;
+\item on recrée ensuite cet état du jeu à l\textquotesingle{}aide des méthodes de la classe {\ttfamily \doxylink{class_grid}{Grid}} en supposant qu\textquotesingle{}elles fonctionnent correctement;
+\item on transforme la grille en objet de type {\ttfamily string} à l\textquotesingle{}aide de la fonction auxiliaire {\ttfamily \doxylink{core__class_8h_a175f9fbd6504784b4f90cf8b5932dc18}{get\+\_\+grid}};
+\item on réalise un test de comparaison entre les deux {\ttfamily string} ainsi obtenues \+: si le test est validé, c\textquotesingle{}est que les méthodes de la {\ttfamily \doxylink{class_grid}{Grid}} en ont modifié l\textquotesingle{}état de la façon attendue, sinon c\textquotesingle{}est qu\textquotesingle{}il y a un problème à régler. ~\newline
 
 \end{DoxyItemize}
 
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Rotations \begin{DoxyVerb}  -Tourner la pièce dans le sens horaire
-
-  -Tourner la pièce dans le sens antihoraire
-\end{DoxyVerb}
-
-\end{DoxyItemize}
+~\newline
 
 
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Actions spéciales \begin{DoxyVerb}  -Pause du jeu
-\end{DoxyVerb}
-
-\end{DoxyItemize}
-
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Actions de jeu correctes \begin{DoxyVerb}  -Verrouiller une pièce lorsqu’elle touche le fond
-
-  -Supprimer les lignes complètes
-
-  -Passer au niveau supérieur
-
-  -Engendrer une nouvelle pièce selon les règles
-\end{DoxyVerb}
-
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{Coups interdits}{Coups interdits}}\label{md__r_e_a_d_m_e_autotoc_md10}
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Déplacements interdits \begin{DoxyVerb}  -Sortir de la grille (à gauche, à droite ou sous le bas)
-
-  -Monter la pièce vers le haut
-
-  -Pénétrer dans un bloc déjà placé
-
-  -Déplacer une pièce après qu’elle soit verrouillée
-\end{DoxyVerb}
-
-\end{DoxyItemize}
-
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Rotations invalides \begin{DoxyVerb}  -Tourner si une rotation ferait sortir la pièce de la grille
-
-  -Tourner si la pièce entre dans un bloc déjà occupé
-
-  -Tourner alors que la pièce est déjà verrouillée
-\end{DoxyVerb}
-
-\end{DoxyItemize}
-
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Autres actions impossibles \begin{DoxyVerb}  -Faire apparaître une nouvelle pièce si l’espace de spawn (l’endroit où les nouvelles pièces apparaissent au début) est occupé
-
-  -Modifier le score de manière manuelle
-
-  -Supprimer une ligne qui n’est pas entièrement remplie
-
-  -Ralentir la gravité
-
-  -Déplacer une pièce lorsque le jeu est en pause
-\end{DoxyVerb}
-
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Aborescence du Projet}{Aborescence du Projet}}\label{md__r_e_a_d_m_e_autotoc_md11}
-\begin{DoxyVerb}  TetrisProject/
-  ├── core/
-  │ ├── include/
-  │ │ └── core_class.h
-  │ └── src/
-  │   └── core_class.cpp
-  │   └── main.cpp
-  ├── doc/
-  ├── sounds/
-  │ ├── music.ogg
-  │ ├── move.wav
-  │ ├── rotate.wav
-  │ └── drop.wav
-  ├── tests/
-  ├── CMakeLists.txt
-  ├── DoxyFile
-  ├── .gitignore
-  └── README.md
-\end{DoxyVerb}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{\texorpdfstring{Architecture des Classes}{Architecture des Classes}}\label{md__r_e_a_d_m_e_autotoc_md12}
-
-\begin{DoxyEnumerate}
-\item {\bfseries{\doxylink{class_block}{Block}}} \+: Représente un bloc individuel avec ses coordonnées (ligne, colonne)
-\item {\bfseries{\doxylink{class_cell}{Cell}}} \+: Représente une cellule de la grille, pouvant être vide ou pleine
-\item {\bfseries{\doxylink{class_piece}{Piece}}} \+: Groupe de 4 blocs formant une pièce Tetris, avec gestion des rotations
-\item {\bfseries{\doxylink{class_grid}{Grid}}} \+: Grille de jeu contenant les cellules, gère la logique du jeu
-\item {\bfseries{Enumérations}} \+:
-\begin{DoxyItemize}
-\item {\ttfamily \doxylink{core__class_8h_a19b869a01ca1a58f4164b4f75c2df388}{Move}} \+: Déplacements possibles (haut, bas, gauche, droite, rotations)
-\item {\ttfamily \doxylink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \+: Les 7 types de pièces Tetris
-\end{DoxyItemize}
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Feuille de Route}{Feuille de Route}}\label{md__r_e_a_d_m_e_autotoc_md13}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{Tâche 1\+: Implémentation des classes de base}{Tâche 1\+: Implémentation des classes de base}}\label{md__r_e_a_d_m_e_autotoc_md14}
-
-\begin{DoxyItemize}
-\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_block}{Block}} ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_cell}{Cell}} ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_piece}{Piece}} ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Classe {\ttfamily \doxylink{class_grid}{Grid}} ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Tâche 2\+: Logique du jeu}{Tâche 2\+: Logique du jeu}}\label{md__r_e_a_d_m_e_autotoc_md15}
-
-\begin{DoxyItemize}
-\item[\DoxyChecked] Mouvement des pièces ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Rotation des pièces ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Détection des collisions ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Suppression des lignes complètes ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Génération aléatoire des pièces ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Tâche 3\+: Interface graphique}{Tâche 3\+: Interface graphique}}\label{md__r_e_a_d_m_e_autotoc_md16}
-
-\begin{DoxyItemize}
-\item[\DoxyChecked] Affichage de la grille ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Affichage des pièces ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Contrôles clavier ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyChecked] Système audio ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Tâche 4\+: Fonctionnalités avancées}{Tâche 4\+: Fonctionnalités avancées}}\label{md__r_e_a_d_m_e_autotoc_md17}
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Système de scoring (points par ligne, etc.) ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Niveaux de difficulté progressive ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Menu principal et écrans d\textquotesingle{}interface
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Sauvegarde des meilleurs scores ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Effets visuels (animations et autres) ✓
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysubsection{\texorpdfstring{Tâche 5\+: Qualité, tests et finalisation}{Tâche 5\+: Qualité, tests et finalisation}}\label{md__r_e_a_d_m_e_autotoc_md18}
-
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Tests unitaires des classes principales ({\ttfamily \doxylink{class_grid}{Grid}}, {\ttfamily \doxylink{class_piece}{Piece}}, collisions) ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Gestion des erreurs (sons, chargement des ressources, police) ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Nettoyage et refactorisation du code
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Documentation du code (Doxygen) ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Portabilité Linux / Windows ✓
-\end{DoxyItemize}
-\begin{DoxyItemize}
-\item[\DoxyUnchecked] Livraison finale du projet
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysubsection{\texorpdfstring{Compilation avec CMake}{Compilation avec CMake}}\label{md__r_e_a_d_m_e_autotoc_md19}
-\`{}\`{}\`{}bash mkdir build cd build cmake .. make ./tetrix\+\_\+game 
+En ce qui concerne l\textquotesingle{}interface utilisateur du jeu, l\textquotesingle{}utilisation de la librairie {\ttfamily Catch 2} est beaucoup plus difficile de par l\textquotesingle{}objectif même de cette partie du code, à savoir créer un affichage graphique ainsi qu\textquotesingle{}ajouter des musiques et effet sonores. Les tests ont donc été conduits plus élémentairement en jouant simplement au jeu pour vérifier le bon fonctionnement des éléments graphiques et sonores, le fonctionnement interne du jeu étant assuré par les tests systématiques du core. 

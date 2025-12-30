@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['base_0',['Tâche 1: Implémentation des classes de base',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]]
+  ['générale_20du_20jeu_20tetris_0',['Description générale du jeu Tetris',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]]
 ];

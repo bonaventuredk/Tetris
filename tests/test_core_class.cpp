@@ -3,8 +3,8 @@
  * \brief A series of Catch2 tests to ensure the good functionning
  *  of key parts of the core.
  * \author Alexandre Bleuler - Bonaventure Dohemeto
- * \version 1.0
- * \date 23/12/2025
+ * \version 2.0
+ * \date 30/12/2025
  */
 
 

@@ -2,17 +2,31 @@
 \hypertarget{ui_8h}{}\label{ui_8h}\index{ui/include/ui.h@{ui/include/ui.h}}
 
 
-This file contains functions and variables déclarations used to make the user interface of Tetris. Variables are encapsulated in the namespace \doxylink{namespace_u_i}{UI}.  
+This file contains functions and variables declarations used to make the user interface of Tetris. Variables are encapsulated in the namespace \doxylink{namespace_u_i}{UI}.  
 
 
 {\ttfamily \#include $<$SFML/\+Graphics.\+hpp$>$}\newline
 {\ttfamily \#include $<$SFML/\+Window.\+hpp$>$}\newline
 {\ttfamily \#include $<$SFML/\+Audio/\+Music.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Audio/\+Sound.\+hpp$>$}\newline
+{\ttfamily \#include $<$SFML/\+Audio/\+Sound\+Buffer.\+hpp$>$}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_u_i}{UI}}
 \begin{DoxyCompactList}\small\item\em A namespace to store variables linked to the \doxylink{namespace_u_i}{UI} of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} \{ \newline
+\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa8a7b88cd602849e993a8ba3cdef39462}{Start\+Game}}
+, \mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa24b6472fcfa59cddd3f7bbc326582b5f}{Controls}}
+, \mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa27b8f7be31c86dd3518d04d8e25a11f0}{Best\+Score}}
+, \mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa0d82790b0612935992bd564a17ce37d6}{Quit}}
+, \newline
+{\bfseries None}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration for menu choices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,28 +45,64 @@ void \mbox{\hyperlink{ui_8h_a16e0691e424f0636f12f5d010cb81ddd}{draw\+\_\+game\+\
 void \mbox{\hyperlink{ui_8h_aeb8f97254d44ef934b28d6cbb37463ef}{draw\+\_\+controls}} (sf\+::\+Render\+Window \&window)
 \begin{DoxyCompactList}\small\item\em A function to show game controls on screen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ui_8h_a97309e2dca077b519414dd795b661647}{draw\+\_\+pause\+\_\+screen}} (sf\+::\+Render\+Window \&window)
-\begin{DoxyCompactList}\small\item\em A function to show pause screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function to show pause screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_ae5af9b3c661135ae95d8290dd79100f3}{draw\+\_\+menu\+\_\+screen}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} selected\+Choice, int best\+Score)
+\begin{DoxyCompactList}\small\item\em Draws the main menu screen. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} \mbox{\hyperlink{ui_8h_a65ff1bb14aed8fab338acedf1312888c}{show\+Menu}} (int current\+Best\+Score)
+\begin{DoxyCompactList}\small\item\em Displays the main menu and handles menu navigation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a01453caebc3d362ed0331799306d0e84}{draw\+\_\+controls\+\_\+screen}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Displays the controls screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a1abb6ad34c77789eee78c689241e58cf}{draw\+\_\+best\+\_\+score\+\_\+screen}} (sf\+::\+Render\+Window \&window, int best\+Score)
+\begin{DoxyCompactList}\small\item\em Displays the best score screen. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ui_8h_ab2347feed9caa98d8879c87538713a96}{handle\+Menu\+Navigation}} (\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} \&selected\+Choice, const sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Handles the menu navigation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ui_8h_a9a37c0c7582894cc7dd94136950611db}{execute\+Menu\+Action}} (\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} selected\+Choice, bool \&in\+Menu, sf\+::\+Render\+Window \&window, int best\+Score)
+\begin{DoxyCompactList}\small\item\em Executes the selected menu action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a72e3c6255c785272fa9ad287c2f941a6}{initialize\+Game}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{class_piece}{Piece}} \&current, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next, bool \&game\+Over, double \&time\+Decrease\+Rate, double \&score\+Threshold)
+\begin{DoxyCompactList}\small\item\em Initializes the game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a40921ade9ffe30ffb9cc7c14e462864f}{restart\+Game}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{class_piece}{Piece}} \&current, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next, bool \&game\+Over, bool \&is\+Paused, sf\+::\+Clock \&clock, double \&time\+Decrease\+Rate, double \&score\+Threshold, sf\+::\+Music \&music)
+\begin{DoxyCompactList}\small\item\em Restarts the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a5d7bf558b2408e016cf6fe41b9e87602}{handle\+Game\+Input}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{class_piece}{Piece}} \&current, bool \&is\+Paused, bool \&is\+Quit, bool \&go\+To\+Menu, sf\+::\+Sound \&move\+Left\+Sound, sf\+::\+Sound \&move\+Right\+Sound, sf\+::\+Sound \&clockwise\+Sound, sf\+::\+Sound \&anticlockwise\+Sound, sf\+::\+Sound \&drop\+Sound)
+\begin{DoxyCompactList}\small\item\em Handles player input during gameplay. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_aaca369958bc1424b98bc6a91e71b6492}{handle\+Pause\+Input}} (bool \&is\+Paused, bool \&is\+Quit, bool \&go\+To\+Menu, \mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{class_piece}{Piece}} \&current, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next, double \&time\+Decrease\+Rate, double \&score\+Threshold, sf\+::\+Clock \&clock, sf\+::\+Music \&music, sf\+::\+Sound \&pause\+Sound)
+\begin{DoxyCompactList}\small\item\em Handles input when game is paused. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a792e6ec522df83c73fcff4ceb8256e3c}{handle\+Game\+Over\+Input}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{class_piece}{Piece}} \&current, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next, bool \&game\+Over, bool \&is\+Paused, sf\+::\+Clock \&clock, double \&time\+Decrease\+Rate, double \&score\+Threshold, sf\+::\+Music \&music, bool \&is\+Quit, bool \&go\+To\+Menu)
+\begin{DoxyCompactList}\small\item\em Handles input when game is over. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a63385400f9c9b012e3bc907ecfe238e3}{update\+Game}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{class_piece}{Piece}} \&current, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next, bool \&game\+Over, sf\+::\+Clock \&clock, double \&time\+Decrease\+Rate, double \&score\+Threshold, sf\+::\+Sound \&drop\+Sound, sf\+::\+Sound \&success\+Sound, sf\+::\+Sound \&level\+Up\+Sound, sf\+::\+Sound \&game\+Over\+Sound, sf\+::\+Music \&music, int \&best\+Score)
+\begin{DoxyCompactList}\small\item\em Updates game logic\+: movement, collision, scoring. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a1fff06f1a0a1e377a940bffe4e392916}{draw\+Game}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{class_grid}{Grid}} \&grid, \mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&next, bool is\+Paused)
+\begin{DoxyCompactList}\small\item\em Renders the current game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a712dafe58e0e3322fa0898234e420527}{load\+Best\+Score}} (const std\+::string \&filename, int \&best\+Score)
+\begin{DoxyCompactList}\small\item\em Loads the best score from file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_a18098944336478dfba4922d90c3badf4}{save\+Best\+Score}} (const std\+::string \&filename, int best\+Score)
+\begin{DoxyCompactList}\small\item\em Saves the best score to file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ui_8h_a24449e5c5791804fbd8203acce7fea80}{load\+Sounds}} (sf\+::\+Sound\+Buffer sound\+Buffers\mbox{[}$\,$\mbox{]}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ \&sounds, const char \texorpdfstring{$\ast$}{*}filenames\mbox{[}$\,$\mbox{]}, size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Loads all game sounds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui_8h_aa3a42b6202b319d9d236a4519d088e62}{run\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Runs the main game loop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ui_8h_af454d84abb21c88e8ae295e8f2e38a49}{show\+Main\+Menu}} (int best\+Score)
+\begin{DoxyCompactList}\small\item\em Main menu loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{UI\+::row\+\_\+number}} =20
+unsigned int \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{UI\+::row\+\_\+number}} = 20
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{UI\+::column\+\_\+number}} =10
+unsigned int \mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{UI\+::column\+\_\+number}} = 10
 \item 
 sf\+::\+Video\+Mode \mbox{\hyperlink{namespace_u_i_a4e8843c58982b9005af1bf14c2d5d6e9}{UI\+::current\+\_\+video\+\_\+mode}} = sf\+::\+Video\+Mode\+::get\+Desktop\+Mode()
 \item 
 \Hypertarget{namespace_u_i_afd9f868fdd89c60233e91374269f5599}\label{namespace_u_i_afd9f868fdd89c60233e91374269f5599} 
 sf\+::\+Render\+Window {\bfseries UI\+::window}
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{UI\+::height\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{row\+\_\+number}}+2
+unsigned int \mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{UI\+::height\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a311468b7f4e379037039b042f4aec8c4}{row\+\_\+number}} + 2
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{UI\+::pixel\+\_\+cell\+\_\+size}} = current\+\_\+video\+\_\+mode.\+size.\+y/\mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{height\+\_\+in\+\_\+cell}}
+unsigned int \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{UI\+::pixel\+\_\+cell\+\_\+size}} = current\+\_\+video\+\_\+mode.\+size.\+y / \mbox{\hyperlink{namespace_u_i_a11cdb8e995a36417f76e84531a3f75d6}{height\+\_\+in\+\_\+cell}}
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{UI\+::width\+\_\+in\+\_\+cell}} = current\+\_\+video\+\_\+mode.\+size.\+x/\mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}
+unsigned int \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{UI\+::width\+\_\+in\+\_\+cell}} = current\+\_\+video\+\_\+mode.\+size.\+x / \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{UI\+::left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = (\mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}})/2
+unsigned int \mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{UI\+::left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = (\mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}} -\/ \mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}}) / 2
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_a9717976ab1a0cb0384645e16f858efab}{UI\+::right\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}-\/\mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}}
+unsigned int \mbox{\hyperlink{namespace_u_i_a9717976ab1a0cb0384645e16f858efab}{UI\+::right\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} = \mbox{\hyperlink{namespace_u_i_a1470a0265f4b335edda8fa05b9cc5bac}{width\+\_\+in\+\_\+cell}} -\/ \mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} -\/ \mbox{\hyperlink{namespace_u_i_a9bd3aad7eed5a6b6b3ce7f79ff86af09}{column\+\_\+number}}
 \item 
 sf\+::\+Rectangle\+Shape \mbox{\hyperlink{namespace_u_i_a6a9536f56ae05bc8740b6d5b2ef78f8e}{UI\+::cell}}
 \item 
@@ -68,27 +118,80 @@ constexpr sf\+::\+Color \mbox{\hyperlink{namespace_u_i_ad496738b44b9a0dd5848a4df
 \item 
 sf\+::\+Font \mbox{\hyperlink{namespace_u_i_ab21a964c3d423f185dca7bf3d809329f}{UI\+::font}}
 \item 
-unsigned int \mbox{\hyperlink{namespace_u_i_ae5b01422c9ea59958c79c068126d41ed}{UI\+::font\+\_\+size}} = \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}}/10
+unsigned int \mbox{\hyperlink{namespace_u_i_ae5b01422c9ea59958c79c068126d41ed}{UI\+::font\+\_\+size}} = \mbox{\hyperlink{namespace_u_i_a18d30be9b3a981aacb49aef4157ee004}{pixel\+\_\+cell\+\_\+size}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_u_i_afc759781fa48e61aab8144d5cc3fd6db}{left\+\_\+side\+\_\+width\+\_\+in\+\_\+cell}} / 10
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file contains functions and variables déclarations used to make the user interface of Tetris. Variables are encapsulated in the namespace \doxylink{namespace_u_i}{UI}. 
+This file contains functions and variables declarations used to make the user interface of Tetris. Variables are encapsulated in the namespace \doxylink{namespace_u_i}{UI}. 
 
 \begin{DoxyAuthor}{Author}
 Alexandre Bleuler -\/ Bonaventure Dohemeto 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
-1.\+0 
+2.\+0 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-23/12/2025 
+30/12/2025 
 \end{DoxyDate}
+
+
+\label{doc-enum-members}
+\Hypertarget{ui_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}\index{ui.h@{ui.h}!MenuChoice@{MenuChoice}}
+\index{MenuChoice@{MenuChoice}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{MenuChoice}{MenuChoice}}
+{\footnotesize\ttfamily \label{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea} 
+enum class \mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enumeration for menu choices. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StartGame@{StartGame}!ui.h@{ui.h}}\index{ui.h@{ui.h}!StartGame@{StartGame}}}\Hypertarget{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa8a7b88cd602849e993a8ba3cdef39462}\label{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa8a7b88cd602849e993a8ba3cdef39462} 
+Start\+Game&Main menu \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Controls@{Controls}!ui.h@{ui.h}}\index{ui.h@{ui.h}!Controls@{Controls}}}\Hypertarget{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa24b6472fcfa59cddd3f7bbc326582b5f}\label{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa24b6472fcfa59cddd3f7bbc326582b5f} 
+Controls&Menu of the controls \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BestScore@{BestScore}!ui.h@{ui.h}}\index{ui.h@{ui.h}!BestScore@{BestScore}}}\Hypertarget{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa27b8f7be31c86dd3518d04d8e25a11f0}\label{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa27b8f7be31c86dd3518d04d8e25a11f0} 
+Best\+Score&Menu of the best score \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Quit@{Quit}!ui.h@{ui.h}}\index{ui.h@{ui.h}!Quit@{Quit}}}\Hypertarget{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa0d82790b0612935992bd564a17ce37d6}\label{ui_8h_a482cfe33dfe81cd20e4ae29c449b9deaa0d82790b0612935992bd564a17ce37d6} 
+Quit&Quitting menu \\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \label{doc-func-members}
 \Hypertarget{ui_8h_doc-func-members}
 \doxysubsection{Function Documentation}
+\Hypertarget{ui_8h_a1abb6ad34c77789eee78c689241e58cf}\index{ui.h@{ui.h}!draw\_best\_score\_screen@{draw\_best\_score\_screen}}
+\index{draw\_best\_score\_screen@{draw\_best\_score\_screen}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_best\_score\_screen()}{draw\_best\_score\_screen()}}
+{\footnotesize\ttfamily \label{ui_8h_a1abb6ad34c77789eee78c689241e58cf} 
+void draw\+\_\+best\+\_\+score\+\_\+screen (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{int}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Displays the best score screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The render window \\
+\hline
+{\em best\+Score} & The best score to display \\
+\hline
+\end{DoxyParams}
 \Hypertarget{ui_8h_a823d6381a9ce159b16627d07c5da6411}\index{ui.h@{ui.h}!draw\_cell@{draw\_cell}}
 \index{draw\_cell@{draw\_cell}!ui.h@{ui.h}}
 \doxysubsubsection{\texorpdfstring{draw\_cell()}{draw\_cell()}}
@@ -135,6 +238,21 @@ A function to show game controls on screen.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\Hypertarget{ui_8h_a01453caebc3d362ed0331799306d0e84}\index{ui.h@{ui.h}!draw\_controls\_screen@{draw\_controls\_screen}}
+\index{draw\_controls\_screen@{draw\_controls\_screen}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_controls\_screen()}{draw\_controls\_screen()}}
+{\footnotesize\ttfamily \label{ui_8h_a01453caebc3d362ed0331799306d0e84} 
+void draw\+\_\+controls\+\_\+screen (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Displays the controls screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The render window \\
+\hline
+\end{DoxyParams}
 \Hypertarget{ui_8h_a16e0691e424f0636f12f5d010cb81ddd}\index{ui.h@{ui.h}!draw\_game\_over\_screen@{draw\_game\_over\_screen}}
 \index{draw\_game\_over\_screen@{draw\_game\_over\_screen}!ui.h@{ui.h}}
 \doxysubsubsection{\texorpdfstring{draw\_game\_over\_screen()}{draw\_game\_over\_screen()}}
@@ -154,6 +272,9 @@ Draws the game over screen.
 {\em best\+Score} & Best score \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \Hypertarget{ui_8h_af8e300693c4831d670e49551ef703443}\index{ui.h@{ui.h}!draw\_grid@{draw\_grid}}
 \index{draw\_grid@{draw\_grid}!ui.h@{ui.h}}
 \doxysubsubsection{\texorpdfstring{draw\_grid()}{draw\_grid()}}
@@ -169,6 +290,28 @@ A function to draw the Tetris\textquotesingle{} grid on screen.
 {\em grid} & The grid to draw. \\
 \hline
 {\em window} & The window on which the grid will be drawn. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_ae5af9b3c661135ae95d8290dd79100f3}\index{ui.h@{ui.h}!draw\_menu\_screen@{draw\_menu\_screen}}
+\index{draw\_menu\_screen@{draw\_menu\_screen}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{draw\_menu\_screen()}{draw\_menu\_screen()}}
+{\footnotesize\ttfamily \label{ui_8h_ae5af9b3c661135ae95d8290dd79100f3} 
+void draw\+\_\+menu\+\_\+screen (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}}}]{selected\+Choice}{, }\item[{int}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Draws the main menu screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The render window \\
+\hline
+{\em selected\+Choice} & The currently selected menu option \\
+\hline
+{\em best\+Score} & The best score to display \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -232,6 +375,40 @@ A function to show the player\textquotesingle{}s score on screen.
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\Hypertarget{ui_8h_a1fff06f1a0a1e377a940bffe4e392916}\index{ui.h@{ui.h}!drawGame@{drawGame}}
+\index{drawGame@{drawGame}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{drawGame()}{drawGame()}}
+{\footnotesize\ttfamily \label{ui_8h_a1fff06f1a0a1e377a940bffe4e392916} 
+void draw\+Game (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next}{, }\item[{bool}]{is\+Paused}{}\end{DoxyParamCaption})}
+
+
+
+Renders the current game state. 
+
+Draws the grid, current and next pieces, and pause overlay if needed. \Hypertarget{ui_8h_a9a37c0c7582894cc7dd94136950611db}\index{ui.h@{ui.h}!executeMenuAction@{executeMenuAction}}
+\index{executeMenuAction@{executeMenuAction}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{executeMenuAction()}{executeMenuAction()}}
+{\footnotesize\ttfamily \label{ui_8h_a9a37c0c7582894cc7dd94136950611db} 
+bool execute\+Menu\+Action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}}}]{selected\+Choice}{, }\item[{bool \&}]{in\+Menu}{, }\item[{sf\+::\+Render\+Window \&}]{window}{, }\item[{int}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Executes the selected menu action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Choice} & The menu choice selected \\
+\hline
+{\em in\+Menu} & Reference to menu state flag \\
+\hline
+{\em window} & Reference to the render window \\
+\hline
+{\em best\+Score} & The current best score \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the game should start 
+\end{DoxyReturn}
 \Hypertarget{ui_8h_a9f0b57658f0a2a92708daaf9847aae34}\index{ui.h@{ui.h}!grid\_sides\_center\_text@{grid\_sides\_center\_text}}
 \index{grid\_sides\_center\_text@{grid\_sides\_center\_text}!ui.h@{ui.h}}
 \doxysubsubsection{\texorpdfstring{grid\_sides\_center\_text()}{grid\_sides\_center\_text()}}
@@ -254,3 +431,199 @@ A function to center a text on a line of cells on sides of the Tetris\textquotes
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
+\Hypertarget{ui_8h_a5d7bf558b2408e016cf6fe41b9e87602}\index{ui.h@{ui.h}!handleGameInput@{handleGameInput}}
+\index{handleGameInput@{handleGameInput}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{handleGameInput()}{handleGameInput()}}
+{\footnotesize\ttfamily \label{ui_8h_a5d7bf558b2408e016cf6fe41b9e87602} 
+void handle\+Game\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{current}{, }\item[{bool \&}]{is\+Paused}{, }\item[{bool \&}]{is\+Quit}{, }\item[{bool \&}]{go\+To\+Menu}{, }\item[{sf\+::\+Sound \&}]{move\+Left\+Sound}{, }\item[{sf\+::\+Sound \&}]{move\+Right\+Sound}{, }\item[{sf\+::\+Sound \&}]{clockwise\+Sound}{, }\item[{sf\+::\+Sound \&}]{anticlockwise\+Sound}{, }\item[{sf\+::\+Sound \&}]{drop\+Sound}{}\end{DoxyParamCaption})}
+
+
+
+Handles player input during gameplay. 
+
+Processes movement, rotation, drop, and menu navigation keys. \Hypertarget{ui_8h_a792e6ec522df83c73fcff4ceb8256e3c}\index{ui.h@{ui.h}!handleGameOverInput@{handleGameOverInput}}
+\index{handleGameOverInput@{handleGameOverInput}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{handleGameOverInput()}{handleGameOverInput()}}
+{\footnotesize\ttfamily \label{ui_8h_a792e6ec522df83c73fcff4ceb8256e3c} 
+void handle\+Game\+Over\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{current}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next}{, }\item[{bool \&}]{game\+Over}{, }\item[{bool \&}]{is\+Paused}{, }\item[{sf\+::\+Clock \&}]{clock}{, }\item[{double \&}]{time\+Decrease\+Rate}{, }\item[{double \&}]{score\+Threshold}{, }\item[{sf\+::\+Music \&}]{music}{, }\item[{bool \&}]{is\+Quit}{, }\item[{bool \&}]{go\+To\+Menu}{}\end{DoxyParamCaption})}
+
+
+
+Handles input when game is over. 
+
+Allows restarting or quitting the game after Game Over. \Hypertarget{ui_8h_ab2347feed9caa98d8879c87538713a96}\index{ui.h@{ui.h}!handleMenuNavigation@{handleMenuNavigation}}
+\index{handleMenuNavigation@{handleMenuNavigation}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{handleMenuNavigation()}{handleMenuNavigation()}}
+{\footnotesize\ttfamily \label{ui_8h_ab2347feed9caa98d8879c87538713a96} 
+bool handle\+Menu\+Navigation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} \&}]{selected\+Choice}{, }\item[{const sf\+::\+Event \&}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Handles the menu navigation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selected\+Choice} & Reference to the currently selected menu option \\
+\hline
+{\em event} & The SFML event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a menu action was performed 
+\end{DoxyReturn}
+\Hypertarget{ui_8h_aaca369958bc1424b98bc6a91e71b6492}\index{ui.h@{ui.h}!handlePauseInput@{handlePauseInput}}
+\index{handlePauseInput@{handlePauseInput}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{handlePauseInput()}{handlePauseInput()}}
+{\footnotesize\ttfamily \label{ui_8h_aaca369958bc1424b98bc6a91e71b6492} 
+void handle\+Pause\+Input (\begin{DoxyParamCaption}\item[{bool \&}]{is\+Paused}{, }\item[{bool \&}]{is\+Quit}{, }\item[{bool \&}]{go\+To\+Menu}{, }\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{current}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next}{, }\item[{double \&}]{time\+Decrease\+Rate}{, }\item[{double \&}]{score\+Threshold}{, }\item[{sf\+::\+Clock \&}]{clock}{, }\item[{sf\+::\+Music \&}]{music}{, }\item[{sf\+::\+Sound \&}]{pause\+Sound}{}\end{DoxyParamCaption})}
+
+
+
+Handles input when game is paused. 
+
+Allows resuming, quitting, or returning to menu while paused. \Hypertarget{ui_8h_a72e3c6255c785272fa9ad287c2f941a6}\index{ui.h@{ui.h}!initializeGame@{initializeGame}}
+\index{initializeGame@{initializeGame}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{initializeGame()}{initializeGame()}}
+{\footnotesize\ttfamily \label{ui_8h_a72e3c6255c785272fa9ad287c2f941a6} 
+void initialize\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{current}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next}{, }\item[{bool \&}]{game\+Over}{, }\item[{double \&}]{time\+Decrease\+Rate}{, }\item[{double \&}]{score\+Threshold}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the game state. 
+
+Sets up grid, current and next piece, and game parameters. 
+\begin{DoxyParams}{Parameters}
+{\em grid} & Reference to the game grid \\
+\hline
+{\em current} & Reference to the current piece \\
+\hline
+{\em next} & Reference to the next piece \\
+\hline
+{\em game\+Over} & Reference to the game over flag \\
+\hline
+{\em time\+Decrease\+Rate} & Reference to speed increase rate \\
+\hline
+{\em score\+Threshold} & Reference to score threshold for level up \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui_8h_a712dafe58e0e3322fa0898234e420527}\index{ui.h@{ui.h}!loadBestScore@{loadBestScore}}
+\index{loadBestScore@{loadBestScore}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{loadBestScore()}{loadBestScore()}}
+{\footnotesize\ttfamily \label{ui_8h_a712dafe58e0e3322fa0898234e420527} 
+void load\+Best\+Score (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int \&}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Loads the best score from file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the score file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui_8h_a24449e5c5791804fbd8203acce7fea80}\index{ui.h@{ui.h}!loadSounds@{loadSounds}}
+\index{loadSounds@{loadSounds}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{loadSounds()}{loadSounds()}}
+{\footnotesize\ttfamily \label{ui_8h_a24449e5c5791804fbd8203acce7fea80} 
+bool load\+Sounds (\begin{DoxyParamCaption}\item[{sf\+::\+Sound\+Buffer}]{sound\+Buffers}{\mbox{[}$\,$\mbox{]}, }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ sf\+::\+Sound $>$ $>$ \&}]{sounds}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{filenames}{\mbox{[}$\,$\mbox{]}, }\item[{size\+\_\+t}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Loads all game sounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sound\+Buffers} & Array of sound buffers to load. \\
+\hline
+{\em sounds} & Vector of unique\+\_\+ptr$<$sf\+::\+Sound$>$ to store the sounds. \\
+\hline
+{\em filenames} & Array of filenames corresponding to the sounds. \\
+\hline
+{\em count} & Number of sounds to load.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The sound effects were downloaded from Pixabay\+: \href{https://pixabay.com/fr/sound-effects/search/musique-pour-tetris/}{\texttt{https\+://pixabay.\+com/fr/sound-\/effects/search/musique-\/pour-\/tetris/}} and \href{https://www.voicy.network/fr/search/tetris-sound-effects}{\texttt{https\+://www.\+voicy.\+network/fr/search/tetris-\/sound-\/effects}}
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+True if all sounds were loaded successfully. 
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a40921ade9ffe30ffb9cc7c14e462864f}\index{ui.h@{ui.h}!restartGame@{restartGame}}
+\index{restartGame@{restartGame}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{restartGame()}{restartGame()}}
+{\footnotesize\ttfamily \label{ui_8h_a40921ade9ffe30ffb9cc7c14e462864f} 
+void restart\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{current}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next}{, }\item[{bool \&}]{game\+Over}{, }\item[{bool \&}]{is\+Paused}{, }\item[{sf\+::\+Clock \&}]{clock}{, }\item[{double \&}]{time\+Decrease\+Rate}{, }\item[{double \&}]{score\+Threshold}{, }\item[{sf\+::\+Music \&}]{music}{}\end{DoxyParamCaption})}
+
+
+
+Restarts the game. 
+
+Resets the game to its initial state and restarts the music. \Hypertarget{ui_8h_aa3a42b6202b319d9d236a4519d088e62}\index{ui.h@{ui.h}!runGame@{runGame}}
+\index{runGame@{runGame}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{runGame()}{runGame()}}
+{\footnotesize\ttfamily \label{ui_8h_aa3a42b6202b319d9d236a4519d088e62} 
+void run\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Runs the main game loop. 
+
+This function initializes the game state and continuously updates, processes events, and renders graphics until the game is exited. \Hypertarget{ui_8h_a18098944336478dfba4922d90c3badf4}\index{ui.h@{ui.h}!saveBestScore@{saveBestScore}}
+\index{saveBestScore@{saveBestScore}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{saveBestScore()}{saveBestScore()}}
+{\footnotesize\ttfamily \label{ui_8h_a18098944336478dfba4922d90c3badf4} 
+void save\+Best\+Score (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Saves the best score to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the score file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui_8h_af454d84abb21c88e8ae295e8f2e38a49}\index{ui.h@{ui.h}!showMainMenu@{showMainMenu}}
+\index{showMainMenu@{showMainMenu}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{showMainMenu()}{showMainMenu()}}
+{\footnotesize\ttfamily \label{ui_8h_af454d84abb21c88e8ae295e8f2e38a49} 
+bool show\+Main\+Menu (\begin{DoxyParamCaption}\item[{int}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Main menu loop. 
+
+\begin{DoxyReturn}{Returns}
+True if game should start, false if should quit 
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a65ff1bb14aed8fab338acedf1312888c}\index{ui.h@{ui.h}!showMenu@{showMenu}}
+\index{showMenu@{showMenu}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{showMenu()}{showMenu()}}
+{\footnotesize\ttfamily \label{ui_8h_a65ff1bb14aed8fab338acedf1312888c} 
+\mbox{\hyperlink{ui_8h_a482cfe33dfe81cd20e4ae29c449b9dea}{Menu\+Choice}} show\+Menu (\begin{DoxyParamCaption}\item[{int}]{current\+Best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Displays the main menu and handles menu navigation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Best\+Score} & The best score to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The menu choice selected by the player 
+
+
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a63385400f9c9b012e3bc907ecfe238e3}\index{ui.h@{ui.h}!updateGame@{updateGame}}
+\index{updateGame@{updateGame}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{updateGame()}{updateGame()}}
+{\footnotesize\ttfamily \label{ui_8h_a63385400f9c9b012e3bc907ecfe238e3} 
+void update\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid}{, }\item[{\mbox{\hyperlink{class_piece}{Piece}} \&}]{current}{, }\item[{\mbox{\hyperlink{core__class_8h_a12ed9719bbdf7bc596ff7a6f4bf3f021}{Piece\+Type}} \&}]{next}{, }\item[{bool \&}]{game\+Over}{, }\item[{sf\+::\+Clock \&}]{clock}{, }\item[{double \&}]{time\+Decrease\+Rate}{, }\item[{double \&}]{score\+Threshold}{, }\item[{sf\+::\+Sound \&}]{drop\+Sound}{, }\item[{sf\+::\+Sound \&}]{success\+Sound}{, }\item[{sf\+::\+Sound \&}]{level\+Up\+Sound}{, }\item[{sf\+::\+Sound \&}]{game\+Over\+Sound}{, }\item[{sf\+::\+Music \&}]{music}{, }\item[{int \&}]{best\+Score}{}\end{DoxyParamCaption})}
+
+
+
+Updates game logic\+: movement, collision, scoring. 
+
+Updates piece position, checks for lines, updates score and speed. 
