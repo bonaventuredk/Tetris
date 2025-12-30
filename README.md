@@ -49,7 +49,7 @@ De petites adaptations en fonction du système d'exploitation utilisé devront �
 
 ## Jouer au jeu
 
-Une fois l'installation réalisée, il suffit alors d'exécuter le fichier `tetrix_game`. Ce fichier se trouve à la racine de l'installation faite via `CMake` (donc dans le dossier `/build` avec les instructions précédentes). Une fenêtre en plein écran s'ouvrira alors et vous proposera notamment de lancer une partie ou de quitter le jeu.
+Une fois l'installation réalisée, il suffit alors d'exécuter le fichier `tetris_game`. Ce fichier se trouve à la racine de l'installation faite via `CMake` (donc dans le dossier `/build` avec les instructions précédentes). Une fenêtre en plein écran s'ouvrira alors et vous proposera notamment de lancer une partie ou de quitter le jeu.
 
 Au cours d'une partie, les touches du clavier utilisables seront :
 - `left arrow` pour bouger la pièce vers la gauche;
@@ -152,7 +152,7 @@ La documentation générée permet d'obtenir l'ensemble des déclarations des é
 
 ## Tests
 
-La core du jeu a été testé à l'aide de la librarie `Catch 2`. Cela a permis l'implémentation de tests systématiques des éléments clés de la logique interne du jeu. Ces tests sont exécutables en exécutant le fichier `test_core` qui a été crée au même endroit que `tetrix_game` lors de l'installation.
+La core du jeu a été testé à l'aide de la librarie `Catch 2`. Cela a permis l'implémentation de tests systématiques des éléments clés de la logique interne du jeu. Ces tests sont exécutables en exécutant le fichier `test_core` qui a été crée au même endroit que `tetris_game` lors de l'installation.
 
 Les premiers tests sont simplement des vérifications sommaires de la méthode `move` de la classe `Block` ainsi que de l'attribution des couleurs des blocs d'une pièce en fonction de sa forme. Les autres tests, plus importants, consistent à tester la classe `Grid` puisqu'elle contient les fonctions d'interface du core. En outre, son bon fonctionnement valide également celui des autres classes puisqu'il en dépend. La philosophie de ces tests est la suivante : 
 - on crée un objet de type `string` qui représente un état du jeu bien précis et dont l'état peut-être controlé au besoin en l'affichant dans le terminal;

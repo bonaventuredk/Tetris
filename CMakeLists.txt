@@ -16,17 +16,17 @@ find_package(SFML 3 COMPONENTS Graphics Audio REQUIRED)
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System) 
 
 include_directories(core/include ui/include)
-add_library(tetrix_core core/src/core_class.cpp)
-add_library(tetrix_ui ui/src/ui.cpp)
-target_link_libraries(tetrix_ui SFML::Graphics SFML::Window SFML::System SFML::Audio) 
+add_library(tetris_core core/src/core_class.cpp)
+add_library(tetris_ui ui/src/ui.cpp)
+target_link_libraries(tetris_ui SFML::Graphics SFML::Window SFML::System SFML::Audio) 
 
-target_include_directories(tetrix_core PUBLIC core/include) 
+target_include_directories(tetris_core PUBLIC core/include) 
 
 add_executable(test_core tests/test_core_class.cpp)
-target_link_libraries(test_core tetrix_core Catch2::Catch2WithMain)
+target_link_libraries(test_core tetris_core Catch2::Catch2WithMain)
 
-add_executable(tetrix_game core/src/main.cpp ui/src/ui.cpp) 
-target_link_libraries(tetrix_game tetrix_core tetrix_ui SFML::Graphics SFML::Window SFML::System SFML::Audio) 
+add_executable(tetris_game core/src/main.cpp ui/src/ui.cpp) 
+target_link_libraries(tetris_game tetris_core tetris_ui SFML::Graphics SFML::Window SFML::System SFML::Audio) 
 
 
 
